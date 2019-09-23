@@ -1,2 +1,34 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, "Home") %>
+	<nav>
+		<ul>
+			<li><a href="Home.html">Home</a></li>
+			<li><a href="AboutUs.html">About Us</a></li>
+			<li><a href="Programmes.html">Programmes</a></li>
+			<li><a href="Timetable.html">Timetable</a></li>
+			<li><a href="Facilities.html">Facilities</a></li>
+			<li><a href="Instructors.html">Instructors</a></li>
+			<li><a href="Contact.html">Contact</a></li>
+			<li class="dropdown">Further Info
+				<ul class="dropdown-content">
+					<div class="container">
+						<li><a href="FAQs.html">FAQ's</a></li><br>
+					</div>	
+					<div class="container">
+						<li><a href="GymRules.html">Gym Rules</a></li>
+					</div>
+					<div class="container">
+						<li><a href="Memberships.html">Memberships</a></li>
+					</div>	
+					<div class="container">
+						<li><a href="Testimonials.html">Testimonials</a></li><br>
+					</div>	
+					<div class="container">
+						<li><a href="UsefulLinks.html">Useful Links</a></li>
+					</div>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<img src="TI_HomePhoto_Complete5.jpg" alt="Team Impact Home Page Photo">
+	</main>

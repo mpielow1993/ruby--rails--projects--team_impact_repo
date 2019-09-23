@@ -1,0 +1,330 @@
+/*Team Impact major html elements*/
+
+html, body{
+	color: #FFFFFF;
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	text-align: justify;
+	max-width: 100%;
+	background-color: #000000;
+	background-image: url("TIBackgroundFinal4_blackBackground_fadedLogo.jpg");
+	background-position: center;
+    background-size: cover;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+h1{
+	color: #FFD700;
+	text-align: center;
+	font-family: Orbitron, Orbitron, sans-serif;
+	font-size: 300%;
+}
+
+h1:hover{
+	text-shadow: 0px 0px 0.5em #FFD700;
+}
+
+h2{
+	color: #C0C0C0;
+	font-size: 200%;
+	font-family: Orbitron, Orbitron, sans-serif;
+}
+
+h2:hover{
+	text-shadow: 0px 0px 0.25em #C0C0C0;
+}
+
+h3{
+	color: #CD7F32;
+	font-size: 100%;
+	font-family: Orbitron, Orbitron, sans-serif;
+}
+
+h3:hover {
+	text-shadow: 0px 0px 0.125em #CD7F32;
+}
+
+h4 {
+	color: #CD7F32;
+	font-size: 100%;
+	font-family: Orbitron, Orbitron, sans-serif;
+}
+
+h4:hover {
+	text-shadow: 0px 0px 0.5em #CD7F32;
+}
+
+p{
+	font-size: 125%;
+	
+}
+
+/*Team Impact table html elements*/
+
+table {
+	border: 1em;
+	border-style: solid;
+	border-color: #FFFFFF;
+	text-align: center;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+
+th {
+	font-size: 150%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	border: 0.1em;
+	border-style: solid;
+	border-color: #000000;
+	background-color: #FFFFFF;
+	color: #000000;
+	text-align: center;
+}
+
+tr, td {
+	font-size: 125%;
+	border: 0.1em;
+	border-style: solid;
+	border-color: #FFFFFF;
+	text-align: center;
+}
+
+li {
+	text-align: left;
+}
+
+/*Team Impact semantic html elements*/
+
+/*nav*/
+
+nav body{
+	height: auto;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+nav ul {
+    list-style-type: none;
+	color: #000000;
+	background-color: #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+	height: auto;
+	text-align: center;
+}
+
+nav ul li {
+	font-size: 125%;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: none;
+	font-family: Orbitron, Orbitron, sans-serif;
+	display: inline;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+nav ul li a{
+	float: none;
+	color: #000000;
+    background-color: #FFFFFF;
+}
+
+nav ul li li{
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+
+nav li a:link, a:visited {
+    color: #000000;
+	background-color: #FFFFFF;
+	text-decoration:none;
+}
+
+nav ul li:hover{
+	background-color: #FFD700;
+}
+
+nav ul li a:hover{
+	color: #000000;
+	width: 100%;
+	height: auto;
+	background-color: #FFD700;
+	text-decoration: none;
+}
+
+nav ul li a:active{
+	color: #000000;
+	background-color: #FFD700;
+	float: none;
+	text-decoration: underline;
+}
+
+nav ul li li:hover .container{
+	background-color: #FFD700;
+	width: 100%;
+}
+
+nav ul li li a:active{
+	color: #000000;
+	background-color: #FFD700;
+	text-decoration: underline;
+}
+
+/*main*/
+
+main img {
+	position: relative;
+	height: 60vh;
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+	border-radius: 0.5em;
+}
+
+main a {
+	float: none;
+}
+
+main a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+
+main a:visited {
+	color: #800080;
+	text-decoration: none;
+}
+
+main a:hover {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+main a:active {
+	color: #FFFF00;
+	background-color: #000000;
+	text-decoration: underline;
+}
+
+/*section*/
+
+section {
+	padding-bottom: 2em;
+}
+
+/*article*/
+
+article {
+	padding-bottom: 2em;
+}
+
+/*nav bar classes*/
+
+.container{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.container:hover {
+	background-color: #FFD700;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+	margin: 0;
+	font-size: 100%;
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    padding: 0;
+    z-index: 1;
+	width: 100%;
+	height: auto;
+	left: 0px;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+	background-color: #FFFFFF;
+}
+
+/*Team Impact other classes*/
+
+.advanced{ color: #800080; }
+
+.beginner{ color: #FFFFFF; }
+
+.citation{
+	font-size: 125%;
+	font-style: italic;
+}
+
+.competition{ color: #A52A2A; }
+
+.ginogi{ text-align:left; }
+
+.gym_rules{
+	font-size: 125%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.intermediate{ color: #0000FF; }
+
+.kids{ color: #FFA500; }
+
+.logo{
+	background-image: url("TeamImpactLogoFinal3.jpg");
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+	opacity: 0.25;
+}
+
+.mma_ol_li {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 150%;
+	color: #CD7F32;
+	font-family: Orbitron, Orbitron, sans-serif;
+}
+
+.mma_ol_li:hover {
+	text-shadow: 0px 0px 10px #CD7F32;
+}
+
+.paragraph_list_entry{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 125%;
+}
+
+.rowcolname{
+	color: #000000;
+	background-color: #FFFFFF;
+	border-color: #000000;
+	font-family: Orbitron, Orbitron, sans-serif
+}
+
+.teens{ color: #00FF00; }
+
+.timetable_subheading{
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	font-size: 125%;
+}
+
+.trainingarea{ color: #FFFF00; }
+
+.womens{ color: #FFC0CB; }
