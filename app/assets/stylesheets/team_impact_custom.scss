@@ -1,0 +1,419 @@
+/*Team Impact major html elements*/
+
+@import "bootstrap-sprockets"; 
+@import "bootstrap";
+
+$gold: #FFD700;
+$silver: #C0C0C0;
+$bronze: #CD7F32;
+$black: #000000;
+$white: #FFFFFF;
+$blue: #0000FF;
+$purple: #800080;
+$yellow: #FFFF00;
+$brown: #A52A2A;
+$orange: #FFA500;
+$green: #00FF00;
+$light-pink: #FFC0CB;
+
+body {
+	color: $black;
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	text-align: justify;
+	max-width: 100%;
+	background-color: $black;
+	background-image: url("TIBackgroundFinal4_blackBackground_fadedLogo.jpg");
+	background-position: center;
+    background-size: cover;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+h1 {
+	color: $gold;
+	text-align: center;
+	font-family: Orbitron, Orbitron, sans-serif;
+	font-size: 300%;
+	&:hover{
+		text-shadow: 0px 0px 0.5em $gold;
+	}
+}
+
+
+h2 {
+	color: $silver;
+	font-size: 200%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover{
+		text-shadow: 0px 0px 0.25em $silver;
+	}
+}
+
+
+h3 {
+	color: $bronze;
+	font-size: 100%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover {
+	text-shadow: 0px 0px 0.125em $bronze;
+	}
+}
+
+
+h4 {
+	color: $bronze;
+	font-size: 100%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover {
+	text-shadow: 0px 0px 0.5em $bronze;
+	}
+}
+
+
+p {
+	font-size: 125%;
+	
+}
+
+/*Team Impact table html elements*/
+
+table {
+	border: 1em;
+	border-style: solid;
+	border-color: $white;
+	text-align: center;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+
+th {
+	font-size: 150%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	border: 0.1em;
+	border-style: solid;
+	border-color: $black;
+	background-color: $white;
+	color: $black;
+	text-align: center;
+}
+
+tr, td {
+	font-size: 125%;
+	border: 0.1em;
+	border-style: solid;
+	border-color: $white;
+	text-align: center;
+}
+
+li {
+	text-align: left;
+}
+
+/*Team Impact semantic html elements*/
+
+/* footer */ 
+footer { 
+	margin-top: 45px; 
+	padding-top: 5px;
+	color: $white;
+	border-top: 1px solid $white
+	a { 
+		color: $black; 
+	}
+	small { 
+		float: left;
+	}
+	ul { 
+		float: right; 
+		list-style: none; 
+		li { 
+			float: left; 
+			margin-left: 15px; 
+		}
+	}
+} 
+
+/* form */
+
+form {
+	font-size: 125%;
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	input[type=text], input[type=number], input[type=tel], select, textarea {
+    	padding: 1.2em 2em;
+    	margin: 0.8em;
+    	box-sizing: border-box;
+		font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+		color: #000000;
+		background-color: #FFFFFF;
+    	border: 0.2em;
+		border-color: #FFFFFF; 
+    	border-radius: 0.4em;
+		outline: none;
+	}
+	input[type=submit] {
+		color: 000000;
+    	background-color: #FFFF00;
+		font-family: Orbitron, Orbitron, sans-serif;
+		font-weight: bold;
+    	padding: 1.2em 2em;
+    	border: 0.2em;
+		border-color: #FFFFFF;
+    	border-radius: 0.4em;
+    	cursor: pointer;
+	}
+}
+
+/*nav*/
+
+nav {
+	body {
+		height: auto;
+		width: 100%;
+		background-color: $white;
+	}
+	ul {
+    	list-style-type: none;
+		color: $black;
+		background-color: $white;
+		margin-left: auto;
+		margin-right: auto;
+		width:100%;
+		height: auto;
+		text-align: center;
+		li {
+			font-size: 80%;
+			padding-left: 10px;
+			padding-right: 10px;
+			float: none;
+			font-family: Orbitron, Orbitron, sans-serif;
+			display: inline;
+			color: $black;
+			background-color: $white;
+			a {
+				float: none;
+				color: $black;
+    			background-color: $white;
+    			&:hover {
+					color: $black;
+					width: 100%;
+					height: auto;
+					background-color: $gold;
+					text-decoration: none;
+				}
+				&:active {
+					color: $black;
+					background-color: $gold;
+					float: none;
+					text-decoration: underline;
+				}
+			}
+			li {
+				margin: 0;
+				padding: 0;
+				font-size: 100%;
+				a {
+					&:active {
+					color: $black;
+					background-color: $gold;
+					text-decoration: underline;
+				}
+				}
+			}
+			&:hover {
+				background-color: $gold;
+				.container {
+					background-color: $gold;
+					width: 100%;
+				}
+			}
+		}
+	}
+	li a:link, a:visited {
+    	color: $black;
+		background-color: $white;
+		text-decoration:none;
+	}
+}
+
+
+/*main*/
+
+main {
+	img {
+		position: relative;
+		height: 60vh;
+		width: 100%;
+		max-width: 100%;
+		padding: 0;
+		border-radius: 0.5em;
+	}
+	a {
+		float: none;
+		&:link {
+			color: $blue;
+			text-decoration: none;
+		}
+		&:visited {
+			color: $purple;
+			text-decoration: none;
+		}
+		&:hover {
+			color: $yellow;
+			text-decoration: none;
+		}
+		&:active {
+			color: $yellow;
+			background-color: $black;
+			text-decoration: underline;
+		}
+	}
+}
+
+
+
+/*section*/
+
+section {
+	padding-bottom: 2em;
+	h1 {
+		margin-top: 2em;
+	}
+}
+
+
+/*article*/
+
+article {
+	padding-bottom: 2em;
+}
+
+/*nav bar classes*/
+
+.container{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	background-color: $white;
+}
+
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+	margin: 0;
+	font-size: 100%;
+    display: none;
+    position: absolute;
+    background-color: $white;
+    padding: 0;
+    z-index: 1;
+	width: 100%;
+	height: auto;
+	left: 0px;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+	background-color: $white;
+}
+
+/*Team Impact other classes*/
+
+.advanced{ color: $purple; }
+
+.beginner{ color: $white; }
+
+.btn-primary{
+	font-family: Orbitron, Orbitron, sans-serif;
+	background-color: $gold;
+	color: $black;
+}
+
+.center { text-align: center;
+		background-color: $black;
+		color: $gold;
+		img {
+		margin-top: 1.5em;
+	}
+}
+
+
+.citation{
+	font-size: 125%;
+	font-style: italic;
+}
+
+.competition{ color: $brown; }
+
+.container{
+	background: $black;
+	color: $white;
+}
+
+.ginogi{ text-align:left; }
+
+.gym_rules{
+	font-size: 125%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.important_info {
+	font-size: 75%;
+	font-style: italic;
+}
+
+.intermediate{ color: $blue; }
+
+.kids{ color: $orange; }
+
+.logo{
+	background-image: url("TeamImpactLogoFinal3.jpg");
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+	opacity: 0.25;
+}
+
+.mma_ol_li {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 150%;
+	color: $bronze;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover {
+		text-shadow: 0px 0px 10px $bronze;
+	}
+}
+
+
+
+.paragraph_list_entry{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 125%;
+}
+
+.rowcolname{
+	color: $black;
+	background-color: $white;
+	border-color: $black;
+	font-family: Orbitron, Orbitron, sans-serif
+}
+
+.teens{ color: $green; }
+
+.timetable_subheading{
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	font-size: 125%;
+}
+
+.trainingarea{ color: $yellow; }
+
+.womens{ color: $light-pink; }

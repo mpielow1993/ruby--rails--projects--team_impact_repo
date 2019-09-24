@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def gym_rules
   end
+  
+  def contact
+  end
 end
