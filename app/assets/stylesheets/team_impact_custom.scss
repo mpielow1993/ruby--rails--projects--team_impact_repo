@@ -3,6 +3,9 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+/* mixins, variables, etc. */ 
+
+$gray-medium-light: #eaeaea;
 $gold: #FFD700;
 $silver: #C0C0C0;
 $bronze: #CD7F32;
@@ -15,6 +18,13 @@ $brown: #A52A2A;
 $orange: #FFA500;
 $green: #00FF00;
 $light-pink: #FFC0CB;
+$red: #FF0000;
+
+@mixin box_sizing { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
 
 body {
 	color: $black;
@@ -138,6 +148,8 @@ footer {
 
 /* form */
 
+
+/*
 form {
 	font-size: 125%;
 	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
@@ -164,6 +176,34 @@ form {
     	border-radius: 0.4em;
     	cursor: pointer;
 	}
+}
+
+*/
+
+#error_explanation {
+	color: $red; 
+	ul { 
+		color: $red; 
+		margin: 0 0 30px 0; 
+	}
+} 
+
+.field_with_errors { 
+	@extend .has-error; 
+	.form-control { 
+		color: $state-danger-text; 
+	} 
+}
+input, textarea, select, .uneditable-input { 
+	color: $black;
+	border: 1px solid #bbb; 
+	width: 100%; 
+	margin-bottom: 15px; 
+	@include box_sizing; 
+} 
+
+input { 
+	height: auto !important; 
 }
 
 /*nav*/
@@ -283,6 +323,44 @@ section {
 	}
 }
 
+/* sidebar */ 
+
+aside { 
+	section.user_info { 
+		margin-top: 60px; 
+	} 
+	section { 
+		padding: 10px 0;
+		margin-top: 20px; 
+		&:first-child { 
+			border: 0; 
+			padding-top: 0; 
+		} 
+		span { 
+			display: block; 
+			margin-bottom: 3px; 
+			line-height: 1; 
+		} 
+		h1 { 
+			font-size: 2em; 
+			text-align: center; 
+			margin-bottom: 3px; 
+			margin-top: 0px;
+			margin-left: 3px;
+		}
+	}
+} 
+
+/*
+.gravatar { 
+	float: right; 
+	margin-right: 10px; 
+} 
+
+.gravatar_edit { 
+	margin-top: 15px; 
+}
+*/
 
 /*article*/
 
@@ -294,11 +372,18 @@ article {
 
 .container{
 	padding: 0;
-	margin: 0;
 	width: 100%;
-	background-color: $white;
+	margin-top: 100px;
+	color: $white;
+	//background: $black;
 }
 
+.debug_dump { 
+	clear: both; 
+	float: left; 
+	width: 100%; 
+	@include box_sizing; 
+}
 
 .dropdown {
     position: relative;
@@ -350,10 +435,6 @@ article {
 
 .competition{ color: $brown; }
 
-.container{
-	background: $black;
-	color: $white;
-}
 
 .ginogi{ text-align:left; }
 

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/gym_rules', to: 'static_pages#gym_rules'
   get '/contact', to: 'static_pages#contact'
   get 'sign_up', to: 'members#new'
+  resources :members
 end

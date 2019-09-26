@@ -10,7 +10,8 @@ class Member < ApplicationRecord
 
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
     validates :user_name,   presence: true, 
-                            #length: { maximum: 40 },
+                            #Used to display specfic error messages
+                            length: { minimum: 8, maximum: 40 },
                             format: { with: VALID_USER_NAME_REGEX },
                             uniqueness: true
     validates :first_name,  presence: true, 
