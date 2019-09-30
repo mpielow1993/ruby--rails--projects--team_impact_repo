@@ -32,4 +32,10 @@ class Member < ApplicationRecord
                             format: { with: VALID_PASSWORD_REGEX }
     #default validations set to false to permit format
     has_secure_password :password, validations: false
+    
+# Returns the hash digest of the given string. 
+    def Member.digest(string) 
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost) 
+    end
 end

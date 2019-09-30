@@ -10,10 +10,11 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params) 
     # Not the final implementation! 
-    if @member.save 
+    if @member.save
+      log_in @member
       # Handle a successful save. 
-      redirect_to @member
       flash[:success] = "Welcome to your Team Impact account"
+      redirect_to @member
     else 
       render 'new' 
     end
