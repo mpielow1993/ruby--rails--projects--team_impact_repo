@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_135609) do
+ActiveRecord::Schema.define(version: 2019_09_30_141807) do
 
   create_table "members", force: :cascade do |t|
     t.string "user_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_135609) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.index ["user_name"], name: "index_members_on_user_name", unique: true
   end
 

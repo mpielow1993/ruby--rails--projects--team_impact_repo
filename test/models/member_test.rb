@@ -169,4 +169,8 @@ class MemberTest < ActiveSupport::TestCase
     @member.save 
     assert_not duplicate_member.valid? 
   end
+  
+  test "authenticated? should return false for a member with nil digest" do 
+    assert_not @member.authenticated?('') 
+  end
 end
