@@ -122,6 +122,11 @@ li {
 	text-align: left;
 }
 
+.table table-bordered {
+	padding-right: 2em;
+	padding-top: 2em;
+}
+
 /*Team Impact semantic html elements*/
 
 /* footer */ 
@@ -333,7 +338,7 @@ section {
 
 aside { 
 	section.user_info { 
-		margin-top: 60px; 
+		margin-top: 3em; 
 	} 
 	section { 
 		padding: 10px 0;
@@ -356,6 +361,16 @@ aside {
 		}
 	}
 } 
+
+/* Members index */ 
+.members { 
+	list-style: none; 
+	margin: 0; 
+	li { overflow: auto; 
+		padding: 10px 0; 
+		border-bottom: 1px solid $black; 
+	} 
+}
 
 /*
 .gravatar { 
@@ -481,6 +496,12 @@ article {
 	opacity: 0.25;
 }
 
+.list-group {
+	margin-top: 3em;
+	border-radius: 0;
+	font-family: Orbitron;
+}
+
 .mma_ol_li {
 	padding-top: 2em;
 	padding-bottom: 2em;
@@ -517,3 +538,9 @@ article {
 .trainingarea{ color: $yellow; }
 
 .womens{ color: $light-pink; }
+
+.well {
+	margin-top: 3em;
+	margin-right: 6em;
+	border-radius: 0;
+}

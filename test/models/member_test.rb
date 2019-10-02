@@ -150,6 +150,7 @@ class MemberTest < ActiveSupport::TestCase
     valid_passwords = %w[ Password1 PaSsWoRd_234 137459passWord4 pA55W0RD PASS29891112word ] 
     valid_passwords.each do |valid_password| 
       @member.password = valid_password 
+      @member.password_confirmation = valid_password
       assert @member.valid?, "#{valid_password.inspect} should be valid"
     end 
   end
@@ -158,6 +159,7 @@ class MemberTest < ActiveSupport::TestCase
     invalid_passwords = %w[ Pass,Word1234 Pa$$W0rd PASSword PASSWORD1234 password1234 password PASSWORD 987654321 ] 
     invalid_passwords.each do |invalid_password| 
       @member.password = invalid_password 
+      @member.password_confirmation = invalid_password
       assert_not @member.valid?, "#{invalid_password.inspect} should be invalid" 
     end 
   end
@@ -172,5 +174,13 @@ class MemberTest < ActiveSupport::TestCase
   
   test "authenticated? should return false for a member with nil digest" do 
     assert_not @member.authenticated?('') 
+  end
+  
+  #Test that passwords and password confirmation should match
+  
+  test "password and password_confirmation should match" do
+    @member.password_confirmation = "Test4321"
+    @member.save
+    assert_not @member.valid?
   end
 end

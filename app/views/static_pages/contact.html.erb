@@ -22,62 +22,24 @@
 		<section>
 			<p>Any specific enquires? Let us know in the form below and we&apos;ll be in touch!</p>
 			<h4>* = Mandatory Field</h4><br>
-			<form id="tiForm" action="#" onsubmit="return ValidateRequiredFields()" method="post">
-				<h3>*First Name:</h3>
-				<input type="text" name="firstname" size="30"><br>
-				<br><br>
-				<h3>*Last Name:</h3>
-				<input type="text" name="lastname" size="30"><br>
-				<br><br>
-				<h3>*E-mail Address:</h3>
-				<input type="text" name="email" size="50"><br>
-				<br><br>
-				<h3>Phone Number:</h3>
-				<input type="tel" name="phoneno_1" pattern="[0-9]{1-5}"> - 
-				<input type="tel" name="phoneno_2" pattern="[0-9]{1-5}"> - 
-				<input type="tel" name="phoneno_3" pattern="[0-9]{1-5}"> - 
-				<input type="tel" name="phoneno_4" pattern="[0-9]{1-5}"> - 
-				<br><br><br>
-				<h3>When is the best time to call?</h3>
-				<span class="important_info">(Please select a date and time that we are open or this part will be ignored)</span><br>
-				<br>
-				<select name="hour">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-				</select>&nbsp;:&nbsp;
-				<select name="minute">
-					<option value="15">15</option>
-					<option value="30">30</option>
-					<option value="60">45</option>
-					<option value="00">00</option>
-				</select>&nbsp;
-				<select name="ampm">
-					<option value="am">am</option>
-					<option value="pm">pm</option>
-				</select>&nbsp;
-				<select name="day">
-					<option value="monday">Monday</option>
-					<option value="tuesday">Tuesday</option>
-					<option value="wednesday">Wednesday</option>
-					<option value="thursday">Thursday</option>
-					<option value="friday">Friday</option>
-					<option value="saturday">Saturday</option>
-				</select>
-				<br><br>
-				<h3>*Message:</h3>
-				<textarea name="message" form="tiForm" rows="5" cols="100" maxlength="500"></textarea><br>
-				<br><br>
-				<input type="submit" value="Submit" class="center">
+			<form role="form">
+				<div class="form-group">
+					<label for="first_name">First Name</label>
+					<input type="text" class="form-control" id="first_name" placeholder="Enter First Name">
+				</div>
+				<div class="form-group">
+					<label for="last_name">Last Name</label>
+					<input type="text" class="form-control" id="last_name" placeholder="Enter Last Name">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" class="form-control" id="first_name" placeholder="Enter Email">
+				</div>
+				<div class="form-group">
+					<label for="message">Message</label>
+					<input type="text" class="form-control" id="message" placeholder="Enter Message"><br>
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 		</section>
 	</main>

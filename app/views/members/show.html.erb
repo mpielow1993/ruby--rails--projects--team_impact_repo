@@ -1,14 +1,43 @@
 <% provide(:title, @member.first_name + @member.last_name) %>
 <div class="row">
-    <div class="col-md-8">
-        
-    </div> 
-    <aside class="col-md-4"> 
-        <section class="user_info">
-            <h1>
-                <%= gravatar_for(@member) %>
-                <%= @member.first_name + " " + @member.last_name %>
-            </h1>  
-        </section> 
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="well">
+            <table class="table table-bordered">
+                <%-#Static HTML to be replaced later%>
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">06:00 - 07:00</th>
+                        <td>Muay Thai</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">07:00 - 08:00</th>
+                        <td>Brazilian Jiu-Jitsu</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">08:00 - 09:00</th>
+                        <td>Wrestling</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <aside class="col-lg-4">
+        <div class="row"> 
+            <section class="user_info">
+                <h1>
+                    <%= gravatar_for(@member) %>
+                    <%= @member.first_name + " " + @member.last_name %>
+                </h1>  
+            </section>
+            <%= render 'layouts/sidebar' %>
+        </div>
     </aside> 
 </div>

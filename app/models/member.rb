@@ -30,10 +30,15 @@ class Member < ApplicationRecord
                             format: { with: VALID_PHONE_NO_REGEX }
     
     validates :password,    presence: true,
+                            confirmation: true,
                             #length: { maximum: 40 },
-                            format: { with: VALID_PASSWORD_REGEX }
+                            format: { with: VALID_PASSWORD_REGEX },
+                            allow_nil: true
+                            
     #default validations set to false to permit format
     has_secure_password :password, validations: false
+    
+    
     
     class << self
         # Returns the hash digest of the given string. 

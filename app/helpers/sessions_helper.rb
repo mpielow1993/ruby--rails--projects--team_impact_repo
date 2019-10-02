@@ -48,5 +48,22 @@ module SessionsHelper
         session.delete(:member_id) 
         @current_member = nil 
     end
-
+    
+    # Returns true if the given user is the current user. 
+    def current_member?(member) 
+        member && member == current_member 
+    end
+    
+    #Code to implement friendly-forwarding
+    
+    # Redirects to stored location (or to the default). 
+    def redirect_back_or(default) 
+        redirect_to(session[:forwarding_url] || default) 
+        session.delete(:forwarding_url) 
+    end 
+    
+    # Stores the URL trying to be accessed. 
+    def store_location 
+        session[:forwarding_url] = request.original_url if request.get? 
+    end
 end

@@ -3,5 +3,43 @@ michael:
     user_name: Michael_Example1
     first_name: Michael
     last_name: Example 
-    email: michael_@example.com 
+    email: michael_@example.com
+    phone_no: +353098765432
     password_digest: <%= Member.digest('Password_1') %>
+    admin: true
+
+john: 
+    user_name: John_Doe1 
+    first_name: John
+    last_name: Doe
+    email: john_doe@example.com 
+    phone_no: +353864543223
+    password_digest: <%= Member.digest('Password_1') %>
+    
+    #Adding 30 extra members to the fixture
+    
+jane: 
+    user_name: Jane_Doe1 
+    first_name: Jane
+    last_name: Doe
+    email: jane_doe@example.com 
+    phone_no: +353864543223
+    password_digest: <%= Member.digest('Password_1') %>
+    
+joe: 
+    user_name: Joe_Bloggs1 
+    first_name: Joe
+    last_name: Bloggs
+    email: joe_bloggs@example.com 
+    phone_no: +353864543223
+    password_digest: <%= Member.digest('Password_1') %>
+    
+<% 30.times do |n| %> 
+member_<%= n %>:
+    user_name: <%= "TI_Member_#{n}" %>
+    first_name: <%= "TI" %>
+    last_name: <%= "Member" %>
+    email: <%= "ti_member_#{n}@example.com" %>
+    phone_no: <%= "+353864543223" %>
+    password_digest: <%= Member.digest('Password_1') %> 
+<% end %>
