@@ -7,6 +7,8 @@ michael:
     phone_no: +353098765432
     password_digest: <%= Member.digest('Password_1') %>
     admin: true
+    activated: true 
+    activated_at: <%= Time.zone.now %>
 
 john: 
     user_name: John_Doe1 
@@ -15,6 +17,8 @@ john:
     email: john_doe@example.com 
     phone_no: +353864543223
     password_digest: <%= Member.digest('Password_1') %>
+    activated: true 
+    activated_at: <%= Time.zone.now %>
     
     #Adding 30 extra members to the fixture
     
@@ -33,6 +37,8 @@ joe:
     email: joe_bloggs@example.com 
     phone_no: +353864543223
     password_digest: <%= Member.digest('Password_1') %>
+    activated: true 
+    activated_at: <%= Time.zone.now %>
     
 <% 30.times do |n| %> 
 member_<%= n %>:
@@ -41,5 +47,7 @@ member_<%= n %>:
     last_name: <%= "Member" %>
     email: <%= "ti_member_#{n}@example.com" %>
     phone_no: <%= "+353864543223" %>
-    password_digest: <%= Member.digest('Password_1') %> 
+    password_digest: <%= Member.digest('Password_1') %>
+    activated: true 
+    activated_at: <%= Time.zone.now %>
 <% end %>

@@ -173,7 +173,8 @@ class MemberTest < ActiveSupport::TestCase
   end
   
   test "authenticated? should return false for a member with nil digest" do 
-    assert_not @member.authenticated?('') 
+    #Using the genralised 'authenticated?' method in the user test
+    assert_not @member.authenticated?(:remember, '') 
   end
   
   #Test that passwords and password confirmation should match

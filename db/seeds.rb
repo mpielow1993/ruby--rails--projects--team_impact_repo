@@ -17,7 +17,9 @@ Member.create!( user_name: "Ex4mple_Member",
                 phone_no: "+353123456789",
                 password: "Password_1", 
                 password_confirmation: "Password_1",
-                admin: true) 
+                admin: true,
+                activated: true, 
+                activated_at: Time.zone.now) 
                 
 # Generate a bunch of additional members. 
 99.times do |n|
@@ -33,5 +35,7 @@ Member.create!( user_name: "Ex4mple_Member",
                     email: email,
                     phone_no: phone_no,
                     password: password, 
-                    password_confirmation: password)
+                    password_confirmation: password,
+                    activated: true, 
+                    activated_at: Time.zone.now)
 end

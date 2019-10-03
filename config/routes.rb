@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   delete '/log_out', to: 'sessions#destroy'
   resources :members
   
+  #Adding a route for the Account Activations 'edit' action
+  resources :account_activations, only: [:edit]
 end

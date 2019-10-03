@@ -7,8 +7,11 @@ class Member < ApplicationRecord
     
     #before_save { self.user_name = user_name.downcase }
     #before_save { user_name.downcase! }
+ 
+    #Adding account activations to the member model
     
-    attr_accessor :remember_token
+    attr_accessor :remember_token, :activation_token 
+    before_create :create_activation_digest
 
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
     validates :user_name,   presence: true, 
@@ -59,9 +62,18 @@ class Member < ApplicationRecord
     end
     
     # Returns true if the given token matches the digest. 
-    def authenticated?(remember_token) 
-        return false if remember_digest.nil?
-        BCrypt::Password.new(remember_digest).is_password?(remember_token) 
+    #def authenticated?(remember_token) 
+        #return false if remember_digest.nil?
+        #BCrypt::Password.new(remember_digest).is_password?(remember_token) 
+    #end
+    
+    #A generalised 'authenticated?' method
+    
+    # Returns true if the given token matches the digest. 
+    def authenticated?(attribute, token) 
+        digest = send("#{attribute}_digest") 
+        return false if digest.nil? 
+        BCrypt::Password.new(digest).is_password?(token) 
     end
     
     # Forgets a user. 
@@ -69,4 +81,23 @@ class Member < ApplicationRecord
         update_attribute(:remember_digest, nil) 
     end
     
+    #Adding member activation methods to the member model
+    
+    #Activates an account. 
+    def activate 
+        update_columns(activated: true, activated_at: Time.zone.now)
+    end 
+    
+    #Sends activation email. 
+    def send_activation_email 
+        MemberMailer.account_activation(self).deliver_now 
+    end
+    
+    private
+    
+        # Creates and assigns the activation token and digest. 
+        def create_activation_digest 
+            self.activation_token = Member.new_token 
+            self.activation_digest = Member.digest(activation_token) 
+        end
 end

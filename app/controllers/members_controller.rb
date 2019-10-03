@@ -6,7 +6,8 @@ class MembersController < ApplicationController
   before_action :admin_member, only: :destroy
   
   def index
-    @members = Member.paginate(page: params[:page])
+    #Shows only active members
+    @members = Member.where(activated: true).paginate(page: params[:page])
   end
   
   def new
@@ -21,10 +22,18 @@ class MembersController < ApplicationController
     @member = Member.new(member_params) 
     # Not the final implementation! 
     if @member.save
-      log_in @member
+      #log_in @member
       # Handle a successful save. 
-      flash[:success] = "Welcome to your Team Impact account"
-      redirect_to @member
+      #flash[:success] = "Welcome to your Team Impact account"
+      #redirect_to @member
+      
+      #Adding account activation to user sign-up
+      #MemberMailer.account_activation(@member).deliver_now 
+      
+      #Sending email via the Member model object
+      @member.send_activation_email
+      flash[:info] = "Please check your email to activate your Team Impact account."
+      redirect_to root_url
     else 
       render 'new' 
     end

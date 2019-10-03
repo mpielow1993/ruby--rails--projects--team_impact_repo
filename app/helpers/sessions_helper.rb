@@ -17,7 +17,9 @@ module SessionsHelper
             @current_member ||= Member.find_by(id: member_id) 
         elsif (member_id = cookies.signed[:member_id]) 
             member = Member.find_by(id: member_id) 
-            if member &.authenticated?(cookies[:remember_token]) 
+            
+            #Using the generalised 'authenticated?' method in 'current member'
+                if member && member.authenticated?(:remember, cookies[:remember_token])
                 log_in member 
                 @current_member = member 
             end

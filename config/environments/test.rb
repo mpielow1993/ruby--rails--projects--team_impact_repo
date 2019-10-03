@@ -39,6 +39,8 @@ Rails.application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
+  #Setting the test domain host
+  config.action_mailer.default_url_options = { host: 'teamimpact.ie' }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
