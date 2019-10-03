@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'sessions/new'
   get 'members/new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -15,4 +17,7 @@ Rails.application.routes.draw do
   
   #Adding a route for the Account Activations 'edit' action
   resources :account_activations, only: [:edit]
+  
+  #Adding a resource for password resets
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

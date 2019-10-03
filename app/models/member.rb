@@ -10,7 +10,7 @@ class Member < ApplicationRecord
  
     #Adding account activations to the member model
     
-    attr_accessor :remember_token, :activation_token 
+    attr_accessor :remember_token, :activation_token, :reset_token 
     before_create :create_activation_digest
 
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
@@ -91,6 +91,24 @@ class Member < ApplicationRecord
     #Sends activation email. 
     def send_activation_email 
         MemberMailer.account_activation(self).deliver_now 
+    end
+    
+    #Adding password reset methods to the Member model
+    
+    # Sets the password reset attributes. 
+    def create_reset_digest 
+        self.reset_token = Member.new_token 
+        update_columns(reset_digest: Member.digest(reset_token), reset_sent_at: Time.zone.now)
+    end 
+    
+    # Sends password reset email. 
+    def send_password_reset_email 
+        MemberMailer.password_reset(self).deliver_now 
+    end
+    
+    # Returns true if a password reset has expired. 
+    def password_reset_expired? 
+        reset_sent_at < 2.hours.ago 
     end
     
     private
