@@ -51,7 +51,7 @@ module SessionsHelper
         @current_member = nil 
     end
     
-    # Returns true if the given user is the current user. 
+    # Returns true if the given member is the current member. 
     def current_member?(member) 
         member && member == current_member 
     end

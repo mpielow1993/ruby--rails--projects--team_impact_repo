@@ -1,0 +1,24 @@
+<% provide(:title, "Newswire") %> 
+    <div class="row"> 
+        <h1>Public Newswire</h1>
+        <div class="col-md-8"> 
+            <div class="well">
+            <h3>(<%= @newswire_posts.count %> Posts)</h3>
+            <ol class="newswire_posts"> 
+                <%= render @newswire_posts %> 
+            </ol> 
+            <%= will_paginate @newswire_posts %>
+            </div>
+        </div>
+        <aside class="col-md-4"> 
+            <section class="member_info"> 
+                <h1> <%= gravatar_for @member %> <%= @member.first_name + " " + @member.last_name %> </h1> 
+            </section>
+            <%= render 'layouts/sidebar' %>
+            <% if @member.admin? %>
+                <section class="newswire_post_form">
+                    <%= render 'shared/newswire_post_form' %>
+                </section>
+            <% end %>
+        </aside> 
+    </div>

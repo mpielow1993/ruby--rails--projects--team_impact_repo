@@ -184,4 +184,13 @@ class MemberTest < ActiveSupport::TestCase
     @member.save
     assert_not @member.valid?
   end
+  
+  #Test of dependent: :destroy
+  test "associated newswire posts should be destroyed" do 
+    @member.save 
+    @member.newswire_posts.create!(content: "Lorem ipsum") 
+    assert_difference 'NewswirePost.count', -1 do 
+      @member.destroy 
+    end 
+  end
 end

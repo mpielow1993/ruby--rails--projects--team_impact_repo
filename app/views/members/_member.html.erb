@@ -2,7 +2,7 @@
     <%= gravatar_for member, size: 50 %> 
     <%= link_to member.first_name + " " + member.last_name, member %> 
     <%- #Member delete links (viewable only by admins) -%>
-    <% if current_member.admin? && !current_member?(member) %> 
-        | <%= link_to "Delete", member, method: :delete, data: { confirm: "You sure?" } %> 
+    <% if current_member.admin? && !member.admin? %> 
+        | <%= link_to "Delete", member, method: :delete,class: "btn btn-danger", data: { confirm: "You sure?" } %> 
     <% end %>
 </li>

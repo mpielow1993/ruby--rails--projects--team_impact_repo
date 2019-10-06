@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+check_this_out: 
+  content: "Check out this great instructional: https://www.youtube.com/watch?v=-IyjKYbYNiI" 
+  created_at: <%= 10.minutes.ago %> 
+  member: michael 
+  
+no_class_later: 
+  content: "Sorry guys there is no class later" 
+  created_at: <%= 3.years.ago %> 
+  member: michael 
+  
+new_stock: 
+  content: "Check out our new equipment in the store" 
+  created_at: <%= 2.hours.ago %> 
+  member: michael 
+  
+most_recent: 
+  content: "Hi guys. The following changes have been made to the timetable" 
+  created_at: <%= Time.zone.now %> 
+  member: michael
+
+<% 30.times do |n| %> 
+newswire_post_<%= n %>: 
+  content: <%= Faker::Lorem.sentence(word_count: 5) %> 
+  created_at: <%= 42.days.ago %> 
+  member: michael 
+<% end %>
+
+#Add newswire_posts with different owners
+
+ants: 
+  content: "Oh, is that what you want? Because that's how you get ants!" 
+  created_at: <%= 2.years.ago %> 
+  member: jim 
+  
+zone: 
+  content: "Danger zone!" 
+  created_at: <%= 3.days.ago %> 
+  member: jim 

@@ -1,5 +1,5 @@
 <%= form_for(@member) do |f| %> 
-    <%= render 'shared/error_messages', object: @member %> 
+    <%= render 'shared/error_messages', object: f.object %> 
                         
     <%= f.label :user_name, "Username (must contain at least 1 upper-case letter, 1 lower-case letter & 1 digit)" %>
     <%= f.text_field :user_name, class: "form-control" %> 

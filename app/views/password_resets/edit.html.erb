@@ -6,7 +6,7 @@
             
             <%= form_for(@member, url: password_reset_path(params[:id])) do |f| %> 
             
-                <%= render 'shared/error_messages' %> 
+                <%= render 'shared/error_messages', object: f.object %> 
                 
                 <%-#Note the use of the hidden field tag instead of 'f.hidden_field', 
                     #because the reset link puts the email in params[:email], whereas the latter would put it in params[:user][:email].-%>

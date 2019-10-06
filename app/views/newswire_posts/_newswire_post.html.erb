@@ -1,0 +1,15 @@
+<%-#A partial for showing a single newswire post-%>
+<li id="newswire_post-<%= newswire_post.id %>"> 
+    <%= link_to gravatar_for(newswire_post.member, size: 80), newswire_post.member %> 
+    <span class="user"><%= link_to newswire_post.member.first_name + " " + newswire_post.member.last_name, newswire_post.member %></span> 
+    <span class="content">
+        <%= newswire_post.content %>
+        
+        <%-#Using the resized image with method 'display_image'-%>
+        <%= image_tag newswire_post.display_image if newswire_post.image.attached? %>
+    </span> 
+    <span class="timestamp"> Posted <%= time_ago_in_words(newswire_post.created_at) %> ago. </span> 
+    <% if current_member.admin? && newswire_post.member == current_member %> 
+        <%= link_to "Delete", member_newswire_post_path(current_member, newswire_post), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %> 
+    <% end %>
+</li>

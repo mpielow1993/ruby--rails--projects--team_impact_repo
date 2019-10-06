@@ -40,6 +40,17 @@ joe:
     activated: true 
     activated_at: <%= Time.zone.now %>
     
+jim:
+    user_name: Jim_Beam1
+    first_name: Jim
+    last_name: Beam 
+    email: jim_beam@example.com
+    phone_no: +353097452645
+    password_digest: <%= Member.digest('Password_1') %>
+    admin: true
+    activated: true 
+    activated_at: <%= Time.zone.now %>
+    
 <% 30.times do |n| %> 
 member_<%= n %>:
     user_name: <%= "TI_Member_#{n}" %>

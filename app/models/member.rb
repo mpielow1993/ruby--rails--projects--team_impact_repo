@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+    #Ensuring that a member's newswire posts are destroyed along with the member
+    has_many :newswire_posts, dependent: :destroy
     
     #'before_save' callback downcases all user_names before saving to the DB
     #i.e if one new user enters 'Username' and afterwards another user enters 'userNaME', 
@@ -118,4 +120,5 @@ class Member < ApplicationRecord
             self.activation_token = Member.new_token 
             self.activation_digest = Member.digest(activation_token) 
         end
+        
 end

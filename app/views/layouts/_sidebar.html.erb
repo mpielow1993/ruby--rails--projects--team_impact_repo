@@ -1,7 +1,53 @@
-            <div class="list-group">
-                <%= link_to "Timetable", "#", class: "list-group-item" %>
-                <%= link_to "Classes", "#", class: "list-group-item" %>
-                <%= link_to "Memberships", "#", class: "list-group-item" %>
-                <%= link_to "Newswire", "#", class: "list-group-item" %>
-                <%= link_to "Store", "#", class: "list-group-item" %>
-            </div>
+
+<div class="just-padding">
+<div class="list-group list-group-root well">
+  
+  <a href="#item-1" class="list-group-item" data-toggle="collapse">
+    <i class="glyphicon glyphicon-chevron-right"></i>Timetable
+  </a>
+    <div class="list-group collapse" id="item-1">
+      <a href="#" class="list-group-item">Item 1.1</a>
+      <a href="#" class="list-group-item">Item 1.2</a>
+      <a href="#" class="list-group-item">Item 1.3</a>
+    </div>
+
+  <a href="#item-2" class="list-group-item" data-toggle="collapse">
+    <i class="glyphicon glyphicon-chevron-right"></i>Classes
+  </a>
+    <div class="list-group collapse" id="item-2">
+      <a href="#" class="list-group-item">Item 2.1</a>
+      <a href="#" class="list-group-item">Item 2.2</a>
+      <a href="#" class="list-group-item">Item 2.3</a>
+    </div>
+    
+  <a href="#item-3" class="list-group-item" data-toggle="collapse">
+    <i class="glyphicon glyphicon-chevron-right"></i>Memberships
+  </a>
+    <div class="list-group collapse" id="item-3">
+      <a href="#" class="list-group-item">Item 3.1</a>
+      <a href="#" class="list-group-item">Item 3.2</a>
+      <a href="#" class="list-group-item">Item 3.3</a>
+    </div>
+
+  <a href="#item-4" class="list-group-item" data-toggle="collapse">
+    <i class="glyphicon glyphicon-chevron-right"></i>Newswire
+  </a>
+    <div class="list-group collapse" id="item-4">
+      <%= link_to "Public", newswire_path, class: "list-group-item" %>
+      <% if current_member.admin? %>
+            <%= link_to "Your Posts", member_newswire_posts_path(current_member), class: "list-group-item" %>
+      <% end %>
+    </div>
+    
+  <a href="#item-5" class="list-group-item" data-toggle="collapse">
+    <i class="glyphicon glyphicon-chevron-right"></i>Store
+  </a>
+    <div class="list-group collapse" id="item-5">
+      <a href="#" class="list-group-item">Item 5.1</a>
+      <a href="#" class="list-group-item">Item 5.2</a>
+      <a href="#" class="list-group-item">Item 5.3</a>
+    </div>
+  
+</div>
+  
+</div>

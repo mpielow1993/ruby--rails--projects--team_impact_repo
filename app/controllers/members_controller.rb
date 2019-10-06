@@ -1,9 +1,9 @@
 class MembersController < ApplicationController
   #calls methods 'logged_in_user' and 'correct_user' before given actions
-  before_action :logged_in_member, only: [:edit, :update, :index, :destroy]
-  before_action :correct_member, only: [:edit, :update]
+  before_action :logged_in_member, only: [:edit, :update, :index, :show, :destroy]
+  before_action :correct_member, only: [:edit, :update, :show]
   #A before filter restricting the 'destroy' action to admins
-  before_action :admin_member, only: :destroy
+  before_action :admin_member, only: [:destroy, :index]
   
   def index
     #Shows only active members
@@ -16,6 +16,8 @@ class MembersController < ApplicationController
   
   def show
     @member = Member.find(params[:id])
+    #Show the admin's own posts
+    #@newswire_posts = @member.newswire_posts.paginate(page: params[:page])
   end
   
   def create
@@ -60,6 +62,8 @@ class MembersController < ApplicationController
     flash[:success] = "Member deleted" 
     redirect_to members_url 
   end
+  
+  
 
   private
   
@@ -68,17 +72,6 @@ class MembersController < ApplicationController
   end
   
   #Before filters
-  
-  # Confirms a logged-in member. 
-  def logged_in_member 
-    unless logged_in?
-    
-    #Adding store_location to the logged-inuser before ﬁlter
-    store_location
-    flash[:danger] = "Please log in." 
-    redirect_to log_in_url 
-    end 
-  end
   
   # Confirms the correct member. 
   def correct_member 

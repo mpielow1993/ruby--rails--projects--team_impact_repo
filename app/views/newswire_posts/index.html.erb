@@ -1,0 +1,26 @@
+<% provide(:title, @member.first_name + " " + @member.last_name) %> 
+    <div class="row"> 
+        <div class="col-md-8"> 
+            <h1>Your Newswire Posts</h1>
+            <div class="well">
+            <% if @member.newswire_posts.any? %> 
+                <h3>Newswire Posts (<%= @member.newswire_posts.count %>)</h3>
+                <ol class="newswire_posts"> 
+                    <%= render @newswire_posts %> 
+                </ol> 
+                <%= will_paginate @newswire_posts %> 
+            <% end %> 
+            </div>
+        </div> 
+        <aside class="col-md-4"> 
+            <section class="member_info"> 
+                <h1> <%= gravatar_for @member %> <%= @member.first_name + " " + @member.last_name %> </h1> 
+            </section>
+            <%= render 'layouts/sidebar' %>
+            <% if current_member.admin? %>
+                <section class="newswire_post_form">
+                    <%= render 'shared/newswire_post_form' %>
+                </section>
+            <% end %>
+        </aside> 
+    </div>
