@@ -1,0 +1,32 @@
+<% provide(:title, @member.first_name + " " + @member.last_name) %> 
+    <div class="row"> 
+        <div class="col-md-8">
+            <div class="well">
+                <h3>&larr; <%= link_to "Back to Newswire", newswire_path %></h3>
+                <section class="newswire_posts">
+                    <%= render @newswire_post %>
+                </section>
+                <h3>Comments (<%= @comments.count %>)</h3>
+            <% if @comments.any? %> 
+                <ol class="newswire_posts">
+                    <%= render @comments, comment: @comment  %> 
+                        <%-#<h3><%= link_to "View", member_newswire_post_comment_path(@comment.member, @comment.newswire_post, @comment.id) &rarr;</h3> %>
+                </ol>
+                <%= will_paginate @comments %> 
+            <% else %>
+                <h3>No comments</h3>
+            <% end %>
+            <section>
+                <%= render 'shared/comment_form' %>
+            </section>
+            </div>
+        </div> 
+        <aside class="col-md-4"> 
+            <section class="member_info"> 
+                <h1> <%= gravatar_for @member %> <%= current_member.first_name + " " + current_member.last_name %> </h1> 
+            </section>
+            <%= render 'layouts/sidebar' %>
+                <section class="newswire_post_form">
+                </section>
+        </aside> 
+    </div>

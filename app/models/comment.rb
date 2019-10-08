@@ -1,12 +1,13 @@
-class NewswirePost < ApplicationRecord
-  belongs_to :member
-  has_many :comments, dependent: :destroy
+class Comment < ApplicationRecord
+  belongs_to :newswire_post
+  has_one :member, through: :newswire_post
   has_one_attached :image
-  #Order the newswire posts with default scope
-  default_scope -> { order(created_at: :desc) }
   
-  validates :member_id, presence: true
+  default_scope -> { order(created_at: :asc) }
+  
+  validates :newswire_post_id, presence: true
   validates :content, presence: true, length: { maximum: 300 }
+  
   #Adding validations to images
   validates :image, content_type: { in: %w[image/jpeg image/gif image/png], message: "must be a valid image format" }, 
                     size: { less_than: 5.megabytes, message: "should be less than 5MB" }

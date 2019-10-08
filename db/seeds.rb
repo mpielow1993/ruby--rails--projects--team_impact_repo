@@ -49,9 +49,21 @@ end
                     activated_at: Time.zone.now)
 end
 
-# Generate microposts for a subset of members. 
+# Generate newswire_posts and comments for a subset of members. 
 members = Member.where(admin: true)
 50.times do 
-    content = Faker::Lorem.sentence(word_count: 5) 
-    members.each { |member| member.newswire_posts.create!(content: content) } 
+    newswire_post_content = Faker::Lorem.sentence(word_count: 5) 
+    members.each { |member| member.newswire_posts.create!(content: newswire_post_content) } 
 end
+
+#newswire_posts = Member.first.newswire_posts
+#10.times do 
+    #comment_content = Faker::Lorem.sentence(word_count: 5) 
+    #newswire_posts.each { |newswire_post| newswire_post.comments.create!(content: comment_content) } 
+#end
+
+    # Generate microposts for a subset of members. 
+    #members = Member.where(admin: true)
+    #50.times do 
+      #  content = Faker::Lorem.sentence(word_count: 5) 
+    # members.each { |member| member.newswire_posts.create!(content: content) } 

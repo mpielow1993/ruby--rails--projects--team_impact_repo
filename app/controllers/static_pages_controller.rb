@@ -25,4 +25,5 @@ class StaticPagesController < ApplicationController
     #@newswire_post defined to allow the current logged in user to create a new micropost
     @newswire_post = @member.newswire_posts.build
   end
+  
 end

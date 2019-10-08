@@ -1,0 +1,18 @@
+<%-#A partial for showing a single comment-%>
+<%if comment.valid?%>
+<li id="newswire_post-<%= comment.newswire_post.id %>_comment-<%= comment.id %>"> 
+    <%= link_to gravatar_for(comment.member, size: 50), comment.member %>
+    <span class="user"><%= link_to comment.member.first_name + " " + comment.member.last_name, comment.member %></span>
+    <span class="content">
+        <%= auto_link_content(comment.content) %>
+        
+        <%-#Using the resized image with method 'display_image'-%>
+        <%= image_tag comment.display_image if comment.image.attached?-%>
+    </span>
+        <span class="timestamp"> Posted <%= time_ago_in_words(comment.created_at) %> ago. </span> 
+    <%-#All members can delete comments on their own posts-%>
+    <% if comment.member == current_member %>
+        <%= link_to "Delete", member_newswire_post_comment_path(comment.member, comment.newswire_post, comment), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %>
+    <% end %>
+</li>
+<% end %>

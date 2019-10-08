@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  newswire_post: one
+  member: one
+
+two:
+  content: MyText
+  newswire_post: two
+  member: two

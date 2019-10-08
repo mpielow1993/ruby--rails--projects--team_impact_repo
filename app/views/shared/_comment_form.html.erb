@@ -1,7 +1,7 @@
-<%= form_for [@member, @newswire_post] do |f| %> 
+<%= form_for @comment, url: member_newswire_post_comments_path(@member, @newswire_post), method: :post do |f| %> 
     <%= render 'shared/error_messages', object: f.object %> 
     <div class="field"> 
-        <%= f.text_area :content, placeholder: "Add Newswire Post..." %> 
+        <%= f.text_area :content, placeholder: "Add Comment..." %> 
     </div> 
         
     <%= f.submit "Post", class: "btn btn-primary" %> 
@@ -10,5 +10,3 @@
         <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %> 
     </span>
 <% end %>
-
-<%-#Checking the file size with jQuery-%>

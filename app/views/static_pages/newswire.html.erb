@@ -5,7 +5,10 @@
             <div class="well">
             <h3>(<%= @newswire_posts.count %> Posts)</h3>
             <ol class="newswire_posts"> 
-                <%= render @newswire_posts %> 
+                <% @newswire_posts.each do |newswire_post| %>
+                    <%= render newswire_post %>
+                    <h3><%= link_to "Show Comments (#{newswire_post.comments.count})", member_newswire_post_comments_path(newswire_post.member, newswire_post) %></h3>
+                <% end %>
             </ol> 
             <%= will_paginate @newswire_posts %>
             </div>

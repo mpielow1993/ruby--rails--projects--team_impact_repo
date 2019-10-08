@@ -3,10 +3,13 @@
         <div class="col-md-8"> 
             <h1>Your Newswire Posts</h1>
             <div class="well">
-            <% if @member.newswire_posts.any? %> 
-                <h3>Newswire Posts (<%= @member.newswire_posts.count %>)</h3>
+            <% if @newswire_posts.any? %> 
+                <h3>Newswire Posts (<%= @newswire_posts.count %>)</h3>
                 <ol class="newswire_posts"> 
-                    <%= render @newswire_posts %> 
+                    <% @newswire_posts.each do |newswire_post| %>
+                        <%= render newswire_post %>
+                        <h3><%= link_to "Show Comments (#{newswire_post.comments.count})", member_newswire_post_path(newswire_post.member, newswire_post) %></h3>
+                <% end %>
                 </ol> 
                 <%= will_paginate @newswire_posts %> 
             <% end %> 

@@ -1,0 +1,8 @@
+<% provide(:title, @member.first_name + " " + @member.last_name) %> 
+    <div class="row"> 
+        <div class="col-md-8">
+            <div class="well">
+                <%= render 'comments/comment', comment: @comment %>
+            </div>
+        </div>
+    </div>

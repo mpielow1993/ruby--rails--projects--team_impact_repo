@@ -16,7 +16,8 @@ class NewswirePostsController < ApplicationController
     
     def create
         @newswire_posts = NewswirePost.all.paginate(page: params[:page])
-        @newswire_post = current_member.newswire_posts.build(newswire_post_params)
+        @member = Member.find(params[:member_id])
+        @newswire_post = @member.newswire_posts.build(newswire_post_params)
         @newswire_post.image.attach(params[:newswire_post][:image])
         if @newswire_post.save 
             flash[:success] = "Newswire post created!" 
@@ -25,9 +26,10 @@ class NewswirePostsController < ApplicationController
             render 'static_pages/newswire' 
         end
     end
-    
+
     def destroy
-        @newswire_post = current_member.newswire_posts.find(params[:id])
+        @member = Member.find(params[:member_id])
+        @newswire_post = @member.newswire_posts.find(params[:newswire_post_id])
         @newswire_post.destroy 
         flash[:success] = "Newswire post successfully deleted" 
         redirect_to request.referrer || newswire_url    #refers to root_url
