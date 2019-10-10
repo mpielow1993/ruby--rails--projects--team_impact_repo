@@ -4,7 +4,15 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    @testimonial = Testimonial.build(testimonial_params)
+    @testimonials = Testimonial.all
+    @testimonial = Testimonial.create(testimonial_params)
+    if @testimonial.save
+      flash[:success] = "Your testimonial has been successfully submitted with email confirmation. Thank you"
+      @testimonial.send_testimonial
+      redirect_to testimonials_path
+    else
+      render 'testimonials/index'
+    end
   end
 
   def edit
@@ -14,7 +22,8 @@ class TestimonialsController < ApplicationController
   end
 
   def index
-    @testimonial = Testimonial.all
+    @testimonials = Testimonial.all.paginate(page: params[:page]).per_page(5)
+    @testimonial = Testimonial.new
   end
 
   def destroy
@@ -27,6 +36,6 @@ class TestimonialsController < ApplicationController
   private
     
     def testimonial_params
-      params.require(:testimonial).permit(:first_name, :last_name, :email, :phone_no, :city, :country)
+      params.require(:testimonial).permit(:first_name, :last_name, :email, :phone_no, :city, :country, :content)
     end
 end

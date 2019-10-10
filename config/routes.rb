@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   
   resources :testimonials, only: [:index, :create, :edit, :update, :destroy, :show]
   
+  post '/testimonials', to: 'testimonials#create'
+  
   #get 'programmes/boxing', to: 'programmes#boxing'
   #get 'programmes/bjj', to: 'programmes#bjj'
   #get 'programmes/fightingfit', to: 'programmes#fightingfit'

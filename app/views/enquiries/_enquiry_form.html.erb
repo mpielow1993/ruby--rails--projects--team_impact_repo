@@ -1,5 +1,3 @@
-<>
-
 <% provide(:button_text, "Submit Enquiry") %>
 
 <%= form_for(@enquiry, url: '#' ) do |f| %>
@@ -18,8 +16,9 @@
     <%= f.telephone_field :phone_no, class: "form-control" %> 
                 
     <%= f.label :message, "Message (must be under 300 characters)" %> 
-    <%= f.text_field :message, class: "form-control" %> 
+    <%= f.text_area :message, class: "form-control" %> 
                 
-    <%= f.submit yield(:button_text), class: "btn btn-primary", style: "width: 30%; margin-left: auto; margin-right: auto; display: block;" %> 
+    <%= f.submit yield(:button_text), class: "btn btn-primary", style: 
+    "width: 30%; margin-left: auto; margin-right: auto; display: block; margin-top: 3em; margin-bottom: 2em; padding: 1.5em;" %> 
                         
 <% end %>

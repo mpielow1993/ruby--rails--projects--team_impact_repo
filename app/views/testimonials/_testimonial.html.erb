@@ -1,14 +1,13 @@
 <%-#A partial for showing a single comment-%>
-<li id="testimonial-<%= testimonial.id %>"> 
-    <span class="content">
-        <%= auto_link_content(testimonial.content) -%>
-        
-        <%-#Using the resized image with method 'display_image'-%>
-        <%-# image_tag comment.display_image if comment.image.attached?-%>
-    </span>
-    <span class="content">
-        <%= join_attributes(testimonial) %>
-    </span>
-        <span class="timestamp"> Posted <%= time_ago_in_words(testimonial.created_at) %> ago. </span> 
+<li id="testimonial-<%= testimonial.id %>" style="padding-top: 1.5em"> 
+    <div class="testimonial">
+        <span class="content-testimonial">
+            <p><%= auto_link_content(testimonial.content) %></p>
+            <%-#Using the resized image with method 'display_image'-%>
+            <%-# image_tag comment.display_image if comment.image.attached?-%>
+        </span>
+        <h3 style="padding-top: 1.5em;"><%= join_attributes(testimonial) %></h3>
+    <span class="timestamp-testimonial"> Posted <%= time_ago_in_words(testimonial.created_at) %> ago. </span>
+    </div>
     <%-#All members can delete comments on their own posts-%>
 </li>
