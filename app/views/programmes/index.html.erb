@@ -1,0 +1,9 @@
+<% provide(:title, "Programmes") %>
+	<div class="row">
+		<section>
+			<h1><%= yield(:title) %></h1>
+		</section>
+		<% @programmes.each do |programme| %>
+			<%= render 'programmes/programme', programme: programme %>
+		<% end %>
+	</div>

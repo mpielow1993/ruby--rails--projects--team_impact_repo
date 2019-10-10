@@ -14,6 +14,7 @@ class StaticPagesController < ApplicationController
   end
   
   def contact
+    @enquiry = Enquiry.new
   end
   
   #Newswire posts viewable by all members in the public newswire

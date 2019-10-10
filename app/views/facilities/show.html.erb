@@ -1,0 +1,10 @@
+<section>
+	<h1><%= @facility.name %></h1>
+</section>
+<section>
+	<%= image_tag("facilities_images/#{replace_char(@facility.name, " ", "_")}.jpg", alt: @facility.name, width: "100%", height: "auto") %>
+</section>
+	<div class="container">
+	    <%= render "facilities/#{replace_char(@facility.name.downcase, " ", "_")}" %>
+	</div>
+</div>

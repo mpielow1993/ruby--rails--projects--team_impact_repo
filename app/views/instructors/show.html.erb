@@ -1,0 +1,16 @@
+<section>
+	<h1><%= @instructor.first_name + " " + @instructor.last_name %></h1>
+	<h2 style="text-align: center; margin-top: 2em;"><%= @instructor.role %></h2>
+</section>
+<section class="center">
+	<%= image_tag("instructors_images/#{@instructor.first_name}_#{@instructor.last_name}.jpg", 
+	alt: "#{@instructor.first_name} #{@instructor.last_name}", width: "60%", height: "800vh") %>
+</section>
+	<div class="container">
+	    <div class="row">		
+	       <section>
+	           <%= render "instructors/#{@instructor.first_name.downcase}_#{@instructor.last_name.downcase}" %>
+	       </section>
+	   </div>
+	</div>
+</div>

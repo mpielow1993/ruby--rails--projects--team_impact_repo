@@ -1,0 +1,15 @@
+<section>
+<div class="col-md-4">
+	<div class="card">
+	<div class="image">
+		<a href="/programmes/<%= programme.id %>">
+			<img src="/assets/programmes_images/Programmes_<%= replace_char(programme.name, " ", "_") %>.jpg" alt="<%= programme.name %>">
+		</a>
+		<%-#<%= link_to (image_tag("/programmes_images/Programmes_#{programme.name}.jpg", programme_path(programme), alt: programme.name ) -%>
+		<div class="middle">
+			<div class="text"><%= programme.name %></div>
+		</div>
+	</div>
+</div>
+</div>
+<section>

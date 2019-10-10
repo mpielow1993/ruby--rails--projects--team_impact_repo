@@ -1,0 +1,25 @@
+<>
+
+<% provide(:button_text, "Submit Enquiry") %>
+
+<%= form_for(@enquiry, url: '#' ) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %> 
+                        
+    <%= f.label :first_name, "First Name (*)" %>
+    <%= f.text_field :first_name, class: "form-control" %> 
+                        
+    <%= f.label :last_name, "Last Name (*)" %>
+    <%= f.text_field :last_name, class: "form-control" %> 
+        
+    <%= f.label :email, "E-mail (*)" %> 
+    <%= f.email_field :email, class: "form-control" %> 
+                
+    <%= f.label :phone_no, "Phone Number" %>
+    <%= f.telephone_field :phone_no, class: "form-control" %> 
+                
+    <%= f.label :message, "Message (must be under 300 characters)" %> 
+    <%= f.text_field :message, class: "form-control" %> 
+                
+    <%= f.submit yield(:button_text), class: "btn btn-primary", style: "width: 30%; margin-left: auto; margin-right: auto; display: block;" %> 
+                        
+<% end %>

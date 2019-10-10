@@ -8,4 +8,8 @@ module ApplicationHelper
             base_title + " | " + page_title 
         end 
     end
+    
+    def replace_char(string, char_before, char_after)
+        string.gsub "#{char_before}", "#{char_after}"
+    end
 end

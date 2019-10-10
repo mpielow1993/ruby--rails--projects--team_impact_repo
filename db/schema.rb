@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_095518) do
+ActiveRecord::Schema.define(version: 2019_10_10_021141) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,30 @@ ActiveRecord::Schema.define(version: 2019_10_07_095518) do
     t.index ["newswire_post_id"], name: "index_comments_on_newswire_post_id"
   end
 
+  create_table "enquiries", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_no"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "user_name"
     t.string "first_name"
@@ -70,6 +94,23 @@ ActiveRecord::Schema.define(version: 2019_10_07_095518) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id", "created_at"], name: "index_newswire_posts_on_member_id_and_created_at"
     t.index ["member_id"], name: "index_newswire_posts_on_member_id"
+  end
+
+  create_table "programmes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "city"
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "content"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
