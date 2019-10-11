@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_105805) do
+ActiveRecord::Schema.define(version: 2019_10_10_184017) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,6 +68,19 @@ ActiveRecord::Schema.define(version: 2019_10_10_105805) do
     t.string "role"
   end
 
+  create_table "lessons", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "instructor_id", null: false
+    t.integer "facility_id", null: false
+    t.integer "programme_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facility_id"], name: "index_lessons_on_facility_id"
+    t.index ["instructor_id"], name: "index_lessons_on_instructor_id"
+    t.index ["programme_id"], name: "index_lessons_on_programme_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "user_name"
     t.string "first_name"
@@ -102,12 +115,21 @@ ActiveRecord::Schema.define(version: 2019_10_10_105805) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "class_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["class_id"], name: "index_registrations_on_class_id"
+    t.index ["member_id"], name: "index_registrations_on_member_id"
+  end
+
   create_table "testimonials", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email", null: false
-    t.string "city", null: false
-    t.string "country", null: false
+    t.string "email"
+    t.string "city"
+    t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "content"
@@ -115,5 +137,10 @@ ActiveRecord::Schema.define(version: 2019_10_10_105805) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "newswire_posts"
+  add_foreign_key "lessons", "facilities"
+  add_foreign_key "lessons", "instructors"
+  add_foreign_key "lessons", "programmes"
   add_foreign_key "newswire_posts", "members"
+  add_foreign_key "registrations", "classes"
+  add_foreign_key "registrations", "members"
 end

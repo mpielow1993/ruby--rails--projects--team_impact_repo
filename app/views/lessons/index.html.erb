@@ -1,0 +1,11 @@
+<% provide(:title, 'All Lessons') %> 
+    <h1><%= yield(:title) %></h1>
+    
+    <%-#The members index with pagination-%>
+    <%= will_paginate %>
+        <ul class="members"> 
+            <% @lessons.each do |lesson| %> 
+                <%= render 'lessons/lesson', lesson: lesson %>
+            <% end %> 
+        </ul>
+    <%= will_paginate %>

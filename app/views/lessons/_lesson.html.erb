@@ -1,0 +1,11 @@
+<li> 
+    <%= gravatar_for_lesson_instructor, size: 50 %> 
+    <h3>Instructor: <%= link_to lesson.instructor.first_name + " " + lesson.instructor.last_name, instructor_path(instructor) %></h3> %> 
+    <h3>Start Time: <%= lesson.start_time.hour %>:<%= lesson.start_time.minute %></h3>
+    <h3>Finish Time: <%= lesson.finish_time.hour %>:<%= lesson.finish_time.minute %></h3>
+    <h3>Location: <%= link_to lesson.facility.name, facility_path(facility) %></h3>
+    <%- #Member delete links (viewable only by admins) -%>
+    <% if current_member.admin? && !member.admin? %> 
+        <%= link_to "Delete", lesson, method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %> 
+    <% end %>
+</li>
