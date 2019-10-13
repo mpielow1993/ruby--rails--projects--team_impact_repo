@@ -70,9 +70,11 @@ end
 
 #Programmes
 
+programmes = []
 programme_names = ["Boxing", "BJJ", "Fighting Fit", "Kids", "MMA", "Muay Thai", "Teens", "Wrestling", "Women", "Private Classes"]
 10.times do |n|
-    Programme.create!( name: programme_names[n] )
+    programme = Programme.create!( name: programme_names[n] )
+    programmes.push(programme)
 end
 
 #Instructors
@@ -80,16 +82,20 @@ instructor_first_names = ["Rich", "Michael", "Ciaran", "Carrie", "Aaron", "Aaron
 instructor_last_names = ["Jones", "Prendergast", "Dempsey", "Canning", "Jennings", "Murray", "Grubinski", "Reilly"]
 instructor_roles = ["Head Instructor", "MMA and BJJ Instructor", "BJJ Instructor", "Womens Instructor", 
                     "Muay Thai and MMA Instructor", "Boxing Instructor", "Wrestling Instructor", "Head Physio"]
-                    
+
+instructors = []                    
 8.times do |n|
-    Instructor.create!( first_name: instructor_first_names[n], last_name: instructor_last_names[n], role: instructor_roles[n] )
+    instructor = Instructor.create!( first_name: instructor_first_names[n], last_name: instructor_last_names[n], role: instructor_roles[n] )
+    instructors.push(instructor)
 end
 
 #Facilities
-facility_names = ["Mat Area", "MMA Area", "Gym Area", "Changing Area", "Reception Area", "Sports Therapy Area"]
+facilities = []
+facility_names = ["Mat Area", "MMA Area", "Boxing Area", "Gym Area", "Changing Area", "Reception Area", "Sports Therapy Area"]
 
-6.times do |n|
-    Facility.create!( name: facility_names[n] )
+7.times do |n|
+    facility = Facility.create!( name: facility_names[n] )
+    facilities.push(facility)
 end
 
 #Testimonials
@@ -148,3 +154,95 @@ testimonial_messages = ["I flew in from Manchester on holiday visiting family in
 end
 
 #Lessons
+
+timetable_instructor_ids = [1, 2, 3, 4, 5, 6, 7]
+timetable_facility_ids = [1, 2, 3, 4]
+timetable_programme_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
+
+#start_times
+#timetable_start_times = []
+
+#6.times do |n|
+ #   timetable_start_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+6}am"))
+#end
+
+#timetable_start_times.push(Time.zone.parse("Tue 15th Oct 2019 12:00pm"))
+#9.times do |n|
+#    timetable_start_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+1}pm"))
+#end
+
+#end_times
+#timetable_end_times = []
+#5.times do |n|
+#   timetable_end_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+7}am"))
+#end
+#timetable_end_times.push(Time.zone.parse("Tue 15th Oct 2019 12:00pm"))
+#10.times do |n|
+#    timetable_end_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+1}pm"))
+#end
+
+#Generate a random sample of lessons for a single day (Tue 15th Oct 2019)
+#lessons = []
+#16.times do |n|
+#    lesson = Lesson.create!(start_time: timetable_start_times[n],
+#                            end_time: timetable_end_times[n],
+#                            instructor_id: timetable_instructor_ids[n % 7],
+#                            facility_id: timetable_facility_ids[n % 4],
+#                            programme_id: timetable_programme_ids[n % 10],
+#                            level: timetable_levels[n % 4])
+#    lessons.push(lesson)
+#end
+
+#lesson = Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct 6:00am"),
+#                        end_time: Time.zone.parse("Tue 15th Oct 7:00am"),
+#                        instructor_id: 2,
+#                        facility_id: 2,
+#                        programme_id: 5,
+#                        level: "Beginner")
+#    lessons.push(lesson)
+
+5.times do |n|
+    Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct #{n+6}:00am"),
+                            end_time: Time.zone.parse("Tue 15th Oct #{n+7}:00am"),
+                            instructor_id: timetable_instructor_ids[6 % (n+1)],
+                            facility_id: timetable_facility_ids[3 % (n+1)],
+                            programme_id: timetable_programme_ids[9 % (n+1)],
+                            level: timetable_levels[3 % (n+1)])
+end
+
+Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct 12:00pm"),
+                            end_time: Time.zone.parse("Tue 15th Oct 1:00pm"),
+                            instructor_id: timetable_instructor_ids[3],
+                            facility_id: timetable_facility_ids[2],
+                            programme_id: timetable_programme_ids[1],
+                            level: timetable_levels[2])
+
+9.times do |n|
+    Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct #{n+1}:00pm"),
+                            end_time: Time.zone.parse("Tue 15th Oct #{n+2}:00pm"),
+                            instructor_id: timetable_instructor_ids[6 % (n+1)],
+                            facility_id: timetable_facility_ids[3 % (n+1)],
+                            programme_id: timetable_programme_ids[9 % (n+1)],
+                            level: timetable_levels[3 % (n+1)])
+end
+
+#    lesson = Lesson.create!(start_time: timetable_start_times[n],
+#                            end_time: timetable_end_times[n],
+#                            instructor_id: timetable_instructor_ids[n % 7],
+#                            facility_id: timetable_facility_ids[n % 4],
+#                            programme_id: timetable_programme_ids[n % 10],
+#                            level: timetable_levels[n % 4])
+#    lessons.push(lesson)
+
+#    lesson = Lesson.create!(start_time: timetable_start_times[n],
+#                            end_time: timetable_end_times[n],
+#                            instructor_id: timetable_instructor_ids[n % 7],
+#                            facility_id: timetable_facility_ids[n % 4],
+#                            programme_id: timetable_programme_ids[n % 10],
+#                            level: timetable_levels[n % 4])
+#    lessons.push(lesson)
+
+
+
+

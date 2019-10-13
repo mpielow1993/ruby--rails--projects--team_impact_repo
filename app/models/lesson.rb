@@ -32,6 +32,10 @@ class Lesson < ApplicationRecord
   validates_time :end_time, on_or_after: Time.zone.parse("7:00am"), on_or_after_message: 'must be at least 1 hour after opening time',
                             on_or_before: Time.zone.parse("10:00pm"), before_message: 'must be before closing time'
   
+  VALID_LEVELS = ["Beginner", "Intermediate", "Advanced", "Competition"]
+                            
+  validates :level, inclusion: { in: VALID_LEVELS }
+  
   private 
     
     #Checks that the only start times with a minute reading of ':00' can be saved  
