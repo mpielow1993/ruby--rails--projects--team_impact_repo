@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_152901) do
   end
 
   create_table "lessons", force: :cascade do |t|
+    t.date "date"
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "instructor_id", null: false

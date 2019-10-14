@@ -203,28 +203,31 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
 #    lessons.push(lesson)
 
 5.times do |n|
-    Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct #{n+6}:00am"),
-                            end_time: Time.zone.parse("Tue 15th Oct #{n+7}:00am"),
-                            instructor_id: timetable_instructor_ids[6 % (n+1)],
-                            facility_id: timetable_facility_ids[3 % (n+1)],
-                            programme_id: timetable_programme_ids[9 % (n+1)],
-                            level: timetable_levels[3 % (n+1)])
+    Lesson.create!( date: Date.strptime("2019-10-17"),
+                    start_time: Time.zone.parse("Thu 17th Oct #{n+6}:00am"),
+                    end_time: Time.zone.parse("Thu 17th Oct #{n+7}:00am"),
+                    instructor_id: timetable_instructor_ids[6 % (n+1)],
+                    facility_id: timetable_facility_ids[3 % (n+1)],
+                    programme_id: timetable_programme_ids[9 % (n+1)],
+                    level: timetable_levels[3 % (n+1)])
 end
 
-Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct 12:00pm"),
-                            end_time: Time.zone.parse("Tue 15th Oct 1:00pm"),
-                            instructor_id: timetable_instructor_ids[3],
-                            facility_id: timetable_facility_ids[2],
-                            programme_id: timetable_programme_ids[1],
-                            level: timetable_levels[2])
+Lesson.create!( date: Date.strptime("2019-10-17"),
+                start_time: Time.zone.parse("Thu 17th Oct 12:00pm"),
+                end_time: Time.zone.parse("Thu 17th Oct 1:00pm"),
+                instructor_id: timetable_instructor_ids[3],
+                facility_id: timetable_facility_ids[2],
+                programme_id: timetable_programme_ids[1],
+                level: timetable_levels[2])
 
 9.times do |n|
-    Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct #{n+1}:00pm"),
-                            end_time: Time.zone.parse("Tue 15th Oct #{n+2}:00pm"),
-                            instructor_id: timetable_instructor_ids[6 % (n+1)],
-                            facility_id: timetable_facility_ids[3 % (n+1)],
-                            programme_id: timetable_programme_ids[9 % (n+1)],
-                            level: timetable_levels[3 % (n+1)])
+    Lesson.create!( date: Date.strptime("2019-10-17"), 
+                    start_time: Time.zone.parse("Thu 17th Oct #{n+1}:00pm"),
+                    end_time: Time.zone.parse("Thu 17th Oct #{n+2}:00pm"),
+                    instructor_id: timetable_instructor_ids[6 % (n+1)],
+                    facility_id: timetable_facility_ids[3 % (n+1)],
+                    programme_id: timetable_programme_ids[9 % (n+1)],
+                    level: timetable_levels[3 % (n+1)])
 end
 
 #    lesson = Lesson.create!(start_time: timetable_start_times[n],

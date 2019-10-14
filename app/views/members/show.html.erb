@@ -3,27 +3,35 @@
     <div class="col-lg-8">
         <div class="row">
             <div class="well">
+            <div class="form-wrapper">
+                <h2>Search Date</h2>
+                <%= form_for :search, method: :get do |f| %>
+                
+                    <%= f.text_field :date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
+                    
+                    <%= f.submit "Search", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+            <h2 style="text-align: center;"><%= @date %></h2>
             <table class="table table-bordered">
                 <%-#Static HTML to be replaced later%>
                 <thead>
                     <tr>
                         <th scope="col">Time</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Lesson</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">06:00 - 07:00</th>
-                        <td>Muay Thai</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">07:00 - 08:00</th>
-                        <td>Brazilian Jiu-Jitsu</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">08:00 - 09:00</th>
-                        <td>Wrestling</td>
-                    </tr>
+                    <% @lessons.each do |lesson| %>
+                        <tr>
+                            <td>
+                                <%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %>
+                            </td>
+                            <td>
+                                <%= render 'lessons/lesson', lesson: lesson %>
+                            </td>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
             </div>
@@ -37,7 +45,7 @@
                     <%= @member.first_name + " " + @member.last_name %>
                 </h1>  
             </section>
-            <%= render 'layouts/sidebar' %>
+            <%= render 'layouts/sidebar', member: @member %>
         </div>
     </aside> 
 </div>

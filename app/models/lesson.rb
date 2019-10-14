@@ -9,6 +9,8 @@ class Lesson < ApplicationRecord
   belongs_to :programme
   has_many :members, through: :registrations
   
+  default_scope -> { order(start_time: :asc) } #Look up default scopes and how they relate to search and pagination
+  
   #VALIDATIONS
   
   #Set in accordance with the following:
@@ -21,7 +23,7 @@ class Lesson < ApplicationRecord
   
   validates :start_time, presence: true
   #Checks that only a start_time with a value of at least 24 hours more than the current_time (i.e lesson creation time) can be entered
-  validates_date :start_time, on_or_after: :tomorrow, on_or_after_message: "Start Time must be at least 1 day in advance from current time"
+  validates_date :date, on_or_after: :tomorrow, on_or_after_message: "Date must be at least 1 day in advance from current date"
   
   #Range of allowable start_time values
   validates_time :start_time, on_or_after: Time.zone.parse("6:00am"), on_or_after_message: 'must be after opening time',
@@ -52,6 +54,12 @@ class Lesson < ApplicationRecord
     def correct_end_time
       unless ((end_time - start_time)/3600 == 1)
         errors.add(:base, "Start Time and End Time must be exactly 1 hour apart")
+      end
+    end
+    
+    def self.search(search)
+      if search
+        Lesson.where(date: search)
       end
     end
     

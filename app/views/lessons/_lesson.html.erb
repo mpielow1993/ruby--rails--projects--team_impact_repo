@@ -1,11 +1,15 @@
-<li> 
-    <%= gravatar_for_lesson_instructor, size: 50 %> 
-    <h3>Instructor: <%= link_to lesson.instructor.first_name + " " + lesson.instructor.last_name, instructor_path(instructor) %></h3> %> 
-    <h3>Start Time: <%= lesson.start_time.hour %>:<%= lesson.start_time.minute %></h3>
-    <h3>Finish Time: <%= lesson.finish_time.hour %>:<%= lesson.finish_time.minute %></h3>
-    <h3>Location: <%= link_to lesson.facility.name, facility_path(facility) %></h3>
+<li style="background-color: #000000; border: 1px solid #FFD700; margin-bottom: 2em; padding-bottom: 2em;"> 
+    <h2 style="text-align: center;"><%= lesson.programme.name %></h2>
+    <ul style="display: inline;">
+        <li class="lesson-list-item"><%= gravatar_for_lesson_instructor(lesson.instructor) %></li>
+        <li class="lesson-list-item">Instructor: <%= link_to lesson.instructor.first_name, instructor_path(lesson.instructor) %></li>
+        <li class="lesson-list-item">Start Time: <%= lesson.start_time.strftime("%H:%M") %></li>
+        <li class="lesson-list-item">Finish Time: <%= lesson.end_time.strftime("%H:%M") %></li>
+        <li class="lesson-list-item">Level: <%= lesson.level %></li>
+        <li class="lesson-list-item">Location: <%= link_to lesson.facility.name, facility_path(lesson.facility) %></li>
+    </ul>
     <%- #Member delete links (viewable only by admins) -%>
-    <% if current_member.admin? && !member.admin? %> 
-        <%= link_to "Delete", lesson, method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %> 
-    <% end %>
+    <%-# if current_member.admin? %> 
+        <%-# link_to "Delete", member_lesson_path(member, lesson), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" }, style: "margin-left: 8em;" %> 
+    <%-# end %>
 </li>

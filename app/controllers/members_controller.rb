@@ -16,6 +16,9 @@ class MembersController < ApplicationController
   
   def show
     @member = Member.find(params[:id])
+    @lessons = Lesson.search(params[:search][:date])
+    #display the date in the heading
+    @date = params[:search][:date].to_date.strftime("%d" +  " " + "%B" +  " " +  "%Y")
     #Show the admin's own posts
     #@newswire_posts = @member.newswire_posts.paginate(page: params[:page])
   end
@@ -70,6 +73,10 @@ class MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:user_name, :first_name, :last_name, :email, :phone_no, :password, :password_confirmation)
   end
+  
+  #def lesson_params
+   # params.require(:lesson).permit(:date, :start_time, :end_time, :instructor_id, :facility_id, :programme_id, :level, :search)
+  #end
   
   #Before filters
   

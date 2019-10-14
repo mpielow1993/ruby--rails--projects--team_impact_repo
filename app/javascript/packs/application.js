@@ -10,6 +10,16 @@ require("channels")
 require("jquery")
 require("custom/team_impact_custom")
 import "bootstrap"
+import flatpickr from "flatpickr"
+require("flatpickr/dist/flatpickr.min.css")
+
+document.addEventListener("turbolinks:load", () => {
+  flatpickr(".datepicker", {
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d"
+  }) 
+})
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,3 +28,6 @@ import "bootstrap"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//datepicker
+

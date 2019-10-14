@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/log_in', to: 'sessions#create'
   delete '/log_out', to: 'sessions#destroy'
   resources :members do
+    resources :lessons, only: [:index, :create, :edit, :update, :destroy, :show]
     resources :newswire_posts, only: [:index, :create, :destroy] do
       resources :comments, only: [:destroy, :show, :index]
     end
@@ -38,8 +39,6 @@ Rails.application.routes.draw do
   resources :facilities, only: [:index, :create, :edit, :update, :destroy, :show]
   
   resources :testimonials, only: [:index, :create, :edit, :update, :destroy, :show]
-  
-  resources :lessons, only: [:index, :create, :edit, :update, :destroy, :show]
   
   post '/testimonials', to: 'testimonials#create'
   

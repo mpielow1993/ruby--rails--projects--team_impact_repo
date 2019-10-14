@@ -20,8 +20,8 @@ ValidatesTimeliness.setup do |config|
   # Shorthand date and time symbols for restrictions
    config.restriction_shorthand_symbols.update(
      :now   => lambda { Time.zone.current },
-     :today => lambda { Date.zone.current },
-     :tomorrow => lambda { Time.zone.now + 1.day }
+     :today => lambda { Date.current },
+     :tomorrow => lambda { Date.current + 1.day }
    )
   #
   # Use the plugin date/time parser which is stricter and extendable
