@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'registrations/show'
+  get 'registrations/create'
+  get 'registrations/destroy'
   get 'enquiries/create'
   get 'comments/index'
   get 'comments/create'
@@ -18,12 +21,25 @@ Rails.application.routes.draw do
   get '/log_in', to: 'sessions#new'
   post '/log_in', to: 'sessions#create'
   delete '/log_out', to: 'sessions#destroy'
+  
+  get 'lessons/public_timetable', to: 'lessons#public_timetable'
+  post 'lessons/public_timetable', to: 'lessons#search_public_timetable'
+  
   resources :members do
-    resources :lessons, only: [:index, :create, :edit, :update, :destroy, :show]
-    resources :newswire_posts, only: [:index, :create, :destroy] do
+    
+    resources :registrations, only: [:index, :destroy, :show]
+    post '/registrations', to: 'registrations#search'
+    post '/registrations/create', to: 'registrations#create'
+    
+    resources :newswire_posts do
       resources :comments, only: [:destroy, :show, :index]
     end
   end
+  
+  resources :lessons do
+    resources :registrations, only: [:index, :create, :destroy, :show]
+  end
+
   
   post 'members/:member_id/newswire_posts/:id/comments', to: 'comments#create'
   #Adding a route for the Account Activations 'edit' action

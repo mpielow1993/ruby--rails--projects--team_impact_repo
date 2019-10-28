@@ -135,6 +135,12 @@ li {
 	padding-top: 2em;
 }
 
+.table-timetable {
+	color: $black;
+	list-style-type: none;
+	font-family: Orbitron;
+}
+
 /*Team Impact semantic html elements*/
 
 /* footer */ 
@@ -716,7 +722,15 @@ section {
 	width: 100%;
 }
 .lesson-list-item {
-	display: inline;
-	margin-left: 3em;
+	list-style-type: none;
+	font-size: 0.5em;
+	h2 {
+	}
+	h3 {
+	}
 }
 
+.expired {
+	color: $red;
+	font-style: bold;
+}

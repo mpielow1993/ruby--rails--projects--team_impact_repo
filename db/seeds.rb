@@ -160,91 +160,534 @@ timetable_facility_ids = [1, 2, 3, 4]
 timetable_programme_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
 
-#start_times
-#timetable_start_times = []
+8.times do |n|
+    5.times do |m|
+        
+        instructor_index = rand(0..6)
+        
+        #6:00am - 11:00am
+        
+        case instructor_index
+        
+            #Switch statement helps to create Lessons with appropriate instructors and facilities. These associations aren't strictly enforced
+            #as validations, but would be convention  
+            
+            when (0..1)
+            
+            facility_index = rand(0..1)
+                
+                case facility_index 
+                when 0
+                    #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                            instructor_id: timetable_instructor_ids[instructor_index],
+                                            facility_id: timetable_facility_ids[facility_index],
+                                            programme_id: timetable_programme_ids[1],
+                                            level: timetable_levels[rand(0..3)])
+                when 1
+                    #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                            instructor_id: timetable_instructor_ids[instructor_index],
+                                            facility_id: timetable_facility_ids[facility_index],
+                                            programme_id: timetable_programme_ids[4],
+                                            level: timetable_levels[rand(0..3)])
+                else
+                    lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+                end  #Match case - line 184
+                    
+            when 2
+                
+            facility_index = 0            
+                        
+            #Create BJJ Lessons with instructor Ciaran Dempsey.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[1],
+                                    level: timetable_levels[rand(0..3)])
+                        
+            when 3
+            
+            facility_index = rand(0..2)    
+                        
+            #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[8],
+                                    level: timetable_levels[rand(0..3)])
+                
+            when 4  
+                        
+            facility_index = rand(1..2)
+                    
+                case facility_index
+                                
+                when 1
+                
+                #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[4],
+                                        level: timetable_levels[rand(0..3)])
+                        
+                when 2
+                        
+                #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[5],
+                                        level: timetable_levels[rand(0..3)])
+                        
+                else
+                    lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+                end #Match case - line 237
+                    
+            when 5
+            
+            facility_index = 2
+            
+            #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[0],
+                                    level: timetable_levels[rand(0..3)])
+        
+            when 6
+            
+            facility_index = 0
 
-#6.times do |n|
- #   timetable_start_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+6}am"))
-#end
+            #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[7],
+                                        level: timetable_levels[rand(0..3)])
+            else    
+                lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+            end #Match case - line 175
+    end #Match do - line 169
+        
+        #11:00am - 12:00pm
 
-#timetable_start_times.push(Time.zone.parse("Tue 15th Oct 2019 12:00pm"))
-#9.times do |n|
-#    timetable_start_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+1}pm"))
-#end
+        instructor_index = rand(0..6)
+        
+        case instructor_index
+        
+        #Repeat  
+            
+        when (0..1)
+            
+        facility_index = rand(0..1)
+                
+            case facility_index
+            
+            when 0
+            
+            #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[1],
+                                    level: timetable_levels[rand(0..3)])
+            when 1
+            
+            #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[4],
+                                    level: timetable_levels[rand(0..3)])
+            else
+                lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+            end  #Match case - line 306
+                    
+        when 2
+                
+            facility_index = 1            
+                        
+            #Create BJJ Lessons with instructor Ciaran Dempsey.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[1],
+                                    level: timetable_levels[rand(0..3)])
+                            
+        when 3
+            
+            facility_index = rand(0..2)    
+                        
+            #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[8],
+                                    level: timetable_levels[rand(0..3)])
+                    
+        when 4  
+                        
+            facility_index = rand(1..2)
+                        
+            case facility_index
+                            
+            when 1
+                
+            #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[4],
+                                    level: timetable_levels[rand(0..3)])
+                            
+            when 2
+                        
+            #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[5],
+                                    level: timetable_levels[rand(0..3)])
+                            
+            else
+                lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+            end #Match case - line 362
+                    
+        when 5
+            
+        facility_index = 2
+            
+        #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
+        lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                instructor_id: timetable_instructor_ids[instructor_index],
+                                facility_id: timetable_facility_ids[facility_index],
+                                programme_id: timetable_programme_ids[0],
+                                level: timetable_levels[rand(0..3)])
+        
+        when 6
+            
+        facility_index = 0
 
-#end_times
-#timetable_end_times = []
-#5.times do |n|
-#   timetable_end_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+7}am"))
-#end
-#timetable_end_times.push(Time.zone.parse("Tue 15th Oct 2019 12:00pm"))
-#10.times do |n|
-#    timetable_end_times.push(Time.zone.parse("Tue 15th Oct 2019 #{n+1}pm"))
-#end
+        #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
+        lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
+                                end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                instructor_id: timetable_instructor_ids[instructor_index],
+                                facility_id: timetable_facility_ids[facility_index],
+                                programme_id: timetable_programme_ids[7],
+                                level: timetable_levels[rand(0..3)])
+        else    
+            lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+        end #Match case - line 298
+        
+        #12:00pm - 1:00pm
+        
+        instructor_index = rand(0..6)
+        
+        case instructor_index
+        
+            #Repeat  
+            
+            when (0..1)
+            
+            facility_index = rand(0..1)
+                
+            case facility_index
+                
+                when 0
+                
+                #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[1],
+                                        level: timetable_levels[rand(0..3)])
+                when 1
+                
+                #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[4],
+                                        level: timetable_levels[rand(0..3)])
+                else
+                    lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+                end #Match case - line 429 
+                    
+            when 2
+                
+            facility_index = 1            
+                        
+            #Create BJJ Lessons with instructor Ciaran Dempsey.
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[1],
+                                    level: timetable_levels[rand(0..3)])
+                            
+            when 3
+            
+            facility_index = rand(0..2)    
+                        
+            #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[8],
+                                    level: timetable_levels[rand(0..3)])
+                    
+            when 4  
+                        
+            facility_index = rand(1..2)
+                        
+            case facility_index
+                        
+                when 1
+                
+                #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[4],
+                                        level: timetable_levels[rand(0..3)])
+                            
+                when 2
+                        
+                #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[5],
+                                        level: timetable_levels[rand(0..3)])
+                            
+                else
+                    lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+                end #Match case- line 485
+                    
+            when 5
+            
+                facility_index = 2
+            
+                #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[0],
+                                        level: timetable_levels[rand(0..3)])
+        
+            when 6
+            
+            facility_index = 0
 
-#Generate a random sample of lessons for a single day (Tue 15th Oct 2019)
-#lessons = []
-#16.times do |n|
-#    lesson = Lesson.create!(start_time: timetable_start_times[n],
-#                            end_time: timetable_end_times[n],
-#                            instructor_id: timetable_instructor_ids[n % 7],
-#                            facility_id: timetable_facility_ids[n % 4],
-#                            programme_id: timetable_programme_ids[n % 10],
-#                            level: timetable_levels[n % 4])
-#    lessons.push(lesson)
-#end
+            #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[7],
+                                        level: timetable_levels[rand(0..3)])
+            else    
+                lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+        end #Match case - line 421
 
-#lesson = Lesson.create!(start_time: Time.zone.parse("Tue 15th Oct 6:00am"),
-#                        end_time: Time.zone.parse("Tue 15th Oct 7:00am"),
-#                        instructor_id: 2,
-#                        facility_id: 2,
-#                        programme_id: 5,
-#                        level: "Beginner")
-#    lessons.push(lesson)
+    #1:00pm - 10:00pm
+    
+    9.times do |m|
+        
+        instructor_index = rand(0..6)
+        
+        case instructor_index
+        
+            #Switch statement helps to create Lessons with appropriate instructors and facilities. These associations aren't strictly enforced
+            #as validations, but would be convention  
+            
+            when (0..1)
+            
+                facility_index = rand(0..1)
+                
+                case facility_index
+                    
+                    when 0
+                        
+                    #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                            instructor_id: timetable_instructor_ids[instructor_index],
+                                            facility_id: timetable_facility_ids[facility_index],
+                                            programme_id: timetable_programme_ids[1],
+                                            level: timetable_levels[rand(0..3)])
+                    when 1
+                        
+                    #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                            instructor_id: timetable_instructor_ids[instructor_index],
+                                            facility_id: timetable_facility_ids[facility_index],
+                                            programme_id: timetable_programme_ids[4],
+                                            level: timetable_levels[rand(0..3)])
+                    else
+                        lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+                    end #Match case - line 555 
+                    
+            when 2
+                
+                facility_index = 1            
+                        
+                #Create BJJ Lessons with instructor Ciaran Dempsey.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[1],
+                                        level: timetable_levels[rand(0..3)])
+                            
+            when 3
+            
+                facility_index = rand(0..2)    
+                        
+                #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[8],
+                                        level: timetable_levels[rand(0..3)])
+                    
+            when 4  
+                        
+                facility_index = rand(1..2)
+                        
+                case facility_index
+                            
+                when 1
+                
+                #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[4],
+                                        level: timetable_levels[rand(0..3)])
+                            
+                when 2
+                        
+                #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
+                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[5],
+                                        level: timetable_levels[rand(0..3)])
+                            
+                else
+                    lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+                end #Match case - line 611
+                    
+            when 5
+            
+            facility_index = 2
+            
+            #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                    instructor_id: timetable_instructor_ids[instructor_index],
+                                    facility_id: timetable_facility_ids[facility_index],
+                                    programme_id: timetable_programme_ids[0],
+                                    level: timetable_levels[rand(0..3)])
+        
+            when 6
+            
+            facility_index = 0
 
-5.times do |n|
-    Lesson.create!( date: Date.strptime("2019-10-17"),
-                    start_time: Time.zone.parse("Thu 17th Oct #{n+6}:00am"),
-                    end_time: Time.zone.parse("Thu 17th Oct #{n+7}:00am"),
-                    instructor_id: timetable_instructor_ids[6 % (n+1)],
-                    facility_id: timetable_facility_ids[3 % (n+1)],
-                    programme_id: timetable_programme_ids[9 % (n+1)],
-                    level: timetable_levels[3 % (n+1)])
+            #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
+            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
+                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                                        instructor_id: timetable_instructor_ids[instructor_index],
+                                        facility_id: timetable_facility_ids[facility_index],
+                                        programme_id: timetable_programme_ids[7],
+                                        level: timetable_levels[rand(0..3)])
+            else    
+                lesson.errors.add(:base, "Invalid instructor, programme and facility combination")
+            end #Match case - line 546
+    end #Match do - line 544
+end #Match do - line 168
+
+#member_ids = (1..Member.count).to_a
+#lessons = Lesson.all
+
+#Create 10 registrations for each lesson
+
+#Satisfy the unique registration index (i.e no matching pairs for member_id & lesson_id)
+member_ids = (1..Member.count).to_a
+lesson_ids = (1..Lesson.count).to_a
+
+sample_array = [member_ids, lesson_ids]
+
+#Creates unique Cartesian product pairs 
+registration_arrays = sample_array.combination(2).flat_map{ |a, b| a.product(b) }.sort
+registration_arrays.each do |registration_array|
+    reg_index = rand(0..(registration_arrays.length - 1))
+        
+    Registration.create!( member_id: registration_arrays[reg_index][0],
+                          lesson_id: registration_arrays[reg_index][1],
+                          lesson_date: Lesson.find_by(id: registration_arrays[reg_index][1]).date)
 end
 
-Lesson.create!( date: Date.strptime("2019-10-17"),
-                start_time: Time.zone.parse("Thu 17th Oct 12:00pm"),
-                end_time: Time.zone.parse("Thu 17th Oct 1:00pm"),
-                instructor_id: timetable_instructor_ids[3],
-                facility_id: timetable_facility_ids[2],
-                programme_id: timetable_programme_ids[1],
-                level: timetable_levels[2])
-
-9.times do |n|
-    Lesson.create!( date: Date.strptime("2019-10-17"), 
-                    start_time: Time.zone.parse("Thu 17th Oct #{n+1}:00pm"),
-                    end_time: Time.zone.parse("Thu 17th Oct #{n+2}:00pm"),
-                    instructor_id: timetable_instructor_ids[6 % (n+1)],
-                    facility_id: timetable_facility_ids[3 % (n+1)],
-                    programme_id: timetable_programme_ids[9 % (n+1)],
-                    level: timetable_levels[3 % (n+1)])
-end
-
-#    lesson = Lesson.create!(start_time: timetable_start_times[n],
-#                            end_time: timetable_end_times[n],
-#                            instructor_id: timetable_instructor_ids[n % 7],
-#                            facility_id: timetable_facility_ids[n % 4],
-#                            programme_id: timetable_programme_ids[n % 10],
-#                            level: timetable_levels[n % 4])
-#    lessons.push(lesson)
-
-#    lesson = Lesson.create!(start_time: timetable_start_times[n],
-#                            end_time: timetable_end_times[n],
-#                            instructor_id: timetable_instructor_ids[n % 7],
-#                            facility_id: timetable_facility_ids[n % 4],
-#                            programme_id: timetable_programme_ids[n % 10],
-#                            level: timetable_levels[n % 4])
-#    lessons.push(lesson)
 
 
 

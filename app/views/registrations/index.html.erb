@@ -1,0 +1,50 @@
+<% provide(:title, "All Registrations for #{@member.first_name + @member.last_name}") %> 
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+    <div class="col-lg-8">
+    <h2><%= @date %></h2>
+        <div class="well">
+            <%-#The members index with pagination-%>
+                <div class="form-wrapper">
+                    <h2>Search Date</h2>
+                        <%= form_for :search, url: member_registrations_path(@member), method: :post do |f| %>
+                
+                        <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
+                    
+                        <%= f.submit "Search", class: "btn btn-primary" %>
+                    <% end %>
+                </div>
+                <table class="table-timetable">
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Time</td>
+                            <td>Lesson</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @registrations.each do |registration| %>
+                            <tr>
+                                <td><%= registration.lesson.date %></td>
+                                <td><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
+                                <td><%= render 'lessons/lesson', lesson: registration.lesson %></td>
+                            </tr>
+                        <% end %> 
+                    </tbody>
+                </table>
+            <%= will_paginate @lessons %>
+        </div>
+    </div>
+    <aside class="col-lg-4">
+        <div class="row"> 
+            <section class="user_info">
+                <h1>
+                    <%= gravatar_for(@member) %>
+                    <%= @member.first_name + " " + @member.last_name %>
+                </h1>  
+            </section>
+            <%= render 'layouts/sidebar', member: @member %>
+        </div>
+    </aside> 
+</div>

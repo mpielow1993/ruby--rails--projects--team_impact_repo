@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_152901) do
+ActiveRecord::Schema.define(version: 2019_10_24_212808) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_152901) do
     t.integer "facility_id", null: false
     t.integer "programme_id", null: false
     t.string "level"
+    t.index ["date", "start_time", "facility_id"], name: "index_lessons_on_date_and_start_time_and_facility_id", unique: true
     t.index ["facility_id"], name: "index_lessons_on_facility_id"
     t.index ["instructor_id"], name: "index_lessons_on_instructor_id"
     t.index ["programme_id"], name: "index_lessons_on_programme_id"
@@ -117,10 +118,12 @@ ActiveRecord::Schema.define(version: 2019_10_13_152901) do
 
   create_table "registrations", force: :cascade do |t|
     t.integer "member_id", null: false
-    t.integer "class_id", null: false
+    t.integer "lesson_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["class_id"], name: "index_registrations_on_class_id"
+    t.date "lesson_date"
+    t.index ["lesson_id"], name: "index_registrations_on_lesson_id"
+    t.index ["member_id", "lesson_id"], name: "index_registrations_on_member_id_and_lesson_id"
     t.index ["member_id"], name: "index_registrations_on_member_id"
   end
 
@@ -141,6 +144,6 @@ ActiveRecord::Schema.define(version: 2019_10_13_152901) do
   add_foreign_key "lessons", "instructors"
   add_foreign_key "lessons", "programmes"
   add_foreign_key "newswire_posts", "members"
-  add_foreign_key "registrations", "classes"
+  add_foreign_key "registrations", "lessons"
   add_foreign_key "registrations", "members"
 end

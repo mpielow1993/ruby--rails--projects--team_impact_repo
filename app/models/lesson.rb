@@ -1,5 +1,3 @@
-
-
 class Lesson < ApplicationRecord
   #'validates_timeliness' gem provides many of the following validation configurations relating to the 'start_time' and 'end_time' attributes
   require 'validates_timeliness'
@@ -19,7 +17,7 @@ class Lesson < ApplicationRecord
   #Each class starts and finishes at at "[hour] o'clock"
   
   #Custom validation methods (see below)
-  validate :check_lesson_time_ending, :correct_end_time
+  validate :check_lesson_time_ending, :correct_end_time, :check_lesson_wrt_date_start_time_and_facility
   
   validates :start_time, presence: true
   #Checks that only a start_time with a value of at least 24 hours more than the current_time (i.e lesson creation time) can be entered
@@ -37,6 +35,15 @@ class Lesson < ApplicationRecord
   VALID_LEVELS = ["Beginner", "Intermediate", "Advanced", "Competition"]
                             
   validates :level, inclusion: { in: VALID_LEVELS }
+  
+  
+  def expired?
+      if DateTime.current > end_time
+        return true
+      else
+        return false
+      end
+  end
   
   private 
     
@@ -57,9 +64,22 @@ class Lesson < ApplicationRecord
       end
     end
     
+    #Checks that one lesson cannot have the same facility as another lesson, if both lesson instances have the same date and start time
+    #Here, 'wrt' is shorthand for 'with resect to'
+    def check_lesson_wrt_date_start_time_and_facility
+      others = Lesson.find_by(date: date, start_time: start_time, facility_id: facility_id)
+      unless others.nil?
+        errors.add(:base, "Start Date, Start Time and Facility in combination must be unique")
+      end
+    end
+    
+    #Method that parses the date string entered in the timeable
     def self.search(search)
+      #if search.nil?
+        #redirect_to lessons_path
+      #end
       if search
-        Lesson.where(date: search)
+        date = Lesson.where(date: search)
       end
     end
     

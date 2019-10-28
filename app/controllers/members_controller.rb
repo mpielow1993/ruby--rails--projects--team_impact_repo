@@ -16,9 +16,10 @@ class MembersController < ApplicationController
   
   def show
     @member = Member.find(params[:id])
-    @lessons = Lesson.search(params[:search][:date])
+    #@all_lessons = Lesson.all.paginate(page: params[:page]).per_page(20)
+    #@lessons = Lesson.search(params[:search][:date])
     #display the date in the heading
-    @date = params[:search][:date].to_date.strftime("%d" +  " " + "%B" +  " " +  "%Y")
+    #@date = params[:search][:date].to_date.strftime("%d" +  " " + "%B" +  " " +  "%Y")
     #Show the admin's own posts
     #@newswire_posts = @member.newswire_posts.paginate(page: params[:page])
   end

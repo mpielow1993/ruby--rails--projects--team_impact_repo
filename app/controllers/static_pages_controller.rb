@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :logged_in_member, only: :newswire
+  before_action :logged_in_member, only: [:newswire, :public_timetable, :search_public_timetable]
   def home
     #@newswire_post = current_member.newswire_posts.build if current_member.admin?
   end

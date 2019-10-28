@@ -115,6 +115,16 @@ class Member < ApplicationRecord
         reset_sent_at < 2.hours.ago 
     end
     
+    #Returns true if a member is registered for a certain class
+    def registered?(lesson)
+        @registration = Registration.where(member_id: self.id, lesson_id: lesson.id)
+        if @registration.count == 0
+            return false
+        else
+            return true
+        end
+    end
+    
     private
     
         # Creates and assigns the activation token and digest. 
@@ -122,5 +132,6 @@ class Member < ApplicationRecord
             self.activation_token = Member.new_token 
             self.activation_digest = Member.digest(activation_token) 
         end
+        
         
 end
