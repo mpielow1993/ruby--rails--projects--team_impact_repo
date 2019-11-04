@@ -1,0 +1,2 @@
+class NonMembership < StoreItem
+end

@@ -1,4 +1,11 @@
+require 'carrierwave/orm/activerecord'
+
 class Facility < ApplicationRecord
-    validates :name, presence: true
+    
     has_many :lessons
+    
+    attr_accessor :facility_avatar 
+    mount_uploader :facility_avatar, ImageUploader
+    
+    validates :name, presence: true
 end

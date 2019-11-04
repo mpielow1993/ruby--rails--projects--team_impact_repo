@@ -1,8 +1,15 @@
+require 'carrierwave/orm/activerecord'
+
 class Member < ApplicationRecord
+
+    attr_accessor :remember_token, :activation_token, :reset_token, :member_avatar 
+    mount_uploader :member_avatar, ImageUploader
     #Ensuring that a member's newswire posts are destroyed along with the member
     has_many :newswire_posts, dependent: :destroy
     has_many :comments, through: :newswire_posts, dependent: :destroy
     has_many :lessons, through: :registrations
+    has_many :orders
+    has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions, class_name: "StoreItem", source: :store_item
     
     #'before_save' callback downcases all user_names before saving to the DB
     #i.e if one new user enters 'Username' and afterwards another user enters 'userNaME', 
@@ -14,7 +21,6 @@ class Member < ApplicationRecord
  
     #Adding account activations to the member model
     
-    attr_accessor :remember_token, :activation_token, :reset_token 
     before_create :create_activation_digest
 
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/

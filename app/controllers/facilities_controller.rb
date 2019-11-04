@@ -1,10 +1,13 @@
 class FacilitiesController < ApplicationController
   def new
-    #Future implementation
+    @facility = Facility.new
   end
 
   def create
-    #Future implementation
+    @facility = Facility.create!(facility_params)
+    if @facility.save
+      flash[:success] = "Facility successfully created"
+    end
   end
 
   def edit
@@ -26,4 +29,10 @@ class FacilitiesController < ApplicationController
   def show
     @facility = Facility.find(params[:id])
   end
+  
+  private
+    
+    def facility_params
+      params.require(:facility).permit(:name, :facility_avatar, :remove_facility_avatar)
+    end
 end

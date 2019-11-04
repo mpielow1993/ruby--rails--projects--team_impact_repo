@@ -1,10 +1,13 @@
 class ProgrammesController < ApplicationController
   def new
-    #Future implementation
+    @programme = Programme.new
   end
 
   def create
-    #Future implementation    
+    @programme = Programme.create!(programme_params)
+    if @programme.save
+      flash[:success] = "Programme successfully created"
+    end  
   end
 
   def edit
@@ -26,4 +29,10 @@ class ProgrammesController < ApplicationController
   def show
     @programme = Programme.find(params[:id])
   end
+  
+  private
+    
+    def programme_params
+      params.require(:programme).permit(:name, :programme_avatar, :remove_programme_avatar)
+    end
 end

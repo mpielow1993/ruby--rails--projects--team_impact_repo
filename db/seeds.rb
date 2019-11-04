@@ -9,6 +9,8 @@
 
 #A program for seeding the database with sample members
 
+include ApplicationHelper
+
 # Create some sample admins. 
 5.times do |n|
     user_name = "Ex4mple_4dm1n_#{n+1}"
@@ -31,7 +33,7 @@
 end
                 
 # Generate a bunch of additional regular members. 
-99.times do |n|
+9.times do |n|
     user_name = "Ex4mple_Member_#{n+1}" 
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
@@ -69,11 +71,12 @@ end
     # members.each { |member| member.newswire_posts.create!(content: content) }
 
 #Programmes
-
 programmes = []
 programme_names = ["Boxing", "BJJ", "Fighting Fit", "Kids", "MMA", "Muay Thai", "Teens", "Wrestling", "Women", "Private Classes"]
 10.times do |n|
-    programme = Programme.create!( name: programme_names[n] )
+    programme = Programme.new( name: programme_names[n] )
+    programme.programme_avatar = Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme.name, " ", "_")}.jpg")).open
+    programme.save
     programmes.push(programme)
 end
 
@@ -85,7 +88,9 @@ instructor_roles = ["Head Instructor", "MMA and BJJ Instructor", "BJJ Instructor
 
 instructors = []                    
 8.times do |n|
-    instructor = Instructor.create!( first_name: instructor_first_names[n], last_name: instructor_last_names[n], role: instructor_roles[n] )
+    instructor = Instructor.new( first_name: instructor_first_names[n], last_name: instructor_last_names[n], role: instructor_roles[n] )
+    instructor.instructor_avatar = Pathname.new(Rails.root.join("app/assets/images/instructors_images/#{instructor.first_name}_#{instructor.last_name}.jpg")).open
+    instructor.save
     instructors.push(instructor)
 end
 
@@ -94,7 +99,9 @@ facilities = []
 facility_names = ["Mat Area", "MMA Area", "Boxing Area", "Gym Area", "Changing Area", "Reception Area", "Sports Therapy Area"]
 
 7.times do |n|
-    facility = Facility.create!( name: facility_names[n] )
+    facility = Facility.new( name: facility_names[n] )
+    facility.facility_avatar = Pathname.new(Rails.root.join("app/assets/images/facilities_images/#{replace_char(facility.name, " ", "_")}.jpg")).open
+    facility.save
     facilities.push(facility)
 end
 
@@ -154,7 +161,6 @@ testimonial_messages = ["I flew in from Manchester on holiday visiting family in
 end
 
 #Lessons
-
 timetable_instructor_ids = [1, 2, 3, 4, 5, 6, 7]
 timetable_facility_ids = [1, 2, 3, 4]
 timetable_programme_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -667,23 +673,125 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
     end #Match do - line 544
 end #Match do - line 168
 
-#member_ids = (1..Member.count).to_a
-#lessons = Lesson.all
+
+#Memberships
+membership_names = ["Day Pass", "5-Class Pass", "10-Class Pass", "Full Membership"]
+membership_descriptions = ["Unlimited classes for one day, total cost paid up-front",
+                            "5 classes over unlimited days, total cost paid up-front",
+                            "10 classes over unlimited days, total cost paid up-front",
+                            "Unlimited classes for a month, total cost paid up-front"]
+prices = [20.00, 40.00, 70.00, 100.00 ]
+store_item_avatars = []
+4.times do |n|
+    membership = Membership.new( name: membership_names[n], description: membership_descriptions[n], price: prices[n] )
+    membership.store_item_avatar = Pathname.new(Rails.root.join("app/assets/images/default_images/TIFavicon2.jpg")).open
+    membership.save
+end
+
+#StoreItems (other types apart from Memberships - for now generically named 'NonMemberships')
+store_item_types = ["Membership", "NonMembership"]
+store_item_names = []
+store_item_descriptions = []
+store_item_prices = []
+store_item_avatars = []
+
+4.times do |n|
+    store_item_name = Faker::Lorem.word
+    store_item_names.push(store_item_name)
+    
+    store_item_description = Faker::Lorem.sentence(word_count: 10)
+    store_item_descriptions.push(store_item_description)
+    
+    store_item_price = rand(1..10)
+    store_item_prices.push(store_item_price)
+    
+    store_item_avatar = Pathname.new(Rails.root.join("app/assets/images/default_images/TIFavicon2.jpg")).open
+    store_item_avatars.push(store_item_avatar)
+end
+
+4.times do |n|
+    store_item = StoreItem.new(type: store_item_types[1], name: store_item_names[n], description: store_item_descriptions[n], price: store_item_prices[n], store_item_avatar: store_item_avatars[n])
+    store_item.save
+end
+
+#Subscriptions
+
+#Satisfy the unique subscription index (i.e no matching pairs for member_id & membership_id)
+member_ids = (1..Member.count).to_a
+membership_ids = (1..Membership.count).to_a
+
+sample_sub_array = [member_ids, membership_ids]
+
+#Creates unique Cartesian product pairs 
+subscription_arrays = sample_sub_array.combination(2).flat_map{ |a, b| a.product(b) }.sort
+
+subscription_arrays.each do |subscription_array|
+    
+    #Generates a random index in subscription_arrays
+    sub_index = rand(0..(subscription_arrays.length - 1))
+    
+    #Generates nil or a random date up to a year in the future from the current date
+    random_date_or_nil = [nil, Date.today + rand(365)]
+    sample_random_date_or_nil = random_date_or_nil[rand(0..1)]
+    
+    #Generates an active profile if expiry_date is nil, otherwise generates an inactive subscription with expiry date equal to the generated date
+    if sample_random_date_or_nil.nil?    
+        Subscription.create!( member_id: subscription_arrays[sub_index][0],
+                            membership_id: subscription_arrays[sub_index][1],
+                            expiry_date: nil,
+                            is_active: true)
+    else
+         Subscription.create!( member_id: subscription_arrays[sub_index][0],
+                            membership_id: subscription_arrays[sub_index][1],
+                            expiry_date: sample_random_date_or_nil,
+                            is_active: false)   
+    end
+end
+
+#Orders
+
+20.times do |n|
+    #Generates a random index in member_ids
+    random_member_id_index = rand(0..(subscription_arrays.length - 1))
+    
+    order = Order.new(member_id: member_ids[random_member_id_index])
+    order.save
+end
+
+#OrderItems
+
+store_item_ids = (1..StoreItem.count).to_a
+order_ids = (1..Order.count).to_a
+
+sample_order_item_array = [store_item_ids, order_ids]
+
+
+100.times do |n|
+    random_store_item_id = rand(1..StoreItem.count)
+    random_order_id = rand(0..Order.count - 1)
+    random_quantity = rand(1..4)
+    order_item = OrderItem.new(store_item_id: store_item_ids[random_store_item_id],
+                                order_id: order_ids[random_order_id],
+                                quantity: random_quantity,
+                                cost: (StoreItem.find_by(id: random_store_item_id).price).to_d * (random_quantity).to_d)
+    order_item.save
+end
+
 
 #Create 10 registrations for each lesson
 
 #Satisfy the unique registration index (i.e no matching pairs for member_id & lesson_id)
-member_ids = (1..Member.count).to_a
+subscription_ids = (1..Subscription.count).to_a
 lesson_ids = (1..Lesson.count).to_a
 
-sample_array = [member_ids, lesson_ids]
+sample_reg_array = [subscription_ids, lesson_ids]
 
 #Creates unique Cartesian product pairs 
-registration_arrays = sample_array.combination(2).flat_map{ |a, b| a.product(b) }.sort
+registration_arrays = sample_reg_array.combination(2).flat_map{ |a, b| a.product(b) }.sort
 registration_arrays.each do |registration_array|
     reg_index = rand(0..(registration_arrays.length - 1))
         
-    Registration.create!( member_id: registration_arrays[reg_index][0],
+    Registration.create!( subscription_id: registration_arrays[reg_index][0],
                           lesson_id: registration_arrays[reg_index][1],
                           lesson_date: Lesson.find_by(id: registration_arrays[reg_index][1]).date)
 end

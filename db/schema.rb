@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_212808) do
+ActiveRecord::Schema.define(version: 2019_11_01_011309) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_212808) do
 
   create_table "facilities", force: :cascade do |t|
     t.string "name"
+    t.string "facility_avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_212808) do
   create_table "instructors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.string "instructor_avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "role"
@@ -88,6 +90,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_212808) do
     t.string "last_name"
     t.string "email"
     t.string "phone_no"
+    t.string "member_avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
@@ -110,21 +113,60 @@ ActiveRecord::Schema.define(version: 2019_10_24_212808) do
     t.index ["member_id"], name: "index_newswire_posts_on_member_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "store_item_id", null: false
+    t.integer "order_id", null: false
+    t.integer "quantity"
+    t.decimal "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["store_item_id"], name: "index_order_items_on_store_item_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_orders_on_member_id"
+  end
+
   create_table "programmes", force: :cascade do |t|
     t.string "name"
+    t.string "programme_avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.integer "member_id", null: false
     t.integer "lesson_id", null: false
+    t.integer "subscription_id", null: false
+    t.date "lesson_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "lesson_date"
     t.index ["lesson_id"], name: "index_registrations_on_lesson_id"
-    t.index ["member_id", "lesson_id"], name: "index_registrations_on_member_id_and_lesson_id"
-    t.index ["member_id"], name: "index_registrations_on_member_id"
+    t.index ["subscription_id"], name: "index_registrations_on_subscription_id"
+  end
+
+  create_table "store_items", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
+    t.string "description"
+    t.decimal "price"
+    t.string "store_item_avatar"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "membership_id", null: false
+    t.integer "member_id", null: false
+    t.datetime "expiry_date"
+    t.boolean "is_active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_subscriptions_on_member_id"
+    t.index ["membership_id"], name: "index_subscriptions_on_membership_id"
   end
 
   create_table "testimonials", force: :cascade do |t|
@@ -144,6 +186,11 @@ ActiveRecord::Schema.define(version: 2019_10_24_212808) do
   add_foreign_key "lessons", "instructors"
   add_foreign_key "lessons", "programmes"
   add_foreign_key "newswire_posts", "members"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "store_items"
+  add_foreign_key "orders", "members"
   add_foreign_key "registrations", "lessons"
-  add_foreign_key "registrations", "members"
+  add_foreign_key "registrations", "subscriptions"
+  add_foreign_key "subscriptions", "members"
+  add_foreign_key "subscriptions", "store_items", column: "membership_id"
 end

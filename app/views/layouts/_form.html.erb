@@ -1,5 +1,7 @@
 <%= form_for(@member) do |f| %> 
-    <%= render 'shared/error_messages', object: f.object %> 
+
+<%-#Make this a multi-part form to handle file attachments%>
+    <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
                         
     <%= f.label :user_name, "Username (must contain at least 1 upper-case letter, 1 lower-case letter & 1 digit)" %>
     <%= f.text_field :user_name, class: "form-control" %> 
@@ -21,6 +23,14 @@
                 
     <%= f.label :password_confirmation, "Password Confirmation" %> 
     <%= f.password_field :password_confirmation, class: "form-control" %> 
+    
+    <%= f.label :member_avatar, "Profile Image" %> 
+    <%= f.file_field :member_avatar, class: "form-control" %> 
+    
+    <% if @member.member_avatar? %>
+        <%= f.label :remove_member_avatar, "Remove Profile Image" %> 
+        <%= f.check_box :remove_member_avatar %> 
+    <% end %>
                         
     <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
                         

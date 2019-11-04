@@ -1,8 +1,10 @@
 module MembersHelper
-    def gravatar_for(member, options = { size: 80 })
-        gravatar_id = Digest::MD5::hexdigest(member.user_name) 
-        #gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-        default_image_url = "TIFavicon2.jpg"
-        image_tag(default_image_url, alt: member.user_name, size: 80)
+    def avatar_for(member)
+        image_uploader = ImageUploader.new
+        if member.member_avatar?
+            image_tag("#{member.member_avatar.thumb}", alt: member.user_name)
+        else
+            image_tag(image_uploader.default_url, alt: member.user_name, size: 80)
+        end
     end
 end
