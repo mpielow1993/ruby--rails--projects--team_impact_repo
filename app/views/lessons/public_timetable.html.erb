@@ -9,7 +9,10 @@
             <%= form_for :search, url: lessons_public_timetable_path, method: :post do |f| %>
                 
                 <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
-                    
+                
+                <%= f.label :subscription_id %>
+                <%= f.collection_select :subscription_id, current_member.subscriptions.order(:subscription_name), :id, :subscription_name, { include_blank: false }, id: "current_member_subscription_id" %>
+                
                 <%= f.submit "Search", class: "btn btn-primary" %>
             <% end %>
         </div>
@@ -26,7 +29,7 @@
                     <% @lessons.each do |lesson| %> 
                         <tr>
                             <td><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
-                            <td><%= render 'lessons/lesson', lesson: lesson %></td>
+                            <td><%= render 'lessons/lesson', member: @member, subscription: @subscription, registration: @registration, lesson: lesson %></td>
                         </tr>
                     <% end %>                     
                 </tbody>

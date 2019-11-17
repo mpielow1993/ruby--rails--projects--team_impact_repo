@@ -1,0 +1,23 @@
+<% provide(:title, "All Store Items") %> 
+    <div class="row"> 
+        <div class="col-md-8"> 
+            <h3>(<%= @store_items.count %> Items)</h3>
+            <ol class="newswire_posts"> 
+                <% @store_items.each do |store_item| %>
+                    <%= render 'store_items/store_item', store_item: store_item, order_item: @order_item, member: @member, order: @order %>
+                <% end %>
+            </ol>
+            <%= will_paginate @store_items %>
+                    <% if session[:order_id].nil? %>
+                        <%= link_to "New Order", member_orders_path(@member), method: :post, class: "btn btn-success" %>
+                    <% else %>
+                        <%= link_to "View Current Cart", member_order_path(@member, @order), class: "btn btn-success" %>
+                    <% end %>
+            </div>
+        <aside class="col-md-4"> 
+            <section class="member_info"> 
+                <h1> <%= member_avatar_for(@member) %> <%= @member.first_name + " " + @member.last_name %> </h1> 
+            </section>
+            <%= render 'layouts/sidebar' %>
+        </aside> 
+    </div>

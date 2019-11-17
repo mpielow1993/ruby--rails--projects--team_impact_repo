@@ -1,5 +1,5 @@
 module MembersHelper
-    def avatar_for(member)
+    def member_avatar_for(member)
         image_uploader = ImageUploader.new
         if member.member_avatar?
             image_tag("#{member.member_avatar.thumb}", alt: member.user_name)

@@ -117,7 +117,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "store_item_id", null: false
     t.integer "order_id", null: false
     t.integer "quantity"
-    t.decimal "cost"
+    t.decimal "unit_price"
+    t.decimal "sub_total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "member_id", null: false
+    t.decimal "total"
+    t.boolean "is_paid", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_orders_on_member_id"
@@ -144,6 +147,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.date "lesson_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id", "subscription_id"], name: "index_registrations_on_lesson_id_and_subscription_id", unique: true
     t.index ["lesson_id"], name: "index_registrations_on_lesson_id"
     t.index ["subscription_id"], name: "index_registrations_on_subscription_id"
   end
@@ -159,12 +163,14 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
+    t.string "subscription_name"
     t.integer "membership_id", null: false
     t.integer "member_id", null: false
     t.datetime "expiry_date"
-    t.boolean "is_active"
+    t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id", "membership_id"], name: "index_subscriptions_on_member_id_and_membership_id", unique: true
     t.index ["member_id"], name: "index_subscriptions_on_member_id"
     t.index ["membership_id"], name: "index_subscriptions_on_membership_id"
   end

@@ -1,6 +1,6 @@
 <%-#A partial for showing a single newswire post-%>
 <li id="newswire_post-<%= newswire_post.id %>"> 
-    <%= link_to gravatar_for(newswire_post.member, size: 80), newswire_post.member %>
+    <%= link_to member_avatar_for(newswire_post.member), newswire_post.member %>
     <span class="user"><%= link_to newswire_post.member.first_name + " " + newswire_post.member.last_name, newswire_post.member %></span> 
     <span class="content">
         <%= auto_link_content(newswire_post.content) %>

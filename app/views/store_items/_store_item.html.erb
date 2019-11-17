@@ -1,0 +1,22 @@
+<section>
+<div class="col-md-6">
+    <div class="card" style="width: 18rem;">
+        <%= store_item_avatar_for(store_item) %>
+          <div class="card-body">
+            <h5 class="card-title"><%= store_item.name.titleize %></h5>
+            <p class="card-text" style="font-family: Trebuchet MS"><%= store_item.description %></p>
+            <%-# link_to "Purchase", new_charge_path, params: { id: store_item.id }, class: "btn btn-primary"%>
+            <%  if !session[:order_id].nil? %>
+              <%= form_for order_item, url: member_order_order_items_path(member, current_order, order_item), method: :post, remote: true do |f| %>
+                <%= f.hidden_field :store_item_id, value: store_item.id %>
+              
+                <%= f.number_field :quantity, value: 1, min: 1 %>
+              
+                <%= f.submit "Add To Cart", class: "btn btn-primary" %>
+            <% end  %>
+            <% end  %>
+            
+          </div>
+    </div>
+</div>
+<section>

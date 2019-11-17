@@ -29,7 +29,7 @@ class NewswirePostsController < ApplicationController
 
     def destroy
         @member = Member.find(params[:member_id])
-        @newswire_post = @member.newswire_posts.find(params[:newswire_post_id])
+        @newswire_post = @member.newswire_posts.find(params[:id])
         @newswire_post.destroy 
         flash[:success] = "Newswire post successfully deleted" 
         redirect_to request.referrer || newswire_url    #refers to root_url

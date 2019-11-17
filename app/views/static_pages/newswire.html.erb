@@ -15,7 +15,7 @@
         </div>
         <aside class="col-md-4"> 
             <section class="member_info"> 
-                <h1> <%= gravatar_for @member %> <%= @member.first_name + " " + @member.last_name %> </h1> 
+                <h1> <%= member_avatar_for(@member) %> <%= @member.first_name + " " + @member.last_name %> </h1> 
             </section>
             <%= render 'layouts/sidebar' %>
             <% if @member.admin? %>

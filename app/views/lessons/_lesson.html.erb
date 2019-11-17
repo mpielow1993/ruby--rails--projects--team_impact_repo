@@ -1,18 +1,28 @@
 <li style="background-color: #000000; border: 1px solid #FFD700; margin-bottom: 2em; padding-bottom: 2em;"> 
     <h2 style="text-align: center; font-size: 1em"><%= lesson.programme.name %> <span class=="expired"><%= render html: " - EXPIRED" if lesson.expired? %></span></h2>
     <ul style="display: inline;">
-        <li class="lesson-list-item"><%= gravatar_for_lesson_instructor(lesson.instructor) %></li>
+        <li class="lesson-list-item"><%= instructor_avatar_for(lesson.instructor) %></li>
         <li class="lesson-list-item"><h3>Instructor:</h3> <%= link_to lesson.instructor.first_name, instructor_path(lesson.instructor) %></li>
         <!--<li class="lesson-list-item">Start Time: # lesson.start_time.strftime("%H:%M") %></li>
         <li class="lesson-list-item">Finish Time: # lesson.end_time.strftime("%H:%M") %></li> -->
-        <li class="lesson-list-item"><h3>Level:</h3> <%= lesson.level %></li>
+        <li class="lesson-list-item" style="color: #FFFFFF"><h3>Level:</h3> <%= lesson.level %></li>
         <li class="lesson-list-item"><h3>Location:</h3> <%= link_to lesson.facility.name, facility_path(lesson.facility) %></li>
-        <% if current_member.registered?(lesson) %>
-            <li class="lesson-list-item"><%= link_to "Unregister", member_registration_path(current_member, Registration.find_by(member_id: current_member.id, lesson_id: lesson.id)), 
-                method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %></li> 
-        <% else %>
-            <li class="lesson-list-item"><%= link_to "Register", member_registrations_create_path(member_id: current_member.id, lesson_id: lesson.id, lesson_date: lesson.date), 
-                method: :post, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %></li>
+        <% if current_member %>
+            <% if current_member.registered_to(lesson) != "None" %>
+                <li class="lesson-list-item" style="color: #FFFFFF"><h3>Registered with Subscription: </h3><%= current_member.registered_to(lesson).subscription_name %></li> 
+                <li class="lesson-list-item"><%= link_to "Unregister", 
+                member_subscription_registration_path(current_member, current_member.registered_to(lesson), Registration.find_by(lesson_id: lesson.id, subscription_id: current_member.registered_to(lesson).id)),
+                method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %></li>
+            <% else %>
+                <% if current_member.subscriptions.any? %>
+                    <li class="lesson-list-item"><%= link_to "Register", member_subscription_registrations_path(current_member, subscription), 
+                    method: :post, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %></li> 
+                <% else %>
+                    <p>Please purchase a membership to be able to register for classes<p>
+                <% end %>
+            <%- #<li class="lesson-list-item"><%= link_to "Register", member_subscription_registrations_path(current_member, subscription), -%>
+             <%-#   method: :post, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' -%>
+            <% end %>
         <% end %>
     </ul>
     <%- #Member delete links (viewable only by admins) -%>

@@ -9,7 +9,8 @@ class Member < ApplicationRecord
     has_many :comments, through: :newswire_posts, dependent: :destroy
     has_many :lessons, through: :registrations
     has_many :orders
-    has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions, class_name: "StoreItem", source: :store_item
+    has_many :subscriptions
+    has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions#, class_name: "StoreItem", source: :store_item
     
     #'before_save' callback downcases all user_names before saving to the DB
     #i.e if one new user enters 'Username' and afterwards another user enters 'userNaME', 
@@ -116,20 +117,18 @@ class Member < ApplicationRecord
         MemberMailer.password_reset(self).deliver_now 
     end
     
-    # Returns true if a password reset has expired. 
-    def password_reset_expired? 
-        reset_sent_at < 2.hours.ago 
-    end
-    
-    #Returns true if a member is registered for a certain class
-    def registered?(lesson)
-        @registration = Registration.where(member_id: self.id, lesson_id: lesson.id)
-        if @registration.count == 0
-            return false
-        else
-            return true
+    #Returns true if a subscription (with a specific member) is registered for a certain class
+    def registered_to(lesson)
+        counter = 0
+        subscription_id = ""
+        self.subscriptions.each do |subscription|
+            if subscription.used_to_register_for(lesson)
+                subscription_id += "#{subscription.id}"
+                counter += 1
+            end
         end
-    end
+        counter > 0 ? Subscription.find(subscription_id) : "None" 
+    end    
     
     private
     
@@ -138,6 +137,4 @@ class Member < ApplicationRecord
             self.activation_token = Member.new_token 
             self.activation_digest = Member.digest(activation_token) 
         end
-        
-        
 end

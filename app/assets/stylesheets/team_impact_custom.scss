@@ -34,7 +34,6 @@ body {
 	text-align: justify;
 	max-width: 100%;
 	background-color: $black;
-	background-image: url("TIBackgroundFinal4_blackBackground_fadedLogo.jpg");
 	background-position: center;
     background-size: cover;
 	background-size: contain;
@@ -733,4 +732,8 @@ section {
 .expired {
 	color: $red;
 	font-style: bold;
+}
+
+.stripe-button-el { 
+	display: none !important; 
 }

@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  get 'registrations/show'
-  get 'registrations/create'
-  get 'registrations/destroy'
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  get 'orders/create'
+  get 'orders/edit'
+  get 'orders/update'
+  get 'orders/destroy'
+  get 'store_items/index'
+  get 'store_items/show'
+  get 'store_items/create'
+  get 'store_items/new'
+  get 'store_items/update'
+  get 'store_items/edit'
+  get 'store_items/delete'
   get 'enquiries/create'
   get 'comments/index'
   get 'comments/create'
@@ -27,19 +38,25 @@ Rails.application.routes.draw do
   
   resources :members do
     
-    resources :registrations, only: [:index, :destroy, :show]
-    post '/registrations', to: 'registrations#search'
-    post '/registrations/create', to: 'registrations#create'
+    #resources :registrations, only: [:index, :destroy, :show]
+    #post '/registrations', to: 'registrations#search'
+    #post '/registrations/create', to: 'registrations#create'
     
     resources :newswire_posts do
       resources :comments, only: [:destroy, :show, :index]
     end
+    
+    resources :subscriptions do
+      resources :registrations, only: [:create, :destroy]
+    end
+    
+    resources :orders do
+      resources :order_items
+      resources :charges
+    end
+    
+    #patch 'orders/:id', to: 'order_items#update'
   end
-  
-  resources :lessons do
-    resources :registrations, only: [:index, :create, :destroy, :show]
-  end
-
   
   post 'members/:member_id/newswire_posts/:id/comments', to: 'comments#create'
   #Adding a route for the Account Activations 'edit' action
@@ -55,6 +72,16 @@ Rails.application.routes.draw do
   resources :facilities, only: [:index, :create, :edit, :update, :destroy, :show]
   
   resources :testimonials, only: [:index, :create, :edit, :update, :destroy, :show]
+  
+  resources :store_items
+
+  
+  resources :non_memberships
+  
+  
+  
+
+
   
   post '/testimonials', to: 'testimonials#create'
   

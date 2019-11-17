@@ -7,5 +7,6 @@ class CreateRegistrations < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :registrations, [:lesson_id, :subscription_id], unique: true
   end
 end

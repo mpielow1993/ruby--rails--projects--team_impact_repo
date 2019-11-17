@@ -1,0 +1,2 @@
+class FiveClassPass < Membership
+end

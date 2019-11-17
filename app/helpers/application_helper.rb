@@ -9,6 +9,18 @@ module ApplicationHelper
         end 
     end
     
+    def current_order
+        if defined?(session[:order_id])
+            if !session[:order_id].nil?
+                Order.find(session[:order_id])
+            else
+                Order.new
+            end
+        else
+            Order.new
+        end
+    end
+    
     def replace_char(string, char_before, char_after)
         string.gsub "#{char_before}", "#{char_after}"
     end

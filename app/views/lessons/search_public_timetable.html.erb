@@ -6,12 +6,7 @@
     <div class="col-lg-12">
         <div class="form-wrapper">
             <h2>Search Date</h2>
-            <%= form_for :search, url: lessons_public_timetable_path, method: :post do |f| %>
-                
-                <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
-                    
-                <%= f.submit "Search", class: "btn btn-primary" %>
-            <% end %>
+            <h3><%= link_to "Back to Search", lessons_public_timetable_path %></h3>
         </div>
         <div class="well">
             <%-#The members index with pagination-%>
@@ -26,7 +21,7 @@
                     <% @lessons.each do |lesson| %> 
                         <tr>
                             <td><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
-                            <td><%= render 'lessons/lesson', lesson: lesson %></td>
+                            <td><%= render 'lessons/lesson', member: @member, subscription: @subscription, registration: @registration, lesson: lesson %></td>
                         </tr>
                     <% end %>                     
                 </tbody>

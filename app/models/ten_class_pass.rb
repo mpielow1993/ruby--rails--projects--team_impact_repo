@@ -1,0 +1,2 @@
+class TenClassPass < Membership
+end

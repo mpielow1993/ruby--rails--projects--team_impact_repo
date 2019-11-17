@@ -6,6 +6,7 @@ class Lesson < ApplicationRecord
   belongs_to :facility
   belongs_to :programme
   has_many :members, through: :registrations
+  has_many :registrations
   
   default_scope -> { order(start_time: :asc) } #Look up default scopes and how they relate to search and pagination
   

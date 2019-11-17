@@ -728,7 +728,7 @@ subscription_arrays = sample_sub_array.combination(2).flat_map{ |a, b| a.product
 subscription_arrays.each do |subscription_array|
     
     #Generates a random index in subscription_arrays
-    sub_index = rand(0..(subscription_arrays.length - 1))
+    #sub_index = rand(0..(subscription_arrays.length - 1))
     
     #Generates nil or a random date up to a year in the future from the current date
     random_date_or_nil = [nil, Date.today + rand(365)]
@@ -736,65 +736,78 @@ subscription_arrays.each do |subscription_array|
     
     #Generates an active profile if expiry_date is nil, otherwise generates an inactive subscription with expiry date equal to the generated date
     if sample_random_date_or_nil.nil?    
-        Subscription.create!( member_id: subscription_arrays[sub_index][0],
-                            membership_id: subscription_arrays[sub_index][1],
+        subscription = Subscription.new( member_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][0],
+                            membership_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][1],
                             expiry_date: nil,
                             is_active: true)
+        subscription.save
     else
-         Subscription.create!( member_id: subscription_arrays[sub_index][0],
-                            membership_id: subscription_arrays[sub_index][1],
+        subscription = Subscription.new( member_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][0],
+                            membership_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][1],
                             expiry_date: sample_random_date_or_nil,
                             is_active: false)   
+        subscription.save
     end
 end
 
 #Orders
 
-20.times do |n|
-    #Generates a random index in member_ids
-    random_member_id_index = rand(0..(subscription_arrays.length - 1))
-    
-    order = Order.new(member_id: member_ids[random_member_id_index])
-    order.save
-end
+new_orders = []
 
 #OrderItems
 
 store_item_ids = (1..StoreItem.count).to_a
 order_ids = (1..Order.count).to_a
 
-sample_order_item_array = [store_item_ids, order_ids]
-
-
-100.times do |n|
-    random_store_item_id = rand(1..StoreItem.count)
-    random_order_id = rand(0..Order.count - 1)
-    random_quantity = rand(1..4)
-    order_item = OrderItem.new(store_item_id: store_item_ids[random_store_item_id],
-                                order_id: order_ids[random_order_id],
-                                quantity: random_quantity,
-                                cost: (StoreItem.find_by(id: random_store_item_id).price).to_d * (random_quantity).to_d)
-    order_item.save
+20.times do |n|
+    #Generates a random index in member_ids
+    random_member_id_index = rand(1..Member.count)
+    random_member = Member.find(random_member_id_index)
+    
+    new_order = random_member.orders.build(is_paid: false) #add sub_total & total
+    
+    new_order.save
+    
+    5.times do |m|
+        random_store_item_id = rand(0..(StoreItem.count - 1))
+        #random_order_id = rand(0..(n - 1))   #The number of orders there will be
+        random_quantity = rand(1..4)
+        order_item = new_order.order_items.build(store_item_id: store_item_ids[random_store_item_id],
+                                    quantity: random_quantity)
+                                    #unit_price: StoreItem.find_by(id: random_store_item_id).price.to_d)
+                                    #sub_total: (unit_price) * (random_quantity).to_d)
+        #new_order.order_items.push(order_item)
+        order_item.save
+    end
+    
 end
+
+sample_order_item_array = [store_item_ids, order_ids]
 
 
 #Create 10 registrations for each lesson
 
 #Satisfy the unique registration index (i.e no matching pairs for member_id & lesson_id)
-subscription_ids = (1..Subscription.count).to_a
+member_ids = (1..Member.count).to_a
 lesson_ids = (1..Lesson.count).to_a
 
-sample_reg_array = [subscription_ids, lesson_ids]
+sample_reg_array = [member_ids, lesson_ids]
 
 #Creates unique Cartesian product pairs 
-registration_arrays = sample_reg_array.combination(2).flat_map{ |a, b| a.product(b) }.sort
+registration_arrays = sample_reg_array.combination(2).flat_map{ |a, b| a.product(b) }.sort  #Verified unique
 registration_arrays.each do |registration_array|
-    reg_index = rand(0..(registration_arrays.length - 1))
+    #reg_index = rand(0..(registration_arrays.length - 1))
+    
+    member = Member.find(registration_arrays[registration_arrays.find_index(registration_array)][0])
+
+    random_subscription = member.subscriptions[rand(0..(member.subscriptions.length - 1))]
         
-    Registration.create!( subscription_id: registration_arrays[reg_index][0],
-                          lesson_id: registration_arrays[reg_index][1],
-                          lesson_date: Lesson.find_by(id: registration_arrays[reg_index][1]).date)
+    registration = Registration.new( subscription_id: random_subscription.id,
+                          lesson_id: registration_arrays[registration_arrays.find_index(registration_array)][1],
+                          lesson_date: Lesson.find(registration_arrays[registration_arrays.find_index(registration_array)][1]).date)
+    registration.save
 end
+
 
 
 
