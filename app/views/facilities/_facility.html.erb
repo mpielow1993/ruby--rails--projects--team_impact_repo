@@ -1,15 +1,16 @@
 <section>
 <div class="col-md-4">
 	<div class="card">
-	<div class="image">
-		<a href="/facilities/<%= facility.id %>">
-			<img src="/assets/facilities_images/<%= replace_char(facility.name, " ", "_") %>.jpg" alt="<%= facility.name %>">
-		</a>
-		<%-#<%= link_to (image_tag("/programmes_images/Programmes_#{programme.name}.jpg", programme_path(programme), alt: programme.name ) -%>
-		<div class="middle">
-			<div class="text"><%= facility.name %></div>
+		<div class="image">
+			<%= link_to(image_tag("#{facility.facility_avatar}"), facility_path(facility), alt: facility.name) %>
+			<div class="middle">
+				<div class="text"><%= facility.name %></div>
+			</div>
 		</div>
+		<% if current_member.admin? %>
+			<%= link_to "Edit", edit_facility_path(facility), class: "btn btn-primary" %>
+			<%= link_to "Remove", facility_path(facility), method: :delete, data: { confirm: "Are you sure you want to remove facility '#{facility.name}'" }, class: "btn btn-danger" %>
+		<% end %>
 	</div>
-</div>
 </div>
 <section>

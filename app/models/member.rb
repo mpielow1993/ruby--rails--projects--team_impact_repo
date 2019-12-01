@@ -7,10 +7,11 @@ class Member < ApplicationRecord
     #Ensuring that a member's newswire posts are destroyed along with the member
     has_many :newswire_posts, dependent: :destroy
     has_many :comments, through: :newswire_posts, dependent: :destroy
-    has_many :lessons, through: :registrations
-    has_many :orders
-    has_many :subscriptions
+    has_many :orders, dependent: :destroy
+    has_many :subscriptions, dependent: :destroy
     has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions#, class_name: "StoreItem", source: :store_item
+    has_many :registrations, through: :subscriptions, dependent: :destroy
+    has_many :lessons, through: :registrations
     
     #'before_save' callback downcases all user_names before saving to the DB
     #i.e if one new user enters 'Username' and afterwards another user enters 'userNaME', 
@@ -104,6 +105,11 @@ class Member < ApplicationRecord
         MemberMailer.account_activation(self).deliver_now 
     end
     
+    # Returns true if a password reset has expired. 
+    def password_reset_expired? 
+        reset_sent_at < 2.hours.ago 
+    end
+    
     #Adding password reset methods to the Member model
     
     # Sets the password reset attributes. 
@@ -117,18 +123,48 @@ class Member < ApplicationRecord
         MemberMailer.password_reset(self).deliver_now 
     end
     
-    #Returns true if a subscription (with a specific member) is registered for a certain class
-    def registered_to(lesson)
+    #If a specific member(with a specific member) is registered for a specific class, returns true along with the subscription used to register for it.
+    #If said member is not registered, returns false
+    
+    def is_registered_and_subscription_used(lesson)
         counter = 0
-        subscription_id = ""
-        self.subscriptions.each do |subscription|
-            if subscription.used_to_register_for(lesson)
-                subscription_id += "#{subscription.id}"
+        name = ""
+        array = []
+        lesson.registrations.each do |registration|
+            if registration.member.id == self.id
+                name += registration.subscription.subscription_name
                 counter += 1
             end
         end
-        counter > 0 ? Subscription.find(subscription_id) : "None" 
-    end    
+        if counter > 0
+            array.push(true, name)
+            return array
+        else
+            return false
+        end
+    end   
+    
+    def already_registered_to(lesson)
+        counter = 0
+        self.registrations.each do |registration|
+            if registration.lesson_id == lesson.id
+                counter += 1
+            end
+        end
+        counter > 0 ? true : false
+    end
+    
+    def subscription_used_to_register_for(lesson)
+        if self.already_registered_to(lesson) == true
+           lesson.registrations.each do |registration|
+                self.subscriptions.each do |subscription|
+                    if registration.subscription == subscription
+                        return subscription
+                    end
+                end
+            end
+        end
+    end
     
     private
     

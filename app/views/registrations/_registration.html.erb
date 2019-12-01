@@ -1,0 +1,7 @@
+
+        <ul style="background-color: #000000; border: 1px solid #FFD700; margin-bottom: 2em; padding-bottom: 2em;">
+            <li class="lesson-list-item" style="color: #FFFFFF"><h3>Registered with Subscription: </h3><%= registration.subscription.subscription_name %></li> 
+            <li class="lesson-list-item"><%= button_to "Unregister", 
+            lesson_registration_path(registration.lesson, registration),
+            method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %></li>
+        </ul>

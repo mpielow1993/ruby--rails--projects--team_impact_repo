@@ -7,9 +7,10 @@ class NewswirePostsController < ApplicationController
         @member = Member.find(params[:member_id])
         #Show the admin's own posts
         @newswire_posts = @member.newswire_posts.paginate(page: params[:page])
+        @newswire_post = NewswirePost.new
         
         #@newswire_post defined to allow the current logged in user to create a new micropost
-        @newswire_post = @member.newswire_posts.build #if current_member.admin?
+        #@newswire_post = @member.newswire_posts.build #if current_member.admin?
         
         #THE PROBLEM LIES WITHIN THE ASSOCIATION ABOVE - LOOK UP ASSOCIATIONS FOR NESTED RESOURCES
     end

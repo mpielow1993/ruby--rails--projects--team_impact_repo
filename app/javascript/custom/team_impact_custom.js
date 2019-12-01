@@ -9,11 +9,3 @@ $(function() {
 
 });
 
-
-
-jQuery(function() {
-  // $('#current_member_subscription_id').parent().hide();
-  let subscriptions = $('#current_member_subscription_id :selected').html();
-  // console.log(subscriptions)
-  return subscriptions
-});

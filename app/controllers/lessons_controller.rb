@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-    before_action :logged_in_member, only: [:index, :show, :create, :new, :update, :destroy, :public_timetable, :search_public_timetable]
+    before_action :logged_in_member, only: [:index, :show, :create, :new, :update, :destroy, :public_timetable, :private_timetable, :search_timetable]
   
   def new
     #SAVE FOR /ADMIN
@@ -18,26 +18,31 @@ class LessonsController < ApplicationController
   end
 
   #An index view for admins only
-  def index
+  def lessons_index
     #SAVE FOR /ADMIN
+  end
+  
+  def public_timetable
+    @date = current_lesson_date
+    @subscription = current_subscription
+    @lessons = Array.wrap(Lesson.where(date: @date))
+    @registration = Registration.new
+  end
+  
+  def private_timetable
+    @date = current_lesson_date
+    @lessons = Array.wrap(current_member.lessons.where(date: @date))
+  end
+  
+  def search_timetable
+    session[:lesson_date] = params[:search][:lesson_date]
+    session[:subscription_id] = params[:search][:subscription_id]
+    redirect_to request.referrer
   end
 
   def show
-  end
-  
-  #Defaults to the current date
-  def public_timetable
-    @all_lessons = Lesson.all
-    @date = Date.current
-    @lessons = @all_lessons.where(date: @date).paginate(page: params[:page])
-  end
-  
-  def search_public_timetable
-    @all_lessons = Lesson.all
-    @date = params[:search][:lesson_date]
-    @lessons = @all_lessons.where(date: @date).paginate(page: params[:page])
-    @subscription = Subscription.find(params[:search][:subscription_id])
-    @registration = Registration.where(subscription_id: @subscription.id)
+    @date = current_lesson_date
+    @lesson = Lesson.find(params[:id])
   end
   
   

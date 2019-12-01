@@ -1,0 +1,38 @@
+<% provide(:title, "Private Timetable - #{current_member.first_name}" + " " + "#{current_member.last_name}") %> 
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+    <h2><%= @date %></h2>
+    <div class="col-lg-8">
+        <div class="form-wrapper">
+            <h2>Search Date</h2>
+            <%= form_for :search, url: member_private_timetable_path(current_member), method: :post do |f| %>
+                
+                <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
+                
+                <%= f.submit "Search", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+        <div class="well">
+            <%-#The members index with pagination-%>
+            <table class="table-timetable">
+                <thead>
+                    <tr>
+                        <td>Time</td>
+                        <td>Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if @lessons != [] %>
+                        <% @lessons.each do |lesson| %> 
+                            <tr>
+                                <td><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
+                                <td><%= render 'lessons/lesson', lesson: lesson %></td>
+                            </tr>
+                        <% end %>
+                    <% end %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

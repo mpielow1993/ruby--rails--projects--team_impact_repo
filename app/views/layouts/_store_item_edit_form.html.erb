@@ -1,0 +1,28 @@
+<%= form_for (@store_item), url: store_item_path(@store_item), method: :patch do |f| %> 
+
+    <%-#Make this a multi-part form to handle file attachments%>
+    <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
+                        
+    <%= f.label :type, "Type" %>
+    <%= f.select :type, ["Membership", "NonMembership"], class: "form-control" %> 
+            
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "form-control" %> 
+                    
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, class: "form-control" %> 
+
+    <%= f.label :price, "Price" %>
+    <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '.', unit: '€'), step: 0.01 %>
+    
+    <%= f.label :store_item_avatar, "Store Product Avatar" %> 
+    <%= f.file_field :store_item_avatar, class: "form-control" %> 
+    
+    <% if @store_item.store_item_avatar? %>
+        <%= f.label :remove_store_item_avatar, "Remove Store Product Avatar" %> 
+        <%= f.check_box :remove_store_item_avatar %> 
+    <% end %>
+                        
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
+                        
+<% end %>

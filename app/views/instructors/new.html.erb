@@ -1,2 +1,11 @@
-<h1>Instructors#new</h1>
-<p>Find me in app/views/instructors/new.html.erb</p>
+<% provide(:title, "New Instructor") %>
+<% provide(:button_text, "Create Instructor") %>
+<section>
+	<h1><%= yield(:title) %></h1>
+</section>
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3"> 
+        <%= render 'layouts/instructor_form' %>
+    </div> 
+</div>
+

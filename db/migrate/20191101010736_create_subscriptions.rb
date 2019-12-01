@@ -10,6 +10,5 @@ class CreateSubscriptions < ActiveRecord::Migration[6.0]
       t.timestamps
     end
     add_foreign_key :subscriptions, :store_items, column: :membership_id
-    add_index :subscriptions, [:member_id, :membership_id], unique: true
   end
 end

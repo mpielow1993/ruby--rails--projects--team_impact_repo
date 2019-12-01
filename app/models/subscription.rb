@@ -2,7 +2,7 @@ class Subscription < ApplicationRecord
   belongs_to :membership
   belongs_to :member
   
-  has_many :registrations
+  has_many :registrations, dependent: :destroy
   
   before_save :set_subscription_name
   
@@ -10,12 +10,8 @@ class Subscription < ApplicationRecord
   validates :member_id, presence: true
   
   validate :check_is_active
-  validates_uniqueness_of :membership_id, scope: :member_id
+  #validates_uniqueness_of :membership_id, scope: :member_id
   
-  def used_to_register_for(lesson)
-    registration = Registration.find_by(lesson_id: lesson.id, subscription_id: self.id)
-    !registration.nil? ? true : false
-  end
   
   private
   
@@ -24,11 +20,6 @@ class Subscription < ApplicationRecord
     end
     
     #implement the registrations count in a before_save in the subscriptions controller
-    
-    # Returns true if a password reset has expired. 
-    def password_reset_expired? 
-        reset_sent_at < 2.hours.ago 
-    end
     
     #Re-label's the name of the subscription's associated membership if a member already has the same kind
     

@@ -1,2 +1,10 @@
-<h1>Facilities#new</h1>
-<p>Find me in app/views/facilities/new.html.erb</p>
+<% provide(:title, "New Facility") %>
+<% provide(:button_text, "Create Facility") %>
+<section>
+	<h1><%= yield(:title) %></h1>
+</section>
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3"> 
+        <%= render 'layouts/facility_form' %>
+    </div> 
+</div>

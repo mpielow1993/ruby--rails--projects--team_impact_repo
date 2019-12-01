@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   belongs_to :member
   
   has_many :store_items, through: :order_items
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   
   validates :total, presence: true, numericality: { greater_than_or_equal_to: 0  }
   #validates :is_paid, presence: true, default

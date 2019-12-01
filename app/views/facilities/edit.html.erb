@@ -1,2 +1,8 @@
-<h1>Facilities#edit</h1>
-<p>Find me in app/views/facilities/edit.html.erb</p>
+<% provide(:title, "Edit Facility") %> 
+<% provide(:button_text, "Save Changes") %>
+    <h1>Update Facility</h1> 
+        <div class="row"> 
+            <div class="col-md-6 col-md-offset-3"> 
+                <%= render 'layouts/facility_form' %>
+            </div>
+        </div>

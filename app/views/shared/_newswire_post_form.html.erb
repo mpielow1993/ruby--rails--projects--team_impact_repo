@@ -1,4 +1,4 @@
-<%= form_for [@member, @newswire_post] do |f| %> 
+<%= form_for [@member, @newswire_post], method: :post do |f| %> 
     <%= render 'shared/error_messages', object: f.object %> 
     <div class="field"> 
         <%= f.text_area :content, placeholder: "Add Newswire Post..." %> 

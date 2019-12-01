@@ -3,13 +3,16 @@
 	<h2 style="text-align: center; margin-top: 2em;"><%= @instructor.role %></h2>
 </section>
 <section class="center">
-	<%= image_tag("instructors_images/#{@instructor.first_name}_#{@instructor.last_name}.jpg", 
-	alt: "#{@instructor.first_name} #{@instructor.last_name}", width: "60%", height: "800vh") %>
+	<%= instructor_big_image_for(@instructor) %>
 </section>
 	<div class="container">
 	    <div class="row">		
 	       <section>
-	           <%= render "instructors/#{@instructor.first_name.downcase}_#{@instructor.last_name.downcase}" %>
+	       		<% if File.exist?(@instructor_description_url) %>
+	       			<%= render "instructors/#{@instructor.first_name.downcase}_#{@instructor.last_name.downcase}" %>
+	       		<% else %>
+	       			<%= render 'layouts/default_description', object: @instructor.first_name + " " + @instructor.last_name %>
+	       		<% end %>
 	       </section>
 	   </div>
 	</div>

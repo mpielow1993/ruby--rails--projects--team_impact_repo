@@ -1,2 +1,10 @@
-<h1>Programmes#new</h1>
-<p>Find me in app/views/programmes/new.html.erb</p>
+<% provide(:title, "New Programme") %>
+<% provide(:button_text, "Create Programme") %>
+<section>
+	<h1><%= yield(:title) %></h1>
+</section>
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3"> 
+        <%= render 'layouts/programme_form' %>
+    </div> 
+</div>

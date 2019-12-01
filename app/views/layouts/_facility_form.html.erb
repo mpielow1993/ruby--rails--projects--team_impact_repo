@@ -1,0 +1,19 @@
+<%= form_for(@facility) do |f| %> 
+
+<%-#Make this a multi-part form to handle file attachments%>
+    <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
+                        
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "form-control" %> 
+    
+    <%= f.label :facility_avatar, "Facility Avatar" %> 
+    <%= f.file_field :facility_avatar, class: "form-control" %> 
+    
+    <% if @facility.facility_avatar? %>
+        <%= f.label :remove_facility_avatar, "Remove Facility Avatar" %> 
+        <%= f.check_box :remove_facility_avatar %> 
+    <% end %>
+                        
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
+                        
+<% end %>

@@ -2,6 +2,7 @@ class NewswirePost < ApplicationRecord
   belongs_to :member
   has_many :comments, dependent: :destroy
   has_one_attached :image
+  
   #Order the newswire posts with default scope
   default_scope -> { order(created_at: :desc) }
   

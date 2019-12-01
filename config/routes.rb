@@ -1,26 +1,12 @@
 Rails.application.routes.draw do
-  get 'orders/index'
-  get 'orders/show'
-  get 'orders/new'
-  get 'orders/create'
-  get 'orders/edit'
-  get 'orders/update'
-  get 'orders/destroy'
-  get 'store_items/index'
-  get 'store_items/show'
-  get 'store_items/create'
-  get 'store_items/new'
-  get 'store_items/update'
-  get 'store_items/edit'
-  get 'store_items/delete'
-  get 'enquiries/create'
-  get 'comments/index'
-  get 'comments/create'
-  get 'comments/destroy'
-  get 'password_resets/new'
-  get 'password_resets/edit'
-  get 'sessions/new'
-  get 'members/new'
+
+  get 'subscriptions/index'
+  get 'subscriptions/show'
+  get 'subscriptions/create'
+  get 'subscriptions/new'
+  get 'subscriptions/update'
+  get 'subscriptions/edit'
+  get 'subscriptions/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   get '/about_us', to: 'static_pages#about_us'
@@ -33,20 +19,14 @@ Rails.application.routes.draw do
   post '/log_in', to: 'sessions#create'
   delete '/log_out', to: 'sessions#destroy'
   
-  get 'lessons/public_timetable', to: 'lessons#public_timetable'
-  post 'lessons/public_timetable', to: 'lessons#search_public_timetable'
-  
   resources :members do
-    
-    #resources :registrations, only: [:index, :destroy, :show]
-    #post '/registrations', to: 'registrations#search'
-    #post '/registrations/create', to: 'registrations#create'
     
     resources :newswire_posts do
       resources :comments, only: [:destroy, :show, :index]
     end
     
-    resources :subscriptions do
+    resources :subscriptions do 
+      get '/registrations', to: 'subscriptions#show'
       resources :registrations, only: [:create, :destroy]
     end
     
@@ -56,6 +36,9 @@ Rails.application.routes.draw do
     end
     
     #patch 'orders/:id', to: 'order_items#update'
+    get '/private_timetable', to: 'lessons#private_timetable'
+    post '/private_timetable', to: 'lessons#search_timetable'
+    
   end
   
   post 'members/:member_id/newswire_posts/:id/comments', to: 'comments#create'
@@ -65,47 +48,23 @@ Rails.application.routes.draw do
   #Adding a resource for password resets
   resources :password_resets, only: [:new, :create, :edit, :update]
   
-  resources :programmes, only: [:index, :create, :edit, :update, :destroy, :show]
+  resources :programmes
   
-  resources :instructors, only: [:index, :create, :edit, :update, :destroy, :show]
+  resources :instructors
   
-  resources :facilities, only: [:index, :create, :edit, :update, :destroy, :show]
+  resources :facilities
   
   resources :testimonials, only: [:index, :create, :edit, :update, :destroy, :show]
   
   resources :store_items
-
   
-  resources :non_memberships
-  
-  
+  resources :lessons
   
 
-
-  
-  post '/testimonials', to: 'testimonials#create'
-  
-  #get 'programmes/boxing', to: 'programmes#boxing'
-  #get 'programmes/bjj', to: 'programmes#bjj'
-  #get 'programmes/fightingfit', to: 'programmes#fightingfit'
-  #get 'programmes/kids', to: 'programmes#kids'
-  #get 'programmes/mma', to: 'programmes#mma'
-  #get 'programmes/muaythai', to: 'programmes#muaythai'
-  #get 'programmes/teens', to: 'programmes#teens'
-  #get 'programmes/women', to: 'programmes#women'
-  #get 'programmes/wrestling', to: 'programmes#wrestling'
-  #get 'programmes/privateclasses', to: 'programmes#privateclasses'
-  
-  
-  #namespace :members do
-    #resources :newswire_posts
-  #end
-  
   #Adding a route for the all newswire posts viewable by all members on the newswire
   get '/newswire', to: 'static_pages#newswire'
-  #post '/newswire', to: 'static_pages#create'
 
-  
-  
+  get '/public_timetable', to: 'lessons#public_timetable'
+  post '/public_timetable', to: 'lessons#search_timetable'
   
 end

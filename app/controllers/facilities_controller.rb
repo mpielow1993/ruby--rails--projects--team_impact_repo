@@ -7,19 +7,32 @@ class FacilitiesController < ApplicationController
     @facility = Facility.create!(facility_params)
     if @facility.save
       flash[:success] = "Facility successfully created"
+      redirect_to facilities_path
+    else
+      render 'new'
     end
   end
 
   def edit
-    #Future implementation
+    @facility = Facility.find(params[:id])
   end
 
   def update
-    #Future implementation
+    @facility = Facility.find(params[:id])
+    @facility.update(facility_params)
+    if @facility.save
+      flash[:success] = "Facility successfully updated"
+      redirect_to facility_path(@facility)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    #Future implementation
+    @facility = Facility.find(params[:id])
+    @facility.destroy
+    flash[:success] = "Facility successfully destroyed"
+    redirect_to facilities_path
   end
 
   def index
@@ -28,6 +41,7 @@ class FacilitiesController < ApplicationController
 
   def show
     @facility = Facility.find(params[:id])
+    @facility_description_url = "app/views/facilities/_#{replace_char(@facility.name.downcase, " ", "_")}.html.erb"
   end
   
   private

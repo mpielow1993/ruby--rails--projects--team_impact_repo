@@ -1,0 +1,30 @@
+<% provide(:title, "#{@subscription.subscription_name}") %> 
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="well">
+            <%-#The members index with pagination-%>
+            <table class="table-timetable">
+                <thead>
+                    <tr>
+                        <td>Registration</td>
+                        <td>Remove Link</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if @registrations != [] %>
+                        <% @registrations.each do |registration| %> 
+                            <tr>
+                                <td><%= render 'lessons/lesson', lesson: registration.lesson %></td>
+                                <% if @subscription.is_active %>
+                                    <td><%= link_to "Unregister", member_subscription_registration_path(@member, @subscription, registration), method: :delete, class: "btn btn-danger" %></td>
+                                <% end %>
+                            </tr>
+                        <% end %>
+                    <% end %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

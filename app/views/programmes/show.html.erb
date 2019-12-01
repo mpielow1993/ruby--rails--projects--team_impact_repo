@@ -1,10 +1,16 @@
 <section>
 	<h1><%= @programme.name %></h1>
 </section>
-<section>
-	<%= image_tag("programmes_images/#{replace_char(@programme.name, " ", "_")}_bigimg_complete.jpg", alt: @programme.name, width: "100%", height: "auto") %>
+<section class="center">
+	<%= programme_big_image_for(@programme) %>
 </section>
 	<div class="container">
-	    <%= render "programmes/#{replace_char(@programme.name.downcase, " ", "_")}" %>
+		<div class="row">
+	       	<% if File.exist?(@programme_description_url) %>
+	       		<%= render "programmes/#{replace_char(@programme.name.downcase, " ", "_")}" %>
+	       	<% else %>
+	       		<%= render 'layouts/default_description', object: @programme.name %>
+	       	<% end %>
+		</div>
 	</div>
 </div>

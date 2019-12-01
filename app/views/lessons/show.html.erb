@@ -1,2 +1,52 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
+<% provide(:title, 'Public Timetable') %> 
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+    <h2><%= @date %></h2>
+    <div class="col-lg-8">
+        <div class="form-wrapper">
+            <h2>Search Date</h2>
+        </div>
+        <div class="well">
+            <%-#The members index with pagination-%>
+                <table class="table-timetable">
+                    <thead>
+                        <tr>
+                            <td>Member</td>
+                            <td>Registration</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if !@lesson.nil? %>
+                            <% @lesson.registrations.each do |registration| %> 
+                                <% if current_member.admin? || registration.member == current_member %>
+                                    <tr>
+                                        <td><%= render 'members/member', member: registration.member %></td>
+                                        <td><%= render 'registrations/registration', registration: registration %></td>
+                                    </tr>
+                                <% end %> 
+                            <% end %>
+                            <tr>
+                                <td colspan="2">Current Count: <%= @lesson.registrations.count %></td>    
+                            <tr>
+                            <% if current_member.is_registered_and_subscription_used(@lesson) == false %>
+                                <tr>
+                                    <td>You are currently not registered for this lesson</td>
+                                    <td>If you wish to register, please select one of your subscriptions from the drop-down and press "Register"</td>
+                                    <td>
+                                        <%= form_for :search, url: lesson_registrations_path(@lesson), method: :post do |f| %>
+                
+                                            <%= f.label :subscription_id %>
+                                            <%= f.collection_select :subscription_id, current_member.subscriptions.order(:subscription_name), :id, :subscription_name, { include_blank: false }, id: "current_member_subscription_id" %>
+                
+                                            <%= f.submit "Register", class: "btn btn-primary" %>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>

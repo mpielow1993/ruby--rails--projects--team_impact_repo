@@ -1,0 +1,37 @@
+<% provide(:title, "Your Membership Subscriptions") %> 
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="well">
+            <%-#The members index with pagination-%>
+            <table class="table-timetable">
+                <thead>
+                    <tr>
+                        <td>Subscription</td>
+                        <td>Membership</td>
+                        <td>Registrations</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if @subscriptions != [] %>
+                        <% @subscriptions.each do |subscription| %> 
+                            <tr>
+                                <td><%= subscription.subscription_name %></td>
+                                <td><%= subscription.membership.name %></td>
+                                <td><%= link_to "View", member_subscription_registrations_path(@member, subscription), class: "btn btn-primary" %></td>
+                                <% if subscription.is_active %>
+                                    <td>ACTIVE</td>
+                                <% else %>
+                                    <td>EXPIRED ON <%= subscription.expiry_date.to_date %></td>
+                                <% end %>
+                                <td><%= link_to "Remove", member_subscription_path(@member, subscription), method: :delete, class: "btn btn-danger" %></td>
+                            </tr>
+                        <% end %>
+                    <% end %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

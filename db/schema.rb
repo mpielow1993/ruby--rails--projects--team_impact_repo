@@ -144,11 +144,11 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   create_table "registrations", force: :cascade do |t|
     t.integer "lesson_id", null: false
     t.integer "subscription_id", null: false
-    t.date "lesson_date"
+    t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lesson_id", "subscription_id"], name: "index_registrations_on_lesson_id_and_subscription_id", unique: true
     t.index ["lesson_id"], name: "index_registrations_on_lesson_id"
+    t.index ["member_id"], name: "index_registrations_on_member_id"
     t.index ["subscription_id"], name: "index_registrations_on_subscription_id"
   end
 
@@ -170,7 +170,6 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id", "membership_id"], name: "index_subscriptions_on_member_id_and_membership_id", unique: true
     t.index ["member_id"], name: "index_subscriptions_on_member_id"
     t.index ["membership_id"], name: "index_subscriptions_on_membership_id"
   end
@@ -196,6 +195,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   add_foreign_key "order_items", "store_items"
   add_foreign_key "orders", "members"
   add_foreign_key "registrations", "lessons"
+  add_foreign_key "registrations", "members"
   add_foreign_key "registrations", "subscriptions"
   add_foreign_key "subscriptions", "members"
   add_foreign_key "subscriptions", "store_items", column: "membership_id"

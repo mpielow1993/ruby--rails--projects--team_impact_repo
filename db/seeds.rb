@@ -796,15 +796,15 @@ sample_reg_array = [member_ids, lesson_ids]
 #Creates unique Cartesian product pairs 
 registration_arrays = sample_reg_array.combination(2).flat_map{ |a, b| a.product(b) }.sort  #Verified unique
 registration_arrays.each do |registration_array|
-    #reg_index = rand(0..(registration_arrays.length - 1))
+    reg_index = rand(0..(registration_arrays.length - 1))
     
     member = Member.find(registration_arrays[registration_arrays.find_index(registration_array)][0])
 
     random_subscription = member.subscriptions[rand(0..(member.subscriptions.length - 1))]
         
-    registration = Registration.new( subscription_id: random_subscription.id,
-                          lesson_id: registration_arrays[registration_arrays.find_index(registration_array)][1],
-                          lesson_date: Lesson.find(registration_arrays[registration_arrays.find_index(registration_array)][1]).date)
+    registration = Registration.new( lesson_id: registration_arrays[registration_arrays.find_index(registration_array)][1],
+                                    subscription_id: random_subscription.id,
+                                    member_id: random_subscription.member_id )
     registration.save
 end
 
