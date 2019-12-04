@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "newswire_post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"member_id\", \"created_at\"", name: "find_comments_by_member"
-    t.index "\"member_id\", \"newswire_post_id\", \"created_at\"", name: "find_unique_comment", unique: true
-    t.index ["newswire_post_id", "created_at"], name: "find_comments_by_newswire_post"
+    t.index "\"member\", \"created_at\"", name: "find_comments_by_member"
+    t.index "\"member\", \"newswire_post\", \"created_at\"", name: "find_unique_comment", unique: true
+    t.index "\"newswire_post\", \"created_at\"", name: "find_comments_by_newswire_post"
     t.index ["newswire_post_id"], name: "index_comments_on_newswire_post_id"
   end
 
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "facility_id", null: false
     t.integer "programme_id", null: false
     t.string "level"
-    t.index ["date", "start_time", "facility_id"], name: "index_lessons_on_date_and_start_time_and_facility_id", unique: true
+    t.index "\"date\", \"start_time\", \"facility\"", name: "index_lessons_on_date_and_start_time_and_facility", unique: true
     t.index ["facility_id"], name: "index_lessons_on_facility_id"
     t.index ["instructor_id"], name: "index_lessons_on_instructor_id"
     t.index ["programme_id"], name: "index_lessons_on_programme_id"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id", "created_at"], name: "index_newswire_posts_on_member_id_and_created_at"
+    t.index "\"member\", \"created_at\"", name: "index_newswire_posts_on_member_and_created_at"
     t.index ["member_id"], name: "index_newswire_posts_on_member_id"
   end
 

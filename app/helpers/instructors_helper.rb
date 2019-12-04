@@ -2,9 +2,9 @@ module InstructorsHelper
     def instructor_thumb_image_for(instructor)
         image_uploader = ImageUploader.new
         if instructor.instructor_avatar?
-            image_tag("#{instructor.instructor_avatar.thumb}", alt: instructor.first_name + " " + instructor.first_name)
+            image_tag("#{instructor.instructor_avatar.thumb}", alt: instructor.first_name + " " + instructor.first_name, width: "100%", height: "150vh" )
         else
-            image_tag(image_uploader.default_url, alt: instructor.first_name + " " + instructor.first_name, size: 80)
+            image_tag(image_uploader.default_url, alt: instructor.first_name + " " + instructor.first_name, width: "100%", height: "150vh" )
         end
     end
     

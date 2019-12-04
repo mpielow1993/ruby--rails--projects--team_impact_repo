@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'subscriptions/index'
-  get 'subscriptions/show'
-  get 'subscriptions/create'
-  get 'subscriptions/new'
-  get 'subscriptions/update'
-  get 'subscriptions/edit'
-  get 'subscriptions/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   get '/about_us', to: 'static_pages#about_us'
@@ -21,11 +14,14 @@ Rails.application.routes.draw do
   
   resources :members do
     
+    get '/private_timetable', to: 'lessons#private_timetable'
+    post '/private_timetable', to: 'lessons#search_timetable'
+    
     resources :newswire_posts do
-      resources :comments, only: [:destroy, :show, :index]
+      resources :comments, only: [:destroy, :show, :index, :create]
     end
     
-    resources :subscriptions do 
+    resources :subscriptions, only: [:new, :create, :edit, :update, :destroy, :index] do
       get '/registrations', to: 'subscriptions#show'
       resources :registrations, only: [:create, :destroy]
     end
@@ -35,13 +31,8 @@ Rails.application.routes.draw do
       resources :charges
     end
     
-    #patch 'orders/:id', to: 'order_items#update'
-    get '/private_timetable', to: 'lessons#private_timetable'
-    post '/private_timetable', to: 'lessons#search_timetable'
-    
   end
   
-  post 'members/:member_id/newswire_posts/:id/comments', to: 'comments#create'
   #Adding a route for the Account Activations 'edit' action
   resources :account_activations, only: [:edit]
   
@@ -54,12 +45,13 @@ Rails.application.routes.draw do
   
   resources :facilities
   
-  resources :testimonials, only: [:index, :create, :edit, :update, :destroy, :show]
+  resources :testimonials, only: [:index, :create, :new, :update, :destroy, :show]
   
   resources :store_items
   
-  resources :lessons
-  
+  resources :lessons do
+    resources :registrations, only: [:create, :destroy]
+  end
 
   #Adding a route for the all newswire posts viewable by all members on the newswire
   get '/newswire', to: 'static_pages#newswire'

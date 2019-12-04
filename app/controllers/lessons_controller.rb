@@ -1,30 +1,44 @@
 class LessonsController < ApplicationController
     before_action :logged_in_member, only: [:index, :show, :create, :new, :update, :destroy, :public_timetable, :private_timetable, :search_timetable]
+    before_action :admin_member, only: [:index, :show, :create, :new, :update, :destroy]
   
   def new
-    #SAVE FOR /ADMIN
+    @lesson = Lesson.new
   end
 
   def create
-    #SAVE FOR /ADMIN
+    @lesson = Lesson.create(lesson_params)
+    if @lesson.save
+      flash[:success] = "Lesson created successfully"
+      redirect_to lessons_path
+    else
+      render 'new'
+    end
   end
 
   def edit
-    #SAVE FOR /ADMIN
+    @lesson = Lesson.find(params[:id])
   end
 
   def update
-    #SAVE FOR /ADMIN
+    @lesson = Lesson.find(params[:id])
+    @lesson.update(lesson_params)
+    if @lesson.save
+      flash[:success] = "Lesson updated successfully"
+      redirect_to lessons_path
+    else
+      render 'edit'
+    end
   end
 
   #An index view for admins only
-  def lessons_index
-    #SAVE FOR /ADMIN
+  def index
+    @lessons = Lesson.all.paginate(page: params[:page])
   end
   
   def public_timetable
     @date = current_lesson_date
-    @subscription = current_subscription
+    #@subscription = current_subscription
     @lessons = Array.wrap(Lesson.where(date: @date))
     @registration = Registration.new
   end
@@ -45,6 +59,12 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
   
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+    flash[:success] = "Lesson successfully destroyed"
+    redirect_to lessons_path
+  end
   
   private
   
@@ -53,7 +73,8 @@ class LessonsController < ApplicationController
       redirect_to(root_url) unless current_member.admin? 
     end
     
-    def subscription_params
-      params.require(:subscription).permit(:member_id, :membership_id)
+    def lesson_params
+      params.require(:lesson).permit(:date, :start_time, :end_time, :instructor_id, :facility_id, :programme_id, :level)
     end
+    
 end

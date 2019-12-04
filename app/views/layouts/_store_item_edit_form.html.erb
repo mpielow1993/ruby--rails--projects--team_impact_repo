@@ -1,5 +1,5 @@
 <%= form_for (@store_item), url: store_item_path(@store_item), method: :patch do |f| %> 
-
+    
     <%-#Make this a multi-part form to handle file attachments%>
     <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
                         

@@ -1,0 +1,10 @@
+<% provide(:title, "Lessons") %>
+	<div class="row">
+		<section>
+			<h1><%= yield(:title) %></h1>
+		</section>
+		<% @lessons.each do |lesson| %>
+			<%= render 'lessons/lesson', lesson: lesson %>
+		<% end %>
+		<%= will_paginate @lessons %>
+	</div>

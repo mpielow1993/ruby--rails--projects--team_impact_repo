@@ -8,6 +8,6 @@ class CreateLessons < ActiveRecord::Migration[6.0]
       t.references :facility, null: false, foreign_key: true
       t.references :programme, null: false, foreign_key: true
     end
-    add_index :lessons, [:date, :start_time, :facility_id], unique: true
+    add_index :lessons, [:date, :start_time, :facility], unique: true
   end
 end

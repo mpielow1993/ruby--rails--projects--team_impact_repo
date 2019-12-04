@@ -19,11 +19,11 @@ class Lesson < ApplicationRecord
   #Each class starts and finishes at at "[hour] o'clock"
   
   #Custom validation methods (see below)
-  validate :check_lesson_time_ending, :correct_end_time, :check_lesson_wrt_date_start_time_and_facility
+  validate :correct_end_time
   
   validates :start_time, presence: true
   #Checks that only a start_time with a value of at least 24 hours more than the current_time (i.e lesson creation time) can be entered
-  validates_date :date, on_or_after: :tomorrow, on_or_after_message: "Date must be at least 1 day in advance from current date"
+  validates_date :date, on_or_after: :tomorrow, on_or_after_message: "must be at least 1 day in advance from current date"
   
   #Range of allowable start_time values
   validates_time :start_time, on_or_after: Time.zone.parse("6:00am"), on_or_after_message: 'must be after opening time',
@@ -37,6 +37,8 @@ class Lesson < ApplicationRecord
   VALID_LEVELS = ["Beginner", "Intermediate", "Advanced", "Competition"]
                             
   validates :level, inclusion: { in: VALID_LEVELS }
+  
+  before_save :match_times_to_date
   
   
   def expired?
@@ -68,12 +70,13 @@ class Lesson < ApplicationRecord
     
     #Checks that one lesson cannot have the same facility as another lesson, if both lesson instances have the same date and start time
     #Here, 'wrt' is shorthand for 'with resect to'
-    def check_lesson_wrt_date_start_time_and_facility
-      others = Lesson.find_by(date: date, start_time: start_time, facility_id: facility_id)
-      unless others.nil?
-        errors.add(:base, "Start Date, Start Time and Facility in combination must be unique")
-      end
-    end
+    #def check_lesson_wrt_date_start_time_and_facility
+    #    Lesson.all.each do |lesson|
+    #      if ((self.date == lesson.date) && (self.start_time == lesson.start_time) && (self.facility_id == lesson.facility_id))
+    #        errors.add(:base, "Lesson with id = '#{lesson.id}' has the same Start Time, Date and Facility") 
+    #      end
+    #    end
+    #end
     
     #Method that parses the date string entered in the timeable
     def self.search(search)
@@ -83,6 +86,11 @@ class Lesson < ApplicationRecord
       if search
         date = Lesson.where(date: search)
       end
+    end
+    
+    def match_times_to_date
+      self.start_time = DateTime.parse(self.date.to_s + " " + self.start_time.hour.to_s)
+      self.end_time = DateTime.parse(self.date.to_s + " " + self.end_time.hour.to_s)
     end
     
 end

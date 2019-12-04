@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :newswire_post
-  has_one :member, through: :newswire_post
+  #has_one :member, through: :newswire_post
+  belongs_to :member
   has_one_attached :image
   
   default_scope -> { order(created_at: :asc) }

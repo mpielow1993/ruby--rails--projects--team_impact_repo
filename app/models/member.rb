@@ -6,11 +6,11 @@ class Member < ApplicationRecord
     mount_uploader :member_avatar, ImageUploader
     #Ensuring that a member's newswire posts are destroyed along with the member
     has_many :newswire_posts, dependent: :destroy
-    has_many :comments, through: :newswire_posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
     has_many :orders, dependent: :destroy
     has_many :subscriptions, dependent: :destroy
     has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions#, class_name: "StoreItem", source: :store_item
-    has_many :registrations, through: :subscriptions, dependent: :destroy
+    has_many :registrations, dependent: :destroy
     has_many :lessons, through: :registrations
     
     #'before_save' callback downcases all user_names before saving to the DB

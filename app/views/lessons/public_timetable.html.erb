@@ -3,15 +3,12 @@
 
 <div class="row">
     <h2><%= @date %></h2>
-    <h2>Register with Subscription: <%= @subscription.subscription_name %></h2>
-    <div class="col-lg-8">
+    <div class="col-md-9">
         <div class="form-wrapper">
             <h2>Search Date</h2>
             <%= form_for :search, url: public_timetable_path, method: :post do |f| %>
                 
                 <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
-                
-                <%= f.select :subscription_id, options_from_collection_for_select(current_member.subscriptions, "id", "subscription_name") %>
                 
                 <%= f.submit "Search", class: "btn btn-primary" %>
             <% end %>
