@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "member_id", null: false
     t.datetime "expiry_date"
     t.boolean "is_active", default: false
+    t.string "registration_limit", default: "Unlimited"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_subscriptions_on_member_id"

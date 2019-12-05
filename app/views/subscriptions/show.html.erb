@@ -2,29 +2,33 @@
 <h1><%= yield(:title) %></h1>
 
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-md-9">
         <div class="well">
             <%-#The members index with pagination-%>
-            <table class="table-timetable">
+            <table class="table">
                 <thead>
                     <tr>
-                        <td>Registration</td>
-                        <td>Remove Link</td>
+                        <td>Lesson Registered To</td>
+                        <td>Lesson Time</td>
+                        <td>Time of Registration</td>
                     </tr>
                 </thead>
                 <tbody>
                     <% if @registrations != [] %>
                         <% @registrations.each do |registration| %> 
                             <tr>
-                                <td><%= render 'lessons/lesson', lesson: registration.lesson %></td>
-                                <% if @subscription.is_active %>
-                                    <td><%= link_to "Unregister", member_subscription_registration_path(@member, @subscription, registration), method: :delete, class: "btn btn-danger" %></td>
-                                <% end %>
+                                <td style="padding-top: 0;"><%= render 'lessons/lesson', lesson: registration.lesson %></td>
+                                <td><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
+                                <td><%= registration.created_at.strftime("%H:%M:%S") %></td>
                             </tr>
                         <% end %>
+                        <%= will_paginate @registrations %>
                     <% end %> 
                 </tbody>
             </table>
+            <% if @subscription.is_active %> 
+                <h3><%= link_to "Browse Timetable", public_timetable_path(@date)%></h3>
+            <% end %>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ class Subscription < ApplicationRecord
   
   has_many :registrations, dependent: :destroy
   
-  before_save :set_subscription_name
+  before_save :set_subscription_name, :set_expiry_date, :set_registration_limit
   
   validates :membership_id, presence: true
   validates :member_id, presence: true
@@ -47,6 +47,37 @@ class Subscription < ApplicationRecord
             self.subscription_name = self.membership.name + " - " + name_counter.to_s
           end
       end
+    end
+    
+    
+    def set_expiry_date
+      
+      case self.membership_id
+        when 1
+          self.expiry_date = DateTime.now + 1.day
+        when 2
+          self.expiry_date = DateTime.now if self.registrations.count >= 5
+        when 3
+          self.expiry_date = DateTime.now if self.registrations.count >= 10
+        when 4
+          self.expiry_date = DateTime.now + 1.month
+        else
+          self.expiry_date = nil
+      end
+        
+    end
+    
+    def set_registration_limit
+      
+      case self.membership_id
+        when 2
+          self.registration_limit = 5.to_s
+        when 3
+          self.registration_limit = 10.to_s
+      else
+        self.registration_limit = "Unlimited"
+      end
+      
     end
     
 end

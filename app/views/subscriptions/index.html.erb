@@ -5,13 +5,13 @@
     <div class="col-lg-8">
         <div class="well">
             <%-#The members index with pagination-%>
-            <table class="table-timetable">
+            <table class="table">
                 <thead>
                     <tr>
                         <td>Subscription</td>
                         <td>Membership</td>
-                        <td>Registrations</td>
                         <td>Status</td>
+                        <td>Options</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,15 +20,24 @@
                             <tr>
                                 <td><%= subscription.subscription_name %></td>
                                 <td><%= subscription.membership.name %></td>
-                                <td><%= link_to "View", member_subscription_registrations_path(@member, subscription), class: "btn btn-primary" %></td>
                                 <% if subscription.is_active %>
-                                    <td>ACTIVE</td>
+                                    <% if subscription.membership_id == 2 || subscription.membership_id == 3 %>
+                                        <td>ACTIVE - <%= subscription.registration_limit.to_i - subscription.registrations.count %> registrations remaining</td>
+                                    <% else %>
+                                        <td>ACTIVE - Expires on <%= subscription.expiry_date.strftime("%a %b #{subscription.expiry_date.day.ordinalize}") %> <%= subscription.expiry_date.year %> at <%= subscription.expiry_date.strftime("%H:%M:%S") %></td>
+                                    <% end %>
                                 <% else %>
-                                    <td>EXPIRED ON <%= subscription.expiry_date.to_date %></td>
+                                    <td>INACTIVE - Expired on <%= subscription.expiry_date.strftime("%a %b #{subscription.expiry_date.day.ordinalize}") %> <%= subscription.expiry_date.year %> at <%= subscription.expiry_date.strftime("%H:%M:%S") %></td>
                                 <% end %>
-                                <td><%= link_to "Remove", member_subscription_path(@member, subscription), method: :delete, class: "btn btn-danger" %></td>
+                                <td>
+                                    <ul style="list-style-type: none; padding-right: 2em;">
+                                        <li style="padding-top: 0.5em;"><%= link_to "View", member_subscription_registrations_path(@member, subscription), class: "btn btn-primary" %></li>
+                                        <li style="padding-top: 1em;"><%= link_to "Remove", member_subscription_path(@member, subscription), data: { confirm: "Are you sure you want to remove subscription '#{subscription.subscription_name}'?" }, method: :delete, class: "btn btn-danger" %></li>
+                                    </ul>
+                                </td>
                             </tr>
                         <% end %>
+                        <%= will_paginate @subscriptions %>
                     <% end %> 
                 </tbody>
             </table>

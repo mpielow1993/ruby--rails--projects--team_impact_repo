@@ -29,6 +29,14 @@ module ApplicationHelper
         end
     end
 
+    def current_subscription
+        if !session[:subscription_id].nil?
+            return current_member.subscriptions.find(session[:subscription_id])
+        else
+            return current_member.subscriptions.first
+        end  
+    end
+    
     def replace_char(string, char_before, char_after)
         string.gsub "#{char_before}", "#{char_after}"
     end

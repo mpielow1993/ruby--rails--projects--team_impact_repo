@@ -38,7 +38,7 @@ class LessonsController < ApplicationController
   
   def public_timetable
     @date = current_lesson_date
-    #@subscription = current_subscription
+    @subscription = current_subscription
     @lessons = Array.wrap(Lesson.where(date: @date))
     @registration = Registration.new
   end

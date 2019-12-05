@@ -1,13 +1,14 @@
 class SubscriptionsController < ApplicationController
   def index
     @member = Member.find(params[:member_id])
-    @subscriptions = Array.wrap(@member.subscriptions)
+    @subscriptions = @member.subscriptions.paginate(page: params[:page])
   end
 
   def show
+    @date = current_lesson_date
     @member = Member.find(params[:member_id])
     @subscription = Subscription.find(params[:subscription_id])
-    @registrations = Array.wrap(@subscription.registrations)
+    @registrations = @subscription.registrations.paginate(page: params[:page])
   end
 
   def create

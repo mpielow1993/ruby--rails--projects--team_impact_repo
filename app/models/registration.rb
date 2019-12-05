@@ -3,9 +3,7 @@ class Registration < ApplicationRecord
   belongs_to :subscription
   belongs_to :member
   
-  validate :member_lesson_pair_already_exists
-  
-  before_save :check_subscription_active, :check_subscription_count
+  validate :member_lesson_pair_already_exists, :check_subscription_active, :check_registration_count
   
   def member_lesson_pair_already_exists
     lesson = Lesson.find(self.lesson_id)
@@ -19,28 +17,18 @@ class Registration < ApplicationRecord
   end
   
   def check_subscription_active
-    
-    #subscription = Subscription.find(subscription_id)
-    
-    unless self.subscription.is_active == true
+
+    if self.subscription.is_active != true
       errors.add(:base, "The subscription used to register for this class must be active")
     end
     
   end
 
-  def check_subscription_count
-    
-    #subscription = Subscription.find(subscription_id)
-    #membership = Membership.find(subscription.membership_id)
-    
-    if self.subscription.membership.class.name == "FiveClassPass" && self.subscription.registrations.count >= 5
-      errors.add(:base, "Registration limit exceeded")
+  
+  def check_registration_count
+    if ((self.subscription_id == 2 && self.subscription.registrations.count >= 5) || (self.subscription_id == 3 && self.subscription.registrations.count >= 10))
+      self.errors.add(:base, "The registration limit for Subscription '#{self.subscription.subscription_name}' has been reached")
     end
-     
-    if self.subscription.membership.class.name == "TenClassPass" && self.subscription.registrations.count >= 10
-      errors.add(:base, "Registration limit exceeded")
-    end
-    
   end
     
 end

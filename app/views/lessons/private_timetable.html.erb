@@ -1,38 +1,54 @@
-<% provide(:title, "Private Timetable - #{current_member.first_name}" + " " + "#{current_member.last_name}") %> 
-<h1><%= yield(:title) %></h1>
-
+<% provide(:title, "Private Timetable") %> 
+<h1 style="margin-bottom: 1em; margin-top: 1em;"><%= yield(:title) %></h1>
+<h2 style="margin-bottom: 1.5em; margin-top: 1em; text-align: center;"><%= current_member.user_name %></h2>
 <div class="row">
-    <h2><%= @date %></h2>
-    <div class="col-lg-8">
-        <div class="form-wrapper">
-            <h2>Search Date</h2>
-            <%= form_for :search, url: member_private_timetable_path(current_member), method: :post do |f| %>
+        <div class="card text-center">
+          <div class="card-header">
+          </div>
+            <div class="card-body">
+                <div class="card-text">
+                    <div class="form-wrapper">
+                        <%= form_for :search, url: public_timetable_path, method: :post do |f| %>
                 
-                <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
+                            <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker", placeholder: "Search Date" %> 
                 
-                <%= f.submit "Search", class: "btn btn-primary" %>
-            <% end %>
+                            <%= f.submit "Search", class: "btn btn-primary", style: "width: 30%;" %>
+                        <% end %>
+                    </div>
+            <div class="card-footer text-muted">
+            </div>
         </div>
+        </div>
+        </div>
+    <div class="col-md-9">
         <div class="well">
             <%-#The members index with pagination-%>
             <table class="table-timetable">
                 <thead>
-                    <tr>
-                        <td>Time</td>
-                        <td>Date</td>
-                    </tr>
+                    <td colspan="2" style="text-align: center; background-color: #000000; color: #FFFFFF">
+                        <h2 style="color: #FFFFFF;"><%= @date.to_datetime.strftime("%a %b #{@date.to_datetime.day.ordinalize}") %> <%= @date.to_datetime.year %></h2>
+                    </td>
                 </thead>
                 <tbody>
-                    <% if @lessons != [] %>
+                    <tr>
+                        <td>Time</td>
+                        <td>Lesson</td>
+                    </tr>
+                    <% if !@lessons.nil? %>
                         <% @lessons.each do |lesson| %> 
                             <tr>
                                 <td><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
                                 <td><%= render 'lessons/lesson', lesson: lesson %></td>
                             </tr>
-                        <% end %>
-                    <% end %> 
+                        <% end %> 
+                    <% end %>
                 </tbody>
             </table>
         </div>
     </div>
+    <aside class="col-md-3">
+        <div class="row">  
+            <%= render 'layouts/sidebar', member: current_member %>
+        </div>
+    </aside> 
 </div>

@@ -6,6 +6,7 @@ class CreateSubscriptions < ActiveRecord::Migration[6.0]
       t.references :member, null: false, foreign_key: true
       t.datetime :expiry_date, default: nil
       t.boolean :is_active, default: false
+      t.string :registration_limit, default: "Unlimited"
 
       t.timestamps
     end

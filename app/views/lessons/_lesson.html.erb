@@ -1,21 +1,21 @@
-<div class="card mb-3" style="max-width: 540px;">
+<div class="ca" style="width: 100%;">
   <div class="row no-gutters">
-    <div class="col-md-4">
-        <a href="/instructors/<%= lesson.instructor.id %>" class="card-img center" style="margin-left: 2em;">
-            <%= instructor_thumb_image_for(lesson.instructor) %>            
+    <div class="col-md-4" style="padding: 1em;">
+        <a href="/instructors/<%= lesson.instructor.id %>">
+            <%= instructor_big_image_for(lesson.instructor, width: "100%", height: "auto") %>            
         </a>
         <% if current_member.admin? %>
-            <ul>
-                <li class="lesson-list-item" style="margin-top: 1em;"><%= link_to "Edit", edit_lesson_path(lesson), class: "btn btn-primary" %></li>
-                <li class="lesson-list-item" style="margin-top: 1em;"><%= link_to "Remove", lesson_path(lesson), method: :delete, data: { confirm: "Are you sure you want to delete this lesson?" }, class: "btn btn-danger" %></li>
+            <ul style="list-style-type: none; margin: 0; padding-left: 0; padding-right: 0; padding-top: 1em;">
+                <li style="margin-bottom: 1em;"><%= link_to "Edit", edit_lesson_path(lesson), class: "btn btn-primary" %></li>
+                <li><%= link_to "Remove", lesson_path(lesson), method: :delete, data: { confirm: "Are you sure you want to delete this lesson?" }, class: "btn btn-danger" %></li>
             </ul>
         <% end %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8" style="padding-right: 1em;">
       <div class="card-body">
-        <h2 class="card-title timetable_heading"><%= lesson.programme.name %></h2>
         <p class="card-text">
             <ul>
+                <li class="lesson-list-item"><h2><%= lesson.programme.name %></h2></li>
                 <li class="lesson-list-item"><h3>Instructor:</h3> <%= link_to lesson.instructor.first_name, instructor_path(lesson.instructor) %></li>
                 <li class="lesson-list-item"><h3>Level:</h3> <%= lesson.level %></li>
                 <li class="lesson-list-item"><h3>Location:</h3> <%= link_to lesson.facility.name, facility_path(lesson.facility) %></li>
@@ -28,14 +28,18 @@
                     </li>
         
                 <% else %>
-                    <li class="lesson-list-item"> 
-                        <%= form_for lesson.registrations.build, url: lesson_registrations_path(lesson), method: :post do |f| %> 
-                            <br>Register with Subscription:
-                            <%= f.collection_select :subscription_id, current_member.subscriptions.where(is_active: true), :id, :subscription_name, class: "form-control" %><br> 
-                            <%= f.hidden_field :member_id, value: current_member.id %>
-                            <%= f.submit "Register", data: { confirm: 'Are you sure you want to register for this class?' }, class: "btn btn-primary" %> 
-                        <% end %>
-                    </li>
+                    <% if current_member.subscriptions.any? %>
+                        <li class="lesson-list-item"> 
+                            <%= form_for lesson.registrations.build, url: lesson_registrations_path(lesson), method: :post do |f| %> 
+                                <br>Register with Subscription:
+                                <%= f.collection_select :subscription_id, current_member.subscriptions.where(is_active: true), :id, :subscription_name, class: "form-control" %><br> 
+                                <%= f.hidden_field :member_id, value: current_member.id %>
+                                <%= f.submit "Register", data: { confirm: 'Are you sure you want to register for this class?' }, class: "btn btn-primary" %> 
+                            <% end %>
+                        </li>
+                    <% else %>
+                        <br><li class="lesson-list-item"><p>You need a subscription to a membership to register for lessons. These can be purchased in the <%= link_to "store", store_items_path %>.</p></li>
+                    <% end %>
                 <% end %>
             </ul>
         </p>
