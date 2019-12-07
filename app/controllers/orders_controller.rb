@@ -2,10 +2,18 @@ class OrdersController < ApplicationController
   def index
   end
 
-  def show
+  def live_order
     @member = current_member
     @order = current_order
-    @order_items = current_order.order_items
+    @order_items = current_order.order_items.paginate(page: params[:page]).per_page(5)
+  end
+
+  def completed_orders
+    @member = Member.find(params[:id])
+    @orders = @member.orders
+  end
+  
+  def completed_order
   end
 
   def new

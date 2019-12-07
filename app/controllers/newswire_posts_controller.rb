@@ -1,39 +1,42 @@
 class NewswirePostsController < ApplicationController
     before_action :logged_in_member
-    before_action :correct_member, :admin_member, only: [:index, :create, :destroy]
+    before_action :admin_member, only: [:index, :create, :destroy]
     
     
-    def index
+    def private_index
         @member = Member.find(params[:member_id])
-        #Show the admin's own posts
         @newswire_posts = @member.newswire_posts.paginate(page: params[:page])
+    end
+    
+    def public_index
+        @member = current_member
+        @newswire_posts = NewswirePost.all.paginate(page: params[:page])
         @newswire_post = NewswirePost.new
-        
-        #@newswire_post defined to allow the current logged in user to create a new micropost
-        #@newswire_post = @member.newswire_posts.build #if current_member.admin?
-        
-        #THE PROBLEM LIES WITHIN THE ASSOCIATION ABOVE - LOOK UP ASSOCIATIONS FOR NESTED RESOURCES
     end
     
     def create
-        @newswire_posts = NewswirePost.all.paginate(page: params[:page])
-        @member = Member.find(params[:member_id])
+        @member = current_member
         @newswire_post = @member.newswire_posts.build(newswire_post_params)
         @newswire_post.image.attach(params[:newswire_post][:image])
         if @newswire_post.save 
             flash[:success] = "Newswire post created!" 
             redirect_to newswire_url 
         else 
-            render 'static_pages/newswire' 
+            render 'newswire_posts/public_index' 
         end
     end
 
     def destroy
-        @member = Member.find(params[:member_id])
-        @newswire_post = @member.newswire_posts.find(params[:id])
+        @newswire_post = NewswirePost.find(params[:id])
         @newswire_post.destroy 
         flash[:success] = "Newswire post successfully deleted" 
-        redirect_to request.referrer || newswire_url    #refers to root_url
+        redirect_to newswire_path    #refers to root_url
+    end
+    
+    def show
+        @newswire_post = NewswirePost.find(params[:id])
+        @comments = @newswire_post.comments.paginate(page: params[:page])
+        @comment = current_member.comments.build
     end
     
     private

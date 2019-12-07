@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "newswire_post_id", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index "\"member\", \"created_at\"", name: "find_comments_by_member"
     t.index "\"member\", \"newswire_post\", \"created_at\"", name: "find_unique_comment", unique: true
     t.index "\"newswire_post\", \"created_at\"", name: "find_comments_by_newswire_post"
+    t.index ["member_id"], name: "index_comments_on_member_id"
     t.index ["newswire_post_id"], name: "index_comments_on_newswire_post_id"
   end
 
@@ -187,6 +189,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "members"
   add_foreign_key "comments", "newswire_posts"
   add_foreign_key "lessons", "facilities"
   add_foreign_key "lessons", "instructors"

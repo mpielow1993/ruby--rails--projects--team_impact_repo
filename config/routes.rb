@@ -14,24 +14,37 @@ Rails.application.routes.draw do
   
   resources :members do
     
+    resources :newswire_posts, only: [:show] do
+    end
+    
+    get '/newswire_posts', to: 'newswire_posts#private_index'
+    
+    get '/comments', to: 'comments#private_index'
+    
     get '/private_timetable', to: 'lessons#private_timetable'
     post '/private_timetable', to: 'lessons#search_timetable'
-    
-    resources :newswire_posts do
-      resources :comments, only: [:destroy, :show, :index, :create]
-    end
     
     resources :subscriptions, only: [:new, :create, :edit, :update, :destroy, :index] do
       get '/registrations', to: 'subscriptions#show'
       resources :registrations, only: [:create, :destroy]
     end
     
-    resources :orders do
+    resources :orders, only: [:new, :create, :edit, :update, :destroy] do
       resources :order_items
       resources :charges
     end
     
+    get 'orders/live', to: 'orders#live_order'
+    get 'orders/completed', to: 'orders#completed_orders'
+    get 'orders/completed/:id', to: 'orders#completed_order'
+    
   end
+  
+  resources :newswire_posts, path: 'newswire', only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :comments, only: [:new, :create, :edit, :update, :show, :destroy]
+  end
+  
+  get '/newswire', to: 'newswire_posts#public_index'
   
   #Adding a route for the Account Activations 'edit' action
   resources :account_activations, only: [:edit]

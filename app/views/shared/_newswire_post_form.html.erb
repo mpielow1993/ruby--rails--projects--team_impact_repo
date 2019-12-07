@@ -1,14 +1,20 @@
-<%= form_for [@member, @newswire_post], method: :post do |f| %> 
-    <%= render 'shared/error_messages', object: f.object %> 
-    <div class="field"> 
-        <%= f.text_area :content, placeholder: "Add Newswire Post..." %> 
-    </div> 
-        
-    <%= f.submit "Post", class: "btn btn-primary" %> 
-    <%-#Adding image upload to the newswire_post 'create' form-%>
-    <span class="image"> 
-        <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %> 
-    </span>
-<% end %>
-
-<%-#Checking the file size with jQuery-%>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title" style="color: #000000;">Create a Post</h2>
+    <p class="card-text">
+        <%= form_for @newswire_post, url: newswire_posts_path, method: :post do |f| %> 
+            <%= render 'shared/error_messages', object: f.object %> 
+            <div class="field"> 
+                <%= f.text_area :content, placeholder: "Add Newswire Post..." %> 
+            </div>
+            <span class="image"> 
+                <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %> 
+            </span>
+            <div class="center" style="background-color: #FFFFFF">
+                <%= f.submit "Post", class: "btn btn-primary", style: "width: 40%" %>
+            </div> 
+            <%-#Adding image upload to the newswire_post 'create' form-%>
+        <% end %>        
+    </p>
+  </div>
+</div>

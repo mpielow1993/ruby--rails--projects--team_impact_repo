@@ -1,18 +1,14 @@
-<%-#A partial for showing a single comment-%>
-<%if comment.valid?%>
-<li id="newswire_post-<%= comment.newswire_post.id %>_comment-<%= comment.id %>"> 
-    <%= link_to gravatar_for(comment.member, size: 50), comment.member %>
-    <span class="user"><%= link_to comment.member.first_name + " " + comment.member.last_name, comment.member %></span>
-    <span class="content">
-        <%= auto_link_content(comment.content) %>
-        
-        <%-#Using the resized image with method 'display_image'-%>
-        <%= image_tag comment.display_image if comment.image.attached?-%>
-    </span>
-        <span class="timestamp"> Posted <%= time_ago_in_words(comment.created_at) %> ago. </span> 
-    <%-#All members can delete comments on their own posts-%>
-    <% if comment.member == current_member %>
-        <%= link_to "Delete", member_newswire_post_comment_path(comment.member, comment.newswire_post, comment), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %>
-    <% end %>
-</li>
-<% end %>
+<div class="card" style="background-color: #000000; padding: 1em;">
+    <h5 class="card-title">
+        <%= link_to member_avatar_for(comment.member), comment.member %>
+        <span class="user"><%= link_to comment.member.first_name + " " + comment.member.last_name, comment.member %></span>
+    </h5>
+    <%= comment_big_image_for(comment.image, style: "border: 0;") if comment.image.attached? %>
+    <div class="card-body">
+        <p class="card-text" style="margin-top: 2em; font-family: Trebuchet MS;"><%= auto_link_content(sanitize comment.content.html_safe) %></p>
+        <p class="card-text" style="margin-top: 2em;"><small class="text-muted" style="color: #FFFFFF;">Posted <%= time_ago_in_words(comment.created_at) %> ago.</small></p>
+        <% if comment.member == current_member %>
+            <%= link_to "Delete", newswire_post_comment_path(comment.newswire_post, comment), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %>
+        <% end %>
+    </div>
+</div>

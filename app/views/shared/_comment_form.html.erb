@@ -1,10 +1,13 @@
-<%= form_for @comment, url: member_newswire_post_comments_path(@member, @newswire_post), method: :post do |f| %> 
+<%= form_for @comment, url: newswire_post_comments_path(@newswire_post), method: :post do |f| %> 
     <%= render 'shared/error_messages', object: f.object %> 
-    <div class="field"> 
+    <div class="field">
+        <%= f.hidden_field :member_id, value: current_member.id %> 
         <%= f.text_area :content, placeholder: "Add Comment..." %> 
     </div> 
         
-    <%= f.submit "Post", class: "btn btn-primary" %> 
+    <div class="center" style="background-color: #FFFFFF;">
+        <%= f.submit "Post", class: "btn btn-primary", style: "width: 30%;" %> 
+    </div>
     <%-#Adding image upload to the newswire_post 'create' form-%>
     <span class="image"> 
         <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %> 

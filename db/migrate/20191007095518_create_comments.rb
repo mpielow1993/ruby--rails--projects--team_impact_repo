@@ -3,6 +3,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
     create_table :comments do |t|
       t.text :content
       t.references :newswire_post, null: false, foreign_key: true
+      t.references :member, null: false, foreign_key: true
 
       t.timestamps
     end
