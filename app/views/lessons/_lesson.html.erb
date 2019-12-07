@@ -1,4 +1,4 @@
-<div class="ca" style="width: 100%;">
+<div class="card" style="width: 100%;">
   <div class="row no-gutters">
     <div class="col-md-4" style="padding: 1em;">
         <a href="/instructors/<%= lesson.instructor.id %>">
@@ -28,7 +28,7 @@
                     </li>
         
                 <% else %>
-                    <% if current_member.subscriptions.any? %>
+                    <% if current_member.subscriptions.where(is_active: true).any? %>
                         <li class="lesson-list-item"> 
                             <%= form_for lesson.registrations.build, url: lesson_registrations_path(lesson), method: :post do |f| %> 
                                 <br>Register with Subscription:
@@ -38,7 +38,7 @@
                             <% end %>
                         </li>
                     <% else %>
-                        <br><li class="lesson-list-item"><p>You need a subscription to a membership to register for lessons. These can be purchased in the <%= link_to "store", store_items_path %>.</p></li>
+                        <br><li class="lesson-list-item"><p>You need a an active subscription to a membership to register for lessons. These can be purchased in the <%= link_to "store", store_items_path %>.</p></li>
                     <% end %>
                 <% end %>
             </ul>

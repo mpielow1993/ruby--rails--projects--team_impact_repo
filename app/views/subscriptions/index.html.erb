@@ -20,7 +20,7 @@
                             <tr>
                                 <td><%= subscription.subscription_name %></td>
                                 <td><%= subscription.membership.name %></td>
-                                <% if subscription.is_active %>
+                                <% if subscription.is_active == true %>
                                     <% if subscription.membership_id == 2 || subscription.membership_id == 3 %>
                                         <td>ACTIVE - <%= subscription.registration_limit.to_i - subscription.registrations.count %> registrations remaining</td>
                                     <% else %>
@@ -39,6 +39,7 @@
                         <% end %>
                         <%= will_paginate @subscriptions %>
                     <% end %> 
+                    </tr>
                 </tbody>
             </table>
         </div>

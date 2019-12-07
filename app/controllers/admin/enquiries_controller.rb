@@ -1,0 +1,34 @@
+class Admin::EnquiriesController < ApplicationController
+  def new
+    @enquiry = Enquiry.new
+  end
+
+  def create
+    @enquiry = Enquiry.all
+    @enquiry = Enquiry.create(enquiry_params)
+    if @enquiry.save
+      flash[:success] = "Enquiry created successfully"
+      redirect_to admin_enquiries_path
+    else
+      render 'admin/enquiries/new'
+    end
+  end
+
+  def index
+    @enquiries = Enquiry.all.paginate(page: params[:page]).per_page(1)
+    @enquiry = Enquiry.new
+  end
+
+  def destroy
+    @enquiry = Enquiry.find(params[:id])
+    @enquiry.destroy
+    flash[:success] = "Enquiry removed successfully"
+    redirect_to admin_enquiries_path
+  end
+  
+  private
+    
+    def enquiry_params
+      params.require(:testimonial).permit(:first_name, :last_name, :email, :phone_no, :city, :country, :content)
+    end
+end

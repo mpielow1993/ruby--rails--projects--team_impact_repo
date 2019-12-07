@@ -4,13 +4,9 @@
 </section>
 <div class="container">
     <div class="row">
-        <div class="well center", style="padding-right: 4em; padding-top: 2em">
             <% @testimonials.each do |testimonial| %>
-                <ul style="list-style-type: none;">
                     <%= render 'testimonials/testimonial', testimonial: testimonial %>
-                </ul>
             <% end %>
-        </div>
         <div class="well center" style="background-color: #000000; border-color: #000000;">
             <%= will_paginate @testimonials %>
         </div>
@@ -19,7 +15,7 @@
         <div class="well" style="background-color: #000000">
             <h2 style="margin-bottom: 1.5em">Testimonial Form:</h2>
             <p style="margin-bottom: 1.5em">Let us know about your experience with us</p>
-            <%= render 'testimonials/testimonial_form', object: @testimonial %>
+            <%= render 'testimonials/testimonial_new_form', object: @testimonial %>
         </div>
     </div>
 </div>

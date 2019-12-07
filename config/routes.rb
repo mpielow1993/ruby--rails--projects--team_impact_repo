@@ -45,7 +45,17 @@ Rails.application.routes.draw do
   
   resources :facilities
   
-  resources :testimonials, only: [:index, :create, :new, :update, :destroy, :show]
+  resources :testimonials, only: [:new, :create, :index] 
+  
+  namespace :admin do
+    resources :testimonials, only: [:new, :create, :destroy, :index] 
+  end
+  
+  resources :enquiries, only: [:new, :create] 
+  
+  namespace :admin do
+    resources :enquiries, only: [:new, :create, :destroy, :index] 
+  end
   
   resources :store_items
   

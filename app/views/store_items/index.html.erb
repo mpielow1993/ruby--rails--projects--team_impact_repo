@@ -1,23 +1,39 @@
-<% provide(:title, "All Store Items") %> 
-    <div class="row"> 
-        <div class="col-md-8"> 
-            <h3>(<%= @store_items.count %> Items)</h3>
-            <ol class="newswire_posts"> 
-                <% @store_items.each do |store_item| %>
-                    <%= render 'store_items/store_item', store_item: store_item, order_item: @order_item, member: @member, order: @order %>
-                <% end %>
-            </ol>
-            <%= will_paginate @store_items %>
+<% provide(:title, "Store") %> 
+<h1 style="margin-bottom: 1.5em; margin-top: 1em;"><%= yield(:title) %></h1>
+    <div class="row">
+        <div class="card text-center">
+          <div class="card-header"></div>
+            <div class="card-body">
+                <div class="card-text">
                     <% if session[:order_id].nil? %>
-                        <%= link_to "New Order", member_orders_path(@member), method: :post, class: "btn btn-success" %>
+                        <%= link_to "New Order", member_orders_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron" %>
                     <% else %>
-                        <%= link_to "View Current Cart", member_order_path(@member, @order), class: "btn btn-success" %>
+                        <%= link_to "View Current Cart", member_order_path(@member, @order), class: "btn btn-success", style: "font-family: Orbitron" %>
                     <% end %>
+                    <div class="card-footer text-muted"></div>
+                </div>
             </div>
-        <aside class="col-md-4"> 
-            <section class="member_info"> 
-                <h1> <%= member_avatar_for(@member) %> <%= @member.first_name + " " + @member.last_name %> </h1> 
-            </section>
+        </div> 
+        <div class="col-md-9">
+            <div class="row">
+                <div style="padding: 1em;">
+                    <h2>Memberships&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @memberships.count %> Items)</span></h2>
+                </div>
+                <% @memberships.each do |membership| %>
+                    <%= render 'store_items/store_item', store_item: membership, order_item: @order_item, member: @member, order: @order %>
+                <% end %>
+            </div>
+            <div class="row">
+                <div style="padding: 1em;">
+                    <h2>Other&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @non_memberships.count %> Items)</span></h2>
+                </div>
+                <% @non_memberships.each do |non_membership| %>
+                    <%= render 'store_items/store_item', store_item: non_membership, order_item: @order_item, member: @member, order: @order %>
+                <% end %>                
+            </div>
+            <%= will_paginate @store_items %>
+        </div>
+        <div class="col-md-3"> 
             <%= render 'layouts/sidebar' %>
-        </aside> 
+        </div> 
     </div>

@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "membership_id", null: false
     t.integer "member_id", null: false
     t.datetime "expiry_date"
-    t.boolean "is_active", default: false
+    t.boolean "is_active", default: true
     t.string "registration_limit", default: "Unlimited"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

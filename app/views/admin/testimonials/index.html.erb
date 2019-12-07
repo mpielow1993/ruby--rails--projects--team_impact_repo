@@ -1,0 +1,17 @@
+<%= provide(:title, "Testimonials") %>
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
+<div class="row">
+    <div class="col-md-9">
+        <% if !@testimonials.nil? %>
+            <% @testimonials.each do |testimonial| %> 
+                <%= render 'admin/testimonials/testimonial', testimonial: testimonial %>
+            <% end %> 
+        <% end %>
+        <div class="center"><%= will_paginate @testimonials %></div>
+    </div>
+    <aside class="col-md-3">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </aside> 
+</div>

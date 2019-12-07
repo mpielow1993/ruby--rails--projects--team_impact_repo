@@ -1,4 +1,4 @@
-class TestimonialsController < ApplicationController
+class Admin::TestimonialsController < ApplicationController
   def new
     @testimonial = Testimonial.new
   end
@@ -16,17 +16,10 @@ class TestimonialsController < ApplicationController
   end
 
   def index
-    @testimonials = Testimonial.all.paginate(page: params[:page]).per_page(5)
+    @testimonials = Testimonial.all.paginate(page: params[:page]).per_page(1)
     @testimonial = Testimonial.new
   end
 
-  def destroy
-    @testimonial = Testimonial.find(params[:id])
-    @testimonial.destroy
-    flash[:success] = "Testimonial removed successfully"
-    redirect_to testimonials_path
-  end
-  
   private
     
     def testimonial_params

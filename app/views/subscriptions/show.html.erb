@@ -26,7 +26,7 @@
                     <% end %> 
                 </tbody>
             </table>
-            <% if @subscription.is_active %> 
+            <% if @subscription.is_active == true %> 
                 <h3><%= link_to "Browse Timetable", public_timetable_path(@date)%></h3>
             <% end %>
         </div>

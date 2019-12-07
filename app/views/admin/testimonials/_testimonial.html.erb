@@ -1,0 +1,19 @@
+<div class="card" style="background-color: #FFFFFF; padding-top: 1.5em; padding-left: 1.5em; padding-right: 1.5em; padding-bottom: 4.5em; margin-top: 4em;">
+  <div class="card-body" style="background-color: #000000; padding: 1em;">
+    <h2 class="card-title" style="text-align: center;">Testimonial <%= testimonial.id %></h2>
+    <p class="card-text">
+        <ul style="padding: 0; font-size: 2em;">
+            <li class="lesson-list-item"><h3>First Name:</h3> <%= testimonial.first_name %></li>
+            <li class="lesson-list-item"><h3>Last Name:</h3> <%= testimonial.last_name %></li>
+            <li class="lesson-list-item"><h3>Email:</h3> <%= testimonial.email %></li>
+            <li class="lesson-list-item"><h3>City:</h3> <%= testimonial.city %></li>
+            <li class="lesson-list-item"><h3>Country:</h3> <%= testimonial.country %></li>
+            <li class="lesson-list-item"><h3>Posted:</h3> <%= testimonial.created_at.strftime("%a %b #{testimonial.created_at.day.ordinalize}") %> <%= testimonial.created_at.year %> at <%= testimonial.created_at.strftime("%H:%M:%S") %></li>
+            <li class="lesson-list-item"><h3>Content:</h3> <%= auto_link_content(sanitize testimonial.content.html_safe) %></li>
+        </ul>
+    </p>
+  </div>
+  <div class="card-footer text-muted" style="background-color: #000000; padding: 0; color: #FFFFFF;">
+     <%= link_to "Remove", admin_testimonial_path(testimonial), method: :delete, data: { confirm: "Are you sure you want to remove this testimonial?" }, class: "btn btn-danger", style: "margin-top: 1em; font-family: Orbitron; float: right;" %>
+  </div>
+</div>

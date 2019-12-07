@@ -4,20 +4,16 @@ class Subscription < ApplicationRecord
   
   has_many :registrations, dependent: :destroy
   
-  before_save :set_subscription_name, :set_expiry_date, :set_registration_limit
+  before_save :set_subscription_name, :set_registration_limit, :set_time_based_passes_expiry_date
   
   validates :membership_id, presence: true
   validates :member_id, presence: true
   
-  validate :check_is_active
   #validates_uniqueness_of :membership_id, scope: :member_id
   
   
   private
   
-    def check_is_active
-      return false unless expiry_date.nil?
-    end
     
     #implement the registrations count in a before_save in the subscriptions controller
     
@@ -49,23 +45,16 @@ class Subscription < ApplicationRecord
       end
     end
     
-    
-    def set_expiry_date
+    def set_time_based_passes_expiry_date
       
-      case self.membership_id
-        when 1
-          self.expiry_date = DateTime.now + 1.day
-        when 2
-          self.expiry_date = DateTime.now if self.registrations.count >= 5
-        when 3
-          self.expiry_date = DateTime.now if self.registrations.count >= 10
-        when 4
-          self.expiry_date = DateTime.now + 1.month
-        else
-          self.expiry_date = nil
+      if self.membership_id == 1
+        self.expiry_date = DateTime.now + 1.day
       end
-        
-    end
+      if self.membership_id == 4
+        self.expiry_date = DateTime.now + 1.month 
+      end
+
+    end 
     
     def set_registration_limit
       

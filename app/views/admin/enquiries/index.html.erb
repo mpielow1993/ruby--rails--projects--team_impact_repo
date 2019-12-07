@@ -1,0 +1,17 @@
+<%= provide(:title, "Enquiries") %>
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
+<div class="row">
+    <div class="col-md-9">
+        <% if !@enquiries.nil? %>
+            <% @enquiries.each do |enquiry| %> 
+                <%= render 'admin/enquiries/enquiry', enquiry: enquiry %>
+            <% end %> 
+        <% end %>
+        <div class="center"><%= will_paginate @enquiries %></div>
+    </div>
+    <aside class="col-md-3">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </aside> 
+</div>
