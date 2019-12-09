@@ -1,29 +1,23 @@
-<% provide(:title, @member.first_name + " " + @member.last_name) %> 
+<% provide(:title, "Your Newswire Posts") %> 
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
     <div class="row"> 
         <div class="col-md-8"> 
-            <h1>Your Newswire Posts</h1>
             <div class="well">
             <% if @newswire_posts.any? %> 
                 <h3>Newswire Posts (<%= @newswire_posts.count %>)</h3>
-                <ol class="newswire_posts"> 
                     <% @newswire_posts.each do |newswire_post| %>
-                        <%= render newswire_post %>
+                        <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
                         <h3><%= link_to "Show Comments (#{newswire_post.comments.count})", member_newswire_post_path(newswire_post.member, newswire_post) %></h3>
                 <% end %>
-                </ol> 
-                <%= will_paginate @newswire_posts %> 
+                <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                    <%= will_paginate @newswire_posts %>
+                </div> 
             <% end %> 
             </div>
         </div> 
         <aside class="col-md-4"> 
-            <section class="member_info"> 
-                <h1> <%= member_avatar_for(current_member) %> <%= current_member.first_name + " " + current_member.last_name %> </h1> 
-            </section>
-            <%= render 'layouts/sidebar' %>
-            <% if current_member.admin? %>
-                <section class="newswire_post_form">
-                    <%= render 'shared/newswire_post_form' %>
-                </section>
-            <% end %>
+            <%= render 'layouts/sidebar', member: @member %>
         </aside> 
     </div>

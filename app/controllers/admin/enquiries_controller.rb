@@ -29,6 +29,6 @@ class Admin::EnquiriesController < ApplicationController
   private
     
     def enquiry_params
-      params.require(:testimonial).permit(:first_name, :last_name, :email, :phone_no, :city, :country, :content)
+      params.require(:enquiry).permit(:first_name, :last_name, :email, :phone_no, :message)
     end
 end

@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-4">
             <div class="col-md-12">
-                <%= render 'layouts/sidebar' %>
+                <%= render 'layouts/sidebar', member: @member %>
             <div>
             <% if @member.admin? %>
                 <div class="col-md-12" style="background-color: #FFFFFF; margin-top: 1em;">

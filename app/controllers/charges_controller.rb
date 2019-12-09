@@ -6,9 +6,9 @@ end
 
 def create
   @member = current_order.member
-  @order = current_order
+  @live_order = current_order
   # Amount in euros
-  @amount = (@order.total * 100).round
+  @amount = (@live_order.total * 100).round
 
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],
@@ -23,22 +23,19 @@ def create
     receipt_email: "#{@member.email}"
   })
 
-@order.is_paid = true
+@live_order.is_paid = true
 
-@subscriptions = []
+@subscriptions = 0
 
-if @order.save
-  @order.order_items.each do |order_item|
+if @live_order.save
+  @live_order.order_items.each do |order_item|
     if order_item.is_membership?
-      @subscription = order_item.store_item.subscriptions.build(member_id: @member.id, is_active: true)
-      @subscriptions.push(@subscription)
-      
-      @subscriptions.each do |subscription|
-        subscription.save
-      end
+      subscription = order_item.membership.subscriptions.build(member_id: @member.id, is_active: true)
+      subscription.save
+      @subscriptions += 1
     end
   end
-  flash[:success] = "Payment Completed. #{@subscriptions.count} Membership Subscriptions added to your account"
+  flash[:success] = "Payment Completed. #{@subscriptions} Membership Subscriptions added to your account"
   redirect_to store_items_path
   session[:order_id] = nil
 else
@@ -51,7 +48,7 @@ end
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to new_member_order_charge_path(@member, @order)
+  redirect_to new_charge_path
 end
 
 def index

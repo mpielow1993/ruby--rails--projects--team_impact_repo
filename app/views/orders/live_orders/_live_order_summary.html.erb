@@ -1,0 +1,14 @@
+<%= order.order_items.size %> item(s) in this order with a value of &euro;<%= convert_to_price(order.total) %>
+<%= form_tag charges_path do %>
+    <article>
+        <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+        <% end %>
+        <label class="amount"><span>Amount: &euro;<%= order.total %></span></label>
+    </article>
+    <button type="submit" class="btn btn-success" style="font-family: Orbitron;">Checkout</button>
+    <%= link_to "Continue Shopping", store_items_path, class: "btn btn-primary" %>
+    <%= link_to "Delete Order", member_orders_live_order_path(member, order), method: :delete, data: { confirm: "Are you sure you want to delete this order?" }, class: "btn btn-danger", style: "font-family: Orbitron;" %>    
+<% end %>

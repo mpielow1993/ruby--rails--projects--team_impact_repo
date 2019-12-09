@@ -1,0 +1,24 @@
+<%= provide(:title, "Order #{@order.id}") %>
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
+<div class="row">
+    <div class="col-md-9">
+        <% @order_items.each do |order_item| %>
+            <%= render 'order_items/order_item', order_item: order_item %>
+        <% end %>
+        <h2>Total: &euro;<%= convert_to_price(@order.total) %></h2>
+        <div id="order">
+            <p><%= render 'orders/order_summary', order: @order, member: @member %></p>
+        </div>
+        <div class="well center" style="background-color: #000000; border-color: #000000;">
+            <%= will_paginate @order_items %>
+        </div>
+        <div class="col-md-12">
+            <%= render 'orders/completed_order_summary' %>
+        </div>
+    </div>
+    <div class="col-md-3"> 
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

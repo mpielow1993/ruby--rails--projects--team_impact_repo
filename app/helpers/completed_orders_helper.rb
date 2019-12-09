@@ -1,0 +1,2 @@
+module CompletedOrdersHelper
+end

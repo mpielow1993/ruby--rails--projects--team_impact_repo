@@ -6,9 +6,9 @@
             <div class="card-body">
                 <div class="card-text">
                     <% if session[:order_id].nil? %>
-                        <%= link_to "New Order", member_orders_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron" %>
+                        <%= link_to "New Order", member_orders_live_orders_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron" %>
                     <% else %>
-                        <%= link_to "View Current Cart", member_order_path(@member, @order), class: "btn btn-success", style: "font-family: Orbitron" %>
+                        <%= link_to "View Current Cart", member_orders_live_order_path(@member, @order), class: "btn btn-success", style: "font-family: Orbitron" %>
                     <% end %>
                     <div class="card-footer text-muted"></div>
                 </div>
@@ -34,6 +34,6 @@
             <%= will_paginate @store_items %>
         </div>
         <div class="col-md-3"> 
-            <%= render 'layouts/sidebar' %>
+            <%= render 'layouts/sidebar', member: @member %>
         </div> 
     </div>

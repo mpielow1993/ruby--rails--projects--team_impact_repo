@@ -1,23 +1,4 @@
-class OrdersController < ApplicationController
-  def index
-  end
-
-  def live_order
-    @member = current_member
-    @order = current_order
-    @order_items = current_order.order_items.paginate(page: params[:page]).per_page(5)
-  end
-
-  def completed_orders
-    @member = Member.find(params[:member_id])
-    @orders = @member.orders.paginate(page: params[:page]).per_page(5)
-  end
-  
-  def completed_order
-    @order = Order.find(params[:id])
-    @order_items = @order.order_items.paginate(page: params[:page]).per_page(5)
-  end
-
+class Orders::LiveOrdersController < ApplicationController
   def new
   end
 
@@ -52,10 +33,14 @@ class OrdersController < ApplicationController
       render 'orders/show'
     end
   end
-  
-  private 
-  
-    #def order_params
-     # params.require(:order).permit(:member_id)
-    #end
+
+  def index
+  end
+
+  def show
+    @member = current_member
+    @order = current_order
+    @order_items = current_order.order_items.paginate(page: params[:page]).per_page(5)
+  end
+
 end

@@ -1,102 +1,83 @@
-
-
 <div class="card" style="width: 100%; padding: 1em; background-color: #FFFFFF; margin-top: 4em;">
-  <%= member_big_image_for(current_member, width: "100%", height: "100%") %>
+  <%= member_big_image_for(member, width: "100%", height: "100%") %>
   <div class="card-body" style="font-family: Orbitron;">
-    <h3>Username:<br> <span class="card-title" style="color: #000000; font-size: 1.5em;"><%= current_member.user_name %></span></h3>
-    <h3>User Level:<br> <span class="card-title" style="color: #000000; font-size: 1.5em;">
-      <%= current_member.admin? ? "Admin" : "Member" %>
-    </span></h3><br>
+    <h3>Username:<br> <span class="card-title" style="color: #000000; font-size: 1.5em;"><%= member.user_name %></span></h3>
+    <h3>User Level:<br> <span class="card-title" style="color: #000000; font-size: 1.5em;"><%= member.admin? ? "Admin" : "Member" %></span></h3><br>
 
-  <a href="#item-1" class="list-group-item" data-toggle="collapse">
-    <i class="glyphicon glyphicon-chevron-right"></i>Timetable
-  </a>
-    <div class="list-group collapse" id="item-1">
-      <%= link_to "Public", public_timetable_path, class: "list-group-item" %>
-      <%= link_to "Your Timetable", member_private_timetable_path(current_member), class: "list-group-item" %>
-      <a href="#" class="list-group-item">Item 1.3</a>
-    </div>
+  <a href="#item-1" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Timetable</a>
+  <div class="list-group collapse" id="item-1">
+    <%= link_to "Public", public_timetable_path, class: "list-group-item" %>
+    <%= link_to "Your Timetable", member_private_timetable_path(member), class: "list-group-item" %>
+  </div>
 
-  <a href="#item-2" class="list-group-item" data-toggle="collapse">
-    <i class="glyphicon glyphicon-chevron-right"></i>Memberships
-  </a>
-    <div class="list-group collapse" id="item-2">
-      <%= link_to "Your Membership Subscriptions", member_subscriptions_path(current_member), class: "list-group-item" %>
-      <a href="#" class="list-group-item">Item 2.2</a>
-      <a href="#" class="list-group-item">Item 2.3</a>
-    </div>
+  <a href="#item-2" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Memberships</a>
+  <div class="list-group collapse" id="item-2">
+    <%= link_to "Your Membership Subscriptions", member_subscriptions_path(member), class: "list-group-item" %>
+  </div>
 
-  <a href="#item-3" class="list-group-item" data-toggle="collapse">
-    <i class="glyphicon glyphicon-chevron-right"></i>Newswire
-  </a>
-    <div class="list-group collapse" id="item-3">
-      <%= link_to "Public", newswire_path, class: "list-group-item" %>
-      <%= link_to "Your Posts", member_newswire_posts_path(current_member), class: "list-group-item" %>
-    </div>
+  <a href="#item-3" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Newswire</a>
+  <div class="list-group collapse" id="item-3">
+    <%= link_to "Public", newswire_path, class: "list-group-item" %>
+    <%= link_to "Your Posts", member_newswire_posts_path(member), class: "list-group-item" %>
+  </div>
     
-  <a href="#item-4" class="list-group-item" data-toggle="collapse">
-    <i class="glyphicon glyphicon-chevron-right"></i>Store
-  </a>
-    <div class="list-group collapse" id="item-4">
-      <%= link_to "Public", store_items_path, class: "list-group-item" %>
-      <%= link_to "Your Purchases", '#', class: "list-group-item" %>
-      <a href="#" class="list-group-item">Item 4.3</a>
-    </div>
-  <%if current_member.admin?  %>  
-    <a href="#item-5" class="list-group-item" data-toggle="collapse">
-      <i class="glyphicon glyphicon-chevron-right"></i>Admin
-    </a>
+  <a href="#item-4" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Store</a>
+  <div class="list-group collapse" id="item-4">
+    <%= link_to "Public", store_items_path, class: "list-group-item" %>
+    <%= link_to "Your Purchases", member_orders_completed_orders_path(member), class: "list-group-item" %>
+  </div>
+  
+  <% if member.admin?  %> 
+  
+    <a href="#item-5" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Admin</a>
     <div class="list-group collapse" id="item-5">
     
-      <a href="#item-5-1" class="list-group-item" data-toggle="collapse">
-        <i class="glyphicon glyphicon-chevron-right"></i>New
-      </a>
-      <div class="list-group collapse" id="item-5-1">
-        <%= link_to "Member", sign_up_path, class: "list-group-item" %>
-        <%= link_to "Instructor", new_instructor_path, class: "list-group-item" %>
-        <a href="#" class="list-group-item">Facility</a>
-        <a href="#" class="list-group-item">Programme</a>
-        <%= link_to "Store Product", new_store_item_path, class: "list-group-item" %>
-      </div>
+    <a href="#item-5-1" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>New</a>
+    <div class="list-group collapse" id="item-5-1">
+      <%= link_to "Member", new_admin_member_path, class: "list-group-item" %>
+      <%= link_to "Instructor", new_admin_instructor_path, class: "list-group-item" %>
+      <%= link_to "Facility", new_admin_facility_path, class: "list-group-item" %>
+      <%= link_to "Programme", new_admin_programme_path, class: "list-group-item" %>
+      <%= link_to "Store Product", new_admin_store_item_path, class: "list-group-item" %>
+    </div>
     
       <a href="#item-5-2" class="list-group-item" data-toggle="collapse">
         <i class="glyphicon glyphicon-chevron-right"></i>Edit
       </a>
       <div class="list-group collapse" id="item-5-2">
-        <a href="#" class="list-group-item">Member</a>
-        <a href="#" class="list-group-item">Instructor</a>
-        <a href="#" class="list-group-item">Facility</a>
-        <a href="#" class="list-group-item">Programme</a>
-        <a href="#" class="list-group-item">Store Product</a>
+        <%= link_to "Member", '#', class: "list-group-item" %>
+        <%= link_to "Instructor", '#', class: "list-group-item" %>
+        <%= link_to "Facility", '#', class: "list-group-item" %>
+        <%= link_to "Programme", '#', class: "list-group-item" %>
+        <%= link_to "Store Product", '#', class: "list-group-item" %>
       </div>
       
       <a href="#item-5-3" class="list-group-item" data-toggle="collapse">
         <i class="glyphicon glyphicon-chevron-right"></i>Delete
       </a>
       <div class="list-group collapse" id="item-5-3">
-        <a href="#" class="list-group-item">Member</a>
-        <a href="#" class="list-group-item">Instructor</a>
-        <a href="#" class="list-group-item">Facility</a>
-        <a href="#" class="list-group-item">Programme</a>
-        <a href="#" class="list-group-item">Store Product</a>
+        <%= link_to "Member", '#', class: "list-group-item" %>
+        <%= link_to "Instructor", '#', class: "list-group-item" %>
+        <%= link_to "Facility", '#', class: "list-group-item" %>
+        <%= link_to "Programme", '#', class: "list-group-item" %>
+        <%= link_to "Store Product", '#', class: "list-group-item" %>
       </div>
       
       <a href="#item-5-4" class="list-group-item" data-toggle="collapse">
         <i class="glyphicon glyphicon-chevron-right"></i>Search
       </a>
       <div class="list-group collapse" id="item-5-4">
-        <a href="#" class="list-group-item">Member</a>
-        <a href="#" class="list-group-item">Instructor</a>
-        <a href="#" class="list-group-item">Facility</a>
-        <a href="#" class="list-group-item">Programme</a>
-        <a href="#" class="list-group-item">Store Product</a>
+        <%= link_to "Member", admin_members_path, class: "list-group-item" %>
+        <%= link_to "Instructor", admin_instructors_path, class: "list-group-item" %>
+        <%= link_to "Facility", admin_facilities_path, class: "list-group-item" %>
+        <%= link_to "Programme", admin_programmes_path, class: "list-group-item" %>
+        <%= link_to "Store Product", admin_store_items_path, class: "list-group-item" %>
         <%= link_to "Enquiries", admin_enquiries_path, class: "list-group-item" %>
         <%= link_to "Testimonials", admin_testimonials_path, class: "list-group-item" %>
       </div>
       
     </div>
+    
   <% end  %>
   </div>
-</div>
-
 </div>

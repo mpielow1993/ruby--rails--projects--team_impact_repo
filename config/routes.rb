@@ -1,5 +1,28 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'members/new'
+    get 'members/create'
+    get 'members/edit'
+    get 'members/update'
+    get 'members/index'
+    get 'members/show'
+    get 'members/destroy'
+  end
+  get 'completed_orders/new'
+  get 'completed_orders/create'
+  get 'completed_orders/edit'
+  get 'completed_orders/update'
+  get 'completed_orders/index'
+  get 'completed_orders/show'
+  get 'completed_orders/delete'
+  get 'live_orders/new'
+  get 'live_orders/create'
+  get 'live_orders/edit'
+  get 'live_orders/update'
+  get 'live_orders/index'
+  get 'live_orders/show'
+  get 'live_orders/delete'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   get '/about_us', to: 'static_pages#about_us'
@@ -29,17 +52,17 @@ Rails.application.routes.draw do
       resources :registrations, only: [:create, :destroy]
     end
     
-    resources :orders, only: [:new, :create, :edit, :update, :destroy] do
-      resources :order_items
-      resources :charges
+    namespace :orders do
+      resources :live_orders do
+        resources :order_items
+      end
+      
+      resources :completed_orders
     end
-    
-    get 'orders/live', to: 'orders#live_order'
-    get 'orders/completed', to: 'orders#completed_orders'
-    get 'orders/completed/:id', to: 'orders#completed_order'
-    
   end
-  
+
+  resources :charges  
+
   resources :newswire_posts, path: 'newswire', only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :comments, only: [:new, :create, :edit, :update, :show, :destroy]
   end
@@ -62,12 +85,27 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :testimonials, only: [:new, :create, :destroy, :index] 
+    
+    resources :enquiries, only: [:new, :create, :destroy, :index]
+    
+    resources :members
+    
+    resources :programmes
+  
+    resources :instructors
+  
+    resources :facilities
+    
+    resources :lessons
+    
+    resources :completed_orders
+    
+    resources :store_items
   end
   
   resources :enquiries, only: [:new, :create] 
   
   namespace :admin do
-    resources :enquiries, only: [:new, :create, :destroy, :index] 
   end
   
   resources :store_items
