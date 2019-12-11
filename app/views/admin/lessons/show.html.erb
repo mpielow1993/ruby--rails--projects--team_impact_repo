@@ -1,0 +1,22 @@
+<% provide(:title, "View Lesson") %> 
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Lesson: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;">#<%= @lesson.id %></span></h2>
+        <div class="well">
+            <% if !@registrations.nil? %>
+                <% @registrations.each do |registration| %> 
+                    <td><%= render 'admin/registrations/registration', registration: registration, member: registration.member, lesson: registration.lesson %></td>
+                <% end %> 
+                <div class="center">
+                    <%= will_paginate @registrations %>
+                </div>
+            <% end %>
+        </div>
+        <h3><%= link_to "Back to Lessons", admin_lessons_path %></h3>
+    </div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

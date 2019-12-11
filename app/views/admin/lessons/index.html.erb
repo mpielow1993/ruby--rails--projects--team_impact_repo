@@ -1,0 +1,17 @@
+<% provide(:title, "Lessons") %>
+<h1><%= yield(:title) %></h1>
+<div class="row">
+    <div class="col-md-8">
+        <div class="well">
+            <% if @lessons != [] %>
+                <% @lessons.each do |lesson| %> 
+                    <%= render 'admin/lessons/lesson', lesson: lesson %>
+                <% end %>
+                <%= will_paginate @lessons %>
+            <% end %> 
+        </div>
+    </div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

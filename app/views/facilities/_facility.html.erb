@@ -1,16 +1,12 @@
 <section>
-<div class="col-md-4">
-	<div class="card">
-		<div class="image">
-			<%= link_to(image_tag("#{facility.facility_avatar}"), facility_path(facility), alt: facility.name) %>
-			<div class="middle">
-				<div class="text"><%= facility.name %></div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="image">
+				<%= link_to(image_tag("#{facility.facility_avatar}"), facility_path(facility), alt: facility.name) %>
+				<div class="middle">
+					<div class="text"><%= facility.name %></div>
+				</div>
 			</div>
 		</div>
-		<% if current_member.admin? %>
-			<%= link_to "Edit", edit_facility_path(facility), class: "btn btn-primary" %>
-			<%= link_to "Remove", facility_path(facility), method: :delete, data: { confirm: "Are you sure you want to remove facility '#{facility.name}'" }, class: "btn btn-danger" %>
-		<% end %>
 	</div>
-</div>
 <section>

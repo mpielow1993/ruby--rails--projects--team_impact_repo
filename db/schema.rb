@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.integer "instructor_id", null: false
     t.integer "facility_id", null: false
     t.integer "programme_id", null: false
+    t.boolean "is_expired", default: false
     t.string "level"
-    t.index "\"date\", \"start_time\", \"facility\"", name: "index_lessons_on_date_and_start_time_and_facility", unique: true
     t.index ["facility_id"], name: "index_lessons_on_facility_id"
     t.index ["instructor_id"], name: "index_lessons_on_instructor_id"
     t.index ["programme_id"], name: "index_lessons_on_programme_id"

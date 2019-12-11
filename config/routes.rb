@@ -47,9 +47,8 @@ Rails.application.routes.draw do
     get '/private_timetable', to: 'lessons#private_timetable'
     post '/private_timetable', to: 'lessons#search_timetable'
     
-    resources :subscriptions, only: [:new, :create, :edit, :update, :destroy, :index] do
-      get '/registrations', to: 'subscriptions#show'
-      resources :registrations, only: [:create, :destroy]
+    resources :subscriptions, only: [:new, :create, :edit, :update, :destroy, :index, :show] do
+      resources :registrations, only: [:create, :destroy, :index]
     end
     
     namespace :orders do
@@ -96,11 +95,18 @@ Rails.application.routes.draw do
   
     resources :facilities
     
-    resources :lessons
+    resources :lessons do
+      get '/registrations', to: 'lessons#show'
+      resources :registrations, only: [:create, :destroy]
+    end
     
     resources :completed_orders
     
     resources :store_items
+    
+    resources :orders do
+      resources :order_items
+    end
   end
   
   resources :enquiries, only: [:new, :create] 

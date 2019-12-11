@@ -1,0 +1,33 @@
+<div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+	<div class="card-body">
+		<div class="row">
+    		<div class="col-md-4">
+                <a href="/instructors/<%= lesson.instructor.id %>">
+                    <%= instructor_big_image_for(lesson.instructor, width: "100%", height: "auto") %>            
+                </a>
+    		</div>
+			<div class="col-md-8">
+			     <h2 style="margin-bottom: 1.5em;">Lesson #<%= lesson.id %></h2>
+				<h3>Date: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.date.strftime("%a %b #{lesson.date.day.ordinalize}") %> <%= lesson.date.year %></span></h3>
+				<h3>Start Time: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.start_time.strftime("%H:%M") %></span></h3>
+				<h3>End Time: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.end_time.strftime("%H:%M") %></span></h3>
+        		<h3>Instructor: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.instructor.first_name + " " + lesson.instructor.last_name %></span></h3>
+        		<h3>Facility: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.facility.name %></span></h3></span></h3>
+        		<h3>Programme: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.programme.name %></span></h3></span></h3>
+        		<h3>Status:
+        		<% if lesson.is_expired %>
+        		    <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #FF0000;">EXPIRED</span></span>
+        		<% else %>
+        		    <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #90EE90;">ACTIVE</span></span>
+        		<% end %>
+        		</h3>
+        		<h3><%= link_to "View Registrations", admin_lesson_path(lesson) %></h3>
+				<div style="padding-top: 6em;">
+        			<%= link_to "Delete", admin_lesson_path(lesson), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete lesson '##{lesson.id}'?" }, style: "font-family: Orbitron; float: right;" %> 
+					<%= link_to "Edit", edit_admin_lesson_path(lesson), class: "btn btn-primary", style: "float: right;  margin-right: 0.5em;" %> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

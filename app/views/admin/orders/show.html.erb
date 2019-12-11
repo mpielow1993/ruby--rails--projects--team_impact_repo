@@ -1,0 +1,21 @@
+<%= provide(:title, "Order ##{@order.id}") %>
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
+<div class="row">
+    <div class="col-md-8">
+        <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @order.member.user_name %></span></h2>
+        <div class="well">
+            <% @order_items.each do |order_item| %>
+                <%= render 'admin/order_items/order_item', order_item: order_item %>
+            <% end %>
+            <div class="center" style="background-color: #000000; border-color: #000000;">
+                <%= will_paginate @order_items %>
+            </div>
+        </div>
+        <h2 style="float: right;">Total: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;">&euro;<%= convert_to_price(@order.total) %></span></h2>
+    </div>
+    <div class="col-md-4"> 
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

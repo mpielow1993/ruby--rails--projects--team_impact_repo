@@ -7,10 +7,6 @@
 				<div class="text"><%= programme.name %></div>
 			</div>
 		</div>
-		<% if current_member.admin? %>
-			<%= link_to "Edit", edit_programme_path(programme), class: "btn btn-primary" %>
-			<%= link_to "Remove", programme_path(programme), method: :delete, data: { confirm: "Are you sure you want to remove programme '#{programme.name}'" }, class: "btn btn-danger" %>
-		<% end %>
 	</div>
 </div>
 <section>

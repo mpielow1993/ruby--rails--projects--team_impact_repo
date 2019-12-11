@@ -5,9 +5,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
-    @date = current_lesson_date
     @member = Member.find(params[:member_id])
-    @subscription = Subscription.find(params[:subscription_id])
+    @subscription = Subscription.find(params[:id])
     @registrations = @subscription.registrations.paginate(page: params[:page])
   end
 

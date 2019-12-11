@@ -1,16 +1,12 @@
 <section>
-<div class="col-md-4">
-	<div class="card">
-		<div class="image">
-		<%= link_to(image_tag("#{instructor.instructor_avatar}"), instructor_path(instructor), alt: instructor.first_name + " " + instructor.first_name) %>
-			<div class="middle">
-				<div class="text"><%= instructor.first_name %> <%= instructor.last_name %></div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="image">
+				<%= link_to(image_tag("#{instructor.instructor_avatar}"), instructor_path(instructor), alt: instructor.first_name + " " + instructor.first_name) %>
+				<div class="middle">
+					<div class="text"><%= instructor.first_name %> <%= instructor.last_name %></div>
+				</div>
 			</div>
 		</div>
-		<% if current_member.admin? %>
-			<%= link_to "Edit", edit_instructor_path(instructor), class: "btn btn-primary" %>
-			<%= link_to "Remove", instructor_path(instructor), method: :delete, data: { confirm: "Are you sure you want to remove instructor '#{instructor.name} #{instructor.last_name}'" }, class: "btn btn-danger" %>
-		<% end %>
 	</div>
-</div>
 <section>

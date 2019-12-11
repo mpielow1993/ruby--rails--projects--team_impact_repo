@@ -185,18 +185,18 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 case facility_index 
                 when 0
                     #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
-                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                            start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                            end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                             instructor_id: timetable_instructor_ids[instructor_index],
                                             facility_id: timetable_facility_ids[facility_index],
                                             programme_id: timetable_programme_ids[1],
                                             level: timetable_levels[rand(0..3)])
                 when 1
                     #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
-                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                            start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                            end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                             instructor_id: timetable_instructor_ids[instructor_index],
                                             facility_id: timetable_facility_ids[facility_index],
                                             programme_id: timetable_programme_ids[4],
@@ -210,9 +210,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 0            
                         
             #Create BJJ Lessons with instructor Ciaran Dempsey.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[1],
@@ -223,9 +223,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = rand(0..2)    
                         
             #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[8],
@@ -240,9 +240,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 1
                 
                 #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[4],
@@ -251,9 +251,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 2
                         
                 #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[5],
@@ -268,9 +268,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 2
             
             #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[0],
@@ -281,9 +281,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 0
 
             #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+6}:00am"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+7}:00am"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+6}:00am"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+7}:00am"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[7],
@@ -310,9 +310,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             when 0
             
             #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[1],
@@ -320,9 +320,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             when 1
             
             #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[4],
@@ -336,9 +336,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 1            
                         
             #Create BJJ Lessons with instructor Ciaran Dempsey.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[1],
@@ -349,9 +349,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = rand(0..2)    
                         
             #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[8],
@@ -366,9 +366,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             when 1
                 
             #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[4],
@@ -377,9 +377,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             when 2
                         
             #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[5],
@@ -394,9 +394,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
         facility_index = 2
             
         #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
-        lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+        lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                 instructor_id: timetable_instructor_ids[instructor_index],
                                 facility_id: timetable_facility_ids[facility_index],
                                 programme_id: timetable_programme_ids[0],
@@ -407,9 +407,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
         facility_index = 0
 
         #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
-        lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                start_time: Time.zone.parse("2019-12-1#{n} 11:00am"),
-                                end_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
+        lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                start_time: Time.zone.parse("2019-12-2#{n} 11:00am"),
+                                end_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
                                 instructor_id: timetable_instructor_ids[instructor_index],
                                 facility_id: timetable_facility_ids[facility_index],
                                 programme_id: timetable_programme_ids[7],
@@ -435,9 +435,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 0
                 
                 #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[1],
@@ -445,9 +445,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 1
                 
                 #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[4],
@@ -461,9 +461,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 1            
                         
             #Create BJJ Lessons with instructor Ciaran Dempsey.
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[1],
@@ -474,9 +474,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = rand(0..2)    
                         
             #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[8],
@@ -491,9 +491,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 1
                 
                 #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[4],
@@ -502,9 +502,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 2
                         
                 #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[5],
@@ -519,9 +519,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 facility_index = 2
             
                 #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[0],
@@ -532,9 +532,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 0
 
             #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} 12:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} 1:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} 12:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} 1:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[7],
@@ -563,9 +563,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                     when 0
                         
                     #Create BJJ lessons with instructors Rich Jones & Michael Prendergast. BJJ takes place in the Mat Area.
-                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                            start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                            end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                             instructor_id: timetable_instructor_ids[instructor_index],
                                             facility_id: timetable_facility_ids[facility_index],
                                             programme_id: timetable_programme_ids[1],
@@ -573,9 +573,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                     when 1
                         
                     #Create MMA lessons with instructors Rich Jones & Michael Prendergast. MMA takes place in the MMA Area.
-                    lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                            start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                            end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                    lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                            start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                            end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                             instructor_id: timetable_instructor_ids[instructor_index],
                                             facility_id: timetable_facility_ids[facility_index],
                                             programme_id: timetable_programme_ids[4],
@@ -589,9 +589,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 facility_index = 1            
                         
                 #Create BJJ Lessons with instructor Ciaran Dempsey.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[1],
@@ -602,9 +602,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 facility_index = rand(0..2)    
                         
                 #Create Womens' lessons with instructor Carrie Canning. Womens' classes take place anywhere
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[8],
@@ -619,9 +619,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 1
                 
                 #Create MMA lessons with instructors Aaron Jennings. MMA takes place in the MMA Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[4],
@@ -630,9 +630,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
                 when 2
                         
                 #Create Muay Thai lessons with instructors Aaron Jennings. Muay Thai takes place in the Boxing Area.
-                lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+                lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[5],
@@ -647,9 +647,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 2
             
             #Create Boxing lessons with instructor Aaron Murray. Boxing takes place in the Boxing Area
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                    start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                    end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                    start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                    end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                     instructor_id: timetable_instructor_ids[instructor_index],
                                     facility_id: timetable_facility_ids[facility_index],
                                     programme_id: timetable_programme_ids[0],
@@ -660,9 +660,9 @@ timetable_levels = ["Beginner", "Intermediate", "Advanced", "Competition"]
             facility_index = 0
 
             #Create Wrestling lessons with instructor Pawel Grubinski. Wrestling takes place in the Mat Area
-            lesson = Lesson.create!( date: Date.strptime("2019-12-1#{n}"),
-                                        start_time: Time.zone.parse("2019-12-1#{n} #{m+1}:00pm"),
-                                        end_time: Time.zone.parse("2019-12-1#{n} #{m+2}:00pm"),
+            lesson = Lesson.create!( date: Date.strptime("2019-12-2#{n}"),
+                                        start_time: Time.zone.parse("2019-12-2#{n} #{m+1}:00pm"),
+                                        end_time: Time.zone.parse("2019-12-2#{n} #{m+2}:00pm"),
                                         instructor_id: timetable_instructor_ids[instructor_index],
                                         facility_id: timetable_facility_ids[facility_index],
                                         programme_id: timetable_programme_ids[7],
@@ -734,20 +734,12 @@ subscription_arrays.each do |subscription_array|
     random_date_or_nil = [nil, Date.today + rand(365)]
     sample_random_date_or_nil = random_date_or_nil[rand(0..1)]
     
-    #Generates an active profile if expiry_date is nil, otherwise generates an inactive subscription with expiry date equal to the generated date
-    if sample_random_date_or_nil.nil?    
-        subscription = Subscription.new( member_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][0],
-                            membership_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][1],
-                            expiry_date: nil,
-                            is_active: true)
-        subscription.save
-    else
-        subscription = Subscription.new( member_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][0],
-                            membership_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][1],
-                            expiry_date: sample_random_date_or_nil,
-                            is_active: false)   
-        subscription.save
-    end
+    #random_membership_id = rand(1..4)
+    
+    subscription = Subscription.new( member_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][0],
+                                    membership_id: subscription_arrays[subscription_arrays.find_index(subscription_array)][1],)
+    subscription.save
+    
 end
 
 #Orders

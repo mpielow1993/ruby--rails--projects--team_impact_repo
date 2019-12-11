@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.create(lesson_params)
     if @lesson.save
       flash[:success] = "Lesson created successfully"
-      redirect_to lessons_path
+      redirect_to admin_lessons_path
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class LessonsController < ApplicationController
     @lesson.update(lesson_params)
     if @lesson.save
       flash[:success] = "Lesson updated successfully"
-      redirect_to lessons_path
+      redirect_to admin_lessons_path
     else
       render 'edit'
     end
@@ -63,7 +63,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
     flash[:success] = "Lesson successfully destroyed"
-    redirect_to lessons_path
+    redirect_to admin_lessons_path
   end
   
   private

@@ -1,8 +1,12 @@
-<% provide(:title, "#{@subscription.subscription_name}") %> 
-<h1><%= yield(:title) %></h1>
-
+<% provide(:title, "View Subscription") %> 
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
 <div class="row">
     <div class="col-md-9">
+        <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.member.user_name %></span></h2>
+        <h2>Subscription: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.subscription_name %></span></h2>
+        <h2>Membership: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.membership.name %></span></h2>
         <div class="well">
             <%-#The members index with pagination-%>
             <table class="table">
@@ -17,12 +21,14 @@
                     <% if @registrations != [] %>
                         <% @registrations.each do |registration| %> 
                             <tr>
-                                <td style="padding-top: 0;"><%= render 'lessons/lesson', lesson: registration.lesson %></td>
+                                <td style="padding: 1em;"><%= render 'lessons/lesson', lesson: registration.lesson %></td>
                                 <td><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
-                                <td><%= registration.created_at.strftime("%H:%M:%S") %></td>
+                                <td><%= registration.created_at.strftime("%a %b #{registration.created_at.day.ordinalize}") %> <%= registration.created_at.year %> at <%= registration.created_at.strftime("%H:%M:%S") %></td>
                             </tr>
                         <% end %>
-                        <%= will_paginate @registrations %>
+                        <div class="center" style="background-color: #FFFFFF;">
+                            <%= will_paginate @registrations %>
+                        </div>
                     <% end %> 
                 </tbody>
             </table>
@@ -30,5 +36,8 @@
                 <h3><%= link_to "Browse Timetable", public_timetable_path(@date)%></h3>
             <% end %>
         </div>
+    </div>
+    <div class="col-md-3">
+        <%= render 'layouts/sidebar', member: current_member %>
     </div>
 </div>

@@ -1,0 +1,22 @@
+<% provide(:title, "Facilities") %>
+<section>
+    <h1><%= yield(:title) %></h1>
+</section>
+    <div class="row"> 
+        <div class="col-md-8"> 
+            <div class="well">
+                <h2 style="color: #000000;">(<%= @facilities.count %> Facilities)</h2>
+                <% if !@facilities.nil? %>
+                    <% @facilities.each do |facility| %>
+                        <%= render 'admin/facilities/facility', facility: facility %>
+                    <% end %>
+                    <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                        <%= will_paginate @facilities %>
+                    </div>                
+                <% end %>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <%= render 'layouts/sidebar', member: current_member %>
+        </div>
+    </div>

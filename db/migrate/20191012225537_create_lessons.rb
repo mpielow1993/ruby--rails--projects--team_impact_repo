@@ -7,7 +7,7 @@ class CreateLessons < ActiveRecord::Migration[6.0]
       t.references :instructor, null: false, foreign_key: true
       t.references :facility, null: false, foreign_key: true
       t.references :programme, null: false, foreign_key: true
+      t.boolean :is_expired, default: false
     end
-    add_index :lessons, [:date, :start_time, :facility], unique: true
   end
 end

@@ -8,7 +8,7 @@
                 <h2 style="color: #000000;">(<%= @newswire_posts.count %> Posts)</h2>
                 <% @newswire_posts.each do |newswire_post| %>
                     <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
-        <p class="card-text" style="margin-top: 1em; font-family: Orbitron; font-size: 1em;"><%= link_to "Show Comments (#{newswire_post.comments.count})", newswire_post_path(newswire_post), id: "newswire_post_#{newswire_post.id}_comment_thread_link" %></p>
+                    <p class="card-text" style="margin-top: 1em; font-family: Orbitron; font-size: 1em;"><%= link_to "Show Comments (#{newswire_post.comments.count})", newswire_post_path(newswire_post), id: "newswire_post_#{newswire_post.id}_comment_thread_link" %></p>
                 <% end %>
                 <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
                     <%= will_paginate @newswire_posts %>
@@ -18,7 +18,7 @@
         <div class="col-md-4">
             <div class="col-md-12">
                 <%= render 'layouts/sidebar', member: @member %>
-            <div>
+            </div>
             <% if @member.admin? %>
                 <div class="col-md-12" style="background-color: #FFFFFF; margin-top: 1em;">
                     <%= render 'shared/newswire_post_form' %>                 

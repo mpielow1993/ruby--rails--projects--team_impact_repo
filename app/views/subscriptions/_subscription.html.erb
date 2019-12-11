@@ -1,0 +1,29 @@
+ <div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+    <h5 class="card-title"><span class="user" style="font-family: Orbitron; font-size: 1.5em;" >Subscription #<%= subscription.id %></h5>
+    <div class="card-body">
+	    <div class="row">
+		    <div class="col-md-12">
+		        <h3>Subscription Name: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.subscription_name %></span></h3>
+		        <h3>Membership: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.membership.name %></span></h3>
+		        <h3>Registrations: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.registrations.count %></span></h3>
+                <h3>Created: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.created_at.strftime("%a %b #{subscription.created_at.day.ordinalize}") %> <%= subscription.created_at.year %> at <%= subscription.created_at.strftime("%H:%M:%S") %></span></h3>
+                <h3>Last Updated: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.updated_at.strftime("%a %b #{subscription.updated_at.day.ordinalize}") %> <%= subscription.updated_at.year %> at <%= subscription.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
+		        <h3>Status: 
+                    <% if subscription.is_active == true %>
+                        <% if subscription.membership_id == 2 || subscription.membership_id == 3 %>
+                            <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #90EE90;">ACTIVE</span> - <%= subscription.registration_limit.to_i - subscription.registrations.count %> registrations remaining</span>
+                        <% else %>
+                            <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #90EE90;">ACTIVE</span> - Expires on <%= subscription.expiry_date.strftime("%a %b #{subscription.expiry_date.day.ordinalize}") %> <%= subscription.expiry_date.year %> at <%= subscription.expiry_date.strftime("%H:%M:%S") %></span>
+                        <% end %>
+                    <% else %>
+                        <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #FF0000;">INACTIVE</span> - Expired on <%= subscription.expiry_date.strftime("%a %b #{subscription.expiry_date.day.ordinalize}") %> <%= subscription.expiry_date.year %> at <%= subscription.expiry_date.strftime("%H:%M:%S") %></span>
+                    <% end %>
+                </h3>
+                <h3><%= link_to "View Details", member_subscription_path(member, subscription) %></h3>
+		        <div>
+                    <%= link_to "Delete", member_subscription_path(member, subscription), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete subscription '##{subscription.id}'?" }, style: "font-family: Orbitron; float: right;" %> 
+			    </div>
+		    </div>
+		</div>
+    </div>
+</div>

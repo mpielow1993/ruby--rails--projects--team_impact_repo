@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-body">
+        <div class="card-title"><h2>Order Summary</h2></div>
+        <div class="card-text">
+            <ul style="padding: 0; font-size: 2em;">
+                <li class="lesson-list-item"><h3>Member:</h3> <%= order.member.user_name %></li>
+                <li class="lesson-list-item"><h3>Total:</h3> &euro;<%= convert_to_price(order.total) %></li>
+                <li class="lesson-list-item"><h3>Purchased On:</h3> <%= order.created_at.strftime("%a %b #{order.created_at.day.ordinalize}") %> <%= order.created_at.year %> at <%= order.created_at.strftime("%H:%M:%S") %></li>
+            </ul>
+        </div>
+    </div>
+</div>

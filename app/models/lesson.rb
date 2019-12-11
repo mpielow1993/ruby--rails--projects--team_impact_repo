@@ -23,7 +23,7 @@ class Lesson < ApplicationRecord
   
   validates :start_time, presence: true
   #Checks that only a start_time with a value of at least 24 hours more than the current_time (i.e lesson creation time) can be entered
-  validates_date :date, on_or_after: :tomorrow, on_or_after_message: "must be at least 1 day in advance from current date"
+  validates_date :date, presence: true, on_or_after: :tomorrow, on_or_after_message: "must be at least 1 day in advance from current date"
   
   #Range of allowable start_time values
   validates_time :start_time, on_or_after: Time.zone.parse("6:00am"), on_or_after_message: 'must be after opening time',
@@ -36,7 +36,9 @@ class Lesson < ApplicationRecord
   
   VALID_LEVELS = ["Beginner", "Intermediate", "Advanced", "Competition"]
                             
-  validates :level, inclusion: { in: VALID_LEVELS }
+  validates :level, presence: true, inclusion: { in: VALID_LEVELS }
+  
+  validates :instructor_id, :facility_id, :programme_id, presence: true
   
   before_save :match_times_to_date
   
@@ -91,6 +93,12 @@ class Lesson < ApplicationRecord
     def match_times_to_date
       self.start_time = DateTime.parse(self.date.to_s + " " + self.start_time.hour.to_s)
       self.end_time = DateTime.parse(self.date.to_s + " " + self.end_time.hour.to_s)
+    end
+    
+    def self.check_expiry
+      self.all.each do |lesson|
+        lesson.is_expired = true if DateTime.now >= lesson.end_time
+      end
     end
     
 end

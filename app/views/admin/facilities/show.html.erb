@@ -1,0 +1,16 @@
+<section>
+	<h1><%= @facility.name %></h1>
+</section>
+<section class="center">
+	<%= facility_big_image_for(@facility) %>
+</section>
+	<div class="container">
+		<div class="row">
+	       	<% if File.exist?(@facility_description_url) %>
+	       		<%= render "facilities/#{replace_char(@facility.name.downcase, " ", "_")}" %>
+	       	<% else %>
+	       		<%= render 'layouts/default_description', object: @facility.name %>
+	       	<% end %>
+	    </div>
+	</div>
+</div>

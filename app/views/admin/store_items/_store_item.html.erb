@@ -1,0 +1,20 @@
+<div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+	<div class="card-body">
+		<div class="row">
+    		<div class="col-md-4">
+        		<%= link_to store_item_big_image_for(store_item), store_item_path(store_item) %>
+    		</div>
+			<div class="col-md-8">
+				<h3>Name: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= store_item.name %></span></h3>
+				<h3>Type: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= store_item.type %></span></h3>
+				<h3>Description:</h3> <p style="font-family: Trebuchet MS; color: #FFFFFF; font-size: 1em;"><%= store_item.description %></p>
+        		<h3>Created: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= store_item.created_at.strftime("%a %b #{store_item.created_at.day.ordinalize}") %> <%= store_item.created_at.year %> at <%= store_item.created_at.strftime("%H:%M:%S") %></span></h3>
+        		<h3>Last Updated: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= store_item.updated_at.strftime("%a %b #{store_item.updated_at.day.ordinalize}") %> <%= store_item.updated_at.year %> at <%= store_item.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
+				<div style="padding-top: 6em;">
+        			<%= link_to "Delete", admin_store_item_path(store_item), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete member '#{store_item.name}'?" }, style: "font-family: Orbitron; float: right;" %> 
+					<%= link_to "Edit", edit_admin_store_item_path(store_item), class: "btn btn-primary", style: "float: right;  margin-right: 0.5em;" %> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

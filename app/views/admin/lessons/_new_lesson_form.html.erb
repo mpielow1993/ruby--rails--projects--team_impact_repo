@@ -1,0 +1,32 @@
+<%= form_for(@lesson), url: admin_lessons_path, method: :post do |f| %> 
+
+<%-#Make this a multi-part form to handle file attachments%>
+    <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
+                        
+    <%= f.label :date, "Date" %>
+    <%= f.text_field :date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker" %> 
+                        
+    <%= f.label :start_time, "Start Time" %>
+    <%= f.time_select :start_time, start_hour: 6, end_hour: 21, discard_minute: true, class: "form-control" %> 
+        
+    <%= f.label :end_time, "End Time" %>
+    <%= f.time_select :end_time, start_hour: 7, end_hour: 22, discard_minute: true, class: "form-control" %> 
+                    
+    <%= f.label :instructor, "Instructor" %> 
+    <%= f.collection_select :instructor_id, Instructor.all, :id, :full_name, class: "form-control" %> 
+                
+    <%= f.label :facility, "Facility" %>
+    <%= f.collection_select :facility_id, Facility.all, :id, :name, class: "form-control" %> 
+    
+    <%= f.label :programme, "Programme" %>
+    <%= f.collection_select :programme_id, Programme.all, :id, :name, class: "form-control" %>
+                
+    <%= f.label :level, "Level" %> 
+    <%= f.select :level, ["Beginner", "Intermediate", "Advanced", "Competition"], class: "form-control" %> 
+    
+    <%= f.label :is_expired, "Expired?" %>
+    <%= f.check_box :is_expired %>
+                        
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
+                        
+<% end %>

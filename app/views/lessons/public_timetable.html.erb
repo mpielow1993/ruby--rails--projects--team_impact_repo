@@ -20,25 +20,25 @@
         </div>
         </div>
         </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         <div class="well">
             <%-#The members index with pagination-%>
             <table class="table-timetable">
                 <thead>
-                    <td colspan="2" style="text-align: center; background-color: #000000; color: #FFFFFF">
+                    <td colspan="2" style="text-align: center; background-color: #000000; color: #FFFFFF;">
                         <h2 style="color: #FFFFFF;"><%= @date.to_datetime.strftime("%a %b #{@date.to_datetime.day.ordinalize}") %> <%= @date.to_datetime.year %></h2>
                     </td>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Time</td>
+                        <td style="padding-left: 0.75em;">Time</td>
                         <td>Lesson</td>
                     </tr>
                     <% if !@lessons.nil? %>
                         <% @lessons.each do |lesson| %> 
                             <tr>
-                                <td><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
-                                <td><%= render 'lessons/lesson', lesson: lesson %></td>
+                                <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
+                                <td style="padding: 1em;"><%= render 'lessons/lesson', lesson: lesson %></td>
                             </tr>
                         <% end %> 
                     <% end %>
@@ -46,7 +46,7 @@
             </table>
         </div>
     </div>
-        <aside class="col-md-3">
+        <aside class="col-md-4">
             <div class="row">  
                 <%= render 'layouts/sidebar', member: current_member %>
             </div>

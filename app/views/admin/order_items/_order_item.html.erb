@@ -1,0 +1,18 @@
+<div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+    <div class="card-body" style="background-color: #000000; padding-left: 1em; padding-right: 1em; padding-top: 0.0125em; padding-bottom: 1em;">
+        <div class="card-title" style="margin: 0;">
+            <h2 style="color: #FFFFFF;">Order Item: #<%= @order_items.find_index(order_item) + 1 %></h2>
+        </div>
+        <div class="card-text">
+            <h3>Product: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= order_item.store_item.name %></span></h3>
+            <% if order_item.store_item.type == "Membership" %>
+                <h3>Type: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Membership</span></h3>
+            <% else %>
+                <h3>Type: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Other</span></h3>
+            <% end %>
+            <h3>Unit Price: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">&euro;<%= convert_to_price(order_item.store_item.price) %></span></h3>
+            <h3>Quantity: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= order_item.quantity %></span></h3>
+            <h3>Sub-Total: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">&euro;<%= convert_to_price(order_item.sub_total) %></span></h3>
+        </div>
+    </div>
+</div>

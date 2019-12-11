@@ -1,0 +1,18 @@
+<div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+    <div class="card-body">
+		<div class="row">
+    	<div class="col-md-4">
+        	<%= link_to programme_big_image_for(programme), programme_path(programme) %>
+    	</div>
+		<div class="col-md-8">
+			<h3>Name: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= programme.name %></span></h3>
+        	<h3>Created: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= programme.created_at.strftime("%a %b #{programme.created_at.day.ordinalize}") %> <%= programme.created_at.year %> at <%= programme.created_at.strftime("%H:%M:%S") %></span></h3>
+        	<h3>Last Updated: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= programme.updated_at.strftime("%a %b #{programme.updated_at.day.ordinalize}") %> <%= programme.updated_at.year %> at <%= programme.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
+			<div style="padding-top: 6em;">
+        		<%= link_to "Delete", admin_programme_path(programme), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete member '#{programme.name}'?" }, style: "font-family: Orbitron; float: right;" %> 
+				<%= link_to "Edit", edit_admin_programme_path(programme), class: "btn btn-primary", style: "float: right;  margin-right: 0.5em;" %> 
+			</div>
+		</div>
+		</div>
+    </div>
+</div>

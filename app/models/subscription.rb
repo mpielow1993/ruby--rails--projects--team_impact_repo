@@ -69,4 +69,15 @@ class Subscription < ApplicationRecord
       
     end
     
+    def self.check_expiry_dates
+      counter = 0
+      self.all.each do |subscription|
+        if (!subscription.expiry_date.nil? && (DateTime.current >= subscription.expiry_date))
+          subscription.is_active = false
+          counter += 1
+        end
+        return "#{counter} subscriptions deactivated"
+      end
+    end
+    
 end

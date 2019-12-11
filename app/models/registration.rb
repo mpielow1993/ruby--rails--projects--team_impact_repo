@@ -1,9 +1,13 @@
 class Registration < ApplicationRecord
+  
   belongs_to :lesson
   belongs_to :subscription
   belongs_to :member
   
-  validate :member_lesson_pair_already_exists, :set_class_number_based_passes_expiry_date, :check_registration_count, :check_subscription_active
+  validates :member_id, :lesson_id, :subscription_id, presence: true
+  
+  validate :member_lesson_pair_already_exists, :check_subscription_active, :check_lesson_not_expired
+  before_save :set_class_number_based_passes_expiry_date
   
   def member_lesson_pair_already_exists
     lesson = Lesson.find(self.lesson_id)
@@ -18,27 +22,21 @@ class Registration < ApplicationRecord
   
   def set_class_number_based_passes_expiry_date
     if (self.subscription.membership_id == 2 && self.subscription.registrations.count == 4)
-      self.subscription.expiry_date = DateTime.now
-      self.subscription.is_active = false
+        self.subscription.update(expiry_date: DateTime.now)
+        self.subscription.update(is_active: false)
     end
     if (self.subscription.membership_id == 3 && self.subscription.registrations.count == 9)
-      self.subscription.expiry_date = DateTime.now
-      self.subscription.is_active = false
+        self.subscription.update(expiry_date: DateTime.now)
+        self.subscription.update(is_active: false)
     end
   end 
   
-  def check_registration_count
-    if ((self.subscription.membership_id == 2 && self.subscription.registrations.count >= 6) || (self.subscription.membership_id == 3 && self.subscription.registrations.count >= 11))
-      self.errors.add(:base, "The registration limit for Subscription '#{self.subscription.subscription_name}' has been reached")
-    end
+  def check_subscription_active
+    errors.add(:base, "The subscription used to register for this class must be active") if self.subscription.is_active == false
   end
   
-  def check_subscription_active
-
-    if self.subscription.is_active != true
-      errors.add(:base, "The subscription used to register for this class must be active")
-    end
-    
+  def check_lesson_not_expired
+    errors.add(:base, "The lesson being registered for has already taken place") if self.lesson.is_expired == true
   end
-
+    
 end

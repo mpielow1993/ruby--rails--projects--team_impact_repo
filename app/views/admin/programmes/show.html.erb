@@ -1,0 +1,16 @@
+<section>
+	<h1><%= @programme.name %></h1>
+</section>
+<section class="center">
+	<%= programme_big_image_for(@programme) %>
+</section>
+	<div class="container">
+		<div class="row">
+	       	<% if File.exist?(@programme_description_url) %>
+	       		<%= render "programmes/#{replace_char(@programme.name.downcase, " ", "_")}" %>
+	       	<% else %>
+	       		<%= render 'layouts/default_description', object: @programme.name %>
+	       	<% end %>
+		</div>
+	</div>
+</div>
