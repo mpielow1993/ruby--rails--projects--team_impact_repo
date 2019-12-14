@@ -14,10 +14,6 @@
               <% end  %>
             <% end  %>
           <h3>Price:<span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">&euro;<%= convert_to_price(store_item.price) %></span></h3>
-		  <% if current_member.admin? %>
-			  <%= link_to "Edit", edit_store_item_path(store_item), class: "btn btn-primary" %>
-			  <%= link_to "Remove", store_item_path(store_item), method: :delete, data: { confirm: "Are you sure you want to remove instructor '#{store_item.name}'" }, class: "btn btn-danger", style: "font-family: Orbitron" %>
-		  <% end %>
           </div>
     </div>
 </div>

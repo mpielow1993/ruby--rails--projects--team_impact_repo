@@ -1,4 +1,4 @@
-class Admin::StoreItemsController < ApplicationController
+class Admin::StoreItemsController < Admin::AdminApplicationController
   def index
     @store_items = StoreItem.all.paginate(page: params[:page])
   end

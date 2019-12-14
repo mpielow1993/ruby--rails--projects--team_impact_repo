@@ -1,4 +1,4 @@
-<div class="card" style="width: 100%; padding: 1em; background-color: #FFFFFF; margin-top: 4em;">
+<div class="card" style="width: 100%; padding: 1em; background-color: #FFFFFF; margin-top: 3em;">
   <%= member_big_image_for(member, width: "100%", height: "100%") %>
   <div class="card-body" style="font-family: Orbitron;">
     <h3>Username:<br> <span class="card-title" style="color: #000000; font-size: 1.5em;"><%= member.user_name %></span></h3>
@@ -6,7 +6,7 @@
 
   <a href="#item-1" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Timetable</a>
   <div class="list-group collapse" id="item-1">
-    <%= link_to "Public", public_timetable_path, class: "list-group-item" %>
+    <%= link_to "Public", public_timetable_path, class: "list-group-item", style: "color: #000000;" %>
     <%= link_to "Your Timetable", member_private_timetable_path(member), class: "list-group-item" %>
   </div>
 
@@ -48,7 +48,7 @@
       <div class="list-group collapse" id="item-5-2">
         <%= link_to "Members", admin_members_path, class: "list-group-item" %>
         <%= link_to "Instructors", admin_instructors_path, class: "list-group-item" %>
-        <%= link_to "Facilitys", admin_facilities_path, class: "list-group-item" %>
+        <%= link_to "Facilities", admin_facilities_path, class: "list-group-item" %>
         <%= link_to "Programmes", admin_programmes_path, class: "list-group-item" %>
         <%= link_to "Lessons", admin_lessons_path, class: "list-group-item" %>
         <%= link_to "Store Products", admin_store_items_path, class: "list-group-item" %>

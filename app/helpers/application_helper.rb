@@ -29,15 +29,21 @@ module ApplicationHelper
         end
     end
 
-    def current_subscription
-        if !session[:subscription_id].nil?
-            return current_member.subscriptions.find(session[:subscription_id])
-        else
-            return current_member.subscriptions.first
-        end  
-    end
-    
     def replace_char(string, char_before, char_after)
         string.gsub "#{char_before}", "#{char_after}"
+    end
+    
+    def separate_and_titleize(string, char)
+        array = string.split(char)
+        output_string = ""
+        array.each do |element|
+            element.titleize
+            unless element == array.last
+                output_string += element + " "
+            else
+                output_string += element
+            end
+        end
+        return output_string
     end
 end

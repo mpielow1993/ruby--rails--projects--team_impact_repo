@@ -1,8 +1,1 @@
-<% provide(:title, "Edit Store Product") %> 
-<% provide(:button_text, "Save Changes") %>
-    <h1>Update Store Product</h1> 
-        <div class="row"> 
-            <div class="col-md-6 col-md-offset-3"> 
-                <%= render 'layouts/store_item_edit_form' %>
-            </div>
-        </div>
+<%= render 'admin/layouts/edit', resource: "store_item" %>

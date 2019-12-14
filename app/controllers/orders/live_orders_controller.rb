@@ -1,4 +1,6 @@
 class Orders::LiveOrdersController < ApplicationController
+  before_action :logged_in_member
+  
   def new
   end
 

@@ -15,7 +15,7 @@ require("flatpickr/dist/flatpickr.min.css")
 
 document.addEventListener("turbolinks:load", () => {
   flatpickr(".datepicker", {
-      altInput: true,
+      altInput: false,
       altFormat: "F j, Y",
       dateFormat: "Y-m-d"
   }) 

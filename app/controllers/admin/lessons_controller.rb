@@ -1,6 +1,4 @@
-class Admin::LessonsController < ApplicationController
-    before_action :logged_in_member, only: [:index, :show, :create, :new, :update, :destroy, :public_timetable, :private_timetable, :search_timetable]
-    before_action :admin_member, only: [:index, :show, :create, :new, :update, :destroy]
+class Admin::LessonsController < Admin::AdminApplicationController
   
   def new
     @lesson = Lesson.new
@@ -56,7 +54,7 @@ class Admin::LessonsController < ApplicationController
     end
     
     def lesson_params
-      params.require(:lesson).permit(:date, :start_time, :end_time, :instructor_id, :facility_id, :programme_id, :level)
+      params.require(:lesson).permit(:date, :start_time, :end_time, :instructor_id, :facility_id, :programme_id, :level, :is_expired)
     end
     
 end

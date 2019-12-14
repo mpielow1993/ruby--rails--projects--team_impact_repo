@@ -1,6 +1,7 @@
 class NewswirePostsController < ApplicationController
     before_action :logged_in_member
-    before_action :admin_member, only: [:index, :create, :destroy]
+    before_action :correct_member, only: :private_index
+    before_action :admin_member, only: [:create, :destroy]
     
     
     def private_index
@@ -20,7 +21,7 @@ class NewswirePostsController < ApplicationController
         @newswire_post.image.attach(params[:newswire_post][:image])
         if @newswire_post.save 
             flash[:success] = "Newswire post created!" 
-            redirect_to newswire_url 
+            redirect_to newswire_path 
         else 
             render 'newswire_posts/public_index' 
         end
@@ -30,7 +31,7 @@ class NewswirePostsController < ApplicationController
         @newswire_post = NewswirePost.find(params[:id])
         @newswire_post.destroy 
         flash[:success] = "Newswire post successfully deleted" 
-        redirect_to newswire_path    #refers to root_url
+        redirect_to newswire_path
     end
     
     def show
@@ -44,18 +45,4 @@ class NewswirePostsController < ApplicationController
         def newswire_post_params 
             params.require(:newswire_post).permit(:content, :image) 
         end
-    
-        #Before filters
-  
-        # Confirms the correct member. 
-        def correct_member 
-            @member = Member.find(params[:member_id]) 
-            redirect_to(root_url) unless current_member?(@member)
-        end
-  
-        # Confirms an admin member. 
-        def admin_member 
-            redirect_to(root_url) unless current_member.admin? 
-        end
-    
 end

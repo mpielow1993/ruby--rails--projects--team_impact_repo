@@ -1,5 +1,5 @@
      <div class="row"> 
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="well">
                 <h3>&larr; <%= link_to "Back to Newswire", newswire_path %></h3>
                 <section class="newswire_posts">
@@ -17,7 +17,7 @@
                 </section>
             </div>
         </div> 
-        <div class="col-md-3"> 
-            <%= render 'layouts/sidebar' %>
+        <div class="col-md-4"> 
+            <%= render 'layouts/sidebar', member: current_member %>
         </div> 
     </div>

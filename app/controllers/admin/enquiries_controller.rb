@@ -1,4 +1,4 @@
-class Admin::EnquiriesController < ApplicationController
+class Admin::EnquiriesController < Admin::AdminApplicationController
   def new
     @enquiry = Enquiry.new
   end

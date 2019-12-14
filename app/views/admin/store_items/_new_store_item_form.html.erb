@@ -1,25 +1,25 @@
-<%= form_for (@store_item), url: store_items_path, method: :post do |f| %> 
+<%= form_for @store_item, url: admin_store_items_path, method: :post do |f| %> 
 
 <%-#Make this a multi-part form to handle file attachments%>
     <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
                         
-    <%= f.label :type, "Type" %>
+    <h3><%= f.label :type, "Type" %></h3>
     <%= f.select :type, ["Membership", "NonMembership"], class: "form-control" %> 
         
-    <%= f.label :name, "Name" %>
+    <h3><%= f.label :name, "Name" %></h3>
     <%= f.text_field :name, class: "form-control" %> 
                     
-    <%= f.label :description, "Description" %>
+    <h3><%= f.label :description, "Description" %></h3>
     <%= f.text_area :description, class: "form-control" %> 
 
-    <%= f.label :price, "Price" %>
+    <h3><%= f.label :price, "Price" %></h3>
     <%= f.number_field :price, step: 0.01, min: 1 %>
     
-    <%= f.label :store_item_avatar, "Store Product Avatar" %> 
+    <h3><%= f.label :store_item_avatar, "Store Product Avatar" %></h3> 
     <%= f.file_field :store_item_avatar, class: "form-control" %> 
     
     <% if @store_item.store_item_avatar? %>
-        <%= f.label :remove_store_item_avatar, "Remove Store Product Avatar" %> 
+        <h3><%= f.label :remove_store_item_avatar, "Remove Store Product Avatar" %></h3> 
         <%= f.check_box :remove_store_item_avatar %> 
     <% end %>
                         

@@ -1,4 +1,3 @@
-<%= order.order_items.size %> item(s) in this order with a value of &euro;<%= convert_to_price(order.total) %>
 <%= form_tag charges_path do %>
     <article>
         <% if flash[:error].present? %>
@@ -6,7 +5,7 @@
               <p><%= flash[:error] %></p>
             </div>
         <% end %>
-        <label class="amount"><span>Amount: &euro;<%= order.total %></span></label>
+        <label class="amount"><span>Amount: &euro;<%= convert_to_price(order.total) %></span></label>
     </article>
     <button type="submit" class="btn btn-success" style="font-family: Orbitron;">Checkout</button>
     <%= link_to "Continue Shopping", store_items_path, class: "btn btn-primary" %>

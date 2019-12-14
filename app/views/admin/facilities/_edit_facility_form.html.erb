@@ -1,16 +1,16 @@
-<%= form_for(@facility) do |f| %> 
+<%= form_for @facility, url: admin_facility_path(@facility), method: :patch do |f| %> 
 
 <%-#Make this a multi-part form to handle file attachments%>
     <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
                         
-    <%= f.label :name, "Name" %>
+    <h3><%= f.label :name, "Name" %></h3>
     <%= f.text_field :name, class: "form-control" %> 
     
-    <%= f.label :facility_avatar, "Facility Avatar" %> 
+    </h3><%= f.label :facility_avatar, "Facility Avatar" %></h3> 
     <%= f.file_field :facility_avatar, class: "form-control" %> 
     
     <% if @facility.facility_avatar? %>
-        <%= f.label :remove_facility_avatar, "Remove Facility Avatar" %> 
+        <h3><%= f.label :remove_facility_avatar, "Remove Facility Avatar" %></h3> 
         <%= f.check_box :remove_facility_avatar %> 
     <% end %>
                         

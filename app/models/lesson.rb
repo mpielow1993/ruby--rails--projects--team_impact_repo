@@ -19,7 +19,7 @@ class Lesson < ApplicationRecord
   #Each class starts and finishes at at "[hour] o'clock"
   
   #Custom validation methods (see below)
-  validate :correct_end_time
+  validate :correct_end_time, :check_lesson_wrt_date_start_time_and_facility
   
   validates :start_time, presence: true
   #Checks that only a start_time with a value of at least 24 hours more than the current_time (i.e lesson creation time) can be entered
@@ -42,15 +42,6 @@ class Lesson < ApplicationRecord
   
   before_save :match_times_to_date
   
-  
-  def expired?
-      if DateTime.current > end_time
-        return true
-      else
-        return false
-      end
-  end
-  
   private 
     
     #Checks that the only start times with a minute reading of ':00' can be saved  
@@ -71,23 +62,14 @@ class Lesson < ApplicationRecord
     end
     
     #Checks that one lesson cannot have the same facility as another lesson, if both lesson instances have the same date and start time
-    #Here, 'wrt' is shorthand for 'with resect to'
-    #def check_lesson_wrt_date_start_time_and_facility
-    #    Lesson.all.each do |lesson|
-    #      if ((self.date == lesson.date) && (self.start_time == lesson.start_time) && (self.facility_id == lesson.facility_id))
-    #        errors.add(:base, "Lesson with id = '#{lesson.id}' has the same Start Time, Date and Facility") 
-    #      end
-    #    end
-    #end
-    
-    #Method that parses the date string entered in the timeable
-    def self.search(search)
-      #if search.nil?
-        #redirect_to lessons_path
-      #end
-      if search
-        date = Lesson.where(date: search)
-      end
+    def check_lesson_wrt_date_start_time_and_facility
+        Lesson.all.each do |lesson|
+          unless lesson == self
+            if ((self.date == lesson.date) && (self.start_time == lesson.start_time) && (self.facility_id == lesson.facility_id))
+              errors.add(:base, "Lesson with id = '#{lesson.id}' has the same Start Time, Date and Facility") 
+            end
+          end
+        end
     end
     
     def match_times_to_date

@@ -11,6 +11,16 @@ class Subscription < ApplicationRecord
   
   #validates_uniqueness_of :membership_id, scope: :member_id
   
+    def self.check_expiry_dates
+      counter = 0
+      self.all.each do |subscription|
+        if (!subscription.expiry_date.nil? && (DateTime.current >= subscription.expiry_date))
+          subscription.is_active = false
+          counter += 1
+        end
+        return "#{counter} subscriptions deactivated"
+      end
+    end
   
   private
   
@@ -67,17 +77,6 @@ class Subscription < ApplicationRecord
         self.registration_limit = "Unlimited"
       end
       
-    end
-    
-    def self.check_expiry_dates
-      counter = 0
-      self.all.each do |subscription|
-        if (!subscription.expiry_date.nil? && (DateTime.current >= subscription.expiry_date))
-          subscription.is_active = false
-          counter += 1
-        end
-        return "#{counter} subscriptions deactivated"
-      end
     end
     
 end

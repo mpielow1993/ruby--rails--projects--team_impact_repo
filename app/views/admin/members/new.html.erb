@@ -1,10 +1,1 @@
-<% provide(:title, "New Member") %>
-<% provide(:button_text, "Create Member") %>
-<section>
-	<h1><%= yield(:title) %></h1>
-</section>
-<div class="row"> 
-    <div class="col-md-6 col-md-offset-3"> 
-        <%= render 'layouts/admin_member_new_form' %>
-    </div> 
-</div>
+<%= render 'admin/layouts/new', resource: "member" %>

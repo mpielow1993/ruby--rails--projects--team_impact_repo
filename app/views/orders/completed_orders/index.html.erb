@@ -3,7 +3,7 @@
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <% if !@orders.nil? %>
             <% @orders.each do |order| %>
                 <%= render 'orders/completed_order_summary', order: order %>
@@ -14,7 +14,7 @@
             </div>
         <% end %>
     </div>
-    <div class="col-md-3"> 
+    <div class="col-md-4"> 
         <%= render 'layouts/sidebar', member: current_member %>
     </div>
 </div>

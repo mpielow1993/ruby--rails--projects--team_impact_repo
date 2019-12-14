@@ -1,4 +1,5 @@
 class Orders::CompletedOrdersController < ApplicationController
+  before_action :logged_in_member, :correct_member
   def new
   end
 

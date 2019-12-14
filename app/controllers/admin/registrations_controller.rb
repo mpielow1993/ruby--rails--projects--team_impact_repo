@@ -1,4 +1,4 @@
-class Admin::RegistrationsController < ApplicationController
+class Admin::RegistrationsController < Admin::AdminApplicationController
 
   def index
     @member = Member.find(params[:member_id])

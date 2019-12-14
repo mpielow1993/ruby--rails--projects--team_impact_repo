@@ -1,10 +1,6 @@
 class RegistrationsController < ApplicationController
+before_action :logged_in_member
 
-  def index
-    @member = Member.find(params[:member_id])
-    @registrations = Registration.where(member_id: @member.id).order(lesson_date: :desc).paginate(page: params[:page])
-  end
-  
   def create
     @date = current_lesson_date
     @lesson = Lesson.find(params[:lesson_id])

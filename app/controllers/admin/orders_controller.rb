@@ -1,4 +1,4 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < Admin::AdminApplicationController
   
   def show
     @order = Order.find(params[:id])

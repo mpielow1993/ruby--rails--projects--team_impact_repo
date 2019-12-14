@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  def index
-  end
+before_action :logged_in_member
+before_action :correct_member, only: [:completed_order, :completed_orders]
 
   def live_order
     @member = current_member
@@ -16,9 +16,6 @@ class OrdersController < ApplicationController
   def completed_order
     @order = Order.find(params[:id])
     @order_items = @order.order_items.paginate(page: params[:page]).per_page(5)
-  end
-
-  def new
   end
 
   def create

@@ -311,28 +311,25 @@ header {
 	background-color: $white;
 }
 
-nav {
-	ul {
-		li {
-			margin-right: 1em;
-			ul {
-				li {
-					margin-right: -0em;
-				}
-			}
+.navbar-default .navbar-nav {
+	li {
+		a {
+			color: $black;
+			font-family: Orbitron;
+		}
+		&:hover {
+			background-color: $gold;
 		}
 	}
 }
 
+.navbar-default .navbar-nav > li > a {
+    color: $black;
+}
 
-.navbar {
-	margin: 0;
-	width: 100%;
-	background-color: $white;
-	font-family: Orbitron;
-	color: $black;
-	border-radius: 0;
-	list-style-type: none;
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: $black;
+    background-color: $gold;
 }
 
 
@@ -419,6 +416,21 @@ section {
 .list-group-item .glyphicon {
   margin-top: 0;
   margin-right: 5px;
+  color: $black;
+}
+
+a.list-group-item {
+	color: $black;
+	&:hover {
+		background-color: $gold;
+		color: $black;
+	}
+}
+
+a.list-group-item:focus, button.list-group-item:hover, button.list-group-item:focus {
+    color: $black;
+    outline: none;
+    background-color: #f5f5f5;
 }
 
 aside { 
@@ -494,12 +506,20 @@ article {
 	@include box_sizing; 
 }
 
-/*
 
-.dropdown {
-    position: relative;
+
+.dropdown-menu {
+    padding: 0;
+    	li {
+    		a {
+    			&:hover {
+    				background-color: $gold;
+    			}
+    		}
+    	}
 }
 
+/*
 .dropdown-content {
 	margin: 0;
 	font-size: 100%;

@@ -1,10 +1,10 @@
 <% provide(:title, "Welcome to your Account") %>
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <h1><%= yield(:title) %></h1>
         <div class="row"></div>
     </div>
-    <aside class="col-md-3">
+    <aside class="col-md-4">
         <div class="row"> 
             <%= render 'layouts/sidebar', member: @member %>
         </div>

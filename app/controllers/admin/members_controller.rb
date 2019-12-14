@@ -1,4 +1,4 @@
-class Admin::MembersController < ApplicationController
+class Admin::MembersController < Admin::AdminApplicationController
   def new
     @member = Member.new
   end

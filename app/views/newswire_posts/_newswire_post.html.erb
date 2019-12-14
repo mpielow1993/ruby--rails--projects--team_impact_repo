@@ -1,7 +1,7 @@
 <div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
-    <h5 class="card-title">
+    <h5 class="card-title" style="margin: 0;">
         <%= link_to member_avatar_for(newswire_post.member), newswire_post.member %>
-        <span class="user"><%= link_to newswire_post.member.first_name + " " + newswire_post.member.last_name, newswire_post.member, style: "font-family: Orbitron; font-size: 1.5em; padding-left: 1em;" %></span>
+        <span class="user"><%= link_to newswire_post.member.first_name + " " + newswire_post.member.last_name, newswire_post.member, style: "font-family: Orbitron; font-size: 1.5em; padding-left: 0.5em;" %></span>
     </h5>
     <%= newswire_post_big_image_for(newswire_post.image, style: "border: 0;") if newswire_post.image.attached? %>
     <div class="card-body">

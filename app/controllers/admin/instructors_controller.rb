@@ -1,4 +1,4 @@
-class Admin::InstructorsController < ApplicationController
+class Admin::InstructorsController < Admin::AdminApplicationController
   def new
     @instructor = Instructor.new
   end

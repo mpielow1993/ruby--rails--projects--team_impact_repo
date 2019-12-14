@@ -1,39 +1,43 @@
 <% provide(:title, "Store") %> 
 <h1 style="margin-bottom: 1.5em; margin-top: 1em;"><%= yield(:title) %></h1>
-    <div class="row">
-        <div class="card text-center">
-          <div class="card-header"></div>
-            <div class="card-body">
-                <div class="card-text">
-                    <% if session[:order_id].nil? %>
-                        <%= link_to "New Order", member_orders_live_orders_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron" %>
-                    <% else %>
-                        <%= link_to "View Current Cart", member_orders_live_order_path(@member, @order), class: "btn btn-success", style: "font-family: Orbitron" %>
-                    <% end %>
-                    <div class="card-footer text-muted"></div>
-                </div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div style="padding: 1em;">
+                <h2>Memberships&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @memberships.count %> Items)</span></h2>
             </div>
-        </div> 
-        <div class="col-md-9">
-            <div class="row">
-                <div style="padding: 1em;">
-                    <h2>Memberships&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @memberships.count %> Items)</span></h2>
-                </div>
-                <% @memberships.each do |membership| %>
-                    <%= render 'store_items/store_item', store_item: membership, order_item: @order_item, member: @member, order: @order %>
-                <% end %>
+            <% @memberships.each do |membership| %>
+                <%= render 'store_items/store_item', store_item: membership, order_item: @order_item, member: @member, order: @order %>
+            <% end %>
+        </div>
+        <div class="row">
+            <div style="padding: 1em;">
+                <h2>Other&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @non_memberships.count %> Items)</span></h2>
             </div>
-            <div class="row">
-                <div style="padding: 1em;">
-                    <h2>Other&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @non_memberships.count %> Items)</span></h2>
-                </div>
-                <% @non_memberships.each do |non_membership| %>
-                    <%= render 'store_items/store_item', store_item: non_membership, order_item: @order_item, member: @member, order: @order %>
-                <% end %>                
-            </div>
+            <% @non_memberships.each do |non_membership| %>
+                <%= render 'store_items/store_item', store_item: non_membership, order_item: @order_item, member: @member, order: @order %>
+            <% end %>                
+        </div>
+        <div class="center">
             <%= will_paginate @store_items %>
         </div>
-        <div class="col-md-3"> 
-            <%= render 'layouts/sidebar', member: @member %>
-        </div> 
     </div>
+    <div class="col-md-4"> 
+        <%= render 'layouts/sidebar', member: @member %>
+        <div class="col-md-12" style="background-color: #FFFFFF; padding: 1em; margin-top: 2em;">
+            <% if session[:order_id].nil? %>
+                <%= link_to "New Order", member_orders_live_orders_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron; width: 100%;" %>
+            <% else %>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title" style="color: #000000; margin: 0;">Current Order</h2>
+                        <p class="card-text" style="color: #000000; margin-top: 1.5em; margin-bottom: 1.5em;">
+                            Contains <%= @order.order_items.count %> item(s) with a value of &euro;<%= convert_to_price(@order.total) %>
+                        </p>
+                        <h3><%= link_to "View Details", member_orders_live_order_path(@member, @order), style: "font-family: Orbitron; float: right; color: 000000;" %></h3> 
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div> 

@@ -5,7 +5,7 @@
     <div class="row"> 
         <div class="col-md-8"> 
             <div class="well">
-                <h2 style="color: #000000;">(<%= @newswire_posts.count %> Posts)</h2>
+                <h2 style="color: #000000;">All Posts (<%= @newswire_posts.count %>)</h2>
                 <% @newswire_posts.each do |newswire_post| %>
                     <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
                     <p class="card-text" style="margin-top: 1em; font-family: Orbitron; font-size: 1em;"><%= link_to "Show Comments (#{newswire_post.comments.count})", newswire_post_path(newswire_post), id: "newswire_post_#{newswire_post.id}_comment_thread_link" %></p>
@@ -16,9 +16,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="col-md-12">
-                <%= render 'layouts/sidebar', member: @member %>
-            </div>
+            <%= render 'layouts/sidebar', member: @member %>
             <% if @member.admin? %>
                 <div class="col-md-12" style="background-color: #FFFFFF; margin-top: 1em;">
                     <%= render 'shared/newswire_post_form' %>                 

@@ -1,0 +1,25 @@
+<%= form_for @instructor, url: admin_instructors_path, method: :post do |f| %> 
+
+<%-#Make this a multi-part form to handle file attachments%>
+    <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
+                        
+    <h3><%= f.label :first_name, "First Name" %></h3>
+    <%= f.text_field :first_name, class: "form-control" %> 
+        
+    <h3><%= f.label :last_name, "Last Name" %></h3>
+    <%= f.text_field :last_name, class: "form-control" %> 
+                    
+    <h3><%= f.label :role, "Role" %></h3>
+    <%= f.text_field :role, class: "form-control" %> 
+    
+    <h3><%= f.label :instructor_avatar, "Instructor Avatar" %></h3> 
+    <%= f.file_field :instructor_avatar, class: "form-control" %> 
+    
+    <% if @instructor.instructor_avatar? %>
+        <h3><%= f.label :remove_instructor_avatar, "Remove Instructor Avatar" %></h3> 
+        <%= f.check_box :remove_instructor_avatar %> 
+    <% end %>
+                        
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
+                        
+<% end %>

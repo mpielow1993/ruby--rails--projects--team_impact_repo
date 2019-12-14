@@ -1,4 +1,5 @@
 class Orders::OrderItemsController < ApplicationController
+    before_action :logged_in_member
     
     def index
         @member = current_member

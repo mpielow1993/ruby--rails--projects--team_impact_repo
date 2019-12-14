@@ -1,12 +1,15 @@
-<% provide(:title, "Edit member") %> 
+<% provide(:title, "Edit Member") %> 
 <% provide(:button_text, "Save Changes") %>
-    <h1>Update your profile</h1> 
-        <div class="row"> 
-            <div class="col-md-6 col-md-offset-3"> 
-                <%= render 'layouts/form' %>
-                <%-#<div class="gravatar_edit"> -%> 
-                    <%-# avatar_for(@member)  -%>
-                    <%- #<a href="https://gravatar.com/emails" target="_blank" rel="noopener">Change</a> -%> 
-                <%- #</div> -%>
-            </div>
+<section>
+    <h1>Update Your Details</h1>
+</section> 
+<div class="row"> 
+    <div class="col-md-8">
+        <div class="well" style="background-color: #000000;">
+            <%= render 'members/edit_member_form', member: @member %>
         </div>
+    </div>
+    <div class="col-md-4"> 
+        <%= render 'layouts/sidebar',  member: @member %>
+    </div>
+</div>

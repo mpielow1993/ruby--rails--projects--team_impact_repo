@@ -4,12 +4,10 @@
         <%= f.hidden_field :member_id, value: current_member.id %> 
         <%= f.text_area :content, placeholder: "Add Comment..." %> 
     </div> 
-        
-    <div class="center" style="background-color: #FFFFFF;">
-        <%= f.submit "Post", class: "btn btn-primary", style: "width: 30%;" %> 
-    </div>
-    <%-#Adding image upload to the newswire_post 'create' form-%>
     <span class="image"> 
         <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %> 
-    </span>
+    </span>   
+    <div class="center" style="background-color: #FFFFFF;">
+        <%= f.submit "Post", class: "btn btn-primary", style: "width: 100%;" %> 
+    </div>
 <% end %>

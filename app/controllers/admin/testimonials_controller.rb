@@ -1,4 +1,4 @@
-class Admin::TestimonialsController < ApplicationController
+class Admin::TestimonialsController < Admin::AdminApplicationController
   def new
     @testimonial = Testimonial.new
   end

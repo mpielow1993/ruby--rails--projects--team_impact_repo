@@ -1,0 +1,19 @@
+<%= form_for @facility, url: admin_facilities_path, method: :post do |f| %> 
+
+<%-#Make this a multi-part form to handle file attachments%>
+    <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
+                        
+    <h3><%= f.label :name, "Name" %></h3>
+    <%= f.text_field :name, class: "form-control" %> 
+    
+    </h3><%= f.label :facility_avatar, "Facility Avatar" %></h3> 
+    <%= f.file_field :facility_avatar, class: "form-control" %> 
+    
+    <% if @facility.facility_avatar? %>
+        <h3><%= f.label :remove_facility_avatar, "Remove Facility Avatar" %></h3> 
+        <%= f.check_box :remove_facility_avatar %> 
+    <% end %>
+                        
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
+                        
+<% end %>

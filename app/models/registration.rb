@@ -9,6 +9,8 @@ class Registration < ApplicationRecord
   validate :member_lesson_pair_already_exists, :check_subscription_active, :check_lesson_not_expired
   before_save :set_class_number_based_passes_expiry_date
   
+  private
+  
   def member_lesson_pair_already_exists
     lesson = Lesson.find(self.lesson_id)
     if !Array.wrap(lesson.registrations) != []

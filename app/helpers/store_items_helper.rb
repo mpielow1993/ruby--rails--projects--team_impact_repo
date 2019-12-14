@@ -8,12 +8,12 @@ module StoreItemsHelper
         end
     end
     
-    def store_item_big_image_for(store_item, width: "100%", height: "auto" )
+    def store_item_big_image_for(store_item, width: "100%", height: "auto", style: "border: 0.5em solid #000000;" )
         image_uploader = ImageUploader.new
         if store_item.store_item_avatar?
-            image_tag("#{store_item.store_item_avatar}", alt: store_item.name, width: width, height: height)
+            image_tag("#{store_item.store_item_avatar}", alt: store_item.name, width: width, height: height, style: style)
         else
-            image_tag(image_uploader.default_url, alt: store_item.name, width: width, height: height)
+            image_tag(image_uploader.default_url, alt: store_item.name, width: width, height: height, style: style)
         end        
     end
     

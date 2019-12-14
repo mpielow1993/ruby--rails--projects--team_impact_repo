@@ -3,10 +3,14 @@
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
-    <div class="col-md-9">
-        <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.member.user_name %></span></h2>
-        <h2>Subscription: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.subscription_name %></span></h2>
-        <h2>Membership: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.membership.name %></span></h2>
+    <div class="center">
+        <h2>
+        Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.member.user_name %></span>&emsp;&emsp;
+        Subscription: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.subscription_name %></span>&emsp;&emsp;
+        Membership: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.membership.name %></span>
+    </h2> 
+    </div>       
+    <div class="col-md-8">
         <div class="well">
             <%-#The members index with pagination-%>
             <table class="table">
@@ -37,7 +41,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <%= render 'layouts/sidebar', member: current_member %>
     </div>
 </div>

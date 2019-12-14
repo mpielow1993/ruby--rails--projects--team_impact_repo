@@ -7,7 +7,7 @@
     <div class="card-body">
         <p class="card-text" style="margin-top: 2em; font-family: Trebuchet MS;"><%= auto_link_content(sanitize comment.content.html_safe) %></p>
         <p class="card-text" style="margin-top: 2em;"><small class="text-muted" style="color: #FFFFFF;">Posted <%= time_ago_in_words(comment.created_at) %> ago.</small></p>
-        <% if comment.member == current_member %>
+        <% if comment.member == current_member || current_member.admin? %>
             <%= link_to "Delete", newswire_post_comment_path(comment.newswire_post, comment), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %>
         <% end %>
     </div>

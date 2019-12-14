@@ -1,0 +1,15 @@
+<% provide(:title, "New #{resource.titleize}") %>
+<% provide(:button_text, "Create #{resource.titleize}") %>
+<section>
+	<h1><%= yield(:title) %></h1>
+</section>
+<div class="row"> 
+    <div class="col-md-8"> 
+        <div class="well" style="background-color: #000000;">
+            <%= render "admin/#{resource.pluralize}/new_#{resource}_form" %>
+        </div>
+    </div> 
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

@@ -1,16 +1,16 @@
-<%= form_for(@programme) do |f| %> 
+<%= form_for @programme, url: admin_programmes_path, method: :post do |f| %> 
 
 <%-#Make this a multi-part form to handle file attachments%>
     <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %> 
                         
-    <%= f.label :name, "Name" %>
+    <h3><%= f.label :name, "Name" %></h3>
     <%= f.text_field :name, class: "form-control" %> 
     
-    <%= f.label :programme_avatar, "Programme Avatar" %> 
+    <h3><%= f.label :programme_avatar, "Programme Avatar" %> </h3>
     <%= f.file_field :programme_avatar, class: "form-control" %> 
     
     <% if @programme.programme_avatar? %>
-        <%= f.label :remove_programme_avatar, "Remove Programme Avatar" %> 
+        <h3><%= f.label :remove_programme_avatar, "Remove Programme Avatar" %> </h3>
         <%= f.check_box :remove_programme_avatar %> 
     <% end %>
                         

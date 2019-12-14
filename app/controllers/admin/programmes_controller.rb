@@ -1,4 +1,4 @@
-class Admin::ProgrammesController < ApplicationController
+class Admin::ProgrammesController < Admin::AdminApplicationController
   def new
     @programme = Programme.new
   end

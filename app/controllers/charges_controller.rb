@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  before_action :logged_in_member
 def new
   @member = current_member
   @order = current_order

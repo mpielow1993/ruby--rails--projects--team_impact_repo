@@ -1,13 +1,7 @@
-require 'allowable'
-
 class CommentsController < ApplicationController
-  #before_action :set_newswire_post_id_param, only: :create
-  def show
-    @member = Member.find(params[:member_id])
-    @newswire_post = @member.newswire_posts.find(params[:newswire_post_id]) 
-    @comment = @newswire_post.comments.find(params[:id])
-  end
-
+  before_action :logged_in_member
+  before_action :correct_member, only: :private_index
+  
   def create
     @member = Member.find(params[:comment][:member_id])
     @newswire_post = NewswirePost.find(params[:newswire_post_id])

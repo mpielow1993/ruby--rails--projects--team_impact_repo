@@ -1,10 +1,1 @@
-<% provide(:title, "New Store Product") %>
-<% provide(:button_text, "Create Store Product ") %>
-<section>
-	<h1><%= yield(:title) %></h1>
-</section>
-<div class="row"> 
-    <div class="col-md-6 col-md-offset-3"> 
-        <%= render 'layouts/store_item_new_form' %>
-    </div> 
-</div>
+<%= render 'admin/layouts/new', resource: "store_item" %>

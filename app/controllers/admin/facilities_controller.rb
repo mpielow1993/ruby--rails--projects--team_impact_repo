@@ -1,4 +1,4 @@
-class Admin::FacilitiesController < ApplicationController
+class Admin::FacilitiesController < Admin::AdminApplicationController
   def new
     @facility = Facility.new
   end

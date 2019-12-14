@@ -126,23 +126,6 @@ class Member < ApplicationRecord
     #If a specific member(with a specific member) is registered for a specific class, returns true along with the subscription used to register for it.
     #If said member is not registered, returns false
     
-    def is_registered_and_subscription_used(lesson)
-        counter = 0
-        name = ""
-        array = []
-        lesson.registrations.each do |registration|
-            if registration.member.id == self.id
-                name += registration.subscription.subscription_name
-                counter += 1
-            end
-        end
-        if counter > 0
-            array.push(true, name)
-            return array
-        else
-            return false
-        end
-    end   
     
     def already_registered_to(lesson)
         counter = 0

@@ -14,6 +14,7 @@
         		<h3>Instructor: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.instructor.first_name + " " + lesson.instructor.last_name %></span></h3>
         		<h3>Facility: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.facility.name %></span></h3></span></h3>
         		<h3>Programme: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.programme.name %></span></h3></span></h3>
+        		<h3>Level: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= lesson.level %></span></h3></span></h3>
         		<h3>Status:
         		<% if lesson.is_expired %>
         		    <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #FF0000;">EXPIRED</span></span>
