@@ -26,7 +26,7 @@
         <%= render 'layouts/sidebar', member: @member %>
         <div class="col-md-12" style="background-color: #FFFFFF; padding: 1em; margin-top: 2em;">
             <% if session[:order_id].nil? %>
-                <%= link_to "New Order", member_orders_live_orders_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron; width: 100%;" %>
+                <%= link_to "New Order", member_live_order_path(@member), method: :post, class: "btn btn-success", style: "font-family: Orbitron; width: 100%;" %>
             <% else %>
                 <div class="card">
                     <div class="card-body">
@@ -34,7 +34,7 @@
                         <p class="card-text" style="color: #000000; margin-top: 1.5em; margin-bottom: 1.5em;">
                             Contains <%= @order.order_items.count %> item(s) with a value of &euro;<%= convert_to_price(@order.total) %>
                         </p>
-                        <h3><%= link_to "View Details", member_orders_live_order_path(@member, @order), style: "font-family: Orbitron; float: right; color: 000000;" %></h3> 
+                        <h3><%= link_to "View Details", member_live_order_path(@member), style: "font-family: Orbitron; float: right; color: 000000;" %></h3> 
                     </div>
                 </div>
             <% end %>

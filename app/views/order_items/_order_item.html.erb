@@ -11,7 +11,7 @@
                 <h3>Type: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Other</span></h3>
             <% end %>
             <h3>Unit Price: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">&euro;<%= convert_to_price(order_item.store_item.price) %></span></h3>
-            <%= form_for order_item, url: member_orders_live_order_order_item_path(member, order, order_item), method: :patch do |f| %>
+            <%= form_for order_item, url: member_order_order_item_path(member, order, order_item), method: :patch do |f| %>
               <%= f.hidden_field :store_item_id, value: order_item.store_item.id %>
               <h3>Quantity: </h3><%= f.number_field :quantity, value: order_item.quantity.to_i, style: "width: 60%;" %>
               <%= f.submit "Update Cart", class: "btn btn-primary", style: "width: 15%;" %>
@@ -20,6 +20,6 @@
         </div>
     </div>
     <div class="card-footer" style="background-color: #FFFFFF; padding-top: 1em; color: #FFFFFF;">
-        <%= link_to "Remove Item", member_orders_live_order_order_item_path(member, order, order_item), date: { confirm: "Are you sure you want to remove this item from the current order?" }, method: :delete, remote: true, class: "btn btn-danger", style: "font-family: Orbitron; width: 15%; float: right;" %>
+        <%= link_to "Remove Item", member_order_order_item_path(member, order, order_item), date: { confirm: "Are you sure you want to remove this item from the current order?" }, method: :delete, remote: true, class: "btn btn-danger", style: "font-family: Orbitron; width: 15%; float: right;" %>
     </div>
 </div>

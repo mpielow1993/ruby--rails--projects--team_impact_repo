@@ -3,7 +3,7 @@
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <% if !@enquiries.nil? %>
             <% @enquiries.each do |enquiry| %> 
                 <%= render 'admin/enquiries/enquiry', enquiry: enquiry %>
@@ -11,7 +11,7 @@
         <% end %>
         <div class="center"><%= will_paginate @enquiries %></div>
     </div>
-    <aside class="col-md-3">
+    <aside class="col-md-4">
         <%= render 'layouts/sidebar', member: current_member %>
     </aside> 
 </div>

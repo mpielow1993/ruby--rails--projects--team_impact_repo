@@ -14,5 +14,6 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="order-id-<%= @order.id %>-member-id-<%= @member.id %>"
           data-amount="<%= (@order.total * 100).round  %>"
-          data-locale="auto"></script>
+          data-locale="auto">
+  </script>
 <% end %>

@@ -1,4 +1,4 @@
-class Orders::OrderItemsController < ApplicationController
+class OrderItemsController < ApplicationController
     before_action :logged_in_member
     
     def index
@@ -15,10 +15,10 @@ class Orders::OrderItemsController < ApplicationController
         if @order_item.save
             flash[:success] = "Item added successfully"
             session[:order_id] = @order.id
-            redirect_to member_orders_live_order_path(@member, @order)
+            redirect_to member_live_order_path(@member)
         else
             flash[:danger] = "Failed to add item"
-            redirect_to member_orders_live_order_path(@member, @order)
+            redirect_to member_live_order_path(@member)
         end
     end
     
@@ -30,10 +30,10 @@ class Orders::OrderItemsController < ApplicationController
         if @order_item.save
             current_order.update(total: current_order.set_total)
             flash[:success] = "Order Item updated successfully"
-            redirect_to member_orders_live_order_path(@member, @order)
+            redirect_to member_live_order_path(@member)
         else
             flash[:danger] = "Update failed"
-            render 'orders/live_orders/show'
+            render 'orders/live_order'
         end
     end
     
@@ -44,10 +44,10 @@ class Orders::OrderItemsController < ApplicationController
         if @order_item.destroy
             current_order.update(total: current_order.set_total)
             flash[:success] = "Order Item destroyed successfully"
-            redirect_to member_orders_live_order_path(@member, @order)
+            redirect_to member_live_order_path(@member)
         else
             flash[:danger] = "Update failed"
-            render 'orders/live_orders/show'
+            render 'orders/live_order'
         end
     end
     

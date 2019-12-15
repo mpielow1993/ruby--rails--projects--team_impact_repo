@@ -1,28 +1,21 @@
-<%= provide(:title, "Your Current Order") %>
+<%= provide(:title, "Order ##{@order.id}") %>
 <section>
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
-  <div class="col-md-9">
-    <% @order_items.each do |order_item| %>
-      <%= render 'order_items/order_item', order_item: order_item %>
-    <% end %>
-    <h2>Current Total: &euro;<%= convert_to_price(@order.total) %></h2>
-    <div id="order">
-      <p><%= render 'orders/order_summary', order: @order, member: @member %></p>
+    <div class="col-md-8">
+        <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @order.member.user_name %></span></h2>
+        <div class="well">
+            <% @order_items.each do |order_item| %>
+                <%= render 'admin/order_items/order_item', order_item: order_item %>
+            <% end %>
+            <div class="center" style="background-color: #000000; border-color: #000000;">
+                <%= will_paginate @order_items %>
+            </div>
+        </div>
+        <h2 style="float: right;">Total: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;">&euro;<%= convert_to_price(@order.total) %></span></h2>
     </div>
-    <div class="well center" style="background-color: #000000; border-color: #000000;">
-      <%= will_paginate @order_items %>
+    <div class="col-md-4"> 
+        <%= render 'layouts/sidebar', member: current_member %>
     </div>
-  </div>
-  <div class="col-md-3"> 
-    <%= render 'layouts/sidebar', member: current_member %>
-  </div>
 </div>
-
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-  data-description="order-id-<%= @order.id %>-member-id-<%= @member.id %>"
-  data-amount="<%= (@order.total * 100).round  %>"
-  data-locale="auto">
-</script>

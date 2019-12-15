@@ -6,7 +6,7 @@ class Admin::OrdersController < Admin::AdminApplicationController
   end
   
   def index
-    @orders = Order.all.paginate(page: params[:page]).per_page(5)
+    @orders = Order.all.where(is_paid: true).paginate(page: params[:page]).per_page(5)
   end
 
   def new

@@ -51,13 +51,14 @@ Rails.application.routes.draw do
       resources :registrations, only: [:create, :destroy, :index]
     end
     
-    namespace :orders do
-      resources :live_orders do
-        resources :order_items
-      end
-      
-      resources :completed_orders
+    resources :orders, only: [:show, :index, :destroy] do
+      resources :order_items
     end
+    
+    get '/live_order', to: 'orders#live_order'
+    post 'live_order', to: 'orders#create_live_order'
+    delete 'live_order', to: 'orders#destroy_live_order'
+
   end
 
   resources :charges  
@@ -100,8 +101,6 @@ Rails.application.routes.draw do
       resources :registrations, only: [:create, :destroy]
     end
     
-    resources :completed_orders
-    
     resources :store_items
     
     resources :orders do
@@ -110,9 +109,6 @@ Rails.application.routes.draw do
   end
   
   resources :enquiries, only: [:new, :create] 
-  
-  namespace :admin do
-  end
   
   resources :store_items
   

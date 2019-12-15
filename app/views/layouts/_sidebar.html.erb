@@ -24,7 +24,7 @@
   <a href="#item-4" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Store</a>
   <div class="list-group collapse" id="item-4">
     <%= link_to "Public", store_items_path, class: "list-group-item" %>
-    <%= link_to "Your Purchases", member_orders_completed_orders_path(member), class: "list-group-item" %>
+    <%= link_to "Your Purchases", member_orders_path(member), class: "list-group-item" %>
   </div>
   
   <% if member.admin?  %> 

@@ -30,10 +30,12 @@ def create
 
 if @live_order.save
   @live_order.order_items.each do |order_item|
-    if order_item.is_membership?
-      subscription = order_item.membership.subscriptions.build(member_id: @member.id, is_active: true)
-      subscription.save
-      @subscriptions += 1
+    if order_item.store_item.type == "Membership"
+      order_item.quantity.times do |n|
+        subscription = order_item.store_item.subscriptions.build(member_id: @member.id, is_active: true)
+        subscription.save
+        @subscriptions += 1
+      end
     end
   end
   flash[:success] = "Payment Completed. #{@subscriptions} Membership Subscriptions added to your account"
@@ -52,8 +54,4 @@ rescue Stripe::CardError => e
   redirect_to new_charge_path
 end
 
-def index
-  @member = current_member
-  @order = current_order
-end
 end

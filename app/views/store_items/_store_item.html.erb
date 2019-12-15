@@ -5,7 +5,7 @@
             <h2 class="card-title" style="margin: 0;"><%= store_item.name.titleize %></h2>
             <p class="card-text" style="padding-top: 1.5em;"><%= store_item.description %></p>
             <%  if !session[:order_id].nil? %>
-              <%= form_for order_item, url: member_orders_live_order_order_items_path(member, order, order_item), method: :post, remote: true do |f| %>
+              <%= form_for order_item, url: member_order_order_items_path(member, order, order_item), method: :post, remote: true do |f| %>
                 <%= f.hidden_field :store_item_id, value: store_item.id %>
               
                 <%= f.number_field :quantity, value: 1, min: 1 %>
