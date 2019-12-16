@@ -13,7 +13,7 @@
             <h3>Unit Price: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">&euro;<%= convert_to_price(order_item.store_item.price) %></span></h3>
             <%= form_for order_item, url: member_order_order_item_path(member, order, order_item), method: :patch do |f| %>
               <%= f.hidden_field :store_item_id, value: order_item.store_item.id %>
-              <h3>Quantity: </h3><%= f.number_field :quantity, value: order_item.quantity.to_i, style: "width: 60%;" %>
+              <h3>Quantity: </h3><%= f.number_field :quantity, value: order_item.quantity.to_i, style: "width: 60%;", class: "form-control" %>
               <%= f.submit "Update Cart", class: "btn btn-primary", style: "width: 15%;" %>
             <% end %>
             <h3>Sub-Total: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">&euro;<%= convert_to_price(order_item.sub_total) %></span></h3>
