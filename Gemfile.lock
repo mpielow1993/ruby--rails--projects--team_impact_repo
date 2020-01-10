@@ -117,6 +117,7 @@ GEM
     faker (2.1.2)
       i18n (>= 0.8)
     ffi (1.11.1)
+    ffi (1.11.1-x64-mingw32)
     flatpickr (4.5.7.0)
     formatador (0.2.5)
     globalid (0.4.2)
@@ -166,14 +167,18 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     msgpack (1.3.1)
+    msgpack (1.3.1-x64-mingw32)
     nenv (0.3.0)
     nio4r (2.5.2)
     nokogiri (1.10.5)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.5-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (1.1.4)
+    pg (1.1.4-x64-mingw32)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -239,6 +244,8 @@ GEM
       tilt (>= 1.1, < 3)
     sassc (2.2.1)
       ffi (~> 1.9)
+    sassc (2.2.1-x64-mingw32)
+      ffi (~> 1.9)
     selenium-webdriver (3.142.4)
       childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -268,8 +275,11 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
     validates_timeliness (5.0.0.alpha5)
       timeliness (>= 0.3.10, < 1)
+    wdm (0.1.1)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -295,6 +305,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   active_storage_validations (= 0.8.2)
@@ -330,8 +341,9 @@ DEPENDENCIES
   sqlite3 (= 1.4.1)
   stripe (= 5.7.1)
   turbolinks (= 5.2.0)
-  tzinfo-data
+  tzinfo-data (= 1.2019.3)
   validates_timeliness (= 5.0.0.alpha5)
+  wdm (>= 0.1.0)
   web-console (= 4.0.1)
   webdrivers (= 4.1.2)
   webpacker (= 4.0.7)

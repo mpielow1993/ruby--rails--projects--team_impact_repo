@@ -1,25 +1,25 @@
-<% provide(:title, "Log in") %> 
-<h1>Log in</h1> 
-<div class="row"> 
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+<div class="row">
     <div class="col-md-6 col-md-offset-3"> 
-        <%= form_for(:session, url: log_in_path) do |f| %> 
-    
-            <h3><%= f.label :user_name %></h3> 
-            <%= f.text_field :user_name, class: 'form-control' %> 
-    
-            <h3><%= f.label :password %> 
+        <%= form_for(:session, url: log_in_path) do |f| %>
+
+            <h3><%= f.label :user_name %></h3>
+            <%= f.text_field :user_name, class: 'form-control' %>
+
+            <h3><%= f.label :password %>
             <%-#Adding a link to password resets-%>
             <%= link_to "(forgot password)", new_password_reset_path, style: "font-family: Orbitron;"%></h3>
-            <%= f.password_field :password, class: 'form-control' %> 
-            
-            <%= f.label :remember_me, class: "checkbox inline" do %> 
-                <%= f.check_box :remember_me %> 
-                <span style="font-family: Orbitron;">Remember me on this computer</span> 
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+                <%= f.check_box :remember_me %>
+                <span style="font-family: Orbitron;">Remember me on this computer</span>
             <% end %>
-    
-            <%= f.submit "Log in", class: "btn btn-primary" %> 
-    
-        <% end %> 
-        <h3>New member? <%= link_to "Sign up now!", sign_up_path %></h3> 
-    </div> 
+
+            <%= f.submit "Log in", class: "btn btn-primary" %>
+
+        <% end %>
+        <h3>New member? <%= link_to "Sign up now!", sign_up_path %></h3>
+    </div>
 </div>
