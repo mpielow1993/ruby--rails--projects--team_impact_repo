@@ -1,9 +1,9 @@
 /*Team Impact major html elements*/
 
-@import "bootstrap-sprockets"; 
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */ 
+/* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 $gold: #FFD700;
@@ -20,10 +20,18 @@ $green: #00FF00;
 $light-pink: #FFC0CB;
 $red: #FF0000;
 
-@mixin box_sizing { 
-	-moz-box-sizing: border-box; 
-	-webkit-box-sizing: border-box; 
-	box-sizing: border-box; 
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	background: no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 
@@ -84,7 +92,7 @@ h4 {
 
 p {
 	font-size: 125%;
-	
+
 }
 
 .btn {
@@ -133,7 +141,7 @@ li {
 	thead {
 		tr {
 			background-color: $white;
-			color: $black;	
+			color: $black;
 			td {
 				border: 0.25em solid $black;
 				font-family: Orbitron;
@@ -143,7 +151,7 @@ li {
 	tbody {
 		tr {
 			background-color: $black;
-			color: $white;	
+			color: $white;
 			td {
 				border: 0.25em solid $white;
 			}
@@ -172,27 +180,27 @@ li {
 
 /*Team Impact semantic html elements*/
 
-/* footer */ 
-footer { 
-	margin-top: 45px; 
+/* footer */
+footer {
+	margin-top: 45px;
 	padding-top: 5px;
 	color: $white;
 	border-top: 1px solid $white
-	a { 
-		color: $black; 
+	a {
+		color: $black;
 	}
-	small { 
+	small {
 		float: left;
 	}
-	ul { 
-		float: right; 
-		list-style: none; 
-		li { 
-			float: left; 
-			margin-left: 15px; 
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 15px;
 		}
 	}
-} 
+}
 
 /* form */
 
@@ -209,7 +217,7 @@ form {
 		color: #000000;
 		background-color: #FFFFFF;
     	border: 0.2em;
-		border-color: #FFFFFF; 
+		border-color: #FFFFFF;
     	border-radius: 0.4em;
 		outline: none;
 	}
@@ -229,43 +237,43 @@ form {
 */
 
 .checkbox {
-	margin-top: -10px; 
-	margin-bottom: 10px; 
-	span { 
-		margin-left: 20px; 
-		font-weight: normal; 
+	margin-top: -10px;
+	margin-bottom: 10px;
+	span {
+		margin-left: 20px;
+		font-weight: normal;
 	}
-} 
+}
 
-#session_remember_me { 
-	width: auto; 
-	margin-left: 0; 
+#session_remember_me {
+	width: auto;
+	margin-left: 0;
 }
 
 #error_explanation {
-	color: $red; 
-	ul { 
-		color: $red; 
-		margin: 0 0 30px 0; 
+	color: $red;
+	ul {
+		color: $red;
+		margin: 0 0 30px 0;
 	}
-} 
-
-.field_with_errors { 
-	@extend .has-error; 
-	.form-control { 
-		color: $state-danger-text; 
-	} 
 }
-input, textarea, select, .uneditable-input { 
-	color: $black;
-	border: 1px solid #bbb; 
-	width: 100%; 
-	margin-bottom: 15px; 
-	@include box_sizing; 
-} 
 
-input { 
-	height: auto !important; 
+.field_with_errors {
+	@extend .has-error;
+	.form-control {
+		color: $state-danger-text;
+	}
+}
+input, textarea, select, .uneditable-input {
+	color: $black;
+	border: 1px solid #bbb;
+	width: 100%;
+	margin-bottom: 15px;
+	@include box_sizing;
+}
+
+input {
+	height: auto !important;
 }
 
 /*nav*/
@@ -374,7 +382,7 @@ section {
 	}
 }
 
-/* sidebar */ 
+/* sidebar */
 
 .just-padding {
   padding-left: 1em;
@@ -430,52 +438,52 @@ a.list-group-item:focus, button.list-group-item:hover, button.list-group-item:fo
     background-color: #f5f5f5;
 }
 
-aside { 
+aside {
 	background: $black;
-	section.user_info { 
-		margin-top: 3em; 
-	} 
-	section { 
+	section.user_info {
+		margin-top: 3em;
+	}
+	section {
 		padding-top: 1em;
 		padding-bottom: 1em;
-		margin-top: 1em; 
-		&:first-child { 
-			border: 0; 
-			padding-top: 0; 
-		} 
-		span { 
-			display: block; 
-			margin-bottom: 3px; 
-			line-height: 1; 
-		} 
-		h1 { 
-			font-size: 2em; 
-			text-align: center; 
-			margin-bottom: 3px; 
+		margin-top: 1em;
+		&:first-child {
+			border: 0;
+			padding-top: 0;
+		}
+		span {
+			display: block;
+			margin-bottom: 3px;
+			line-height: 1;
+		}
+		h1 {
+			font-size: 2em;
+			text-align: center;
+			margin-bottom: 3px;
 			margin-top: 0px;
 			margin-left: 3px;
 		}
 	}
-} 
+}
 
-/* Members index */ 
-.members { 
-	list-style: none; 
-	margin: 0; 
-	li { overflow: auto; 
-		padding: 10px 0; 
-		border-bottom: 1px solid $black; 
-	} 
+/* Members index */
+.members {
+	list-style: none;
+	margin: 0;
+	li { overflow: auto;
+		padding: 10px 0;
+		border-bottom: 1px solid $black;
+	}
 }
 
 /*
-.gravatar { 
-	float: right; 
-	margin-right: 10px; 
-} 
+.gravatar {
+	float: right;
+	margin-right: 10px;
+}
 
-.gravatar_edit { 
-	margin-top: 15px; 
+.gravatar_edit {
+	margin-top: 15px;
 }
 */
 
@@ -496,11 +504,11 @@ article {
 	//background: $black;
 }
 */
-.debug_dump { 
-	clear: both; 
-	float: left; 
-	width: 100%; 
-	@include box_sizing; 
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	@include box_sizing;
 }
 
 
@@ -649,53 +657,53 @@ article {
 	background-color: $white;
 }
 
-/* newswire_posts */ 
+/* newswire_posts */
 
-.newswire_posts { 
-	list-style: none; 
+.newswire_posts {
+	list-style: none;
 	font-family: Orbitron;
 	padding: 0;
 	li {
 		margin-top: 1em;
 		padding: 1em;
-		border: 1px solid $gold; 
+		border: 1px solid $gold;
 		background: $black;
-	} 
-	.user { 
+	}
+	.user {
 		margin-top: 5em;
 		padding-left: 1em;
 		font-size: 1.5em;
-	} 
-	.content { 
-		display: block; 
+	}
+	.content {
+		display: block;
 		padding-top: 1.5em;
 		font-family: Trebuchet MS, Trebuchet MS, sans-serif;
-		img { 
-			display: block; 
+		img {
+			display: block;
 		}
-	} 
-	.timestamp { 
+	}
+	.timestamp {
 		font-family: Orbitron;
-		color: $white; 
+		color: $white;
 		display: block;
 		padding-top: 0.5em;
 		padding-bottom: 1em;
 		font-size: 0.75em;
-	} 
-	.gravatar { 
-	} 
-} 
-aside { 
-	textarea { 
-		height: 100px; 
-		margin-bottom: 5px; 
-	} 
-} 
-span.image { 
-	margin-top: 10px; 
-	input { 
-		border: 0; 
-	} 
+	}
+	.gravatar {
+	}
+}
+aside {
+	textarea {
+		height: 100px;
+		margin-bottom: 5px;
+	}
+}
+span.image {
+	margin-top: 10px;
+	input {
+		border: 0;
+	}
 }
 
 .pagination {
@@ -787,8 +795,8 @@ section {
 	font-style: bold;
 }
 
-.stripe-button-el { 
-	display: none !important; 
+.stripe-button-el {
+	display: none !important;
 }
 
 .timetable_heading {
