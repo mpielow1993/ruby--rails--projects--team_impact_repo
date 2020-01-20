@@ -1,4 +1,4 @@
-<div class="card" style="width: 100%; padding: 1em; background-color: #FFFFFF; margin-top: 3em;">
+<div class="card" style="width: 100%; padding: 1em; background-color: #FFFFFF; margin-top: 3em; border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
   <%= member_big_image_for(member, width: "100%", height: "100%") %>
   <div class="card-body" style="font-family: Orbitron;">
     <h3>Username:<br> <span class="card-title" style="color: #000000; font-size: 1.5em;"><%= member.user_name %></span></h3>
@@ -20,18 +20,18 @@
     <%= link_to "Public", newswire_path, class: "list-group-item" %>
     <%= link_to "Your Posts", member_newswire_posts_path(member), class: "list-group-item" %>
   </div>
-    
+
   <a href="#item-4" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Store</a>
   <div class="list-group collapse" id="item-4">
     <%= link_to "Public", store_items_path, class: "list-group-item" %>
     <%= link_to "Your Purchases", member_orders_path(member), class: "list-group-item" %>
   </div>
-  
-  <% if member.admin?  %> 
-  
+
+  <% if member.admin?  %>
+
     <a href="#item-5" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>Admin</a>
     <div class="list-group collapse" id="item-5">
-    
+
     <a href="#item-5-1" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-chevron-right"></i>New</a>
     <div class="list-group collapse" id="item-5-1">
       <%= link_to "Member", new_admin_member_path, class: "list-group-item" %>
@@ -41,7 +41,7 @@
       <%= link_to "Lesson", new_admin_lesson_path, class: "list-group-item" %>
       <%= link_to "Store Product", new_admin_store_item_path, class: "list-group-item" %>
     </div>
-    
+
       <a href="#item-5-2" class="list-group-item" data-toggle="collapse">
         <i class="glyphicon glyphicon-chevron-right"></i>Search
       </a>
@@ -56,9 +56,9 @@
         <%= link_to "Enquiries", admin_enquiries_path, class: "list-group-item" %>
         <%= link_to "Testimonials", admin_testimonials_path, class: "list-group-item" %>
       </div>
-      
+
     </div>
-    
+
   <% end  %>
   </div>
 </div>

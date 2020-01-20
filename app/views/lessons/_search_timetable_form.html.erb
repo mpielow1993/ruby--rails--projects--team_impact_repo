@@ -1,6 +1,6 @@
-<%= form_for :search, url: url, method: :post do |f| %>
-                
-    <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker form-control", value: date, style: "padding-left: 1em;"%> 
-                
-    <%= f.submit "Search", class: "btn btn-primary", style: "width: 30%;" %>
+<%= form_for :search, url: url, style: "display: inline;", method: :post do |f| %>
+
+    <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker form-control", value: date, style: "padding-left: 1em; width: 60%; float: left;"%>
+
+    <%= f.submit "Search", class: "btn btn-primary", style: "width: 35%; margin-left: 1em;" %>
 <% end %>

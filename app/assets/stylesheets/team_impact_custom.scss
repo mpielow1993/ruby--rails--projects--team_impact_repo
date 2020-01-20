@@ -34,23 +34,33 @@ html {
 	background-size: cover;
 }
 
-
+html {
+	background: url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 
 body {
 	color: $white;
 	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
 	text-align: justify;
 	max-width: 100%;
-	background-color: $black;
+	background: none;
+	/*
 	background-position: center;
     background-size: cover;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	*/
 }
 
 h1 {
 	color: $gold;
+	//background-color: #000000;
+	//border: 1em solid #000000;
 	text-align: center;
 	font-family: Orbitron, Orbitron, sans-serif;
 	font-size: 300%;
@@ -814,4 +824,16 @@ section {
 		margin-left: auto;
 		margin-right: auto;
 		width: 75%;
+}
+
+.container {
+	border: 1em solid #000000;
+	box-shadow: 0em 0em 1em 1em #000000;
+	padding: 0;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	margin-top: 4em;
+	background-color: #000000;
 }
