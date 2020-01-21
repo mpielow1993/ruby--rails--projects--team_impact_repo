@@ -1,0 +1,10 @@
+$("#public-timetable-lesson-" + <%= @lesson.id.to_s %>).bind('ajax:success', function() {
+   $(this).html('<%= escape_javascript(render(@lesson)).html_safe %>').promise().done(function() {
+     $("#lesson-" + <%= @lesson.id.to_s %> + "-registration-result").attr('style', 'display: block;');
+   });
+});
+$("#member-" + <%= current_member.id %> +"-private-timetable-lesson-" + <%= @lesson.id.to_s %>).bind('ajax:success', function() {
+   $(this).html('<%= escape_javascript(render(@lesson)).html_safe %>').promise().done(function() {
+     $("#lesson-" + <%= @lesson.id.to_s %> + "-registration-result").attr('style', 'display: block;');
+   });
+});

@@ -1,42 +1,40 @@
-<% provide(:title, "View Subscription") %> 
+<% provide(:title, "View Subscription") %>
 <section>
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
     <div class="center">
-        <h2>
-        Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.member.user_name %></span>&emsp;&emsp;
-        Subscription: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.subscription_name %></span>&emsp;&emsp;
-        Membership: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.membership.name %></span>
-    </h2> 
-    </div>       
+        <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.member.user_name %></span></h2>
+        <h2>Subscription: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.subscription_name %></span></h2>
+        <h2>Membership: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.membership.name %></span></h2>
+    </div>
     <div class="col-md-8">
-        <div class="well">
+        <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
             <%-#The members index with pagination-%>
-            <table class="table">
+            <table class="table-timetable">
                 <thead>
                     <tr>
-                        <td>Lesson Registered To</td>
-                        <td>Lesson Time</td>
-                        <td>Time of Registration</td>
+                        <td style="text-align: center; background-color: #000000; color: #FFFFFF">Lesson Registered To</td>
+                        <td style="text-align: center; background-color: #000000; color: #FFFFFF; border-right: 0.15em solid #FFFFFF; border-left: 0.15em solid #FFFFFF; padding: 1em;">Lesson Time</td>
+                        <td style="text-align: center; background-color: #000000; color: #FFFFFF; padding: 1em;">Time of Registration</td>
                     </tr>
                 </thead>
                 <tbody>
                     <% if @registrations != [] %>
-                        <% @registrations.each do |registration| %> 
+                        <% @registrations.each do |registration| %>
                             <tr>
                                 <td style="padding: 1em;"><%= render 'lessons/lesson', lesson: registration.lesson %></td>
-                                <td><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
-                                <td><%= registration.created_at.strftime("%a %b #{registration.created_at.day.ordinalize}") %> <%= registration.created_at.year %> at <%= registration.created_at.strftime("%H:%M:%S") %></td>
+                                <td style="padding: 1em;"><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
+                                <td style="padding: 1em;"><%= registration.created_at.strftime("%a %b #{registration.created_at.day.ordinalize}") %> <%= registration.created_at.year %> at <%= registration.created_at.strftime("%H:%M:%S") %></td>
                             </tr>
                         <% end %>
                         <div class="center" style="background-color: #FFFFFF;">
                             <%= will_paginate @registrations %>
                         </div>
-                    <% end %> 
+                    <% end %>
                 </tbody>
             </table>
-            <% if @subscription.is_active == true %> 
+            <% if @subscription.is_active == true %>
                 <h3><%= link_to "Browse Timetable", public_timetable_path(@date)%></h3>
             <% end %>
         </div>

@@ -31,7 +31,11 @@
                     <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %>
                       -
                       <%= lesson.end_time.strftime("%H:%M") %></td>
-                    <td style="padding: 1em;"><%= render 'lessons/lesson', lesson: lesson %></td>
+                    <td style="padding: 1em;">
+                      <div id="public-timetable-lesson-<%= lesson.id %>">
+                        <%= render 'lessons/lesson', lesson: lesson %>
+                      </div>
+                    </td>
                   </tr>
                 <% end %>
               <% else %>

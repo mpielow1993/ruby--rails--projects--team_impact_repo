@@ -64,6 +64,7 @@ h1 {
 	text-align: center;
 	font-family: Orbitron, Orbitron, sans-serif;
 	font-size: 300%;
+	margin: 0;
 	&:hover{
 		text-shadow: 0px 0px 0.5em $gold;
 	}
@@ -753,8 +754,11 @@ section {
 		font-family: Orbitron, Orbitron, sans-serif;
 		text-align: center;
 		position: relative;
-		bottom: 2em;
+		margin-bottom: 1em;
 		right: 0.25em;
+		:selected {
+			box-shadow: 0em 0em 1em #FFFFFF;
+		}
 	}
 	.image {
 		img {
@@ -764,11 +768,10 @@ section {
 		}
 	}
 	.image img:hover {
-		box-shadow: 0em 0em 4em #FFFFFF;
 		opacity: 0.75;
 	}
 	.image img:active {
-	box-shadow: 0em 0em 5em #FFD700;
+	//box-shadow: 0em 0em 5em #FFD700;
 	opacity: 1.0;
 	}
 	.image:hover .middle {

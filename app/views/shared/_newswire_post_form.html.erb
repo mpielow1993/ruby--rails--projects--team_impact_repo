@@ -2,19 +2,19 @@
   <div class="card-body">
     <h2 class="card-title" style="color: #000000;">Create a Post</h2>
     <p class="card-text">
-        <%= form_for @newswire_post, url: newswire_posts_path, method: :post do |f| %> 
-            <%= render 'shared/error_messages', object: f.object %> 
-            <div class="field"> 
-                <%= f.text_area :content, placeholder: "Add Newswire Post..." %> 
+        <%= form_for @newswire_post, url: newswire_posts_path, method: :post do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            <div class="field">
+                <%= f.text_area :content, placeholder: "Add Newswire Post..." %>
             </div>
-            <span class="image"> 
-                <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %> 
+            <span class="image">
+                <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
             </span>
             <div class="center" style="background-color: #FFFFFF">
                 <%= f.submit "Post", class: "btn btn-primary", style: "width: 100%" %>
-            </div> 
+            </div>
             <%-#Adding image upload to the newswire_post 'create' form-%>
-        <% end %>        
+        <% end %>
     </p>
   </div>
 </div>
