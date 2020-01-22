@@ -1,7 +1,6 @@
-<h1>Team Impact</h1> 
+<h1>Team Impact</h1>
 
-<p>Hi <%= @member.first_name %>,</p> 
+<p>Hi <%= @member.first_name %>,</p>
 
-<p> Welcome to the Team Impact! Click on the link below to activate your account: 
-
-</p> <%= link_to "Activate", edit_account_activation_url(@member.activation_token, email: @member.email) %>
+<p> Welcome to Team Impact! Click on the link below to activate your account: </p>
+<%= link_to "Activate", edit_account_activation_url(@member.activation_token, email: @member.email) %>
