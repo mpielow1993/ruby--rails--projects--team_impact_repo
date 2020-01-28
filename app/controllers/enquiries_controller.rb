@@ -1,4 +1,5 @@
 class EnquiriesController < ApplicationController
+  
   def new
     @enquiry = Enquiry.new
   end
@@ -13,9 +14,9 @@ class EnquiriesController < ApplicationController
       render 'static_pages/contact'
     end
   end
-  
+
   private
-    
+
     def enquiry_params
       params.require(:enquiry).permit(:first_name, :last_name, :email, :phone_no, :message)
     end

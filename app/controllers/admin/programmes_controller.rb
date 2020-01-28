@@ -1,4 +1,5 @@
 class Admin::ProgrammesController < Admin::AdminApplicationController
+  
   def new
     @programme = Programme.new
   end
@@ -38,14 +39,14 @@ class Admin::ProgrammesController < Admin::AdminApplicationController
     flash[:success] = "Programmme successfully destroyed"
     redirect_to admin_programmes_path
   end
-  
+
   def show
     @programme = Programme.find(params[:id])
     @programme_description_url = "app/views/programmes/_#{replace_char(@programme.name.downcase, " ", "_")}.html.erb"
   end
-  
+
   private
-    
+
     def programme_params
       params.require(:programme).permit(:name, :programme_avatar, :remove_programme_avatar)
     end

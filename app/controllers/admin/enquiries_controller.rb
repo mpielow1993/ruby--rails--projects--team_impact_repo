@@ -1,10 +1,11 @@
 class Admin::EnquiriesController < Admin::AdminApplicationController
+
   def new
     @enquiry = Enquiry.new
   end
 
   def create
-    @enquiry = Enquiry.all
+    @enquiries = Enquiry.all
     @enquiry = Enquiry.create(enquiry_params)
     if @enquiry.save
       flash[:success] = "Enquiry created successfully"
@@ -25,9 +26,9 @@ class Admin::EnquiriesController < Admin::AdminApplicationController
     flash[:success] = "Enquiry removed successfully"
     redirect_to admin_enquiries_path
   end
-  
+
   private
-    
+
     def enquiry_params
       params.require(:enquiry).permit(:first_name, :last_name, :email, :phone_no, :message)
     end

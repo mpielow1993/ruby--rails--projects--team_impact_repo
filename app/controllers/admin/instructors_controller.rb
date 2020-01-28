@@ -1,4 +1,5 @@
 class Admin::InstructorsController < Admin::AdminApplicationController
+  
   def new
     @instructor = Instructor.new
   end
@@ -43,9 +44,9 @@ class Admin::InstructorsController < Admin::AdminApplicationController
       @instructor = Instructor.find(params[:id])
       @instructor_description_url = "app/views/instructors/_#{@instructor.first_name.downcase}_#{@instructor.last_name.downcase}.html.erb"
   end
-  
+
   private
-    
+
     def instructor_params
       params.require(:instructor).permit(:first_name, :last_name, :instructor_avatar, :remove_instructor_avatar, :role)
     end

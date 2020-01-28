@@ -38,23 +38,23 @@ class Admin::LessonsController < Admin::AdminApplicationController
     @lesson = Lesson.find(params[:id])
     @registrations = @lesson.registrations.paginate(page: params[:page])
   end
-  
+
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
     flash[:success] = "Lesson successfully destroyed"
     redirect_to admin_lessons_path
   end
-  
+
   private
-  
-    # Confirms an admin member. 
-    def admin_member 
-      redirect_to(root_url) unless current_member.admin? 
+
+    # Confirms an admin member.
+    def admin_member
+      redirect_to(root_url) unless current_member.admin?
     end
-    
+
     def lesson_params
       params.require(:lesson).permit(:date, :start_time, :end_time, :instructor_id, :facility_id, :programme_id, :level, :is_expired)
     end
-    
+
 end

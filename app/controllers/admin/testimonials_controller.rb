@@ -21,7 +21,7 @@ class Admin::TestimonialsController < Admin::AdminApplicationController
   end
 
   private
-    
+
     def testimonial_params
       params.require(:testimonial).permit(:first_name, :last_name, :email, :phone_no, :city, :country, :content)
     end

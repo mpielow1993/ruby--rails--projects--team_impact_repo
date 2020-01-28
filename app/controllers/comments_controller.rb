@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :logged_in_member
   before_action :correct_member, only: :private_index
-  
+
   def create
     @member = Member.find(params[:comment][:member_id])
     @newswire_post = NewswirePost.find(params[:newswire_post_id])
@@ -10,27 +10,27 @@ class CommentsController < ApplicationController
     #@comment = current_member.comments.where(newswire_post_id: @newswire_post.id).build(comment_params)
     @comment.image.attach(params[:comment][:image])
     if @comment.save
-      flash[:success] = "Comment Added" 
+      flash[:success] = "Comment Added"
       redirect_to newswire_post_path(@newswire_post)
-    else 
-      render 'newswire_posts/show' 
+    else
+      render 'newswire_posts/show'
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    flash[:success] = "Comment successfully deleted" 
+    flash[:success] = "Comment successfully deleted"
     redirect_to request.referrer || newswire_url
   end
-  
+
   def private_index
     @member = Member.find(params[:member_id])
     @comments = @member.comments.all.paginate(page: params[:page]).per_page(5)
   end
-  
+
   private
-    
+
     def comment_params
       params.permit(:newswire_post_id).require(:comment).permit(:content, :image, :member_id)
     end

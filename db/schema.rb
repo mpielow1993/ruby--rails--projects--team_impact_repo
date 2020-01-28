@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   create_table "programmes", force: :cascade do |t|
     t.string "name"
     t.string "programme_avatar"
+    t.string "quotation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

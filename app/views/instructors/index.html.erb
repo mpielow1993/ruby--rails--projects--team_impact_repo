@@ -3,7 +3,32 @@
 		<section>
 			<h1><%= yield(:title) %></h1>
 		</section>
+		<section id="instructor-page-quotation" style="color: #FFFFFF; display: none; text-align:center; font-size: 1.5em;">
+			<span style="font-style: italic;"><%= @instructor_page_quotation.split(" - ")[0] %></span>
+			<% if !@instructor_page_quotation.split(" - ")[1].nil? %>
+			 - <%= @instructor_page_quotation.split(" - ")[1] %>
+			<% end %>
+		</section>
 		<% @instructors.each do |instructor| %>
 			<%= render 'instructors/instructor', instructor: instructor %>
 		<% end %>
 	</div>
+	<script>
+		$(document).ready(function() {
+			$("h1").mouseenter(function() {
+				$("#instructor-page-quotation").animate({
+					'margin-top' : '+= 1em',
+					'margin-bottom' : '+= 1em'
+				}, 500, function() {
+				  $("#instructor-page-quotation").fadeIn(1000);
+				});
+			}).mouseleave(function() {
+				$("#instructor-page-quotation").animate({
+					'margin-top' : '-= 1em',
+					'margin-bottom' : '-= 1em'
+				}, 500, function() {
+				  $("#instructor-page-quotation").fadeOut(1000);
+				});
+			});
+		});
+	</script>

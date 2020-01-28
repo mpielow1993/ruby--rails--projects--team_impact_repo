@@ -43,9 +43,9 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member.admin? ? flash[:success] = "Admin Removed Successfully" : flash[:success] = "Member Updated Successfully"
     redirect_to admin_members_path
   end
-  
+
   private
-  
+
     def admin_member_params
     params.require(:member).permit(:user_name, :first_name, :last_name, :email, :phone_no, :password, :password_confirmation, :member_avatar, :remove_member_avatar, :admin)
     end

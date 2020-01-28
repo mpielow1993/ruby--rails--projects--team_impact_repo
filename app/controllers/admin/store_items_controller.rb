@@ -1,4 +1,5 @@
 class Admin::StoreItemsController < Admin::AdminApplicationController
+
   def index
     @store_items = StoreItem.all.paginate(page: params[:page])
   end
@@ -26,9 +27,9 @@ class Admin::StoreItemsController < Admin::AdminApplicationController
     if @store_item.type == "Membership"
       @store_item.update(membership_params)
     else
-      @store_item.update(non_membership_params) 
+      @store_item.update(non_membership_params)
     end
-    if @store_item.save  
+    if @store_item.save
       flash[:success] = "Store Item updated successfully"
       redirect_to admin_store_items_path
     else
@@ -46,17 +47,17 @@ class Admin::StoreItemsController < Admin::AdminApplicationController
     flash[:success] = "Store Item successfully destroyed"
     redirect_to admin_store_items_path
   end
-  
+
   private
-  
+
     def membership_params
       params.require(:membership).permit(:type, :name, :description, :price, :store_item_avatar, :remove_store_item_avatar)
     end
-    
+
     def non_membership_params
       params.require(:non_membership).permit(:type, :name, :description, :price, :store_item_avatar, :remove_store_item_avatar)
     end
-    
+
     def store_item_params
       params.require(:store_item).permit(:type, :name, :description, :price, :store_item_avatar, :remove_store_item_avatar)
     end

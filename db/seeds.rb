@@ -73,10 +73,24 @@ end
 # Programmes
 #programmes = []
 programme_names = ['Boxing', 'BJJ', 'Fighting Fit', 'Kids', 'MMA', 'Muay Thai', 'Teens', 'Wrestling', 'Women', 'Private Classes']
+programme_quotations = [
+  "'The sweet science...'",
+"'If size mattered, the elephant would be the king of the jungle...' - Rickson Gracie",
+nil,
+nil,
+"'Absorb what is useful, discard what is useless, add what is uniquely your own...' - Bruce Lee",
+"'The art of eight limbs...'",
+nil,
+"'Once you've wrestled, everything in life is easy...' - Dan Gable",
+nil,
+nil
+]
+
 10.times do |n|
   Programme.create!(
     name: programme_names[n],
-    programme_avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open
+    programme_avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open,
+    quotation: programme_quotations[n]
   )#programme.save
   #programmes.push(programme)
 end

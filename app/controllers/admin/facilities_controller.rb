@@ -1,4 +1,5 @@
 class Admin::FacilitiesController < Admin::AdminApplicationController
+  
   def new
     @facility = Facility.new
   end
@@ -43,9 +44,9 @@ class Admin::FacilitiesController < Admin::AdminApplicationController
     @facility = Facility.find(params[:id])
     @facility_description_url = "app/views/facilities/_#{replace_char(@facility.name.downcase, " ", "_")}.html.erb"
   end
-  
+
   private
-    
+
     def facility_params
       params.require(:facility).permit(:name, :facility_avatar, :remove_facility_avatar)
     end

@@ -1,10 +1,10 @@
 class Admin::OrdersController < Admin::AdminApplicationController
-  
+
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_items.paginate(page: params[:page])
   end
-  
+
   def index
     @orders = Order.all.where(is_paid: true).paginate(page: params[:page]).per_page(5)
   end
@@ -43,9 +43,9 @@ class Admin::OrdersController < Admin::AdminApplicationController
       render 'orders/show'
     end
   end
-  
-  private 
-  
+
+  private
+
     #def order_params
      # params.require(:order).permit(:member_id)
     #end

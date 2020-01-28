@@ -7,3 +7,22 @@
 			<%= render 'programmes/programme', programme: programme %>
 		<% end %>
 	</div>
+<script>
+	$(document).ready(function() {
+		$("h1").mouseenter(function() {
+			$("#programme-page-quotation").animate({
+				'margin-top' : '+= 1em',
+				'margin-bottom' : '+= 1em'
+			}, 500, function() {
+				$("#programme-page-quotation").fadeIn(1000);
+			});
+		}).mouseleave(function() {
+			$("#programme-page-quotation").animate({
+				'margin-top' : '-= 1em',
+				'margin-bottom' : '+= 1em'
+			}, 500, function() {
+				$("#programme-page-quotation").fadeOut(1000);
+			});
+		});
+	});
+</script>

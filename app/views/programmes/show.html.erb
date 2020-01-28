@@ -1,6 +1,14 @@
 <section>
 	<h1><%= @programme.name %></h1>
 </section>
+<% if !@programme.quotation.nil? %>
+	<section id="<%= replace_char(@programme.name.downcase, " ", "-") %>-quotation" style="color: #FFFFFF; display: none; text-align:center; font-size: 1.5em;">
+		<span style="font-style: italic;"><%= @programme.quotation.split(" - ")[0] %></span>
+		<% if !@programme.quotation.split(" - ")[1].nil? %>
+		 - <%= @programme.quotation.split(" - ")[1] %>
+		<% end %>
+	</section>
+<% end %>
 <section class="center">
 	<%= programme_big_image_for(@programme) %>
 </section>
@@ -13,4 +21,20 @@
 	       	<% end %>
 		</div>
 	</div>
-</div>
+	<script>
+		$(document).ready(function() {
+			$("h1").mouseenter(function() {
+				$(".center").animate({
+					'margin-top' : '+= 1em'
+				}, 500, function() {
+				  $("#<%= replace_char(@programme.name.downcase, " ", "-") %>-quotation").fadeIn(1000);
+				});
+			}).mouseleave(function() {
+				$(".center").animate({
+					'margin-top' : '-= 1em'
+				}, 500, function() {
+				  $("#<%= replace_char(@programme.name.downcase, " ", "-") %>-quotation").fadeOut(1000);
+				});
+			});
+		});
+	</script>
