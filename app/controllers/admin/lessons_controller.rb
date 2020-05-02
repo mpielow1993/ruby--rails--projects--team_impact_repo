@@ -1,5 +1,5 @@
 class Admin::LessonsController < Admin::AdminApplicationController
-  
+
   def new
     @lesson = Lesson.new
   end
@@ -32,6 +32,7 @@ class Admin::LessonsController < Admin::AdminApplicationController
   #An index view for admins only
   def index
     @lessons = Lesson.all.unscoped.order(id: :desc).paginate(page: params[:page])
+    #@lesson = Lesson.find(params)
   end
 
   def show

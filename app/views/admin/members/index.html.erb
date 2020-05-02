@@ -2,8 +2,8 @@
 <section>
     <h1><%= yield(:title) %></h1>
 </section>
-    <div class="row"> 
-        <div class="col-md-8"> 
+    <div class="row">
+        <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;"> 
             <div class="well">
                 <h2 style="color: #000000;">(<%= @members.count %> Members)</h2>
                 <% if !@members.nil? %>
@@ -12,7 +12,7 @@
                     <% end %>
                     <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
                         <%= will_paginate @members %>
-                    </div>                
+                    </div>
                 <% end %>
             </div>
         </div>

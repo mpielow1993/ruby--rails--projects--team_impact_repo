@@ -3,15 +3,15 @@
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8" style="padding-bottom: 1em; padding-left: 2em; padding-right: 2em;">
         <% if !@testimonials.nil? %>
-            <% @testimonials.each do |testimonial| %> 
+            <% @testimonials.each do |testimonial| %>
                 <%= render 'admin/testimonials/testimonial', testimonial: testimonial %>
-            <% end %> 
+            <% end %>
         <% end %>
         <div class="center"><%= will_paginate @testimonials %></div>
     </div>
     <aside class="col-md-4">
         <%= render 'layouts/sidebar', member: current_member %>
-    </aside> 
+    </aside>
 </div>

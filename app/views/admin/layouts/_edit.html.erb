@@ -1,10 +1,10 @@
-<% provide(:title, "Edit #{resource.titleize}") %> 
+<% provide(:title, "Edit #{resource.titleize}") %>
 <% provide(:button_text, "Save Changes") %>
 <section>
-    <h1><%= yield(:title) %></h1> 
+    <h1><%= yield(:title) %></h1>
 </section>
-<div class="row"> 
-    <div class="col-md-8"> 
+<div class="row">
+    <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;"> 
         <div class="well" style="background-color: #000000;">
             <%= render "admin/#{resource.pluralize}/edit_#{resource}_form" %>
         </div>

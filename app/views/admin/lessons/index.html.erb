@@ -1,14 +1,14 @@
 <% provide(:title, "Lessons") %>
 <h1><%= yield(:title) %></h1>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;">
         <div class="well">
             <% if @lessons != [] %>
-                <% @lessons.each do |lesson| %> 
+                <% @lessons.each do |lesson| %>
                     <%= render 'admin/lessons/lesson', lesson: lesson %>
                 <% end %>
                 <%= will_paginate @lessons %>
-            <% end %> 
+            <% end %>
         </div>
     </div>
     <div class="col-md-4">

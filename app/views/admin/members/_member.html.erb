@@ -1,19 +1,19 @@
-<div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+<div class="card admin _member">
     <h5 class="card-title">
         <%= link_to member_avatar_for(member), member %>
-        <span class="user"><%= link_to member.first_name + " " + member.last_name, admin_member_path(member), style: "font-family: Orbitron; font-size: 1.5em; padding-left: 1em;" %></span>
+        <span class="admin _member title"><%= link_to member.first_name + " " + member.last_name, admin_member_path(member) %></span>
     </h5>
     <div class="card-body">
         <% if member.admin? %>
-            <h3>User Level: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Admin</span></h3>        
+            <h3>User Level: <span class="card-body admin _member argument">Admin</span></h3>
         <% else %>
-            <h3>User Level: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Member</span></h3>  
+            <h3>User Level: <span class="card-body admin _member argument">Member</span></h3>
         <% end %>
-        <h3>Created: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= member.created_at.strftime("%a %b #{member.created_at.day.ordinalize}") %> <%= member.created_at.year %> at <%= member.created_at.strftime("%H:%M:%S") %></span></h3>
-        <h3>Last Updated: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= member.updated_at.strftime("%a %b #{member.updated_at.day.ordinalize}") %> <%= member.updated_at.year %> at <%= member.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
+        <h3>Created: <span class="card-body admin _member argument"><%= member.created_at.strftime("%a %b #{member.created_at.day.ordinalize}") %> <%= member.created_at.year %> at <%= member.created_at.strftime("%H:%M:%S") %></span></h3>
+        <h3>Last Updated: <span class="card-body admin _member argument"><%= member.updated_at.strftime("%a %b #{member.updated_at.day.ordinalize}") %> <%= member.updated_at.year %> at <%= member.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
         <% unless member.admin? %>
-            <%= link_to "Edit", edit_admin_member_path(member), class: "btn btn-primary" %> 
-            <%= link_to "Delete", admin_member_path(member), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete member '#{member.user_name}'?" }, style: "font-family: Orbitron;" %> 
+            <%= link_to "Edit", edit_admin_member_path(member), class: "btn btn-primary" %>
+            <%= link_to "Delete", admin_member_path(member), method: :delete, class: "btn btn-danger admin _member", data: { confirm: "Are you sure you want to delete member '#{member.user_name}'?" } %>
         <% end %>
     </div>
 </div>

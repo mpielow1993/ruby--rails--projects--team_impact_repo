@@ -1,5 +1,5 @@
 class ApplicationRecord < ActiveRecord::Base
-  #self.abstract_class = true
+  self.abstract_class = true
   before_create :sanitize_text
   before_save :sanitize_text
 
@@ -12,18 +12,22 @@ class ApplicationRecord < ActiveRecord::Base
     end
   end
 
-  def self.scope_hash(key)
-    operator_array = ["=", ">", "<", "<=", ">="]
-    scope_hash = Hash.new
-    operator_array.each do |operator|
-      scope_hash["with_#{key}_#{operator}"] = "`#{key}` IS NOT NULL AND #{key} #{operator} = ? "
-    end
-    return scope_hash
-  end
-
-  def set_scopes
-    scope_hash.each do |key, value|
-      scope key, -> { where(value, attribute.value) }
+  def admin_search
+    sql_query = self.class.all
+    operator_array = ["=", "<", ">", "<=", ">="]
+    self.attributes.each do |key, value|
+      if (params[_key] && !params[_key].nil?)
+        if value.instance_of? String
+          sql_query.where("`#{key}` LIKE ?", value)
+        elsif ((value.instance_of? Integer) || (value.instance_of? Decimal) || (value.instance_of? Date) || (value.instance_of? DateTime))
+          operator_array.each do |operator|
+            if params[:operator]
+              sql_query.where("`#{key}` #{operator} ?", value)
+            end
+          end
+        else
+        end
+      end
     end
   end
 
