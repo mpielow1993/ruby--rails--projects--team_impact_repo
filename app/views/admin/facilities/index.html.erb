@@ -3,14 +3,14 @@
     <h1><%= yield(:title) %></h1>
 </section>
     <div class="row">
-        <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;"> 
+        <div class="col-md-8 admin facilities index">
             <div class="well">
-                <h2 style="color: #000000;">(<%= @facilities.count %> Facilities)</h2>
+                <h2 class="admin facilities index">(<%= @facilities.count %> Facilities)</h2>
                 <% if !@facilities.nil? %>
                     <% @facilities.each do |facility| %>
                         <%= render 'admin/facilities/facility', facility: facility %>
                     <% end %>
-                    <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                    <div class="center admin facilities index">
                         <%= will_paginate @facilities %>
                     </div>
                 <% end %>

@@ -1,7 +1,7 @@
 <% provide(:title, "Lessons") %>
 <h1><%= yield(:title) %></h1>
 <div class="row">
-    <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;">
+    <div class="col-md-8 admin lessons index">
         <div class="well">
             <% if @lessons != [] %>
                 <% @lessons.each do |lesson| %>

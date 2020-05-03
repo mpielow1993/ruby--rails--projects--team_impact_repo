@@ -1,18 +1,18 @@
-<div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
+<div class="card admin _instructor">
     <div class="card-body">
 		<div class="row">
     	<div class="col-md-4">
         	<%= link_to instructor_big_image_for(instructor), instructor_path(instructor) %>
     	</div>
 		<div class="col-md-8">
-			<h3>First Name: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= instructor.first_name %></span></h3>
-			<h3>Last Name: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= instructor.last_name %></span></h3>
-        	<h3>Role: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= instructor.role %></span></h3>
-        	<h3>Created: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= instructor.created_at.strftime("%a %b #{instructor.created_at.day.ordinalize}") %> <%= instructor.created_at.year %> at <%= instructor.created_at.strftime("%H:%M:%S") %></span></h3>
-        	<h3>Last Updated: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= instructor.updated_at.strftime("%a %b #{instructor.updated_at.day.ordinalize}") %> <%= instructor.updated_at.year %> at <%= instructor.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
-			<div style="padding-top: 6em;">
-        		<%= link_to "Delete", admin_instructor_path(instructor), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete member '#{instructor.first_name} #{instructor.last_name}'?" }, style: "font-family: Orbitron; float: right;" %> 
-				<%= link_to "Edit", edit_admin_instructor_path(instructor), class: "btn btn-primary", style: "float: right;  margin-right: 0.5em;" %> 
+			<h3>First Name: <span class="admin _instructor argument"><%= instructor.first_name %></span></h3>
+			<h3>Last Name: <span class="admin _instructor argument"><%= instructor.last_name %></span></h3>
+        	<h3>Role: <span class="admin _instructor argument"><%= instructor.role %></span></h3>
+        	<h3>Created: <span class="admin _instructor argument"><%= instructor.created_at.strftime("%a %b #{instructor.created_at.day.ordinalize}") %> <%= instructor.created_at.year %> at <%= instructor.created_at.strftime("%H:%M:%S") %></span></h3>
+        	<h3>Last Updated: <span class="admin _instructor argument"><%= instructor.updated_at.strftime("%a %b #{instructor.updated_at.day.ordinalize}") %> <%= instructor.updated_at.year %> at <%= instructor.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
+			<div class="admin _instructor button-options">
+        		<%= link_to "Delete", admin_instructor_path(instructor), method: :delete, class: "btn btn-danger admin _instructor", data: { confirm: "Are you sure you want to delete member '#{instructor.first_name} #{instructor.last_name}'?" } %>
+				<%= link_to "Edit", edit_admin_instructor_path(instructor), class: "btn btn-primary admin _instructor" %>
 			</div>
 		</div>
 		</div>

@@ -3,7 +3,7 @@
     <h1><%= yield(:title) %></h1>
 </section>
 <div class="row">
-    <div class="col-md-8" style="padding-bottom: 1em; padding-left: 2em; padding-right: 2em;">
+    <div class="col-md-8 admin enquiries index">
         <% if !@enquiries.nil? %>
             <% @enquiries.each do |enquiry| %>
                 <%= render 'admin/enquiries/enquiry', enquiry: enquiry %>

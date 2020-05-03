@@ -3,14 +3,14 @@
     <h1><%= yield(:title) %></h1>
 </section>
     <div class="row">
-        <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;"> 
+        <div class="col-md-8 admin instructors index">
             <div class="well">
-                <h2 style="color: #000000;">(<%= @instructors.count %> Instructors)</h2>
+                <h2>(<%= @instructors.count %> Instructors)</h2>
                 <% if !@instructors.nil? %>
                     <% @instructors.each do |instructor| %>
                         <%= render 'admin/instructors/instructor', instructor: instructor %>
                     <% end %>
-                    <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                    <div class="center admin instructors index">
                         <%= will_paginate @instructors %>
                     </div>
                 <% end %>
