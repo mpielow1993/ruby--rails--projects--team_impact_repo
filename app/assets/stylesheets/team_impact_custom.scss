@@ -56,6 +56,16 @@ $red: #FF0000;
 			padding: 1em;
 			margin-top: 2em;
 		}
+		&._order_item {
+			background-color: #000000;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._order {
+			background-color: #000000;
+			padding: 1em;
+			margin-top: 2em;
+		}
   }
 }
 
@@ -77,6 +87,13 @@ $red: #FF0000;
 			padding: 1em;
 			margin-top: 2em;
 		}
+		&._order_item {
+			background-color: #000000;
+			padding-left: 1em;
+			padding-right: 1em;
+			padding-top: 0.0125em;
+			padding-bottom: 1em;
+		}
 	}
 }
 
@@ -84,6 +101,13 @@ $red: #FF0000;
 	&.admin {
 		&._enquiry {
 			text-align: center;
+		}
+		&._order_item {
+			margin: 0;
+		}
+		&._order {
+			font-family: Orbitron;
+			font-size: 1.5em;
 		}
 	}
 }
@@ -105,6 +129,13 @@ ul {
 			padding: 0;
 			font-size: 2em;
 		}
+		&._completed_order_summary {
+			padding: 0; font-size: 2em;
+		}
+		&._order_summary {
+			padding: 0;
+			font-size: 2em;
+		}
 	}
 }
 
@@ -121,6 +152,11 @@ li {
 			a {
 				margin-top: 1.1em;
 			}
+		}
+		&._completed_order_summary {
+			list-style-type: none;
+			font-size: 0.5em;
+			margin-left: 1em;
 		}
 	}
 }
@@ -147,6 +183,10 @@ li {
 				float: right;
 			}
 			&._lesson {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._order {
 				font-family: Orbitron;
 				float: right;
 			}
@@ -250,6 +290,29 @@ span {
 				}
 			}
 		}
+		&._order_item {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: #FFFFFF;
+				padding-left: 1em;
+			}
+		}
+		&._order {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: #FFFFFF;
+				padding-left: 1em;
+			}
+		}
+		&.orders {
+			&.show {
+				&.total-argument {
+					font-family: Trebuchet MS;
+					color: #FFFFFF;
+					padding-left: 0.5em;
+				}
+			}
+		}
 	}
 }
 
@@ -326,6 +389,20 @@ form {
 				padding-right: 2em;
 			}
 		}
+		&.orders {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+			&.show {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
 	}
 }
 
@@ -350,6 +427,12 @@ form {
 			}
 		}
 		&.instructors {
+			&.index {
+				background-color: #FFFFFF;
+				margin-top: 1.5em;
+			}
+		}
+		&.orders {
 			&.index {
 				background-color: #FFFFFF;
 				margin-top: 1.5em;
@@ -429,6 +512,18 @@ h2 {
 			&.show {
 				&.parameter {
 					padding-left: 1em;
+				}
+			}
+		}
+		&._order_item {
+			color: #FFFFFF;
+		}
+		&.orders {
+			&.show {
+				&.member-argument {
+					font-family: Trebuchet MS;
+					color: #FFFFFF;
+					padding-left: 0.5em;
 				}
 			}
 		}
