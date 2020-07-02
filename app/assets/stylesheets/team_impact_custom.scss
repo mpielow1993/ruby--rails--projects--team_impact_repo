@@ -29,12 +29,12 @@ $red: #FF0000;
 .card {
   &.admin {
     &._member {
-      background-color: #000000;
+      background-color: $black;
       padding: 1em;
       margin-top: 2em;
     }
 		&._enquiry {
-			background-color: #FFFFFF;
+			background-color: $white;
 			padding-top: 1.5em;
 			padding-left: 1.5em;
 			padding-right: 1.5em;
@@ -42,29 +42,56 @@ $red: #FF0000;
 			margin-top: 4em;
 		}
 		&._facility {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 			margin-top: 2em;
 		}
 		&._instructor {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 			margin-top: 2em;
 		}
 		&._lesson {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 			margin-top: 2em;
 		}
 		&._order_item {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 			margin-top: 2em;
 		}
 		&._order {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 			margin-top: 2em;
+		}
+		&._registration {
+			background-color: $black;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			padding-bottom: 3.5em;
+			margin-top: 4em;
+			margin-top: 2em;
+		}
+		&._programme {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._store_item {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._testimonial {
+			background-color: $white;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			padding-bottom: 4.5em;
+			margin-top: 4em;
 		}
   }
 }
@@ -74,25 +101,29 @@ $red: #FF0000;
 		&._member {
 			&.argument {
 				font-family: Trebuchet MS;
-				color: #FFFFFF;
+				color: $white;
 				padding-left: 1em;
 			}
 		}
 		&._enquiry {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 		}
 		&._facility {
-			background-color: #000000;
+			background-color: $black;
 			padding: 1em;
 			margin-top: 2em;
 		}
 		&._order_item {
-			background-color: #000000;
+			background-color: $black;
 			padding-left: 1em;
 			padding-right: 1em;
 			padding-top: 0.0125em;
 			padding-bottom: 1em;
+		}
+		&._testimonial {
+			background-color: $black;
+			padding: 1em;
 		}
 	}
 }
@@ -109,6 +140,9 @@ $red: #FF0000;
 			font-family: Orbitron;
 			font-size: 1.5em;
 		}
+		&._testimonial {
+			text-align: center;
+		}
 	}
 }
 
@@ -116,8 +150,13 @@ $red: #FF0000;
 	&.text-muted {
 		&.admin {
 			&._enquiry {
-				background-color: #000000;
-				padding: 0; color: #FFFFFF;
+				background-color: $black;
+				padding: 0; color: $white;
+			}
+			&._testimonial {
+				background-color: $black;
+				padding: 0;
+				color: $white;
 			}
 		}
 	}
@@ -133,6 +172,10 @@ ul {
 			padding: 0; font-size: 2em;
 		}
 		&._order_summary {
+			padding: 0;
+			font-size: 2em;
+		}
+		&._testimonial {
 			padding: 0;
 			font-size: 2em;
 		}
@@ -190,6 +233,23 @@ li {
 				font-family: Orbitron;
 				float: right;
 			}
+			&._registration {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._programme {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._store_item {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._testimonial {
+				margin-top: 1em;
+				font-family: Orbitron;
+				float: right;
+			}
 		}
 	}
 	&.btn-primary {
@@ -221,6 +281,32 @@ li {
 				float: right;
 				margin-right: 0.5em;
 			}
+			&._programme {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._store_item {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._edit_testimonial_edit_form {
+				width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				margin-top: 3em;
+				margin-bottom: 2em;
+				padding: 1.5em;
+			}
+			&._new_testimonial_form {
+				width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				margin-top: 3em;
+				margin-bottom: 2em;
+				padding: 1.5em;
+			}
 		}
 	}
 }
@@ -242,6 +328,16 @@ div {
 				padding-top: 6em;
 			}
 		}
+		&._programme {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
+		&._store_item {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
 	}
 }
 
@@ -257,27 +353,27 @@ span {
 		&._facility {
 			&.argument {
 				font-family: Trebuchet MS;
-				color: #FFFFFF;
+				color: $white;
 				padding-left: 1em;
 			}
 		}
 		&._instructor {
 			&.argument {
 				font-family: Trebuchet MS;
-				color: #FFFFFF;
+				color: $white;
 				padding-left: 1em;
 			}
 		}
 		&._lesson {
 			&.argument {
 				font-family: Trebuchet MS;
-				color: #FFFFFF;
+				color: $white;
 				padding-left: 1em;
 				&.active {
 					color: #90EE90;
 				}
 				&.expired {
-					color: #FF0000;
+					color: $red;
 				}
 			}
 		}
@@ -285,7 +381,7 @@ span {
 			&.show {
 				&.argument-id {
 					font-family: Trebuchet MS;
-					color: #FFFFFF;
+					color: $white;
 					padding-left: 1em;
 				}
 			}
@@ -293,14 +389,14 @@ span {
 		&._order_item {
 			&.argument {
 				font-family: Trebuchet MS;
-				color: #FFFFFF;
+				color: $white;
 				padding-left: 1em;
 			}
 		}
 		&._order {
 			&.argument {
 				font-family: Trebuchet MS;
-				color: #FFFFFF;
+				color: $white;
 				padding-left: 1em;
 			}
 		}
@@ -308,9 +404,31 @@ span {
 			&.show {
 				&.total-argument {
 					font-family: Trebuchet MS;
-					color: #FFFFFF;
+					color: $white;
 					padding-left: 0.5em;
 				}
+				&.member-argument {
+					font-family: Trebuchet MS;
+					color: $white;
+				}
+			}
+		}
+		&._registration {
+			font-family: Trebuchet MS;
+			color: $white;
+			padding-left: 1em;
+		}
+		&._programme {
+			font-family: Trebuchet MS;
+			color: $white;
+			padding-left: 1em;
+		}
+		&._store_item {
+			font-family: Trebuchet MS;
+			color: $white;
+			padding-left: 1em;
+			&.description {
+				padding-left: 0;
 			}
 		}
 	}
@@ -403,6 +521,29 @@ form {
 				padding-right: 2em;
 			}
 		}
+		&.programmes {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.store_items {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.testimonials {
+			&.index {
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
 	}
 }
 
@@ -410,7 +551,7 @@ form {
 	&.admin {
 		&.members {
 			&.index {
-				background-color: #FFFFFF;
+				background-color: $white;
 				margin-top: 1.5em;
 			}
 			&.show {
@@ -422,19 +563,35 @@ form {
 		}
 		&.facilities {
 			&.index {
-				background-color: #FFFFFF;
+				background-color: $white;
 				margin-top: 1.5em;
 			}
 		}
 		&.instructors {
 			&.index {
-				background-color: #FFFFFF;
+				background-color: $white;
 				margin-top: 1.5em;
 			}
 		}
 		&.orders {
 			&.index {
-				background-color: #FFFFFF;
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+			&.show {
+				background-color: $black;
+				border-color: $black;
+			}
+		}
+		&.programmes {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+		}
+		&.store_items {
+			&.index {
+				background-color: $white;
 				margin-top: 1.5em;
 			}
 		}
@@ -474,8 +631,8 @@ body {
 
 h1 {
 	color: $gold;
-	//background-color: #000000;
-	//border: 1em solid #000000;
+	//background-color: $black;
+	//border: 1em solid $black;
 	text-align: center;
 	font-family: Orbitron, Orbitron, sans-serif;
 	font-size: 300%;
@@ -496,7 +653,7 @@ h2 {
 	&.admin {
 		&.facilities {
 			&.index {
-				color: #000000;
+				color: $black;
 			}
 		}
 		&.instructors {
@@ -516,15 +673,36 @@ h2 {
 			}
 		}
 		&._order_item {
-			color: #FFFFFF;
+			color: $white;
 		}
 		&.orders {
 			&.show {
 				&.member-argument {
 					font-family: Trebuchet MS;
-					color: #FFFFFF;
+					color: $white;
 					padding-left: 0.5em;
 				}
+			}
+		}
+		&.registrations {
+			&._registration {
+				margin-bottom: 1.5em;
+				color: $silver;
+			}
+		}
+		&.programmes {
+			&.index {
+				color: $black;
+			}
+		}
+		&.store_items {
+			&.index {
+				color: $black;
+			}
+		}
+		&.members {
+			&.index {
+				color: $black;
 			}
 		}
 	}
@@ -670,21 +848,21 @@ form {
     	margin: 0.8em;
     	box-sizing: border-box;
 		font-family: Trebuchet MS, Trebuchet MS, sans-serif;
-		color: #000000;
-		background-color: #FFFFFF;
+		color: $black;
+		background-color: $white;
     	border: 0.2em;
-		border-color: #FFFFFF;
+		border-color: $white;
     	border-radius: 0.4em;
 		outline: none;
 	}
 	input[type=submit] {
 		color: 000000;
-    	background-color: #FFFF00;
+    	background-color: $yellow;
 		font-family: Orbitron, Orbitron, sans-serif;
 		font-weight: bold;
     	padding: 1.2em 2em;
     	border: 0.2em;
-		border-color: #FFFFFF;
+		border-color: $white;
     	border-radius: 0.4em;
     	cursor: pointer;
 	}
@@ -1112,15 +1290,15 @@ article {
 	border-radius: 0;
 	background-color: $white;
 	h2 {
-		color: #000000;
+		color: $black;
 	}
 	&.admin {
 		&.layouts {
 			&._edit {
-				background-color: #000000;
+				background-color: $black;
 			}
 			&._new {
-				background-color: #000000;
+				background-color: $black;
 			}
 		}
 	}
@@ -1207,7 +1385,7 @@ section {
   		position: relative;
 	}
 	.text {
-		color: #FFFFFF;
+		color: $white;
 		font-size: 2em;
 		font-family: Orbitron, Orbitron, sans-serif;
 		text-align: center;
@@ -1215,7 +1393,7 @@ section {
 		margin-bottom: 1em;
 		right: 0.25em;
 		:selected {
-			box-shadow: 0em 0em 1em #FFFFFF;
+			box-shadow: 0em 0em 1em $white;
 		}
 	}
 	.image {
@@ -1229,7 +1407,7 @@ section {
 		opacity: 0.75;
 	}
 	.image img:active {
-	//box-shadow: 0em 0em 5em #FFD700;
+	//box-shadow: 0em 0em 5em $gold;
 	opacity: 1.0;
 	}
 	.image:hover .middle {
@@ -1288,13 +1466,13 @@ section {
 }
 
 .container {
-	border: 1em solid #000000;
-	box-shadow: 0em 0em 1em 1em #000000;
+	border: 1em solid $black;
+	box-shadow: 0em 0em 1em 1em $black;
 	padding: 0;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 	width: 95%;
 	margin-top: 4em;
-	background-color: #000000;
+	background-color: $black;
 }

@@ -1,27 +1,26 @@
 <% provide(:button_text, "Submit Testimonial") %>
 
 <%= form_for(@testimonial, url: testimonials_url, method: :post ) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %> 
-                        
+    <%= render 'shared/error_messages', object: f.object %>
+
     <h3><%= f.label :first_name, "First Name (*)" %></h3>
-    <%= f.text_field :first_name, class: "form-control" %> 
-                        
+    <%= f.text_field :first_name, class: "form-control" %>
+
     <h3><%= f.label :last_name, "Last Name (*)" %></h3>
-    <%= f.text_field :last_name, class: "form-control" %> 
-        
+    <%= f.text_field :last_name, class: "form-control" %>
+
     <h3><%= f.label :email, "E-mail (*)" %> </h3>
-    <%= f.email_field :email, class: "form-control" %> 
-    
+    <%= f.email_field :email, class: "form-control" %>
+
     <h3><%= f.label :city, "City (*)" %></h3>
-    <%= f.text_field :city, class: "form-control" %> 
-                        
+    <%= f.text_field :city, class: "form-control" %>
+
     <h3><%= f.label :country, "Country (*)" %></h3>
-    <%= f.text_field :country, class: "form-control" %> 
-                
+    <%= f.text_field :country, class: "form-control" %>
+
     <h3><%= f.label :content, "Message (must be under 1000 characters)" %> </h3>
-    <%= f.text_area :content, class: "form-control" %> 
-                
-    <%= f.submit yield(:button_text), class: "btn btn-primary", style: 
-    "width: 30%; margin-left: auto; margin-right: auto; display: block; margin-top: 3em; margin-bottom: 2em; padding: 1.5em;" %> 
-                        
+    <%= f.text_area :content, class: "form-control" %>
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary admin _new_testimonial_form" %> 
+
 <% end %>

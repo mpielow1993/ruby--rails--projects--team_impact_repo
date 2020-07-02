@@ -3,14 +3,14 @@
     <h1><%= yield(:title) %></h1>
 </section>
     <div class="row">
-        <div class="col-md-8" style="padding-top: 1em; padding-bottom: 1em; padding-left: 2em; padding-right: 2em;"> 
-            <div class="well">
-                <h2 style="color: #000000;">(<%= @store_items.count %> Store Products)</h2>
+        <div class="col-md-8 admin store_items index">
+            <div class="well admin store_items index">
+                <h2 class="">(<%= @store_items.count %> Store Products)</h2>
                 <% if !@store_items.nil? %>
                     <% @store_items.each do |store_item| %>
                         <%= render 'admin/store_items/store_item', store_item: store_item %>
                     <% end %>
-                    <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                    <div class="center" class="admin store_items index">
                         <%= will_paginate @store_items %>
                     </div>
                 <% end %>

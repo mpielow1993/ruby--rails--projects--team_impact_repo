@@ -1,16 +1,15 @@
-<div class="card" style="background-color: #000000; padding-top: 1.5em; padding-left: 1.5em; padding-right: 1.5em; padding-bottom: 3.5em; margin-top: 4em; margin-top: 2em;">
+<div class="card admin _registration">
     <div class="card-body">
-		<h2 style="margin-bottom: 1.5em;">Registration #<%= registration.id %></h2>
-        <h3>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= member.user_name %></span></h3>
+		<h2 class="admin registrations _registration">Registration #<%= registration.id %></h2>
+        <h3>Member: <span class="admin registrations _registration"><%= member.user_name %></span></h3>
         <% if member.admin? %>
-            <h3>User Level: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Admin</span></h3>        
+            <h3>User Level: <span class="admin registrations _registration">Admin</span></h3>
         <% else %>
-            <h3>User Level: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">Member</span></h3>  
+            <h3>User Level: <span class="admin registrations _registration">Member</span></h3>
         <% end %>
-        <h3>Subscription ID: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;">#<%= registration.subscription.id %></span></h3>
-        <h3>Registered: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= registration.created_at.strftime("%a %b #{registration.created_at.day.ordinalize}") %> <%= registration.created_at.year %> at <%= registration.created_at.strftime("%H:%M:%S") %></span></h3></span></h3>
-        <%= link_to "Unregister", admin_lesson_registration_path(registration.lesson, registration), method: :delete, class: "btn btn-danger", 
-            data: { confirm: "Are you sure you want to unregister member '#{registration.member.id}' from lesson '#{registration.lesson.id}'?" }, 
-            style: "font-family: Orbitron; float: right;" unless registration.member.admin? %>
+        <h3>Subscription ID: <span class="admin registrations _registration">#<%= registration.subscription.id %></span></h3>
+        <h3>Registered: <span class="admin registrations _registration"><%= registration.created_at.strftime("%a %b #{registration.created_at.day.ordinalize}") %> <%= registration.created_at.year %> at <%= registration.created_at.strftime("%H:%M:%S") %></span></h3></span></h3>
+        <%= link_to "Unregister", admin_lesson_registration_path(registration.lesson, registration), method: :delete, class: "btn btn-danger admin _registration",
+            data: { confirm: "Are you sure you want to unregister member '#{registration.member.id}' from lesson '#{registration.lesson.id}'?" } if current_member.admin? %>
     </div>
 </div>

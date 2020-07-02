@@ -182,8 +182,8 @@ testimonial_messages = ["I flew in from Manchester on holiday visiting family in
 end
 
 # Lessons
-timetable_instructor_ids = [1, 2, 3, 4, 5, 6, 7]
-timetable_facility_ids = [1, 2, 3, 4]
+timetable_instructor_ids = (1..7).to_a
+timetable_facility_ids = (1..7).to_a
 timetable_programme_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 timetable_levels = %w[Beginner Intermediate Advanced Competition]
 
