@@ -7,11 +7,13 @@ Log in as an Admin:
   3. Type for Password: '4dm1n_Ex4mple'
 
 
+
 Log in as an ordinary member:
 
   1. Repeat Step 1 from above.
   2. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 9}'
   3. Type for Password: 'Member_Ex4mple'
+
 
 
 View sample lessons that can be registered/ unregistered from in Public or Personal Timetable:
@@ -20,6 +22,7 @@ View sample lessons that can be registered/ unregistered from in Public or Perso
   2. Click on the sole search bar in this page. A calendar should display.
   3. Click on any date >= 20th December 2020 and <= 29th December 2020 (I just used these dates for my sample data as I think they are memorable).
   4. When you register/ unregister for a class on a specific date, your personal timetable will adjust accordingly.
+
 
 
 You can only register for a lesson if you have first purchased at least one membership. To do this, follow the steps below:
