@@ -30,10 +30,13 @@ You can only register for a lesson if you have first purchased at least one memb
   1. When logged in, in the sidebar select 'Store', then 'Public', then 'New Order'.
   2. Select any amount of memberships/ other items that you wish.
   3. When you are ready to purchase, click 'Checkout'. You can use the following sample details to complete your purchase.
+  
     - Email: joebloggs@fake.io
     - Card Number: 4242 4242 4242 4242
     - Expiry Date: 11/21
     - CVV: 111
+    
   4. Once you have purchased a membership (technically a subscription to a specfic type of membership), you should observe the following:
+  
     - When you go into the Public Timetable (between the range of dates stated above), if you did not have any membership subscriptions previously, 
       there should now be an option to register for classes using the membership subscription(s) that you just purchased.
