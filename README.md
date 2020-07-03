@@ -1,6 +1,6 @@
 # README
 
-Before cloning this project and trying to log in initially, you may need to re-create the database, then populate it.
+Before cloning this project and trying to log in initially, you may need to re-create the database structure, then populate it.
 1. To recreate the database, in the terminal of the project folder run 'rails db:migrate'.
 2. To populate the database with the sample data (located in 'seeds.rb'), run 'rails db:seed'
 
