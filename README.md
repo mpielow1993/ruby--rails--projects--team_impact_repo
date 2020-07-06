@@ -4,6 +4,67 @@ Before cloning this project and trying to log in initially, you may need to migr
 1. To migrate the database, in the terminal of the project directory run 'rails db:migrate'.
 2. Similarly, to populate the database with the sample data (located in 'db/seeds.rb') run 'rails db:seed'
 
+#Public visitor capabilities
+
+1. Submit an enquiry.
+2. Submit a testimonial.
+
+#Member Capabilities
+
+1. Sign up as a new member
+2. Log in as a new member.
+3. Comment on a newswire post (made by an admin).
+4. Purchase a membership or other store product.
+5. Register for a class and add to their personal timetable.
+6. View their current membership subscriptions and the lessons they have used them to register for.
+7. View orders purchased.
+
+  Admins can perform the following manipulations for each entity.
+  1. Members
+    - Admins can create, update and delete ordinary members.
+    - Admins can view a list of all ordinary members and admins 
+    - Admins can visit the profiles of any ordinary member (but not other admins).
+    - Admins can update their own member details (but not other admins).
+  2. Newswire Posts 
+    - Admins can create and delete their own posts in the member newswire.
+  3. Comments 
+    - Admins can create and delete comments on posts from themselves and any other ordinary member (but not another admin).
+  4. Programmes - Create, Update, Delete
+    - Admins can create, update, and delete any programme that the gym currently offers.
+  5. Instructors - Create, Update, Delete
+    - Admins can create, update and delete any instructor currently available to teach a lesson.
+  6. Facilities - Create, Update, Delete
+    - Admins can create, update and delete any facility currently available to use for a lesson
+  7. Lessons - Create, Update, Delete
+    - Admins can create, update and delete any lesson currently scheduled at the gym.
+  8. StoreItems - Create, Update, Delete
+    - Admins can create, update and delete any product currently for sale in the gym's online store.
+  9. Orders - Create, Update, Delete
+    - Admins can place 
+  10. OrderItems - Create, Update, Delete
+  11. Registrations (for a lesson) - Create, Delete
+  12. Enquiries - Create, Delete
+  13. Testimonials - Create, Delete
+
+#Admin
+
+  # Admin Privileges
+  
+  Admins can perform the following manipulations for each entity.
+  1. Members - Create, Update, Delete
+  2. Newswire Posts - Create, Delete
+  3. Comments - Create, Delete
+  4. Programmes - Create, Update, Delete
+  5. Instructors - Create, Update, Delete
+  6. Facilities - Create, Update, Delete
+  7. Lessons - Create, Update, Delete
+  8. StoreItems - Create, Update, Delete
+  9. Orders - Create, Update, Delete
+  10. OrderItems - Create, Update, Delete
+  11. Registrations (for a lesson) - Create, Delete
+  12. Enquiries - Create, Delete
+  13. Testimonials - Create, Delete
+
 Log in as an Admin:
 
   1. Go to 'Log In'.
