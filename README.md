@@ -30,18 +30,18 @@
       e. Go into your email account and click on the link within the email sent.
       f. Once clicked, you should be taken into the member login area and prompted that your registration was successful.
     
-# Logging in as a basic member:
+# Logging in as a Basic Member:
   
     a. Go to the 'Log In' section in the navigation bar.
     b. Type your username and password, then click 'Log In'
     
-# Logging in as an admin:
+# Logging in as an Admin:
 
     a. Go to 'Log In'.
     b. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 5}'
     c. Type for Password: '4dm1n_Ex4mple'
 
-# Public visitor capabilities
+# Public Visitor capabilities
 
   Public visitors to the site (i.e. that are not logged in) can do the following;
 
