@@ -14,14 +14,16 @@ import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.min.css")
 
 document.addEventListener("turbolinks:load", () => {
-  flatpickr(".datepicker", {
-      altInput: false,
-      altFormat: "F j, Y",
-      dateFormat: "Y-m-d"
-  }) 
+	flatpickr(".datepicker", {
+		altInput: false,
+		altFormat: "F j, Y",
+		dateFormat: "Y-m-d"
+	})
 })
 
-
+$(document).ready(function() {
+	$('#main-alert-message').fadeOut(5000);
+});
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -30,4 +32,3 @@ document.addEventListener("turbolinks:load", () => {
 // const imagePath = (name) => images(name, true)
 
 //datepicker
-

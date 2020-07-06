@@ -7,13 +7,13 @@ class RegistrationsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.build(registration_params)
     if @registration.save
-      flash.dup[:success] = " Registration Successful"
+      flash[:success] = "Registration Successful"
       respond_to do |format|
         format.html {}
         format.js {}
       end
     else
-      flash.dup[:danger] = "Already registered with subscription '#{current_member.subscription_used_to_register_for(@lesson).subscription_name}'"
+      flash[:danger] = "Already registered with subscription '#{current_member.subscription_used_to_register_for(@lesson).subscription_name}'"
       respond_to do |format|
         format.html {}
         format.js {}
@@ -26,7 +26,7 @@ class RegistrationsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.find(params[:id])
     @registration.destroy
-    flash.dup[:success] = "Deregistration Successful"
+    flash[:success] = "Deregistration Successful"
     respond_to do |format|
       format.html {}
       format.js {}

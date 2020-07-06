@@ -11,7 +11,7 @@
                 <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
             </span>
             <div class="center" style="background-color: #FFFFFF">
-                <%= f.submit "Post", class: "btn btn-primary", style: "width: 100%" %>
+                <%= f.submit "Post", class: "btn btn-primary", style: "width: 100%", id: "newswire_post_form-result-button" %>
             </div>
             <%-#Adding image upload to the newswire_post 'create' form-%>
         <% end %>

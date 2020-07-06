@@ -1,14 +1,15 @@
 <div class="card" style="background-color: #000000; padding: 1em; margin-top: 2em;">
     <h5 class="card-title" style="margin: 0;">
         <%= link_to member_avatar_for(newswire_post.member), newswire_post.member %>
-        <span class="user"><%= link_to newswire_post.member.first_name + " " + newswire_post.member.last_name, newswire_post.member, style: "font-family: Orbitron; font-size: 1.5em; padding-left: 0.5em;" %></span>
+        <span class="user" style="font-family: Orbitron; font-size: 1.5em; padding-left: 0.5em;"><%= newswire_post.member.first_name + " " + newswire_post.member.last_name %></span>
     </h5>
     <%= newswire_post_big_image_for(newswire_post.image, style: "border: 0;") if newswire_post.image.attached? %>
     <div class="card-body">
         <p class="card-text" style="margin-top: 2em; font-family: Trebuchet MS;"><%= auto_link_content(sanitize newswire_post.content.html_safe) %></p>
         <p class="card-text" style="margin-top: 2em;"><small class="text-muted" style="color: #FFFFFF; font-family: Orbitron;">Posted <%= time_ago_in_words(newswire_post.created_at) %> ago.</small></p>
         <% if newswire_post.member == current_member %>
-            <%= link_to "Delete", newswire_post_path(newswire_post), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" }, style: "font-family: Orbitron;" %>
+            <%= link_to "Delete", newswire_post_path(newswire_post), method: :delete, remote: :true, class: "btn btn-danger", data: { confirm: "You sure?" }, style: "font-family: Orbitron;" %>
         <% end %>
     </div>
+    <p class="card-text" style="margin-top: 1em; font-family: Orbitron; font-size: 1em;"><%= link_to "Show Comments (#{newswire_post.comments.count})", newswire_post_path(newswire_post), id: "newswire_post_#{newswire_post.id}_comment_thread_link" %></p>
 </div>

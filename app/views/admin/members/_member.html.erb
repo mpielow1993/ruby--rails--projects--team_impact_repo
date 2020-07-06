@@ -1,7 +1,7 @@
 <div class="card admin _member">
     <h5 class="card-title">
         <%= link_to member_avatar_for(member), member %>
-        <span class="admin _member title"><%= link_to member.first_name + " " + member.last_name, admin_member_path(member) %></span>
+        <span class="admin _member title"><%= member.first_name + " " + member.last_name %></span>
     </h5>
     <div class="card-body">
         <% if member.admin? %>

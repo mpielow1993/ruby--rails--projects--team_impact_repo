@@ -40,7 +40,7 @@ class Admin::MembersController < Admin::AdminApplicationController
   def destroy
     @member = Member.find(params[:id])
     @member.destroy
-    @member.admin? ? flash[:success] = "Admin Removed Successfully" : flash[:success] = "Member Updated Successfully"
+    @member.admin? ? flash[:success] = "Admin Removed Successfully" : flash[:success] = "Member Removed Successfully"
     redirect_to admin_members_path
   end
 

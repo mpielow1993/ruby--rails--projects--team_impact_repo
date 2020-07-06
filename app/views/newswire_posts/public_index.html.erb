@@ -7,8 +7,9 @@
             <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
                 <h2 style="color: #000000;">All Posts (<%= @newswire_posts.count %>)</h2>
                 <% @newswire_posts.each do |newswire_post| %>
-                    <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
-                    <p class="card-text" style="margin-top: 1em; font-family: Orbitron; font-size: 1em;"><%= link_to "Show Comments (#{newswire_post.comments.count})", newswire_post_path(newswire_post), id: "newswire_post_#{newswire_post.id}_comment_thread_link" %></p>
+                    <div id="newswire_post-<%= newswire_post.id.to_s %>">
+                      <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
+                    </div>
                 <% end %>
                 <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
                     <%= will_paginate @newswire_posts %>

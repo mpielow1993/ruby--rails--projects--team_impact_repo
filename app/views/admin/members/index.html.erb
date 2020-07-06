@@ -8,7 +8,7 @@
                 <h2 class="admin members index">(<%= @members.count %> Members)</h2>
                 <% if !@members.nil? %>
                     <% @members.each do |member| %>
-                        <%= render 'admin/members/member', member: member %>
+                        <%= render 'admin/members/member', member: member if !member.admin? %>
                     <% end %>
                     <div class="center admin members index">
                         <%= will_paginate @members %>
