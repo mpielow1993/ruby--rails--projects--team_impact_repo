@@ -202,7 +202,7 @@
   In addition to having all of the capabilities of a base member (detailed above), admin members have the following exclusive capabilities (again, mentioned within the 
   context of the entity to which they relate).
   
-    The following credentials can be used to log in as an admin:
+  The following credentials can be used to log in as an admin:
   
     a. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 5}'
     b. Type for Password: '4dm1n_Ex4mple'
