@@ -6,20 +6,22 @@
     b. To run the rails server, run 'rails server' or 'rails s' within the root directory of this project.
     c. With the server running, type 'http://localost:3000' in your browser URL.
 
-  Before cloning this project and trying to log in initially, you may need to migrate the database, then populate it.
+  Before cloning this project and trying to log in initially, the 'Members' table may not be recognised. 
+  If this happens, you need to migrate the database, then populate it. 
+  To do this, perform the following steps:
   
-    a. To migrate the database, in the terminal of the project's root directory run 'rails db:migrate'.
-    b. Similarly, to populate the database with the sample data (located in 'db/seeds.rb') run 'rails db:seed'
+    a. To migrate the database, run 'rails db:migrate' in the terminal of the project's root directory .
+    b. Similarly, run 'rails db:seed to populate the database with the sample data (located in 'db/seeds.rb') '
   
 # Signing up
 
-    There should already be data seeded within the database for this test design, so if you don't want to sign up as a new member you can use the following details 
-    to log in.
+    There should already be data seeded within the database for this prototype design, so if you don't want to sign up as a new member you can use the following details 
+    to log in:
          
-      a. Type for Username: 'Ex4mple_Member_{any whole number >= 1 and <= 9}'
-      b. Type for Password: 'Member_Ex4mple'
+      a. Username: 'Ex4mple_Member_{any whole number >= 1 and <= 9}'
+      b. Password: 'Member_Ex4mple'
     
-    If you do want to sign up as a new basic member,
+    If you do want to sign up as a new basic member, perform the following steps:
     
       a. Go to 'Home'.
       b. Click 'Sign up now'.
@@ -47,13 +49,15 @@
   
       i. Click on the 'Contact' tab within the navigation bar.
       ii. Fill out the form as instructed, then click 'Submit Enquiry'.
-      iii. If the enquiry is successfully submitted, a notification will appear at the top of the screen.
+      iii. If the enquiry is successfully submitted, a green success notification will appear at the top of the screen saying 
+           'Your enquiry was submitted successfully. Thank you.'.
   
     b. Submit a testimonial.
   
       i. Click on the 'Testimonials' tab within the navigation bar.
       ii. Fill out the form as instructed, then click 'Submit Testimonial'.
-      iii. If the testimonial is successfully submitted, a notification will appear at the top of the screen.
+      iii. If the testimonial is successfully submitted, a green success notification will appear at the top of the screen saying 
+           'Testimonial has been successfully submitted with email confirmation. Thank you'.
 
 # Member Capabilities
   
