@@ -71,6 +71,7 @@
     
       i. When logged in, click on the 'Account' tab within the navigation bar, then click 'Settings'.
       ii. Make the necessary changes, then click 'Save Changes'.
+      iii. If the update is successful, a green success notification will appear at the top of the screen saying 'Profile Updated'.
       
   2. Newswire Posts 
   
@@ -83,41 +84,41 @@
     a. View comments within a newswire post.
     
       i. When logged in, click on 'Newswire' within the sidebar, then click 'Public'.
-      ii. Under all newswire posts, there is a link called 'View Comments', which leads to the comment thread for that particular post.
-      iii. Click on this 'View Comments' link.
+      ii. Under all newswire posts, there is a link called 'Show Comments', which leads to the comment thread for that particular post.
+      iii. Click on this 'Show Comments' link.
       
     b. Create their own comments.
     
       i. Within the comment thread for a particular newswire post, write text within the textarea marked 'Add Comment' and upload image/video files with the File Upload icon.
       ii. When ready to sumbit, click 'Post'.
-      iii. If posted successfully, a notification will appear at the top of the screen.
+      iii. If the comment has been posted successfully, a green success notification will appear at the top of the screen saying 'Comment Added'.
       
     c. Delete their own comments.
     
       i. Once a member's own comment is posted, a delete button will appear within that comment.
       ii. Click this 'Delete' button.
-      iii. If deleted successfully, a notification will appear at the top of the screen.
+      iii. If deleted successfully, a green success notification will appear at the top of the screen saying 'Comment successfully deleted'.
       
   4. Programmes 
   
     a. View programmes currently being run.
     
       i. Click on the 'Programmes' section within the navigation bar.
-      ii. Click on a specific programme to view details.
+      ii. Click on a specific programme to view its details.
       
   5. Instructors
   
     a. View instructors currently teaching lessons.
     
       i. Click on the 'Instructors' section within the navigation bar.
-      ii. Click on a specific instructor to view details.
+      ii. Click on a specific instructor to view their details.
       
   6. Facilities
   
     a. View facilities currently being used for lessons.
     
-      i. Click on the Facilities' section within the navigation bar.
-      ii. Click on a specific facility to view details.
+      i. Click on the 'Facilities' section within the navigation bar.
+      ii. Click on a specific facility to view its details.
       
   7. Lessons
   
@@ -134,20 +135,21 @@
       
       Before registering for a lesson, a membership subcription needs to be purchased within the store (see 'Orders' below).
     
-      i. Within the timetable for a specific day, if not already registered for a lesson, there should be a 'Register' button within each lesson record.
+      i. Within the timetable for a specific day, if not already registered for a lesson, there should be a 'Register' button within each Lesson record.
       ii. Select the membership subscription that you wish to use from the drop-down list.
       iii. Click 'Register'.
-      iv. If registered successfully, a notification will appear within the lesson record.
+      iv. If registered successfully, a green success notification will appear at the top of the lesson record saying 'Registration Successful'.
       v. This registered lesson will now appear within the personal timetable for the logged-in member on the specific day.
       vi. To view this, go to 'Timetable', then click 'Your Timetable', then select the day of the lesson that was registered for.
     
     c. Members can view all lessons that they are currently registered to.
+    
       i. Go to 'Timetable', then click 'Your Timetable'.
     
     d. Unregister for any lesson
     
       i. Within either the public or personal timetable, click the 'Unregister' button for a lesson that has been registered to.
-      ii. If unregistered successfully, a notification will appear within the lesson record.
+      ii. If unregistered successfully, a green success notification will appear at the top of the lesson record saying 'Deegistration Successful'.
       
   8. StoreItems
   
@@ -160,12 +162,14 @@
     a. Create new orders
     
       i. Within the members' store, click the 'New Order' button, located under the sidebar.
-      ii. A notification should appear saying 'New order created successfully'.
+      ii. A green success notification will appear saying 'New order created successfully'.
       iii. Each listed store item should now display an adjustable number field and an 'Add to Cart' button.
       iv. Update your order as necessary (see below for details on how to do this).
-        NOTE - To be able to register for lessons, it is required to purchase a subscription to at least one type of membership.
-      v. When ready, click the 'Checkout' button at the bottom of the page showing the total contents of your current order.
-      vi. Use the following details for the Stripe payment gateway that appears.
+      
+      NOTE - To be able to register for lessons, it is required to purchase a subscription to at least one type of membership.
+      
+      v. When ready, click the 'Checkout' button at the bottom of the page showing the total contents of your current order. You can use the following details for the 
+         Stripe payment gateway that appears.
       
         - Email: joebloggs@fake.io
         - Card Number: 4242 4242 4242 4242
@@ -179,12 +183,14 @@
     
       i. When a new live order is created, each listed store item displays an adjustable number field and an 'Add to Cart' button.
       ii. For a specific store item, use the number field to set the amount, then click 'Add to Cart'.
-      iii. You should receive a notification saying 'Item added successfully' and be taken to a page display the current total contents of your order.
-      iv. You can update the order item that you just added by adjusting its number field and clicking 'Update Cart', or you can click the 'Continue Shopping' button 
-          at the bottom of the page to go back to the original store page and continue adding items to your order.
+      iii. You will receive a green notification saying 'Item added successfully' and be taken to a page display the current total contents of your order.
+      iv. You can update the order item that you just added on this page by adjusting its number field and clicking 'Update Cart' (from which you will receive a green 
+          success notification saying 'Order Item updated successfully'), or you can click the 'Continue Shopping' button at the bottom of the page to go back to the original             store page and continue adding items to your order.
     
     c. Delete their current order.    
       i. For a current order, click the 'Delete Order' button located at the bottom of the page showing the total contents of your current order.
+      ii. A confirmation alert will pop up saying 'Are you sure you want to delete this order?', to which you click 'OK' to proceed.
+      ii. If your current order has been deleted successfully, a green success notification will appear saying 'Order successfully destroyed'. 
       
     d. View their Completed Orders.
       i. When logged in, Click on the 'Store' section within the sidebar, then click 'Your Purchases'.
@@ -198,8 +204,8 @@
     
     b. Delete personal membership subscriptions.
       i. When logged in, go to the 'Memberships' section of the sidebar, then click 'Your Membership Subscriptions'.
-      ii. To delete a particular subscription to a particular membership, click on the subscription record's 'Delete' button.
-      iii. If the subscription is successfully deleted, a notification will appear at the top of the screen.
+      ii. To delete a particular membership subscription, click on the subscription record's 'Delete' button.
+      iii. If the subscription is successfully deleted, a green success notification will appear at the top of the screen saying 'Subscription successfully removed'.
 
 # Admin Capabilities
 
@@ -216,30 +222,31 @@
   
   1. Members
   
-    a. View a list of all ordinary members. 
+    a. View a list of all basic members and admins. 
    
         i. When logged in as an admin, go to the 'Admin' section within the sidebar.
         ii. Click 'Search', then click 'Members'.
     
-    b. Create ordinary members and other admins.
+    b. Create basic members and other admins.
    
         i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Member'.
         ii. Fill out the following 'New Member' form as instructed (You can decide on whether a new member is an ordinary member or an admin by deselecting/selecting the 
         'Admin' checkbox).
         iii. When finished, click 'Create Member'.
-        iv. If the member is successfully created, a notification will appear at the top of the screen.
+        iv. If the member is successfully created, a green success notification will appear at the top of the screen saying 'New Member Created Successfully'.
     
-    c. Update the details of ordinary members.
+    c. Update the details of basic members.
    
         i. When viewing the list of all ordinary members, click on the 'Edit' button for a particular member record.
         ii. Edit the members details within the edit form as necessary, then click 'Save Changes'.
-        iii. If the member record is updated successfully, a notification will appear at the top of the screen.
+        iii. If the member record is updated successfully, a green success notification will appear at the top of the screen saying 'Member Updated Successfully'.
     
     d. Delete ordinary members
    
         i. When viewing the list of all ordinary members, click on the 'Delete' button for a particular member record. 
         ii. An alert will appear, asking for confirmation to delete the selected member record. Click 'Yes'.
-        iii. If the member record is deleted successfully, a notification will appear at the top of the screen.
+        iii. An alert confirmation will appear saying 'Are you sure you want to delete member '{deleted member's username}'?'. Click 'OK' to proceed.
+        iv. If the member record is deleted successfully, a green success notification will appear at the top of the screen saying 'Member Successfully Removed'.
     
   2. NewswirePosts 
   
@@ -248,13 +255,14 @@
         i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
         ii. Under the sidebar, there should be a section title 'Create a Post' containing a text area (marked 'Add Newswire Post'), an image/video upload icon.
         iii. Once these facilities are utilised as necessary to build your desired post, click the 'Post' button.
-        iv. If the newswire post is created successfully, a notification will appear at the top of the screen.
+        iv. If the newswire post is created successfully, a green success notification will appear at the top of the screen saying 'Newswire post created'.
     
     b. Delete their own posts in the member newswire.
     
         i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
         ii. For any post that the logged-in admin has created, there should be an attached 'Delete' button. Click on this button.
-        iii. If deleted successfully, a notification will appear at the top of the screen.
+        iii. An alert confirmation will appear saying 'Are you sure you want to delete this newswire post?'. Click 'OK' to proceed.
+        iii. If deleted successfully, a green success notification will appear at the top of the screen saying 'Newswire post successfully deleted'.
       
   3. Comments 
   
@@ -263,7 +271,8 @@
         i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
         ii. Go into the comment thread of a particular newswire post by clicking the associated 'Show Comments' link for a specific post.
         iii. There should be a delete button for a comment from any member and any comment from the logged-in admin. Click on this button.
-        iv. If the associated comment is deleted successfully, a notification will appear at the top of the screen.
+        iv. An alert confirmation will appear saying 'Are you sure you want to delete this comment?'. Click 'OK' to proceed.
+        iv. If the associated comment is deleted successfully, a green success notification will appear at the top of the screen saying 'Comment Removed'.
       
   4. Programmes
    
@@ -276,19 +285,19 @@
    
         i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Programme'.
         ii. When finished, click 'Create Programme'.
-        iii. If the programme is successfully created, a notification will appear at the top of the screen.
+        iii. If the programme is successfully created, a green success notification will appear at the top of the screen saying 'Programme added successfully'.
     
     c. Update the details of existing programmes.
    
         i. When viewing the list of all programmes, click on the 'Edit' button for a particular Programme record.
         ii. Edit the programme's details within the edit form as necessary, then click 'Save Changes'.
-        iii. If the programme record is updated successfully, a notification will appear at the top of the screen.
+        iii. If the programme record is updated successfully, a green success notification will appear at the top of the screen saying 'Programme updated successfully'.
     
     d. Delete programmes
    
         i. When viewing the list of all programmes, click on the 'Delete' button for a particular Programme record. 
         ii. An alert will appear, asking for confirmation to delete the selected Programme record. Click 'Yes'.
-        iii. If the Programme record is deleted successfully, a notification will appear at the top of the screen.
+        iii. If the Programme record is deleted successfully, a green success notification will appear at the top of the screen saying 'Programme successfully removed'.
     
     NOTE - Each Admin capability for the 'Programme' entity and its associated procedure can be extended to the following entities:
         
@@ -306,7 +315,8 @@
     b. Remove any completed order placed within the system.
         i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Orders'.
         ii. A 'Delete' button should appear for each completed order record. Click on this.
-        iii. If the Order record is deleted successfully, a notification will appear at the top of the screen.
+        iii. An alert will appear, asking for confirmation to delete the selected Order record. Click 'Yes'.
+        iv. If the Order record is deleted successfully, a green success notification will appear at the top of the screen saying 'Order successfully removed'.
       
   10. Registrations
   
@@ -316,7 +326,8 @@
         ii. To view the members registered for a particular lesson, click on the 'View Registrations' link of the associated Lesson record to be taken to a list of 
           all members registered for that lesson.
         iii. Click on the associated 'Unregister' button, for the member that the logged-in admin intends to unregister.
-        iv. If the member is unregistered successfully, a notification will appear at the top of the screen. 
+        iv. An alert will appear, asking for confirmation to delete the selected lesson registered for. Click 'Yes'.
+        v. If you have unregistered successfully, a green success notification will appear at the top of the screen saying 'Deregistration successful'. 
       
   11. Enquiries
   
@@ -327,7 +338,8 @@
     b. Delete a specific enquiry
     
       i. When viewing the list of total enquiries as an admin, each Enquiry record has an associated 'Delete' button. Click on this.
-      ii. If the enquiry is deleted successfully, a notification should appear at the top of the screen.
+      ii. An alert will appear, asking for confirmation to delete the selected enquiry. Click 'Yes'.
+      iii. If the enquiry is deleted successfully, a green success notification should appear at the top of the screen.
       
   12. Testimonials
   
@@ -338,6 +350,7 @@
     b. Delete a specific enquiry
     
       i. When viewing the list of total enquiries as an admin, each Testimonial record has an associated 'Delete' button. Click on this.
-      ii. If the testimonial is deleted successfully, a notification should appear at the top of the screen.
+      ii. An alert will appear, asking for confirmation to delete the selected testimonial. Click 'Yes'.
+      iii. If the tetimonial is deleted successfully, a green success notification should appear at the top of the screen.
       
 
