@@ -16,7 +16,7 @@
     There should already be data seeded within the database for this test design, so if you don't want to sign up as a new member you can use the following details 
     to log in.
          
-      a. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 9}'
+      a. Type for Username: 'Ex4mple_Member_{any whole number >= 1 and <= 9}'
       b. Type for Password: 'Member_Ex4mple'
     
     If you do want to sign up as a new basic member,
