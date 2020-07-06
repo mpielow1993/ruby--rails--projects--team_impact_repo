@@ -1,15 +1,15 @@
 # README
 
-# Getting started 
-
-  a. Make sure that Ruby on Rails is installed in your local machine.
-  b. To run the rails server, run 'rails server' or 'rails s' within the root directory of this project.
-  c. With the server running, type 'http://localost:3000' in your browser URL.
+# Getting started
+    
+    a. Make sure that Ruby on Rails is installed in your local machine.
+    b. To run the rails server, run 'rails server' or 'rails s' within the root directory of this project.
+    c. With the server running, type 'http://localost:3000' in your browser URL.
 
   Before cloning this project and trying to log in initially, you may need to migrate the database, then populate it.
   
-  d. To migrate the database, in the terminal of the project's root directory run 'rails db:migrate'.
-  e. Similarly, to populate the database with the sample data (located in 'db/seeds.rb') run 'rails db:seed'
+    a. To migrate the database, in the terminal of the project's root directory run 'rails db:migrate'.
+    b. Similarly, to populate the database with the sample data (located in 'db/seeds.rb') run 'rails db:seed'
   
 # Signing up
 
@@ -35,25 +35,25 @@
     
 # Logging in as an admin:
 
-  1. Go to 'Log In'.
-  2. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 5}'
-  3. Type for Password: '4dm1n_Ex4mple'
+    a. Go to 'Log In'.
+    b. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 5}'
+    c. Type for Password: '4dm1n_Ex4mple'
 
 # Public visitor capabilities
 
   Public visitors to the site (i.e. that are not logged in) can do the following;
 
-  a. Submit an enquiry.
+    a. Submit an enquiry.
   
-    i. Click on the 'Contact' tab within the navigation bar.
-    ii. Fill out the form as instructed, then click 'Submit Enquiry'.
-    iii. If the enquiry is successfully submitted, a notification will appear at the top of the screen.
+      i. Click on the 'Contact' tab within the navigation bar.
+      ii. Fill out the form as instructed, then click 'Submit Enquiry'.
+      iii. If the enquiry is successfully submitted, a notification will appear at the top of the screen.
   
-  b. Submit a testimonial.
+    b. Submit a testimonial.
   
-    i. Click on the 'Testimonials' tab within the navigation bar.
-    ii. Fill out the form as instructed, then click 'Submit Testimonial'.
-    iii. If the testimonial is successfully submitted, a notification will appear at the top of the screen.
+      i. Click on the 'Testimonials' tab within the navigation bar.
+      ii. Fill out the form as instructed, then click 'Submit Testimonial'.
+      iii. If the testimonial is successfully submitted, a notification will appear at the top of the screen.
 
 # Member Capabilities
   
