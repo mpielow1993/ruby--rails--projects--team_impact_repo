@@ -212,106 +212,107 @@
   
   1. Members
   
-   a. View a list of all ordinary members. 
+    a. View a list of all ordinary members. 
    
-    i. When logged in as an admin, go to the 'Admin' section within the sidebar.
-    ii. Click 'Search', then click 'Members'.
+        i. When logged in as an admin, go to the 'Admin' section within the sidebar.
+        ii. Click 'Search', then click 'Members'.
     
-   b. Create ordinary members and other admins.
+    b. Create ordinary members and other admins.
    
-    i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Member'.
-    ii. Fill out the following 'New Member' form as instructed (You can decide on whether a new member is an ordinary member or an admin by deselecting/selecting the 
+        i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Member'.
+        ii. Fill out the following 'New Member' form as instructed (You can decide on whether a new member is an ordinary member or an admin by deselecting/selecting the 
         'Admin' checkbox).
-    iii. When finished, click 'Create Member'.
-    iv. If the member is successfully created, a notification will appear at the top of the screen.
+        iii. When finished, click 'Create Member'.
+        iv. If the member is successfully created, a notification will appear at the top of the screen.
     
-   c. Update the details of ordinary members.
+    c. Update the details of ordinary members.
    
-    i. When viewing the list of all ordinary members, click on the 'Edit' button for a particular member record.
-    ii. Edit the members details within the edit form as necessary, then click 'Save Changes'.
-    iii. If the member record is updated successfully, a notification will appear at the top of the screen.
+        i. When viewing the list of all ordinary members, click on the 'Edit' button for a particular member record.
+        ii. Edit the members details within the edit form as necessary, then click 'Save Changes'.
+        iii. If the member record is updated successfully, a notification will appear at the top of the screen.
     
-   d. Delete ordinary members
+    d. Delete ordinary members
    
-    i. When viewing the list of all ordinary members, click on the 'Delete' button for a particular member record. 
-    ii. An alert will appear, asking for confirmation to delete the selected member record. Click 'Yes'.
-    iii. If the member record is deleted successfully, a notification will appear at the top of the screen.
+        i. When viewing the list of all ordinary members, click on the 'Delete' button for a particular member record. 
+        ii. An alert will appear, asking for confirmation to delete the selected member record. Click 'Yes'.
+        iii. If the member record is deleted successfully, a notification will appear at the top of the screen.
     
   2. NewswirePosts 
   
     a. Create their own posts in the member newswire.
     
-      i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
-      ii. Under the sidebar, there should be a section title 'Create a Post' containing a text area (marked 'Add Newswire Post'), an image/video upload icon.
-      iii. Once these facilities are utilised as necessary to build your desired post, click the 'Post' button.
-      iv. If the newswire post is created successfully, a notification will appear at the top of the screen.
+        i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
+        ii. Under the sidebar, there should be a section title 'Create a Post' containing a text area (marked 'Add Newswire Post'), an image/video upload icon.
+        iii. Once these facilities are utilised as necessary to build your desired post, click the 'Post' button.
+        iv. If the newswire post is created successfully, a notification will appear at the top of the screen.
     
     b. Delete their own posts in the member newswire.
     
-      i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
-      ii. For any post that the logged-in admin has created, there should be an attached 'Delete' button. Click on this button.
-      iii. If deleted successfully, a notification will appear at the top of the screen.
+        i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
+        ii. For any post that the logged-in admin has created, there should be an attached 'Delete' button. Click on this button.
+        iii. If deleted successfully, a notification will appear at the top of the screen.
       
   3. Comments 
   
     a. Delete the comments of any other ordinary member (but not another admin).
     
-      i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
-      ii. Go into the comment thread of a particular newswire post by clicking the associated 'Show Comments' link for a specific post.
-      iii. There should be a delete button for a comment from any member and any comment from the logged-in admin. Click on this button.
-      iv. If the associated comment is deleted successfully, a notification will appear at the top of the screen.
+        i. When logged in as an admin, go to the 'Newswire' section of the sidebar, then click 'Public'.
+        ii. Go into the comment thread of a particular newswire post by clicking the associated 'Show Comments' link for a specific post.
+        iii. There should be a delete button for a comment from any member and any comment from the logged-in admin. Click on this button.
+        iv. If the associated comment is deleted successfully, a notification will appear at the top of the screen.
       
   4. Programmes
    
     a. View a list of all programmes.
    
-    i. When logged in as an admin, go to the 'Admin' section within the sidebar.
-    ii. Click 'Search', then click 'Programmes'.
+        i. When logged in as an admin, go to the 'Admin' section within the sidebar.
+        ii. Click 'Search', then click 'Programmes'.
     
     b. Create new programmes.  
    
-    i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Programme'.
-    ii. When finished, click 'Create Programme'.
-    iii. If the programme is successfully created, a notification will appear at the top of the screen.
+        i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Programme'.
+        ii. When finished, click 'Create Programme'.
+        iii. If the programme is successfully created, a notification will appear at the top of the screen.
     
     c. Update the details of existing programmes.
    
-    i. When viewing the list of all programmes, click on the 'Edit' button for a particular Programme record.
-    ii. Edit the programme's details within the edit form as necessary, then click 'Save Changes'.
-    iii. If the programme record is updated successfully, a notification will appear at the top of the screen.
+        i. When viewing the list of all programmes, click on the 'Edit' button for a particular Programme record.
+        ii. Edit the programme's details within the edit form as necessary, then click 'Save Changes'.
+        iii. If the programme record is updated successfully, a notification will appear at the top of the screen.
     
     d. Delete programmes
    
-    i. When viewing the list of all programmes, click on the 'Delete' button for a particular Programme record. 
-    ii. An alert will appear, asking for confirmation to delete the selected Programme record. Click 'Yes'.
-    iii. If the Programme record is deleted successfully, a notification will appear at the top of the screen.
+        i. When viewing the list of all programmes, click on the 'Delete' button for a particular Programme record. 
+        ii. An alert will appear, asking for confirmation to delete the selected Programme record. Click 'Yes'.
+        iii. If the Programme record is deleted successfully, a notification will appear at the top of the screen.
     
     NOTE - Each Admin capability for the 'Programme' entity and its associated procedure can be extended to the following entities:
-      i. Instructors
-      ii. Facilities
-      iii. Lessons
-      iv. StoreItems
+        
+        i. Instructors
+        ii. Facilities
+        iii. Lessons
+        iv. StoreItems
       
   9. Orders
   
     a. View all completed orders placed within the system.
-      i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Orders'. 
-      ii. To view details, click on the 'View Details' link for an associated order.
+        i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Orders'. 
+        ii. To view details, click on the 'View Details' link for an associated order.
     
     b. Remove any completed order placed within the system.
-      i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Orders'.
-      ii. A 'Delete' button should appear for each completed order record. Click on this.
-      iii. If the Order record is deleted successfully, a notification will appear at the top of the screen.
+        i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Orders'.
+        ii. A 'Delete' button should appear for each completed order record. Click on this.
+        iii. If the Order record is deleted successfully, a notification will appear at the top of the screen.
       
   10. Registrations
   
     a. Unregister any base member to or from any lesson (but not other admins).
     
-      i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Lessons'.
-      ii. To view the members registered for a particular lesson, click on the 'View Registrations' link of the associated Lesson record to be taken to a list of 
+        i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'Search', then click 'Lessons'.
+        ii. To view the members registered for a particular lesson, click on the 'View Registrations' link of the associated Lesson record to be taken to a list of 
           all members registered for that lesson.
-      iii. Click on the associated 'Unregister' button, for the member that the logged-in admin intends to unregister.
-      iv. If the member is unregistered successfully, a notification will appear at the top of the screen. 
+        iii. Click on the associated 'Unregister' button, for the member that the logged-in admin intends to unregister.
+        iv. If the member is unregistered successfully, a notification will appear at the top of the screen. 
       
   11. Enquiries
   
@@ -335,18 +336,4 @@
       i. When viewing the list of total enquiries as an admin, each Testimonial record has an associated 'Delete' button. Click on this.
       ii. If the testimonial is deleted successfully, a notification should appear at the top of the screen.
       
-
-
-
-
-You can only register for a lesson if you have first purchased at least one membership. To do this, follow the steps below:
-
-  1. When logged in, in the sidebar select 'Store', then 'Public', then 'New Order'.
-  2. Select any amount of memberships/ other items that you wish.
-  3. When you are ready to purchase, click 'Checkout'. You can use the following sample details to complete your purchase.
-  
-    - Email: joebloggs@fake.io
-    - Card Number: 4242 4242 4242 4242
-    - Expiry Date: 11/21
-    - CVV: 111
 
