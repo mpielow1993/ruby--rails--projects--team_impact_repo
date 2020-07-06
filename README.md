@@ -262,25 +262,25 @@
       iv. If the associated comment is deleted successfully, a notification will appear at the top of the screen.
       
   4. Programmes
-  
-   a. View a list of all programmes. 
+   
+    a. View a list of all programmes.
    
     i. When logged in as an admin, go to the 'Admin' section within the sidebar.
     ii. Click 'Search', then click 'Programmes'.
     
-   b. Create new programmes.  
+    b. Create new programmes.  
    
     i. When logged in as an admin, go to the 'Admin' section of the sidebar, then click 'New', then click 'Programme'.
     ii. When finished, click 'Create Programme'.
     iii. If the programme is successfully created, a notification will appear at the top of the screen.
     
-   c. Update the details of existing programmes.
+    c. Update the details of existing programmes.
    
     i. When viewing the list of all programmes, click on the 'Edit' button for a particular Programme record.
     ii. Edit the programme's details within the edit form as necessary, then click 'Save Changes'.
     iii. If the programme record is updated successfully, a notification will appear at the top of the screen.
     
-   d. Delete programmes
+    d. Delete programmes
    
     i. When viewing the list of all programmes, click on the 'Delete' button for a particular Programme record. 
     ii. An alert will appear, asking for confirmation to delete the selected Programme record. Click 'Yes'.
