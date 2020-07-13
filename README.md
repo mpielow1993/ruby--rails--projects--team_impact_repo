@@ -1,5 +1,9 @@
 # README
 
+# Introduction
+
+This project details a back-end extension to my existing front-end website for fictional Mixed Martial Arts Gym, Team Impact. The aim of this project was to provide a centralised platform that would allow both registered members and staff (which I have equated to admins in this hypothetical scenario) to perform all necessary day-to-day operations associated with each user type. Please read on to gain further understanding of the operations that each type of user can perform.  
+
 # Getting started
     
     a. Make sure that Ruby on Rails is installed in your local machine.
