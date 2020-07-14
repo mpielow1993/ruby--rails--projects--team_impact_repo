@@ -4,7 +4,7 @@
 
 This project details a back-end extension to my existing front-end website for fictional Mixed Martial Arts Gym, Team Impact (located in repository 'html--css--js--team_impact_original_static_website'). The aim of this project was to provide a centralised platform that would allow both registered members and staff (which I have equated to admins in this hypothetical scenario) to perform all necessary day-to-day operations associated with each user type. Please read on to gain further understanding of the operations that each type of user can perform.  
 
-# Getting started
+# Getting Started
     
     a. Make sure that Ruby on Rails is installed in your local machine.
     b. To run the rails server, run 'rails server' or 'rails s' within the root directory of this project.
@@ -17,7 +17,7 @@ This project details a back-end extension to my existing front-end website for f
     a. To migrate the database, run 'rails db:migrate' in the terminal of the project's root directory .
     b. Similarly, run 'rails db:seed to populate the database with the sample data (located in 'db/seeds.rb') '
   
-# Signing up
+# Signing Up
 
     There should already be data seeded within the database for this prototype design, so if you don't want to sign up as a new member you can use the following details 
     to log in:
@@ -45,7 +45,7 @@ This project details a back-end extension to my existing front-end website for f
     b. Type for Username: 'Ex4mple_4dm1n_{any whole number >= 1 and <= 5}'
     c. Type for Password: '4dm1n_Ex4mple'
 
-# Public Visitor capabilities
+# Public Visitor Capabilities
 
   Public visitors to the site (i.e. that are not logged in) can do the following;
 
