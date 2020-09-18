@@ -6,7 +6,7 @@ This project details a back-end extension to my existing front-end website for f
 
 # Getting Started
     
-    a. Make sure that Ruby on Rails is installed in your local machine.
+    a. Make sure that Ruby on Rails is installed in your local machine. The latest version can be found at 'https://rubyonrails.org/',
     b. To run the rails server, run 'rails server' or 'rails s' within the root directory of this project.
     c. With the server running, type 'http://localhost:3000' in your browser URL.
 
