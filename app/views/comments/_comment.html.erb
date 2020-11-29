@@ -1,13 +1,25 @@
-<div class="card" style="background-color: #000000; padding: 1em;">
+<div class="card comments _comment">
     <h5 class="card-title">
-        <%= link_to member_avatar_for(comment.member), comment.member %>
-        <span class="user"><%= link_to comment.member.first_name + " " + comment.member.last_name, comment.member %></span>
+        <%= generate_avatar_for(comment.member, {
+          style: {
+            width: "7em",
+            height: "7em"
+          }
+        }) %>
+        <span class="comments _comment author-">
+          <%= link_to comment.member.first_name + " " + comment.member.last_name, comment.member %>
+        </span>
     </h5>
-    <%= comment_big_image_for(comment.image, style: "border: 0;") if comment.image.attached? %>
+    <%= comment_big_image_for(comment.image, {
+      style: {
+          width: "7em",
+          height: "7em"
+        }
+    }) if comment.image.attached? %>
     <div class="card-body">
-        <p class="card-text" style="margin-top: 2em; font-family: Trebuchet MS;"><%= auto_link_content(sanitize comment.content.html_safe) %></p>
-        <p class="card-text" style="margin-top: 2em;"><small class="text-muted" style="color: #FFFFFF;">Posted <%= time_ago_in_words(comment.created_at) %> ago.</small></p>
-        <% if comment.member == current_member || current_member.admin? %>
+        <p class="card-text comments _comment content"><%= auto_link_content(comment) %></p>
+        <p class="card-text comments _comment timestamp"><small class="text-muted">Posted <%= time_ago_in_words(comment.created_at) %> ago.</small></p>
+        <% if current_member?(comment.member) || current_member.admin? %>
             <%= link_to "Delete", newswire_post_comment_path(comment.newswire_post, comment), method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %>
         <% end %>
     </div>

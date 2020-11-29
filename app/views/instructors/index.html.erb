@@ -3,7 +3,7 @@
 		<section>
 			<h1><%= yield(:title) %></h1>
 		</section>
-		<section id="instructor-page-quotation" style="color: #FFFFFF; display: none; text-align:center; font-size: 1.5em;">
+		<section id="instructor-page-quotation" class="instructors index quotation">
 			<span style="font-style: italic;"><%= @instructor_page_quotation.split(" - ")[0] %></span>
 			<% if !@instructor_page_quotation.split(" - ")[1].nil? %>
 			 - <%= @instructor_page_quotation.split(" - ")[1] %>

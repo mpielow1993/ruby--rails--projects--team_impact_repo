@@ -2,14 +2,15 @@ require 'carrierwave/orm/activerecord'
 
 class Member < ApplicationRecord
 
-    attr_accessor :remember_token, :activation_token, :reset_token, :member_avatar
-    mount_uploader :member_avatar, ImageUploader
+    attr_accessor :remember_token, :activation_token, :reset_token, :avatar
+    mount_uploader :avatar, ImageUploader
+
     #Ensuring that a member's newswire posts are destroyed along with the member
     has_many :newswire_posts, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :orders, dependent: :destroy
     has_many :subscriptions, dependent: :destroy
-    has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions#, class_name: "StoreItem", source: :store_item
+    has_many :memberships, -> { where(type: "Membership") }, through: :subscriptions
     has_many :registrations, dependent: :destroy
     has_many :lessons, through: :registrations
 
@@ -25,7 +26,9 @@ class Member < ApplicationRecord
 
     before_create :create_activation_digest
 
+    #Constant fields
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
+
     validates :user_name,   presence: true,
                             #Used to display specfic error messages
                             length: { minimum: 8, maximum: 40 },
@@ -123,30 +126,21 @@ class Member < ApplicationRecord
         MemberMailer.password_reset(self).deliver_now
     end
 
-    #If a specific member(with a specific member) is registered for a specific class, returns true along with the subscription used to register for it.
-    #If said member is not registered, returns false
-
-
-    def already_registered_to(lesson)
-        counter = 0
-        self.registrations.each do |registration|
-            if registration.lesson_id == lesson.id
-                counter += 1
-            end
-        end
-        counter > 0 ? true : false
+    #Check if a member is already registered to a lesson
+    def registered_to?(lesson)
+        lesson.members.include?(self)
     end
 
-    def subscription_used_to_register_for(lesson)
-        if self.already_registered_to(lesson) == true
-           lesson.registrations.each do |registration|
-                self.subscriptions.each do |subscription|
-                    if registration.subscription == subscription
-                        return subscription
-                    end
-                end
-            end
+    #If a member is registered to a lesson, find the subscription they used
+    def get_subscription_used_to_register_for(lesson)
+        if self.registered_to?(lesson)
+           return lesson.registrations.reject{|r| r[:member_id] != self.id}.first.subscription
         end
+    end
+
+    #Returns the full name of a member
+    def full_name
+        "#{self.first_name} #{self.last_name}"
     end
 
     private
