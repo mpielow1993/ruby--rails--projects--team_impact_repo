@@ -2,7 +2,12 @@
   <div class="row">
     <div class="col-md-4">
       <a href="/instructors/<%= lesson.instructor.id %>">
-        <%= instructor_big_image_for(lesson.instructor, width: "100%", height: "auto") %>
+        <%= generate_avatar_for(lesson.instructor, {
+          style: {
+            width: "100%",
+            height: "auto"
+          }
+        }) %>
       </a>
     </div>
     <div class="col-md-8">
@@ -27,7 +32,7 @@
             <h3 style="margin-top: 0;">Location: <%= link_to lesson.facility.name, facility_path(lesson.facility), style: "padding-left: 1em;" %></h3>
           </li>
           <% if !lesson.is_expired %>
-            <% if current_member.already_registered_to(lesson) %>
+            <% if current_member.registered_to?(lesson) %>
               <li>
                 <h3 style="margin-top: 0;">Registered with Subscription:<span style="color: #000000; padding-left: 1em;"><%= current_member.subscription_used_to_register_for(lesson).subscription_name %></span></h3>
               </li>

@@ -2,7 +2,10 @@
 	<h1><%= @facility.name %></h1>
 </section>
 <section class="center">
-	<%= facility_big_image_for(@facility) %>
+	<%= generate_avatar_for(@facility, {
+		width: "100%",
+		height: "auto"
+	}) %>
 </section>
 	<div class="container">
 		<div class="row">

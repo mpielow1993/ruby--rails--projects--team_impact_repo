@@ -7,7 +7,7 @@ class InstructorsController < ApplicationController
 
   def show
       @instructor = Instructor.find(params[:id])
-      @instructor_description_url = "app/views/instructors/_#{@instructor.first_name.downcase}_#{@instructor.last_name.downcase}.html.erb"
+      @instructor_bio_path = Rails.root.join("app/views/instructors/instructor_bios/_#{@instructor.full_name.downcase.gsub(" ", "_")}.html.erb")
   end
 
   def instructor_page_quotation
