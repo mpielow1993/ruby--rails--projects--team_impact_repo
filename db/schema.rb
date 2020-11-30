@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
 
   create_table "facilities", force: :cascade do |t|
     t.string "name"
-    t.string "facility_avatar"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   create_table "instructors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "instructor_avatar"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "role"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.string "last_name"
     t.string "email"
     t.string "phone_no"
-    t.string "member_avatar"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
 
   create_table "programmes", force: :cascade do |t|
     t.string "name"
-    t.string "programme_avatar"
+    t.string "avatar"
     t.string "quotation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.string "name"
     t.string "description"
     t.decimal "price"
-    t.string "store_item_avatar"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

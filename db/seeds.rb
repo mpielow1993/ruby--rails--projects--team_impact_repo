@@ -89,7 +89,7 @@ nil
 10.times do |n|
   Programme.create!(
     name: programme_names[n],
-    programme_avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open,
+    avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open,
     quotation: programme_quotations[n]
   )#programme.save
   #programmes.push(programme)
@@ -107,7 +107,7 @@ instructor_roles = ['Head Instructor', 'MMA and BJJ Instructor', 'BJJ Instructor
     first_name: instructor_first_names[n],
     last_name: instructor_last_names[n],
     role: instructor_roles[n],
-    instructor_avatar: Pathname.new(Rails.root.join("app/assets/images/instructors_images/#{instructor_first_names[n]}_#{instructor_last_names[n]}.jpg")).open
+    avatar: Pathname.new(Rails.root.join("app/assets/images/instructors_images/#{instructor_first_names[n]}_#{instructor_last_names[n]}.jpg")).open
   )
   #instructor.save
   #instructors.push(instructor)
@@ -120,7 +120,7 @@ facility_names = ['Mat Area', 'MMA Area', 'Boxing Area', 'Gym Area', 'Changing A
 7.times do |n|
   Facility.create!(
     name: facility_names[n],
-    facility_avatar: Pathname.new(Rails.root.join("app/assets/images/facilities_images/#{replace_char(facility_names[n], " ", "_")}.jpg")).open
+    avatar: Pathname.new(Rails.root.join("app/assets/images/facilities_images/#{replace_char(facility_names[n], " ", "_")}.jpg")).open
   )
   #facility.save
   #facilities.push(facility)
@@ -762,14 +762,14 @@ membership_descriptions = ['Unlimited classes for one day, total cost paid up-fr
            '10 classes over unlimited days, total cost paid up-front',
            'Unlimited classes for a month, total cost paid up-front']
 prices = [20.00, 40.00, 70.00, 100.00]
-#store_item_avatars = []
+#avatars = []
 4.times do |n|
   Membership.create!(
     name: membership_names[n],
     description: membership_descriptions[n],
     price: prices[n],
-    store_item_avatar: Pathname.new(Rails.root.join('app/assets/images/default_images/TIFavicon2.jpg')).open
-    #store_item_avatar: 'app/assets/images/default_images/TIFavicon2.jpg'
+    avatar: Pathname.new(Rails.root.join('app/assets/images/default_images/TIFavicon2.jpg')).open
+    #avatar: 'app/assets/images/default_images/TIFavicon2.jpg'
   )
 end
 
@@ -778,7 +778,7 @@ store_item_types = %w[Membership NonMembership]
 store_item_names = []
 store_item_descriptions = []
 store_item_prices = []
-#store_item_avatars = []
+#avatars = []
 
 4.times do |_n|
   store_item_name = Faker::Lorem.word
@@ -790,17 +790,17 @@ store_item_prices = []
   store_item_price = rand(1..10)
   store_item_prices.push(store_item_price)
 
-  #store_item_avatars.push(store_item_avatar)
+  #avatars.push(avatar)
 end
 
 4.times do |n|
-  store_item_avatar = 'app/assets/images/default_images/TIFavicon2.jpg'
+  avatar = 'app/assets/images/default_images/TIFavicon2.jpg'
   StoreItem.create!(
     type: store_item_types[1],
     name: store_item_names[n],
     description: store_item_descriptions[n],
     price: store_item_prices[n],
-    store_item_avatar: store_item_avatar
+    avatar: avatar
   )
   #store_item.save
 end
