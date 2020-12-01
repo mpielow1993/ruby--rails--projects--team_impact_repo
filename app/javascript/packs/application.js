@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-require("custom/team_impact_custom")
+require("custom/sidebar_mechanism")
 import "bootstrap"
 import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.min.css")
