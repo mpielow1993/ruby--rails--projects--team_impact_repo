@@ -221,6 +221,23 @@ ul {
 			font-size: 2em;
 		}
 	}
+	&.layouts {
+		&._footer {
+			&.link-list {
+				list-style-type: none;
+				padding: 0;
+				display: inline;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			padding: 0;
+			list-style-type: none;
+			font-size: 0.5em;
+			margin: 0;
+		}
+	}
 }
 
 li {
@@ -241,6 +258,26 @@ li {
 			list-style-type: none;
 			font-size: 0.5em;
 			margin-left: 1em;
+		}
+	}
+	&.layouts {
+		&._footer {
+			&.link-list-opening-line {
+				color: $black;
+				font-family: Orbitron;
+				font-size: 1em;
+				padding-right: 1em;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			&.no-active-subscription {
+				margin-top: 1.5em;
+			}
+			&.expired-lesson {
+				margin-top: 1.5em;
+			}
 		}
 	}
 }
@@ -402,6 +439,14 @@ div {
 			}
 		}
 	}
+	&.layouts {
+		&._footer {
+			&.copywright-text {
+				text-align: center;
+				color: $black;
+			}
+		}
+	}
 }
 
 span {
@@ -510,6 +555,32 @@ span {
 				font-family: Orbitron;
 				font-size: 2em;
 				margin-left: 1em;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			&.lesson-facility {
+				padding-left: 1em;
+			}
+			&.subscription {
+				color: $black;
+				padding-left: 1em;
+			}
+			&.lesson-level {
+				color: $black;
+				padding-left: 1em;
+			}
+			&.expired-lesson {
+				color: $red;
+				font-size: 2em; opacity: 1;
+			}
+		}
+		&._search_timetable_form {
+			&.date-field {
+				padding-left: 1em;
+				width: 60%;
+				float: left;
 			}
 		}
 	}
@@ -721,6 +792,11 @@ h1 {
 	&:hover{
 		text-shadow: 0px 0px 0.5em $gold;
 	}
+	&.newswire_posts {
+		&._newswire_post {
+			margin-top: 1em;
+		}
+	}
 }
 
 
@@ -802,6 +878,13 @@ h3 {
 	font-family: Orbitron, Orbitron, sans-serif;
 	&:hover {
 	text-shadow: 0px 0px 0.125em $bronze;
+	}
+	&.lessons {
+		&._lesson {
+			&.lesson-instructor {
+				padding-left: 1em;
+			}
+		}
 	}
 }
 
@@ -903,10 +986,6 @@ li {
 
 /* footer */
 footer {
-	margin-top: 45px;
-	padding-top: 5px;
-	color: $white;
-	border-top: 1px solid $white
 	a {
 		color: $black;
 	}
@@ -919,6 +998,13 @@ footer {
 		li {
 			float: left;
 			margin-left: 15px;
+		}
+	}
+	&.layouts {
+		&._footer {
+			background-color: $white;
+			padding-left: 1em;
+			padding-top: 0.75em;
 		}
 	}
 }

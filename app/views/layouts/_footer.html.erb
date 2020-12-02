@@ -1,20 +1,28 @@
-<footer class="footer" style="background-color: #FFFFFF; padding-left: 1em; padding-top: 0.75em;">
-    <div class="row">
-        <div class="col-md-6">
-            <div style="text-align: center; color: #000000;">
-		        Copyright 2008 - 2019 &copy; All Rights Reserved.			
-	        </div>        
-        </div>
-        <div class="col-md-6">
-	        <div class="col-md-12">
-    	       <ul style="list-style-type: none; padding: 0; display: inline;">
-    	           <li style="color: #000000; font-family: Orbitron; font-size: 1em; padding-right: 1em;">Find Us On:</li>
-	               <li><%= image_tag("footer_images/facebook_logo", alt: "Facebook Logo", height: "30px;", width: "30px;" ) %><%= link_to "Facebook", "https://www.facebook.com", target: "_blank", style: "font-family: Orbitron; font-size: 1em; padding-left: 0.5em;" %></li>
-	               <li><%= image_tag("footer_images/instagram_logo", alt: "Instagram Logo", height: "30px;", width: "30px;" ) %><%= link_to "Instagram", "https://www.instagram.com", target: "_blank", style: "font-family: Orbitron; font-size: 1em; padding-left: 0.5em;" %></li>
-	               <li><%= image_tag("footer_images/youtube_logo", alt: "YouTube Logo",  height: "30px;", width: "30px;" ) %><%= link_to "YouTube", "https://www.youtube.com", target: "_blank", style: "font-family: Orbitron; font-size: 1em; padding-left: 0.5em;" %></li>
-                </ul>
-	        </div>
-        </div>
+<footer class="layouts _footer">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="layouts _footer copywright-text">
+        Copyright 2008 - 2019 &copy; All Rights Reserved.
+      </div>
     </div>
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <ul class="layouts _footer link-list">
+          <li class="layouts _footer link-list-opening-line">Find Us On:</li>
+          <li>
+            <%= image_tag("footer_images/facebook_logo", alt: "Facebook Logo", height: "30px;", width: "30px;") %>
+            <%= link_to("Facebook", "https://www.facebook.com", target: "_blank") %>
+          </li>
+          <li>
+            <%= image_tag("footer_images/instagram_logo", alt: "Instagram Logo", height: "30px;", width: "30px;") %>
+            <%= link_to("Instagram", "https://www.instagram.com", target: "_blank") %>
+          </li>
+          <li>
+            <%= image_tag("footer_images/youtube_logo", alt: "YouTube Logo",  height: "30px;", width: "30px;") %>
+            <%= link_to("YouTube", "https://www.youtube.com", target: "_blank") %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>
-
