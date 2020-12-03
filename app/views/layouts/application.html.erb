@@ -9,23 +9,30 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('TIFavicon2.jpg') %>
-    <%= render 'layouts/shim' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container" style="width: 85%; margin-top: 9em; margin-bottom: 7em;">
-      <div id="main-alert-message">
+    <div class="container">
+      <div class="center">
+        <button class="btn btn-info" id="sidebar-container-toggler">
+          <i class="glyphicon glyphicon-chevron-down"></i>
+            Toggle Sidebar
+          <i class="glyphicon glyphicon-chevron-down"></i>
+        </button>
+      </div>
+      <div id="main-content-container" class="col-md-8">
         <% if !current_member.nil? %>
-          <% unless request.referrer == public_timetable_url || request.referrer == member_private_timetable_url(current_member) %>
-            <% flash.each do |message_type, message| %>
-              <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
-            <% end %>
+          <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
+            <%= yield %>
           <% end %>
         <% end %>
       </div>
-      <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <div id="side-content-container" class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member if !current_member.nil? %>
+      </div>
     </div>
+    <%= debug(params) if Rails.env.development? %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

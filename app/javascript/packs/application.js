@@ -8,7 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("jquery-ui")
 require("custom/sidebar_mechanism")
+require("custom/sidebar-container-toggler")
+require("custom/search_timetable_form_toggler")
 import "bootstrap"
 import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.min.css")
