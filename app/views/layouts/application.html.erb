@@ -13,26 +13,27 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <div class="center">
-        <button class="btn btn-info" id="sidebar-container-toggler">
-          <i class="glyphicon glyphicon-chevron-down"></i>
-            Toggle Sidebar
-          <i class="glyphicon glyphicon-chevron-down"></i>
-        </button>
-      </div>
-      <div id="main-content-container" class="col-md-8">
+      <div id="main-alert-message">
         <% if !current_member.nil? %>
-          <% flash.each do |message_type, message| %>
-            <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
-            <%= yield %>
+            <% flash.each do |message_type, message| %>
+              <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
+            <% end %>
           <% end %>
-        <% end %>
       </div>
-      <div id="side-content-container" class="col-md-4">
-        <%= render 'layouts/sidebar', member: current_member if !current_member.nil? %>
+      <div class="col-md-9">
+        <%= yield %>
       </div>
+      <div class="col-md-3">
+        <div>
+          <button class="btn btn-info" id="sidebar-container-toggler" style="float: right; margin-right: 1em; background: none; font-family: Orbitron; border: 0.1em solid #FFFFFF;">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+              Menu
+          </button>
+        </div>
+        <%= render 'layouts/sidebar', member: current_member %>
+      </div>
+      <%= debug(params) if Rails.env.development? %>
     </div>
-    <%= debug(params) if Rails.env.development? %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

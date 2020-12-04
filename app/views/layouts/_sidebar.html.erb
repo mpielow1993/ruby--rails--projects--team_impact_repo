@@ -1,11 +1,10 @@
-<div id="sidebar-container">
-  <div class="card layouts _sidebar">
+  <div class="card layouts _sidebar hide-sidebar-container" id="sidebar-container" style="margin-top: 4em;">
     <%= generate_avatar_for(member, {
             alt: member.full_name,
             style: {
               width: "100%",
               height: "auto",
-              border: "1em solid #000000"
+              border: "0.5em solid #000000"
             }
           }) %>
     <div class="card-body layouts _sidebar">
@@ -60,4 +59,3 @@
       <% end  %>
     </div>
   </div>
-</div>

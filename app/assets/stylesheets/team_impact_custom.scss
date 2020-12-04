@@ -99,10 +99,9 @@ $red: #FF0000;
 			width: 100%;
 			padding: 1em;
 			background-color: $white;
-			margin-top: 3em;
-			border-top: 1em solid $black;
-			border-right: 1.5em solid $black;
-			border-bottom: 1em solid $black;
+			border: 0.5em solid $black;
+			//box-shadow: 0em 0em 1em 1em $black;
+			transition: 0.5s;
 		}
 	}
 	&.comments {
@@ -402,6 +401,12 @@ div {
 			}
 		}
 	}
+}
+
+.hide-sidebar-container {
+	margin-right: -400px;
+	margin-left: 400px;
+	transition: 0.5s;
 }
 
 span {
@@ -1622,13 +1627,9 @@ section {
 }
 
 .container {
-	border: 1em solid $black;
-	box-shadow: 0em 0em 1em 1em $black;
+	margin: 0;
 	padding: 0;
 	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-	width: 95%;
-	margin-top: 4em;
-	background-color: $black;
+	width: 100%;
+	background: none;
 }
