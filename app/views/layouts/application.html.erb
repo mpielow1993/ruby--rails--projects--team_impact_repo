@@ -4,7 +4,6 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,27 +11,15 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="container" style="width: 100%;">
       <div id="main-alert-message">
         <% if !current_member.nil? %>
-            <% flash.each do |message_type, message| %>
-              <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
-            <% end %>
+          <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
           <% end %>
+        <% end %>
       </div>
-      <div class="col-md-9">
-        <%= yield %>
-      </div>
-      <div class="col-md-3">
-        <div>
-          <button class="btn btn-info" id="sidebar-container-toggler" style="float: right; margin-right: 1em; background: none; font-family: Orbitron; border: 0.1em solid #FFFFFF;">
-            <i class="glyphicon glyphicon-chevron-right"></i>
-              Menu
-          </button>
-        </div>
-        <%= render 'layouts/sidebar', member: current_member %>
-      </div>
-      <%= debug(params) if Rails.env.development? %>
+      <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
   </body>
