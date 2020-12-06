@@ -1,5 +1,4 @@
 class Admin::LessonTypesController < ApplicationController
-
   def add
     @lesson_type = LessonType.new
   end
@@ -14,11 +13,14 @@ class Admin::LessonTypesController < ApplicationController
     end
   end
 
-  #POST THE FILTER FORM TO THE INDEX PATH!!!!!
-
   def index
-    @conditions = []
-    @lesson_types = @conditions.empty? ? LessonType.all : LessonType.where(@conditions)
+    @filter_array = []
+    if !lesson_type_params.empty?
+      if !lesson_type_params[:name].empty?
+        @filter_array[:name] = lesson_type_params[:name]
+      end
+    end
+    @lesson_types = filter(LessonType.all, filter_array)
   end
 
   def edit
@@ -30,9 +32,9 @@ class Admin::LessonTypesController < ApplicationController
   def delete
   end
 
-  private
+    private
 
-    def lesson_type_params
-      params.require(:lesson_type).permit(:name)
-    end
+  def lesson_type_params
+    params.require(:lesson_type).permit(:name)
+  end
 end
