@@ -1,6 +1,6 @@
 <%= form_for @member, url: admin_member_path(@member), method: :patch do |f| %>
 
-<%-#Make this a multi-part form to handle file attachments%>
+<%- #Make this a multi-part form to handle file attachments %>
     <%= render 'shared/error_messages', object: f.object, html: { multipart: true } %>
 
     <h3><%= f.label :user_name, "Username" %></h3>

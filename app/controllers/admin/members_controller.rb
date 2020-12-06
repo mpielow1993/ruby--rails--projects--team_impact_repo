@@ -30,7 +30,7 @@ class Admin::MembersController < Admin::AdminApplicationController
   end
 
   def index
-    @members = Member.all.paginate(page: params[:page])
+    @members = search(Member.all, admin_member_search_params).paginate(page: params[:page])
   end
 
   def show
@@ -46,7 +46,26 @@ class Admin::MembersController < Admin::AdminApplicationController
 
   private
 
+    def admin_member_required_params
+      set_required_params(admin_member_params)
+    end
+
+    def admin_member_search_params
+      set_search_params(admin_member_params)
+    end
+
     def admin_member_params
-    params.require(:member).permit(:user_name, :first_name, :last_name, :email, :phone_no, :password, :password_confirmation, :member_avatar, :remove_member_avatar, :admin)
+      [
+        :user_name, 
+        :first_name, 
+        :last_name, 
+        :email, 
+        :phone_no, 
+        :password, 
+        :password_confirmation, 
+        :avatar, 
+        :remove_avatar, 
+        :admin
+      ]
     end
 end

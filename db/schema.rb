@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_011309) do
+ActiveRecord::Schema.define(version: 2020_12_05_120811) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,22 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "equipment_items", force: :cascade do |t|
+    t.string "name"
+    t.integer "programme_lesson_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "equipment_status_id"
+    t.index ["equipment_status_id"], name: "index_equipment_items_on_equipment_status_id"
+    t.index ["programme_lesson_type_id"], name: "index_equipment_items_on_programme_lesson_type_id"
+  end
+
+  create_table "equipment_statuses", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "facilities", force: :cascade do |t|
     t.string "name"
     t.string "avatar"
@@ -70,6 +86,12 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "role"
+  end
+
+  create_table "lesson_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -136,6 +158,15 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
     t.index ["member_id"], name: "index_orders_on_member_id"
   end
 
+  create_table "programme_lesson_types", force: :cascade do |t|
+    t.integer "programme_id", null: false
+    t.integer "lesson_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_type_id"], name: "index_programme_lesson_types_on_lesson_type_id"
+    t.index ["programme_id"], name: "index_programme_lesson_types_on_programme_id"
+  end
+
   create_table "programmes", force: :cascade do |t|
     t.string "name"
     t.string "avatar"
@@ -192,6 +223,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "members"
   add_foreign_key "comments", "newswire_posts"
+  add_foreign_key "equipment_items", "equipment_statuses"
+  add_foreign_key "equipment_items", "programme_lesson_types"
   add_foreign_key "lessons", "facilities"
   add_foreign_key "lessons", "instructors"
   add_foreign_key "lessons", "programmes"
@@ -199,6 +232,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_011309) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "store_items"
   add_foreign_key "orders", "members"
+  add_foreign_key "programme_lesson_types", "lesson_types"
+  add_foreign_key "programme_lesson_types", "programmes"
   add_foreign_key "registrations", "lessons"
   add_foreign_key "registrations", "members"
   add_foreign_key "registrations", "subscriptions"
