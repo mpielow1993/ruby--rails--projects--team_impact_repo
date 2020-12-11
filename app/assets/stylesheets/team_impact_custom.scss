@@ -146,8 +146,7 @@ $red: #FF0000;
 }
 
 #grid-main {
-	padding-left: 3em;
-	padding-right: 3em;
+	padding: 5em;
 }
 
 .card-body {
@@ -404,6 +403,27 @@ li {
 	}
 }
 
+#grid-header {
+	//position: fixed;
+}
+
+#grid-container {
+	//position: fixed;	
+}
+
+#grid-main {
+	
+}
+
+#grid-sidebar {
+	//position: fixed;	
+}
+
+#grid-footer {
+	//position: fixed;	
+}
+
+
 div {
 	&.container {
 		margin: 0;
@@ -439,6 +459,11 @@ div {
 			}
 		}
 	}
+}
+
+#sidebar-container {
+	//position: fixed;
+	height: 100%;
 }
 
 .hide-sidebar-container {
