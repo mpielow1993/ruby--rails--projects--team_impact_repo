@@ -56,7 +56,11 @@ class Member < ApplicationRecord
     #default validations set to false to permit format
     has_secure_password :password, validations: false
 
-
+    #Scopes
+    scope :first_name_like, where -> (value) {(where("`first_name` LIKE #{value}"))},
+    scope :last_name_like, where -> (value) {(where("`first_name` LIKE #{value}"))},
+    scope :email_like, where -> (value) {(where("`email` LIKE #{value}"))},
+    scope :phone_no_like, where -> (value) {(where("`phone_no` LIKE #{value}"))}
 
     class << self
         # Returns the hash digest of the given string.

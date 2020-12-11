@@ -30,7 +30,7 @@ class Admin::MembersController < Admin::AdminApplicationController
   end
 
   def index
-    @members = search(Member.all, admin_member_search_params).paginate(page: params[:page])
+    @members = Member.send_chain(member_scope_list).paginate(page: params[:page])
   end
 
   def show
@@ -67,5 +67,22 @@ class Admin::MembersController < Admin::AdminApplicationController
         :remove_avatar, 
         :admin
       ]
+    end
+
+    def member_scope_list
+      conditions = []
+      if (!params[:filter_form][:first_name].nil? && !params[:filter_form][:first_name].empty?)
+        conditions[:first_name] = params[:filter_form][:first_name]
+      end
+      if (!params[:filter_form][:last_name].nil? && !params[:filter_form][:last_name].empty?)
+        conditions[:last_name] = params[:filter_form][:last_name]
+      end
+      if (!params[:filter_form][:email].nil? && !params[:filter_form][:email].empty?)
+        conditions[:email] = params[:filter_form][:email]
+      end
+      if (!params[:filter_form][:phone_no].nil? && !params[:filter_form][:phone_no].empty?)
+        conditions[:phone_no] = params[:filter_form][:phone_no]
+      end
+      return conditions
     end
 end
