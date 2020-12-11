@@ -99,7 +99,7 @@ $red: #FF0000;
 			width: 100%;
 			padding: 1em;
 			background-color: $white;
-			border: 0.5em solid $black;
+			border-left: 0.5em solid $black;
 			//box-shadow: 0em 0em 1em 1em $black;
 			transition: 0.5s;
 		}
@@ -119,18 +119,36 @@ $red: #FF0000;
 	}
 }
 
-.hide-sidebar {
+#grid-container {
 	display: grid;
-	grid-template-columns: 100% 25%;
-	transition: 0.5s;
+}
+
+.hide-sidebar {
+	grid-template-columns: 100% 20%;
+	animation: hide 3000ms;
 }
 
 .show-sidebar {
-	display: grid;
-	grid-template-columns: 75% 25%;
-	transition: 0.5s;
+	grid-template-columns: 80% 20%;
+	animation: show 3000ms;
 }
 
+@keyframes show {
+	to {
+		grid-template-columns: 80% 20%;
+	}
+}
+
+@keyframes hide {
+	to {
+		grid-template-columns: 100% 20%;
+	}
+}
+
+#grid-main {
+	padding-left: 3em;
+	padding-right: 3em;
+}
 
 .card-body {
 	&.admin {
