@@ -27,6 +27,15 @@ class Member < ApplicationRecord
     before_create :create_activation_digest
 
     #Constant fields
+
+    MEMBER_FILTER_FORM_ARRAY = [
+        :user_name,
+        :first_name,
+        :last_name,
+        :email,
+        :phone_number
+    ]
+
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
 
     validates :user_name,   presence: true,
@@ -57,10 +66,11 @@ class Member < ApplicationRecord
     has_secure_password :password, validations: false
 
     #Scopes
-    scope :first_name_like, where -> (value) {(where("`first_name` LIKE #{value}"))},
-    scope :last_name_like, where -> (value) {(where("`first_name` LIKE #{value}"))},
-    scope :email_like, where -> (value) {(where("`email` LIKE #{value}"))},
-    scope :phone_no_like, where -> (value) {(where("`phone_no` LIKE #{value}"))}
+    scope :user_name_like, -> (value) {(where("`user_name` LIKE ?", value))}
+    scope :first_name_like, -> (value) {(where("`first_name` LIKE ?", value))}
+    scope :last_name_like, -> (value) {(where("`last_name` LIKE ?", value))}
+    scope :email_like, -> (value) {(where("`email` LIKE ?", value))}
+    scope :phone_no_like, -> (value) {(where("`phone_no` LIKE ?", value))}
 
     class << self
         # Returns the hash digest of the given string.

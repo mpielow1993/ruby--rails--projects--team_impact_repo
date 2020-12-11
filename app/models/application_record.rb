@@ -7,6 +7,19 @@ class ApplicationRecord < ActiveRecord::Base
 
   before_save :sanitize_text
 
+  #Form field variables
+  TEXT_FIELD_ATTRIBUTES = [
+    :user_name, 
+    :first_name, 
+    :last_name
+  ]
+  EMAIL_FIELD_ATTRIBUTES = [
+    :email
+  ]
+  TELEPHONE_FIELD_ATTRIBUTES = [
+    :phone_no
+  ]
+
   def sanitize_text
     attributes.each do |_key, value|
       next unless value.instance_of? String
@@ -18,6 +31,7 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def self.send_chain(scope_list)
-    scope_list.empty? self.all ? scope_list.inject(self, :send)
+    scope_list.empty? ? self.all : scope_list.inject(self, :send)
   end
+
 end

@@ -71,17 +71,22 @@ class Admin::MembersController < Admin::AdminApplicationController
 
     def member_scope_list
       conditions = []
-      if (!params[:filter_form][:first_name].nil? && !params[:filter_form][:first_name].empty?)
-        conditions[:first_name] = params[:filter_form][:first_name]
-      end
-      if (!params[:filter_form][:last_name].nil? && !params[:filter_form][:last_name].empty?)
-        conditions[:last_name] = params[:filter_form][:last_name]
-      end
-      if (!params[:filter_form][:email].nil? && !params[:filter_form][:email].empty?)
-        conditions[:email] = params[:filter_form][:email]
-      end
-      if (!params[:filter_form][:phone_no].nil? && !params[:filter_form][:phone_no].empty?)
-        conditions[:phone_no] = params[:filter_form][:phone_no]
+      if !params[:filter_form].nil? && !params[:filter_form].empty?
+        if (!params[:filter_form][:user_name].nil? && !params[:filter_form][:user_name].empty?)
+          conditions[:user_name] = params[:filter_form][:user_name]
+        end
+        if (!params[:filter_form][:first_name].nil? && !params[:filter_form][:first_name].empty?)
+          conditions[:first_name] = params[:filter_form][:first_name]
+        end
+        if (!params[:filter_form][:last_name].nil? && !params[:filter_form][:last_name].empty?)
+          conditions[:last_name] = params[:filter_form][:last_name]
+        end
+        if (!params[:filter_form][:email].nil? && !params[:filter_form][:email].empty?)
+          conditions[:email] = params[:filter_form][:email]
+        end
+        if (!params[:filter_form][:phone_no].nil? && !params[:filter_form][:phone_no].empty?)
+          conditions[:phone_no] = params[:filter_form][:phone_no]
+        end
       end
       return conditions
     end

@@ -1,6 +1,11 @@
 <div class="card admin _member">
     <h5 class="card-title">
-        <%= link_to member_avatar_for(member), member %>
+        <%= link_to generate_avatar_for(member, {
+            style: {
+                width: "50px",
+                height: "50px"
+            }
+        }), member %>
         <span class="admin _member title"><%= member.first_name + " " + member.last_name %></span>
     </h5>
     <div class="card-body">

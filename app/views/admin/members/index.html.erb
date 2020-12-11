@@ -5,6 +5,13 @@
     <div class="row">
         <div class="col-md-8 admin members index">
             <div class="well">
+                <%= render 'shared/search_form', 
+                    button_text: 'Search',
+                    form: :filter_form,
+                    url: admin_members_path,
+                    method: :get,
+                    filter_form_array: Member::MEMBER_FILTER_FORM_ARRAY
+                 %>
                 <h2 class="admin members index">(<%= @members.count %> Members)</h2>
                 <% if !@members.nil? %>
                     <% @members.each do |member| %>
