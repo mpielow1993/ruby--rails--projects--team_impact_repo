@@ -10,9 +10,11 @@
     <%= favicon_link_tag asset_path('TIFavicon2.jpg') %>
   </head>
   <body>
-    <div class="container" style="width: 100%; padding: 0;">
-      <%= render 'layouts/header' %>
-      <div class="container-fluid" style="min-width: 100%; padding-right: 0;">
+        <div id="grid-header">
+        <%= render 'layouts/header' %>
+      </div>
+    <div id="grid-container" class="hide-sidebar">
+      <div id="grid-main">
         <div id="main-alert-message">
           <% if !current_member.nil? %>
             <% flash.each do |message_type, message| %>
@@ -22,8 +24,15 @@
         </div>
         <%= yield %>
       </div>
-      <%= debug(params) if Rails.env.development? %>
-      <%= render 'layouts/footer' %>
+      <% if !current_member.nil? %>
+        <div id="grid-sidebar">
+          <%= render 'layouts/sidebar', member: current_member %>
+        </div>
+      <% end %>
+      <%- #debug(params) if Rails.env.development? %>
     </div>
+          <div id="grid-footer">
+        <%= render 'layouts/footer' %>
+      </div>
   </body>
 </html>

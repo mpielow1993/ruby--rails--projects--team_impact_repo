@@ -119,6 +119,19 @@ $red: #FF0000;
 	}
 }
 
+.hide-sidebar {
+	display: grid;
+	grid-template-columns: 100% 25%;
+	transition: 0.5s;
+}
+
+.show-sidebar {
+	display: grid;
+	grid-template-columns: 75% 25%;
+	transition: 0.5s;
+}
+
+
 .card-body {
 	&.admin {
 		&._member {
