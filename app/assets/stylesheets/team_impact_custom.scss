@@ -99,10 +99,9 @@ $red: #FF0000;
 			width: 100%;
 			padding: 1em;
 			background-color: $white;
-			margin-top: 3em;
-			border-top: 1em solid $black;
-			border-right: 1.5em solid $black;
-			border-bottom: 1em solid $black;
+			border-left: 0.5em solid $black;
+			//box-shadow: 0em 0em 1em 1em $black;
+			transition: 0.5s;
 		}
 	}
 	&.comments {
@@ -118,6 +117,36 @@ $red: #FF0000;
 			margin-top: 2em;
 		}
 	}
+}
+
+#grid-container {
+	display: grid;
+}
+
+.hide-sidebar {
+	grid-template-columns: 100% 20%;
+	animation: hide 3000ms;
+}
+
+.show-sidebar {
+	grid-template-columns: 80% 20%;
+	animation: show 3000ms;
+}
+
+@keyframes show {
+	to {
+		grid-template-columns: 80% 20%;
+	}
+}
+
+@keyframes hide {
+	to {
+		grid-template-columns: 100% 20%;
+	}
+}
+
+#grid-main {
+	padding: 5em;
 }
 
 .card-body {
@@ -374,7 +403,35 @@ li {
 	}
 }
 
+#grid-header {
+	//position: fixed;
+}
+
+#grid-container {
+	//position: fixed;	
+}
+
+#grid-main {
+	
+}
+
+#grid-sidebar {
+	//position: fixed;	
+}
+
+#grid-footer {
+	//position: fixed;	
+}
+
+
 div {
+	&.container {
+		margin: 0;
+		padding: 0;
+		min-height: 100%;
+		min-width: 100%;
+		background: none;
+	}
 	&.admin {
 		&._facility {
 			&.button-options {
@@ -402,6 +459,17 @@ div {
 			}
 		}
 	}
+}
+
+#sidebar-container {
+	//position: fixed;
+	height: 100%;
+}
+
+.hide-sidebar-container {
+	margin-right: -400px;
+	margin-left: 400px;
+	transition: 0.5s;
 }
 
 span {
@@ -680,27 +748,31 @@ form {
 }
 
 html {
-	background: no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-
-html {
 	background: url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	//makes scrollbar always visible
+	overflow: -moz-scrollbars-vertical;
+	overflow-y: scroll;
+	//remove horizontal scrollbar
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	color: $white;
 	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
 	text-align: justify;
-	max-width: 100%;
+	width: 100%;
 	background: none;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 	/*
 	background-position: center;
     background-size: cover;
@@ -718,9 +790,6 @@ h1 {
 	font-family: Orbitron, Orbitron, sans-serif;
 	font-size: 300%;
 	margin: 0;
-	&:hover{
-		text-shadow: 0px 0px 0.5em $gold;
-	}
 }
 
 
@@ -903,10 +972,9 @@ li {
 
 /* footer */
 footer {
-	margin-top: 45px;
 	padding-top: 5px;
-	color: $white;
-	border-top: 1px solid $white
+	background-color: $gray-medium-light;
+	border-top: 0.5em solid $black;
 	a {
 		color: $black;
 	}
@@ -1081,6 +1149,7 @@ nav {
 
 */
 
+
 header {
 	background-color: $white;
 }
@@ -1095,6 +1164,7 @@ header {
 			background-color: $gold;
 		}
 	}
+	text-align: center;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -1130,7 +1200,6 @@ main {
 		}
 		&:hover {
 			color: $yellow;
-			text-decoration: none;
 		}
 		&:active {
 			color: $yellow;
@@ -1619,16 +1688,4 @@ section {
 		margin-left: auto;
 		margin-right: auto;
 		width: 75%;
-}
-
-.container {
-	border: 1em solid $black;
-	box-shadow: 0em 0em 1em 1em $black;
-	padding: 0;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-	width: 95%;
-	margin-top: 4em;
-	background-color: $black;
 }

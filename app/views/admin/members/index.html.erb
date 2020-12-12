@@ -3,6 +3,7 @@
     <h1><%= yield(:title) %></h1>
 </section>
     <div class="row">
+        <%= render 'admin/members/search_members_form' %>
         <div class="col-md-8 admin members index">
             <div class="well">
                 <%= render 'shared/search_form', 

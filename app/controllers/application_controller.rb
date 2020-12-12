@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   include ApplicationHelper
+<<<<<<< HEAD
 
   private
 
@@ -13,6 +14,20 @@ class ApplicationController < ActionController::Base
     unless logged_in?
 
       # Adding store_location to the logged-in-user before-ﬁlter
+=======
+  
+    private
+
+    # Confirms a logged-in member.
+    def logged_in_member
+      unless logged_in?
+        # Adding store_location to the logged-in-user before-ﬁlter
+        store_location
+        flash[:danger] = 'Please log in.'
+        redirect_to log_in_url
+      end
+    end
+>>>>>>> michael/TIMP-7/off-canvas-sidebar
 
       store_location
 

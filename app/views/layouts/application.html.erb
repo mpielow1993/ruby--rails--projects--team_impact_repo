@@ -4,28 +4,35 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('TIFavicon2.jpg') %>
-    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container" style="width: 85%; margin-top: 9em; margin-bottom: 7em;">
-      <div id="main-alert-message">
-        <% if !current_member.nil? %>
-          <% unless request.referrer == public_timetable_url || request.referrer == member_private_timetable_url(current_member) %>
+        <div id="grid-header">
+        <%= render 'layouts/header' %>
+      </div>
+    <div id="grid-container" class="hide-sidebar">
+      <div id="grid-main">
+        <div id="main-alert-message">
+          <% if !current_member.nil? %>
             <% flash.each do |message_type, message| %>
               <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <%= yield %>
       </div>
-      <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <% if !current_member.nil? %>
+        <div id="grid-sidebar">
+          <%= render 'layouts/sidebar', member: current_member %>
+        </div>
+      <% end %>
+      <%- #debug(params) if Rails.env.development? %>
     </div>
-    <%= render 'layouts/footer' %>
+          <div id="grid-footer">
+        <%= render 'layouts/footer' %>
+      </div>
   </body>
 </html>
