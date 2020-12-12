@@ -2,23 +2,11 @@
 
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+  @@filter_field_hash = {}
 
   before_create :sanitize_text
 
   before_save :sanitize_text
-
-  #Form field variables
-  TEXT_FIELD_ATTRIBUTES = [
-    :user_name, 
-    :first_name, 
-    :last_name
-  ]
-  EMAIL_FIELD_ATTRIBUTES = [
-    :email
-  ]
-  TELEPHONE_FIELD_ATTRIBUTES = [
-    :phone_no
-  ]
 
   def sanitize_text
     attributes.each do |_key, value|
@@ -30,8 +18,42 @@ class ApplicationRecord < ActiveRecord::Base
     end
   end
 
-  def self.send_chain(scope_list)
-    scope_list.empty? ? self.all : scope_list.inject(self, :send)
+  def self.send_chain(scope_hash = {})
+    results = self.all
+    if !scope_hash.empty?
+      scope_hash.each {|key, value| results = results.send(key, value)}
+    end
+    return results
   end
+
+  def self.get_filter_field_hash
+    @@filter_field_hash
+  end
+
+  #Generate filter form hash based on the values of a paramter filter _array
+  def self.set_filter_field_hash(field_array)
+    field_array.each do |field|
+      FORM_FIELD_HASH.each do |key, value|
+        if value.include? field
+          key_string = "#{key.to_s.downcase.gsub('_attributes', '')}"
+          if key_string === 'select'
+            if !self.get_filter_field_hash[key_string].nil?
+              self.get_filter_field_hash[key_string].push({'name': field, 'options': []})
+            else
+              self.get_filter_field_hash[key_string] = [{'name': field, 'options': []}] 
+            end
+            next          
+          end
+          if !self.get_filter_field_hash[key_string].nil?
+            self.get_filter_field_hash[key_string].push(field)
+          else
+            self.get_filter_field_hash[key_string] = [field]
+          end
+        end
+      end
+    end
+    return self.get_filter_field_hash
+  end
+
 
 end

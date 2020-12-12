@@ -3,14 +3,17 @@
     <%= form_for form, url: url, method: method do |f| %>
         <% filter_form_array.each do |attribute| %>
             <h3><%= f.label attribute, attribute.to_s.gsub('_', ' ').capitalize %></h3>
-            <% if ApplicationRecord::TEXT_FIELD_ATTRIBUTES.include? attribute %>
+            <% if TEXT_FIELD_ATTRIBUTES.include? attribute %>
                 <%= f.text_field attribute, class: 'form-control' %>
             <% end %>
-            <% if ApplicationRecord::EMAIL_FIELD_ATTRIBUTES.include? attribute %>  
+            <% if EMAIL_FIELD_ATTRIBUTES.include? attribute %>  
                 <%= f.email_field attribute, class: 'form-control' %>             
             <% end %>
-            <% if ApplicationRecord::TELEPHONE_FIELD_ATTRIBUTES.include? attribute %>
+            <% if TELEPHONE_FIELD_ATTRIBUTES.include? attribute %>
                 <%= f.telephone_field attribute, class: 'form-control' %>
+            <% end %>
+            <% if SELECT_ATTRIBUTES.include? attribute %>
+                <%= f.select(attribute, options, {}, { :class => 'my_style_class' }) %>
             <% end %>
         <% end %>
         <%= f.submit yield(:button_text), class: "btn btn-primary admin _new_member_form" %>

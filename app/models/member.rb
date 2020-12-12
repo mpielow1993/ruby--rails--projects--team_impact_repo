@@ -66,11 +66,11 @@ class Member < ApplicationRecord
     has_secure_password :password, validations: false
 
     #Scopes
-    scope :user_name_like, -> (value) {(where("`user_name` LIKE ?", value))}
-    scope :first_name_like, -> (value) {(where("`first_name` LIKE ?", value))}
-    scope :last_name_like, -> (value) {(where("`last_name` LIKE ?", value))}
-    scope :email_like, -> (value) {(where("`email` LIKE ?", value))}
-    scope :phone_no_like, -> (value) {(where("`phone_no` LIKE ?", value))}
+    scope :user_name_like, -> (value) {(where("`user_name` LIKE ?", "%#{value}%"))}
+    scope :first_name_like, -> (value) {(where("`first_name` LIKE ?", "%#{value}%"))}
+    scope :last_name_like, -> (value) {(where("`last_name` LIKE ?", "%#{value}%"))}
+    scope :email_like, -> (value) {(where("`email` LIKE ?", "%#{value}%"))}
+    scope :phone_no_like, -> (value) {(where("`phone_no` LIKE ?", "%#{value}%"))}
 
     class << self
         # Returns the hash digest of the given string.
