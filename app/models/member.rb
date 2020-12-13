@@ -2,6 +2,8 @@ require 'carrierwave/orm/activerecord'
 
 class Member < ApplicationRecord
 
+    self.filter_field_array = self.set_filter_field_array(['user_name', 'first_name', 'last_name', 'email', 'phone_no', 'user_level'])
+    self.filter_field_hash = self.set_filter_field_hash
     attr_accessor :remember_token, :activation_token, :reset_token, :avatar
     mount_uploader :avatar, ImageUploader
 
@@ -25,16 +27,6 @@ class Member < ApplicationRecord
     #Adding account activations to the member model
 
     before_create :create_activation_digest
-
-    #Constant fields
-
-    MEMBER_FILTER_FORM_ARRAY = [
-        :user_name,
-        :first_name,
-        :last_name,
-        :email,
-        :phone_number
-    ]
 
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
 

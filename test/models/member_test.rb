@@ -193,4 +193,33 @@ class MemberTest < ActiveSupport::TestCase
       @member.destroy 
     end 
   end
+
+  #Test filter_field array for members initialised properly
+  test "filter_field array initialised properly" do
+    filter_field_array = ['user_name', 'first_name', 'last_name', 'email', 'phone_no', 'member_level']
+    filter_field_hash = {
+      'text_field': [],
+      'email_field': [],
+      'telephone_field': [],
+      'select': []
+    }
+    filter_field_hash['text_field'] = [
+      filter_field_array[0],
+      filter_field_array[1],
+      filter_field_array[2]
+    ]
+    filter_field_hash['email_field'] = [
+      filter_field_array[3]
+    ]
+    filter_field_hash['telephone_field'] = [
+      filter_field_array[4]
+    ]
+    filter_field_hash['select'] = [
+      {
+        'name': filter_field_array[5],
+        'options': []
+      }
+    ]
+    assert_equals(filter_field_array, Member.set_filter_field_hash(Member::FILTER_FIELD_LIST))
+  end
 end

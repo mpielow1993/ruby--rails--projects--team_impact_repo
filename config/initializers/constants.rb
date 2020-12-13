@@ -12,6 +12,6 @@ FORM_FIELD_HASH = {
         'email'
     ],
     SELECT_ATTRIBUTES: [
-        'member_level'
+        'user_level'
     ]
 }
