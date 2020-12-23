@@ -4,10 +4,10 @@ one:
   store_item: one
   order: one
   quantity: 1
-  cost: 9.99
+  unit_price: 9.99
 
 two:
   store_item: two
   order: two
   quantity: 1
-  cost: 9.99
+  unit_price: 9.99
