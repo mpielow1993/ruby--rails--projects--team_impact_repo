@@ -23,7 +23,7 @@ class Programme < ApplicationRecord
 
       def check_quotation_validity
         regex = Regexp.new(VALID_QUOTATION_REGEX)
-        if !self.quotation.nil? && regex.match(self.quotation).nil?
+        if !self.quotation.nil? && !regex.match(self.quotation)
           self.errors.add(:base, "Quotation contains invalid characters")
         end
       end
