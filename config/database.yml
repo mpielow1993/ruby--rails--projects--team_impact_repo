@@ -42,11 +42,11 @@ test:
 #
 
 production:
-  url: <%= ENV['MY_APP_DATABASE_URL'] %>
+  url: <%= ENV['TEAM_IMPACT_APP_DATABASE_URL'] %>
   adapter: postgresql 
   encoding: unicode 
   # For details on connection pooling, see Rails configuration guide # https://guides.rubyonrails.org/configuring.html#database-pooling 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> 
   database: team_impact_production 
   username: team_impact 
-  password: <%= ENV['TEAM_IMPACT_DATABASE_PASSWORD'] %>
+  password: <%= ENV['TEAM_IMPACT_APP_DATABASE_PASSWORD'] %>
