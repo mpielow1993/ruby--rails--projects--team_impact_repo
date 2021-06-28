@@ -1,0 +1,1 @@
+{"virtualbox":{},"rsync":{"/vagrant/team_impact_mma":{"type":"rsync","rsync__auto":true,"guestpath":"/vagrant/team_impact_mma","hostpath":"C:/xampp/htdocs/rails/team_impact_mma","disabled":false,"__vagrantfile":true,"auto":true,"owner":"vagrant","group":"vagrant"}}}
