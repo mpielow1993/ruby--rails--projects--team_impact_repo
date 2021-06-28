@@ -1,0 +1,2 @@
+class EquipmentStatus < ApplicationRecord
+end

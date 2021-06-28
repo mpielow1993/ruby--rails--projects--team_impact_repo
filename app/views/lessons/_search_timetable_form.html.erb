@@ -1,7 +1,15 @@
+<div class="center">
+  <button class="btn btn-info" id="search-timetable-form-container-toggler">
+    <i class="glyphicon glyphicon-chevron-down"></i>
+      Search
+    <i class="glyphicon glyphicon-chevron-down"></i>
+  </button>
+</div>
+<div id="search-timetable-form-container">
+  <%= form_for :search, url: url, style: "display: inline;", method: :post do |f| %>
 
-<%= form_for :search, url: url, style: "display: inline;", method: :post do |f| %>
+      <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker form-control", value: date, style: "padding-left: 1em; width: 60%; float: left;"%>
 
-    <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker form-control", value: date, class: "lessons _search_timetable_form date-field"%>
-
-    <%= f.submit "Search", class: "btn btn-primary", style: "width: 35%; margin-left: 1em;" %>
-<% end %>
+      <%= f.submit "Search", class: "btn btn-primary", style: "width: 35%; margin-left: 1em;" %>
+  <% end %>
+</div>
