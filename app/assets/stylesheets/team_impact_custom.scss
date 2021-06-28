@@ -100,9 +100,16 @@ $red: #FF0000;
 			width: 100%;
 			padding: 1em;
 			background-color: $white;
+<<<<<<< HEAD
 			border-left: 0.5em solid $black;
 			//box-shadow: 0em 0em 1em 1em $black;
 			transition: 0.5s;
+=======
+			margin-top: 3em;
+			border-top: 1em solid $black;
+			border-right: 1.5em solid $black;
+			border-bottom: 1em solid $black;
+>>>>>>> master
 		}
 	}
 	&.comments {
@@ -120,6 +127,7 @@ $red: #FF0000;
 	}
 }
 
+<<<<<<< HEAD
 #grid-container {
 	display: grid;
 }
@@ -150,6 +158,8 @@ $red: #FF0000;
 	padding: 5em;
 }
 
+=======
+>>>>>>> master
 .card-body {
 	&.admin {
 		&._member {
@@ -251,6 +261,26 @@ ul {
 			font-size: 2em;
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.layouts {
+		&._footer {
+			&.link-list {
+				list-style-type: none;
+				padding: 0;
+				display: inline;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			padding: 0;
+			list-style-type: none;
+			font-size: 0.5em;
+			margin: 0;
+		}
+	}
+>>>>>>> master
 }
 
 li {
@@ -273,6 +303,29 @@ li {
 			margin-left: 1em;
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.layouts {
+		&._footer {
+			&.link-list-opening-line {
+				color: $black;
+				font-family: Orbitron;
+				font-size: 1em;
+				padding-right: 1em;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			&.no-active-subscription {
+				margin-top: 1.5em;
+			}
+			&.expired-lesson {
+				margin-top: 1.5em;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 .btn {
@@ -404,6 +457,7 @@ li {
 	}
 }
 
+<<<<<<< HEAD
 #grid-header {
 	//position: fixed;
 }
@@ -433,6 +487,9 @@ div {
 		min-width: 100%;
 		background: none;
 	}
+=======
+div {
+>>>>>>> master
 	&.admin {
 		&._facility {
 			&.button-options {
@@ -460,6 +517,7 @@ div {
 			}
 		}
 	}
+<<<<<<< HEAD
 }
 
 #sidebar-container {
@@ -471,6 +529,16 @@ div {
 	margin-right: -400px;
 	margin-left: 400px;
 	transition: 0.5s;
+=======
+	&.layouts {
+		&._footer {
+			&.copywright-text {
+				text-align: center;
+				color: $black;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 span {
@@ -582,6 +650,35 @@ span {
 			}
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.lessons {
+		&._lesson {
+			&.lesson-facility {
+				padding-left: 1em;
+			}
+			&.subscription {
+				color: $black;
+				padding-left: 1em;
+			}
+			&.lesson-level {
+				color: $black;
+				padding-left: 1em;
+			}
+			&.expired-lesson {
+				color: $red;
+				font-size: 2em; opacity: 1;
+			}
+		}
+		&._search_timetable_form {
+			&.date-field {
+				padding-left: 1em;
+				width: 60%;
+				float: left;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 form {
@@ -749,11 +846,23 @@ form {
 }
 
 html {
+<<<<<<< HEAD
+=======
+	background: no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+html {
+>>>>>>> master
 	background: url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+<<<<<<< HEAD
 	//makes scrollbar always visible
 	overflow: -moz-scrollbars-vertical;
 	overflow-y: scroll;
@@ -763,17 +872,24 @@ html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+=======
+>>>>>>> master
 }
 
 body {
 	color: $white;
 	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
 	text-align: justify;
+<<<<<<< HEAD
 	width: 100%;
 	background: none;
 	height: 100%;
 	margin: 0;
 	padding: 0;
+=======
+	max-width: 100%;
+	background: none;
+>>>>>>> master
 	/*
 	background-position: center;
     background-size: cover;
@@ -791,6 +907,17 @@ h1 {
 	font-family: Orbitron, Orbitron, sans-serif;
 	font-size: 300%;
 	margin: 0;
+<<<<<<< HEAD
+=======
+	&:hover{
+		text-shadow: 0px 0px 0.5em $gold;
+	}
+	&.newswire_posts {
+		&._newswire_post {
+			margin-top: 1em;
+		}
+	}
+>>>>>>> master
 }
 
 
@@ -873,6 +1000,16 @@ h3 {
 	&:hover {
 	text-shadow: 0px 0px 0.125em $bronze;
 	}
+<<<<<<< HEAD
+=======
+	&.lessons {
+		&._lesson {
+			&.lesson-instructor {
+				padding-left: 1em;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 
@@ -973,9 +1110,12 @@ li {
 
 /* footer */
 footer {
+<<<<<<< HEAD
 	padding-top: 5px;
 	background-color: $gray-medium-light;
 	border-top: 0.5em solid $black;
+=======
+>>>>>>> master
 	a {
 		color: $black;
 	}
@@ -990,6 +1130,16 @@ footer {
 			margin-left: 15px;
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.layouts {
+		&._footer {
+			background-color: $white;
+			padding-left: 1em;
+			padding-top: 0.75em;
+		}
+	}
+>>>>>>> master
 }
 
 p {
@@ -1150,7 +1300,10 @@ nav {
 
 */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 header {
 	background-color: $white;
 }
@@ -1165,7 +1318,10 @@ header {
 			background-color: $gold;
 		}
 	}
+<<<<<<< HEAD
 	text-align: center;
+=======
+>>>>>>> master
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -1201,6 +1357,10 @@ main {
 		}
 		&:hover {
 			color: $yellow;
+<<<<<<< HEAD
+=======
+			text-decoration: none;
+>>>>>>> master
 		}
 		&:active {
 			color: $yellow;
@@ -1690,6 +1850,21 @@ section {
 		margin-right: auto;
 		width: 75%;
 }
+<<<<<<< HEAD
+=======
+
+.container {
+	border: 1em solid $black;
+	box-shadow: 0em 0em 1em 1em $black;
+	padding: 0;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	margin-top: 4em;
+	background-color: $black;
+}
+>>>>>>> master
 =======
 /*Team Impact major html elements*/
 
