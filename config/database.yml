@@ -42,7 +42,7 @@ test:
 #
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['TEAM_IMPACT_APP_DATABASE_URL'] %>
   adapter: postgresql 
   encoding: unicode 
   # For details on connection pooling, see Rails configuration guide # https://guides.rubyonrails.org/configuring.html#database-pooling 
