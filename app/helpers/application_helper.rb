@@ -42,7 +42,7 @@ module ApplicationHelper
   end
 
   #Generate an image avatar for a given ApplicationRecord object and a set of options/attributes
-  def generate_avatar_for(object, parameter_options_hash)
+  def generate_avatar_for(object, parameter_options_hash = {})
     if object.has_attribute?("avatar")
       image_uploader = ImageUploader.new
       if !parameter_options_hash.empty?

@@ -1,0 +1,11 @@
+<%= form_for :filter_form, url: admin_members_path, class: "admin _new_member_form", method: :get do |f| %>
+
+    <h3><%= f.label :first_name, "First Name" %></h3>
+    <%= f.text_field :first_name, class: "form-control" %>
+
+    <h3><%= f.label :last_name, "Last Name" %></h3>
+    <%= f.text_field :last_name, class: "form-control" %>
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary admin _new_member_form" %>
+
+<% end %>

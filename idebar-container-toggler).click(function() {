@@ -1,0 +1,749 @@
+[33mcommit 7ed5142d9a1ba8f862cf9b3e187e4cae5ceb7483[m[33m ([m[1;36mHEAD -> [m[1;32mmichael/TIMP-7/off-canvas-sidebar[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Thu Dec 10 22:07:21 2020 +0000
+
+    Add Lorem Ipsum
+
+[33mcommit d328e9a283615b97d1fffc608e45e5bdf7b5bfad[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Thu Dec 10 20:25:34 2020 +0000
+
+    Sidebar working - no push content
+
+[33mcommit dac0a8cea0911426493040bd635567957d4046fc[m[33m ([m[1;31morigin/michael/TIMP-7/off-canvas-sidebar[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun Dec 6 16:35:20 2020 +0000
+
+    Working search form
+
+[33mcommit 30ca2abe5a56d22544d26427c5432def4d5e1531[m
+Merge: b00b459 216740c
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun Dec 6 11:34:53 2020 +0000
+
+    Merge branch 'michael/TIMP-8' into michael/TIMP-7/off-canvas-sidebar
+
+[33mcommit b00b4593e9c7e7e24501cb58883abde1264dd1c0[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun Dec 6 11:34:35 2020 +0000
+
+    Pre-merge with TIMP-8
+
+[33mcommit 216740c5f6a70af8a1aa3a2efbcd1e21121efd88[m[33m ([m[1;31morigin/michael/TIMP-8[m[33m, [m[1;32mmichael/TIMP-8[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun Dec 6 10:40:20 2020 +0000
+
+    Migrate to VS Code
+
+[33mcommit 03ced5c7d39dda80d534394fdeb8f585a0c3e888[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sat Dec 5 12:30:31 2020 +0000
+
+    Initial commit
+
+[33mcommit d14576486612329e324a19c317197a19749c262e[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sat Dec 5 11:06:05 2020 +0000
+
+    center navbar
+
+[33mcommit f031fbcda132e8ff68841da83f1e9d231b0458d5[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Fri Dec 4 02:24:45 2020 +0000
+
+    First working version
+
+[33mcommit bc240bc1edde4dcf673813243e605a44664b1836[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Thu Dec 3 08:31:50 2020 +0000
+
+    Initial commit - install j-query-ui
+
+[33mcommit 8a2bed962dbd7974c3984e393cb5678a6e68da0b[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: ec4358b c854af8
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Tue Dec 1 20:19:55 2020 +0000
+
+    Merge pull request #17 from mpielow1993/michael/TIMP-1/finish-removing-inline-styles
+    
+    Michael/timp 1/finish removing inline styles
+
+[33mcommit c854af8ce1a84e365ae5dbc5fbb95d565946a762[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Tue Dec 1 20:15:40 2020 +0000
+
+    Fix js issue
+
+[33mcommit 63a0a4730bd607ca3fd62243308871d5713a6e25[m
+Merge: e62d231 ec4358b
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon Nov 30 23:47:42 2020 +0000
+
+    Pull merged remote master branch
+
+[33mcommit ec4358bbb272bc17e7c17c9f3a525fa60563f9bd[m
+Merge: 36aa99b 51b0c7f
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Nov 30 23:43:49 2020 +0000
+
+    Merge pull request #5 from mpielow1993/dependabot/npm_and_yarn/jquery-3.5.0
+    
+    Bump jquery from 3.4.1 to 3.5.0
+
+[33mcommit 51b0c7ff4d920c8c09ecb85c85ff8d632cd1d91c[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Nov 30 23:41:31 2020 +0000
+
+    Bump jquery from 3.4.1 to 3.5.0
+    
+    Bumps [jquery](https://github.com/jquery/jquery) from 3.4.1 to 3.5.0.
+    - [Release notes](https://github.com/jquery/jquery/releases)
+    - [Commits](https://github.com/jquery/jquery/compare/3.4.1...3.5.0)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 36aa99b41bf970ed3e7c947fb3593d2425ea6ab1[m
+Merge: 8e2af35 1f7990b
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Nov 30 23:36:56 2020 +0000
+
+    Merge pull request #8 from mpielow1993/dependabot/bundler/websocket-extensions-0.1.5
+    
+    Bump websocket-extensions from 0.1.4 to 0.1.5
+
+[33mcommit 8e2af35cfc34e5bb4f6598a4fb4bbd512061f373[m
+Merge: e860f19 5c8e44f
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Nov 30 23:34:37 2020 +0000
+
+    Merge pull request #9 from mpielow1993/dependabot/npm_and_yarn/websocket-extensions-0.1.4
+    
+    Bump websocket-extensions from 0.1.3 to 0.1.4
+
+[33mcommit 5c8e44fc78d9b47f5622c4c255de56e965f5af42[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Nov 30 23:34:11 2020 +0000
+
+    Bump websocket-extensions from 0.1.3 to 0.1.4
+    
+    Bumps [websocket-extensions](https://github.com/faye/websocket-extensions-node) from 0.1.3 to 0.1.4.
+    - [Release notes](https://github.com/faye/websocket-extensions-node/releases)
+    - [Changelog](https://github.com/faye/websocket-extensions-node/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/faye/websocket-extensions-node/compare/0.1.3...0.1.4)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit e62d2313212fc41c5107fc972b962bd0e6706d8e[m
+Merge: b9e4a3e e860f19
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon Nov 30 00:35:54 2020 +0000
+
+    Resolve merge conflicts
+
+[33mcommit b9e4a3edbb41f678f50879e90d82ae46ebe87952[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon Nov 30 00:29:28 2020 +0000
+
+    Add instructor bios folder
+
+[33mcommit e860f19a6ba6dce7b32da49b99192d8f1e07e1c4[m
+Merge: f03b11d ee16e80
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Sun Nov 29 13:09:50 2020 +0000
+
+    Merge pull request #16 from mpielow1993/finish-removing-inline-styles
+    
+    changed a lot of files
+
+[33mcommit f03b11d667e002262ec20f913c197937fe6b92da[m
+Merge: f9116ea 8df398f
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Sun Nov 29 13:06:03 2020 +0000
+
+    Merge pull request #15 from mpielow1993/dependabot/npm_and_yarn/lodash-4.17.20
+    
+    Bump lodash from 4.17.15 to 4.17.20
+
+[33mcommit f9116eac001259f4d3a8df5caa8fe8947dfd57af[m
+Merge: 04e615e 3fc8e24
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Sun Nov 29 13:05:00 2020 +0000
+
+    Merge pull request #12 from mpielow1993/dependabot/npm_and_yarn/elliptic-6.5.3
+    
+    Bump elliptic from 6.5.2 to 6.5.3
+
+[33mcommit 04e615ece42430d667deeda511853b05e2ef2854[m
+Merge: 86a78b7 15f4521
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Sun Nov 29 13:04:22 2020 +0000
+
+    Merge pull request #13 from mpielow1993/dependabot/npm_and_yarn/node-sass-4.14.1
+    
+    Bump node-sass from 4.13.0 to 4.14.1
+
+[33mcommit 15f45210e88b6ec5158f064fd35691d7124bbc83[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Nov 29 13:03:48 2020 +0000
+
+    Bump node-sass from 4.13.0 to 4.14.1
+    
+    Bumps [node-sass](https://github.com/sass/node-sass) from 4.13.0 to 4.14.1.
+    - [Release notes](https://github.com/sass/node-sass/releases)
+    - [Changelog](https://github.com/sass/node-sass/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/sass/node-sass/compare/v4.13.0...v4.14.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 8df398f45bfc171f274cd9d34f393bf58b98597d[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Nov 29 13:02:20 2020 +0000
+
+    Bump lodash from 4.17.15 to 4.17.20
+    
+    Bumps [lodash](https://github.com/lodash/lodash) from 4.17.15 to 4.17.20.
+    - [Release notes](https://github.com/lodash/lodash/releases)
+    - [Commits](https://github.com/lodash/lodash/compare/4.17.15...4.17.20)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 3fc8e245ba7bb6ee396a0e1631e48ba891c4efd8[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Nov 29 13:02:11 2020 +0000
+
+    Bump elliptic from 6.5.2 to 6.5.3
+    
+    Bumps [elliptic](https://github.com/indutny/elliptic) from 6.5.2 to 6.5.3.
+    - [Release notes](https://github.com/indutny/elliptic/releases)
+    - [Commits](https://github.com/indutny/elliptic/compare/v6.5.2...v6.5.3)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 86a78b7dfabaefbed34385f552fff08f34affa59[m
+Merge: c0b14d8 0d6886b
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Sun Nov 29 13:01:24 2020 +0000
+
+    Merge pull request #14 from mpielow1993/dependabot/npm_and_yarn/http-proxy-1.18.1
+    
+    Bump http-proxy from 1.18.0 to 1.18.1
+
+[33mcommit ee16e807f55b2f053ad4f85ffecc0c7e31bc5f26[m[33m ([m[1;31morigin/finish-removing-inline-styles[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun Nov 29 12:59:38 2020 +0000
+
+    changed a lot of files
+
+[33mcommit c0b14d8ca2034e508f6c1ac1a9ade6a4e2be0e64[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Fri Sep 18 12:54:57 2020 +0100
+
+    Update README.md
+
+[33mcommit f2e46b4f30f4a0b60b6a178781b1e6695941a18f[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Fri Sep 18 12:54:04 2020 +0100
+
+    Update README.md
+
+[33mcommit 3fbb3d566de5f2239da9d7e6d857b485d682a038[m[33m ([m[1;32msidebar-styling[m[33m)[m
+Merge: 13aca1c 85eb644
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Fri Sep 18 12:46:26 2020 +0100
+
+    Merge branch 'master' of https://www.github.com/mpielow1993/ruby--rails--projects--team_impact_repo
+
+[33mcommit 13aca1c17571c0c32c0ec78f2ac1ebb19153da3f[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Fri Sep 18 12:44:23 2020 +0100
+
+    Gemfile.lock update
+
+[33mcommit 0d6886b5b4d2b664bfa2c64c32d95213f4acbb75[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Sep 11 02:39:34 2020 +0000
+
+    Bump http-proxy from 1.18.0 to 1.18.1
+    
+    Bumps [http-proxy](https://github.com/http-party/node-http-proxy) from 1.18.0 to 1.18.1.
+    - [Release notes](https://github.com/http-party/node-http-proxy/releases)
+    - [Changelog](https://github.com/http-party/node-http-proxy/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/http-party/node-http-proxy/compare/1.18.0...1.18.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 85eb644dfe8d26af47c9403d39cba3fe8e06f5f2[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Tue Jul 14 10:40:03 2020 +0100
+
+    Update README.md
+
+[33mcommit ff954cf9d9209de2b84a55d89d1bd4934a81d2fc[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 13 10:26:51 2020 +0100
+
+    Update README.md
+
+[33mcommit 68dab4034a0bc5319cbf733f7ca6f903d0595ccd[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 13 10:25:06 2020 +0100
+
+    Update README.md
+
+[33mcommit d13fd1bf182e7cbf333898ef4a04bbd64ae1e8ad[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 21:42:39 2020 +0100
+
+    Update README.md
+
+[33mcommit 91f990bb23894c47ebccdfb99c0e9eecca327b2e[m
+Merge: b4b35e9 709e7c2
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon Jul 6 21:39:43 2020 +0100
+
+    include fadeOut in all alerts
+
+[33mcommit b4b35e97e01d69754fadcf6d1f56b9742178488f[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon Jul 6 21:31:44 2020 +0100
+
+    add fadeOut to alert messages
+
+[33mcommit 709e7c2bfee4f010229e81bbf0437beb13fa53e6[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 16:51:31 2020 +0100
+
+    Update README.md
+
+[33mcommit 10fb7788ebf048a3a287626320e169aae0ea6175[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 13:49:06 2020 +0100
+
+    Update README.md
+
+[33mcommit 29a154618d02dd575a5d38e0a37466a5727a473f[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 12:07:06 2020 +0100
+
+    Update README.md
+
+[33mcommit 29004e741ea38f5ff309a9928ebe3638c1e3cd77[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 12:05:16 2020 +0100
+
+    Update README.md
+
+[33mcommit dc04f34440d2c90c8e969d6915987ee158f7f85b[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 12:04:26 2020 +0100
+
+    Update README.md
+
+[33mcommit 25b37cde8cb2f7a7361d8c88a8a0bb9552e64168[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 12:03:10 2020 +0100
+
+    Update README.md
+
+[33mcommit d333560a422496f7605b45ac087662f2ca21fd44[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 11:58:33 2020 +0100
+
+    Update README.md
+
+[33mcommit c847b50711747e8a1f35ca2eea6f621e7a643e55[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 11:56:07 2020 +0100
+
+    Update README.md
+
+[33mcommit 51fb2185a594d58ef21e640d4aac348519baed5e[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 11:53:10 2020 +0100
+
+    Update README.md
+
+[33mcommit fe89205c33a378303b0a2d46d95cc049243727a6[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 11:02:57 2020 +0100
+
+    Update README.md
+
+[33mcommit 991bd35bf8705e5558ed29d94627fee0c8e474db[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Mon Jul 6 01:05:49 2020 +0100
+
+    Update README.md
+
+[33mcommit 32e25fcc1ccc243f7f74eaa2d576686f82bd8cfa[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Fri Jul 3 15:22:00 2020 +0100
+
+    Update README.md
+
+[33mcommit 1888314ce3a9e30f66f066afc6b40bd598aa510e[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Fri Jul 3 15:16:25 2020 +0100
+
+    Update README.md
+
+[33mcommit 1874a838f195eccf7326e9406a529d0974b84806[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Fri Jul 3 15:14:33 2020 +0100
+
+    Update README.md
+
+[33mcommit 0cbfe8913f99b9d1604eadd338a5b4c4f5a278f9[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Fri Jul 3 15:14:09 2020 +0100
+
+    Update README.md
+
+[33mcommit d20c3ad6d817e6a4a97986ce9cd23e40a06c9fd3[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Thu Jul 2 16:49:36 2020 +0100
+
+    Update README.md
+
+[33mcommit 3bc30bd59e927673fbf42ec2f16f0addb9b4d4fd[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Thu Jul 2 16:48:22 2020 +0100
+
+    Update README.md
+
+[33mcommit de8e67e9cc9250d81f1627e6a5e646b70df247d7[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Thu Jul 2 16:47:55 2020 +0100
+
+    Update README.md
+
+[33mcommit 16dc49fadf97b6a8ed12f92426bc94cf1dfc48be[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Thu Jul 2 16:46:14 2020 +0100
+
+    Update README.md
+
+[33mcommit 40f82f7bd5364891f011a04adf0e22ec228e207a[m
+Author: mpielow1993 <38048759+mpielow1993@users.noreply.github.com>
+Date:   Thu Jul 2 16:21:41 2020 +0100
+
+    Update README.md
+
+[33mcommit 74795cb183ebc811b906c9d076520a236b683538[m[33m ([m[1;32majax-newswire-posts[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Thu Jul 2 16:12:01 2020 +0100
+
+    Continue re-organising CSS - finish replacing all experimental inline CSS in admin views with custom classes
+
+[33mcommit 1f7990b178b581fda04d1d0ac6174c25581735ee[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat Jun 6 07:04:12 2020 +0000
+
+    Bump websocket-extensions from 0.1.4 to 0.1.5
+    
+    Bumps [websocket-extensions](https://github.com/faye/websocket-extensions-ruby) from 0.1.4 to 0.1.5.
+    - [Release notes](https://github.com/faye/websocket-extensions-ruby/releases)
+    - [Changelog](https://github.com/faye/websocket-extensions-ruby/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/faye/websocket-extensions-ruby/compare/0.1.4...0.1.5)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit b827bde2af705a8205acdcbfb22b3a26b4b47d17[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon May 4 20:35:44 2020 +0100
+
+    Keep organising CSS in admin directory
+
+[33mcommit 0d45b0f99676338655ec8cfc107d247e31c43103[m[33m ([m[1;32msearch-forms[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun May 3 16:06:13 2020 +0100
+
+    More organisation of CSS for admin directory
+
+[33mcommit ae84dda13a60f762f62ebad1e79021fe65b1e3ef[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sat May 2 22:06:02 2020 +0100
+
+    Start cleaning up and organising stylesheets for admin directory
+
+[33mcommit 77ae260ad030b96909ccc4495c84693a0820045c[m[33m ([m[1;31morigin/programme-quotations[m[33m, [m[1;32mprogramme-quotations[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Tue Jan 28 15:01:26 2020 +0000
+
+    Add programme page quotations
+
+[33mcommit 55e28e68ce84ac5c0b77fb99307acd303f73fc79[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Wed Jan 22 14:06:33 2020 +0000
+
+    Update ENV
+
+[33mcommit 102f8a11792bc950f4b455c4d1811fbb41a2c2eb[m[33m ([m[1;32majax-registrations[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Tue Jan 21 19:25:11 2020 +0000
+
+    Implement ajax within registrations
+
+[33mcommit 30d4ce1d103c7b1f345e710ca28570bcc1d80717[m[33m ([m[1;31morigin/ajax-registrations[m[33m, [m[1;31mheroku/ajax-registrations[m[33m)[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Mon Jan 20 00:10:09 2020 +0000
+
+    Improve UI CSS for AJAX
+
+[33mcommit eb4885e76c0b6a25dd743a274dfbb7e974badec6[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Tue Jan 14 22:08:34 2020 +0000
+
+    Update Gemfile
+
+[33mcommit 0ca8738d56564c345fdde6e6df8608456885efed[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Tue Jan 14 21:46:01 2020 +0000
+
+    Fix mini_magick issue
+
+[33mcommit 207bd2ef549092138bfe10eef64e993bf159d956[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Sun Jan 12 23:17:11 2020 +0000
+
+    Fix seed data for Windows
+
+[33mcommit e8773ef4a983ebfe0fd771851d0d482810f306b3[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Fri Jan 10 18:56:37 2020 +0000
+
+    Command Prompt Commit
+
+[33mcommit ad7bfac462408d6144ac319d57666e137a25ea6f[m
+Author: mpielow1993 <michaelpielow@hotmail.com>
+Date:   Fri Jan 10 15:21:21 2020 +0000
+
+    Test command prompt commit
+
+[33mcommit 8e8573a3ca495f74fa38b235080daf94b8e8337c[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Dec 16 12:23:45 2019 +0000
+
+    Create timetable partial
+
+[33mcommit 22a4323f7030602ab93a78bf4cea310dda6893e1[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Dec 16 01:04:45 2019 +0000
+
+    Touch up programme pages
+
+[33mcommit 50885b66f50db9306735dc74a8d8af9fce432f7b[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Dec 16 00:50:26 2019 +0000
+
+    Add favicon, alter flash messages
+
+[33mcommit bbbba8e6c653b7a1a29ab8f1b2a0bda15b8c4df2[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sun Dec 15 23:33:44 2019 +0000
+
+    Presentation ready
+
+[33mcommit a8492acc133f6ffa14e60dba57c24815d7c172e3[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sat Dec 14 03:44:04 2019 +0000
+
+    Finish sidebar, navbar and before_filters
+
+[33mcommit 2a3a36de7d41c69ca86b47cf300d2df76ac32db4[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Wed Dec 11 03:22:56 2019 +0000
+
+    Touch up lesson layout
+
+[33mcommit e78263b1ef296d98a249fbe1994a25ccc6e1ec61[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Dec 9 01:25:47 2019 +0000
+
+    Create Footer
+
+[33mcommit b596bb210bf87b81bbb3440662e8521abfaaa9f3[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sat Dec 7 23:48:17 2019 +0000
+
+    Fix Newswire
+
+[33mcommit 73313b5c3bd6ebd9712a22ec5dcc100a18c6f627[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sat Dec 7 01:02:36 2019 +0000
+
+    Add admin testimonials and enquiries
+
+[33mcommit 1a9ec8d9995556f8b3a141e16ed1fd66e8a90378[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sat Dec 7 00:58:47 2019 +0000
+
+    Add admin testimonials and enquiries
+
+[33mcommit af1b7233134fb066a95225a4ddc79927e05212d8[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Dec 5 15:02:02 2019 +0000
+
+    Start touching up css
+
+[33mcommit 4e1c16dfb67ded0a7f887adbc8dc9d6593e06526[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Wed Dec 4 05:52:57 2019 +0000
+
+    Fix registrations
+
+[33mcommit 78b58309f728386197aebad993e9cbad72754a60[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sun Dec 1 04:57:41 2019 +0000
+
+    Add furthher Admin CRUD
+
+[33mcommit 4e2a790007adc5471d59f8627665ab665841efc3[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sun Nov 17 12:18:34 2019 +0000
+
+    Registrations with datepicker and destroy reg bug
+
+[33mcommit d781aa5e80a30b208114e0f7e731f9555620a62a[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Nov 4 00:37:11 2019 +0000
+
+    Finish seed data (mostly)
+
+[33mcommit 37bd1796dceadd342819c79a292da702d0774976[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Oct 28 13:31:22 2019 +0000
+
+    Interim presentation version
+
+[33mcommit 8ccfac830d4392160a8f635aa16c7f82d7f04fbe[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Oct 14 22:01:13 2019 +0000
+
+    implement flatpickr
+
+[33mcommit dcdde4aac9e6f4eb65cb1a711abeb4a040fee647[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sun Oct 13 18:18:27 2019 +0000
+
+    Add level to Lessons, generate seed data for lessons
+
+[33mcommit 1b5c386d8aeb1f0be6b5af287d7dbe84b3509981[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sun Oct 13 15:26:36 2019 +0000
+
+    Finish Lesson validations (times)
+
+[33mcommit 71bf50d7a00b9cd26c68110b5e1732583a4e2827[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Fri Oct 11 01:03:18 2019 +0000
+
+    Add seeds for non logged-in pages, add validations to lesson model
+
+[33mcommit a41f88c7ce170826d52fb6bf7e6de8b89e709751[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Oct 10 14:04:40 2019 +0000
+
+    Finish testimonials
+
+[33mcommit 008d6d82e2b5e570274cac82c846e3af7e7061e6[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Oct 10 04:09:20 2019 +0000
+
+    Make programmes, instructors, facilities dynamic, create enquiry form
+
+[33mcommit 871fdedf7f32d61735fd6e484915bd8f48f57599[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Tue Oct 8 20:56:49 2019 +0000
+
+    Empty comments.yml
+
+[33mcommit 19eb735db9b6379e7aabde0f89ebdfd2f77e57cf[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Tue Oct 8 20:52:20 2019 +0000
+
+    Add comments, untested, current_user bug still present
+
+[33mcommit b8769e74b7778739af42280921789219441859dc[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Oct 7 09:33:34 2019 +0000
+
+    add comment autolinking
+
+[33mcommit 035efb0e3065fd45433a611a96098f4ddf186835[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Sun Oct 6 19:32:32 2019 +0000
+
+    Add newswire posts
+
+[33mcommit cbd17782f0ea4a57948cd469c263be1a72c77a5f[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Oct 3 16:24:37 2019 +0000
+
+    Add password reset
+
+[33mcommit 64527419829955e406428c02cfa5a7e93113173c[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Oct 3 14:17:20 2019 +0000
+
+    Add account activation
+
+[33mcommit 34be9920e009b3b38cdfb95005fe664a4c41a0da[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Wed Oct 2 15:25:24 2019 +0000
+
+    Finish user edit, update, index, and destroy actions
+
+[33mcommit 09b7714e77a13a94de62b906e86eb5c10ab6db86[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Sep 30 19:45:11 2019 +0000
+
+    advanced login
+
+[33mcommit 3237b538580f1750c2b6b7686e7098b4c6ad5cee[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Sep 30 14:00:06 2019 +0000
+
+    Implement basic login
+
+[33mcommit ed9971e54ab23e3012f6283bb5011dfa749040c8[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Sep 26 15:06:57 2019 +0000
+
+    Use SSL and the Puma webserver in production
+
+[33mcommit 67281dc16eb3c73e28db0c9c2b2ca1c73155c84e[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Thu Sep 26 14:50:07 2019 +0000
+
+    Finish member sign-up
+
+[33mcommit edb23d4af21e8ef45aa8575e87c1386c50b76e52[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Wed Sep 25 23:39:32 2019 +0000
+
+    Make the basic Member model with secure passwords
+
+[33mcommit c9bb8a7d83fdfa3ff518bcf8154a92baa366454c[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Tue Sep 24 11:58:12 2019 +0000
+
+    Finish initial layout design
+
+[33mcommit 362c2bbceaab34cdddf4903d353fafb657c95e60[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Sep 23 22:17:35 2019 +0000
+
+    Complete static pages
+
+[33mcommit 349771b699fca61d822ce94a1efdd53ce71dfa55[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Sep 23 15:43:13 2019 +0000
+
+    Add a static pages controller
+
+[33mcommit 7860a7678bd019fd4d3ded389d37ba907045175d[m
+Author: mpielow1993 <michaelpielow@gmail.com>
+Date:   Mon Sep 23 00:39:23 2019 +0000
+
+    Intialise repository
