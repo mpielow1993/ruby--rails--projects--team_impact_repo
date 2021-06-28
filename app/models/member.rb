@@ -157,3 +157,4 @@ class Member < ApplicationRecord
             self.activation_digest = Member.digest(activation_token)
         end
 end
+

@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.text :content
       t.references :newswire_post, null: false, foreign_key: true
       t.references :member, null: false, foreign_key: true
+
       t.timestamps
     end
     add_index :comments, [:member_id, :created_at], name: 'find_comments_by_member'

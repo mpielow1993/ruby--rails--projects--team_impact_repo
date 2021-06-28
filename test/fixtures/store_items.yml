@@ -4,10 +4,10 @@ one:
   name: MyString
   description: MyString
   price: 9.99
-  avatar: MyString
+  image_url: MyString
 
 two:
   name: MyString
   description: MyString
   price: 9.99
-  avatar: MyString
+  image_url: MyString

@@ -1,6 +1,5 @@
-<nav class="navbar navbar-default" style=
-"border-bottom: 0.5em solid #000000; display: flex; justify-content: center; border-radius: 0; margin-bottom: 0;">
-  <ul class="nav navbar-nav navbar-justified">
+<nav class="navbar navbar-default" style="margin-bottom: 1em; margin-right: 1em; background-color: #FFFFFF; width: 100%; border-radius: 0">
+  <ul class="nav navbar-nav navbar-right">
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "About Us", about_us_path %></li>
     <li><%= link_to "Programmes", programmes_path %></li>
@@ -9,7 +8,6 @@
     <li><%= link_to "FAQ's", faq_s_path %></li>
     <li><%= link_to "Gym Rules", gym_rules_path %></li>
     <li><%= link_to "Testimonials", testimonials_path %></li>
-    <li><%= link_to "Contact", contact_path %></li>
     <li><%= link_to "Contact", contact_path %></li>
     <% if logged_in? %>
       <li class="dropdown" style="padding-right: 1em;">
@@ -23,11 +21,5 @@
     <% else %>
       <li style="padding-right: 1em;"><%= link_to "Log In", log_in_path %></li>
     <% end %>
-    <div>
-      <button class="btn btn-info" id="sidebar-container-toggler" style="background: none; font-family: Orbitron; border: 0.1em solid #000000;">
-        <i class="glyphicon glyphicon-chevron-right"></i>
-        Menu
-      </button>
-    </div>
   </ul>
 </nav>

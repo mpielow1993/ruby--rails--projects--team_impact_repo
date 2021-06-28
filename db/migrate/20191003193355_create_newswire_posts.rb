@@ -6,6 +6,6 @@ class CreateNewswirePosts < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :newswire_posts, [:member_id, :created_at]
+    add_index :newswire_posts, [:member_id, :created_at], name: 'find_newswire_post_by_member'
   end
 end

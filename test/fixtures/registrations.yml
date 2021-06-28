@@ -3,7 +3,9 @@
 one:
   lesson: one
   subscription: one
+  lesson_date: 2019-11-01
 
 two:
   lesson: two
   subscription: two
+  lesson_date: 2019-11-01
