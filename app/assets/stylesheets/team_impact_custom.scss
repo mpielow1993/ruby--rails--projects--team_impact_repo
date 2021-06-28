@@ -688,7 +688,7 @@ html {
 }
 
 html {
-	background: url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
+	background: image-url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -1369,7 +1369,7 @@ article {
 .kids{ color: $orange; }
 
 .logo{
-	background-image: url("TeamImpactLogoFinal3.jpg");
+	background-image: image-url("TeamImpactLogoFinal3.jpg");
 	border-radius: 50%;
 	margin-left: auto;
 	margin-right: auto;
