@@ -2,26 +2,26 @@
 <section>
     <h1 class="newsire_posts _newswire_post"><%= yield(:title) %></h1>
 </section>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
-                <h2 style="color: #000000;">All Posts (<%= @newswire_posts.count %>)</h2>
-                <% @newswire_posts.each do |newswire_post| %>
-                    <div id="newswire_post-<%= newswire_post.id.to_s %>">
-                      <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
-                    </div>
-                <% end %>
-                <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
-                    <%= will_paginate @newswire_posts %>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <%= render 'layouts/sidebar', member: @member %>
-            <% if @member.admin? %>
-                <div class="col-md-12" style="background-color: #FFFFFF; margin-top: 1em; border-right: 2em solid #000000;">
-                    <%= render 'shared/newswire_post_form' %>
+<div class="row">
+    <div class="col-md-8">
+        <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
+            <h2 style="color: #000000;">All Posts (<%= @newswire_posts.count %>)</h2>
+            <% @newswire_posts.each do |newswire_post| %>
+                <div id="newswire_post-<%= newswire_post.id.to_s %>">
+                    <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
                 </div>
             <% end %>
+            <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                <%= will_paginate @newswire_posts %>
+            </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: @member %>
+        <% if @member.admin? %>
+            <div class="col-md-12" style="background-color: #FFFFFF; margin-top: 1em; border-right: 2em solid #000000;">
+                <%= render 'shared/newswire_post_form' %>
+            </div>
+        <% end %>
+    </div>
+</div>
