@@ -33,6 +33,5 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-
-### Vagrant ###
 .vagrant/
+Vagrantfile

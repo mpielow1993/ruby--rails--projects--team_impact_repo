@@ -2,6 +2,8 @@ require 'carrierwave/orm/activerecord'
 
 class Member < ApplicationRecord
 
+    self.filter_field_array = self.set_filter_field_array(['user_name', 'first_name', 'last_name', 'email', 'phone_no', 'user_level'])
+    self.filter_field_hash = self.set_filter_field_hash
     attr_accessor :remember_token, :activation_token, :reset_token, :avatar
     mount_uploader :avatar, ImageUploader
 
@@ -26,7 +28,6 @@ class Member < ApplicationRecord
 
     before_create :create_activation_digest
 
-    #Constant fields
     VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
 
     validates :user_name,   presence: true,
@@ -56,7 +57,12 @@ class Member < ApplicationRecord
     #default validations set to false to permit format
     has_secure_password :password, validations: false
 
-
+    #Scopes
+    scope :user_name_like, -> (value) {(where("`user_name` LIKE ?", "%#{value}%"))}
+    scope :first_name_like, -> (value) {(where("`first_name` LIKE ?", "%#{value}%"))}
+    scope :last_name_like, -> (value) {(where("`last_name` LIKE ?", "%#{value}%"))}
+    scope :email_like, -> (value) {(where("`email` LIKE ?", "%#{value}%"))}
+    scope :phone_no_like, -> (value) {(where("`phone_no` LIKE ?", "%#{value}%"))}
 
     class << self
         # Returns the hash digest of the given string.
@@ -151,3 +157,4 @@ class Member < ApplicationRecord
             self.activation_digest = Member.digest(activation_token)
         end
 end
+

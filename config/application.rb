@@ -19,5 +19,6 @@ module TeamImpact
     #Change Timezone to Dublin
     config.time_zone = 'Dublin'
     #config.active_record.default_timezone = :local
+
   end
 end
