@@ -19,15 +19,14 @@
               <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
             <% end %>
           <% end %>
+          <div id="grid-sidebar">
+            <%= render 'layouts/sidebar', member: current_member %>
+          </div>
         <% end %>
       </div>
-      <% if !current_member.nil? %>
-        <div id="grid-sidebar">
-          <%= render 'layouts/sidebar', member: current_member %>
-        </div>
-      <% end %>
-      <%= debug(params) if Rails.env.development? %>
+      <%= yield %>
     </div>
+    <%= debug(params) if Rails.env.development? %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
