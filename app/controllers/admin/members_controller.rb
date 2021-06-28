@@ -86,3 +86,4 @@ class Admin::MembersController < Admin::AdminApplicationController
       ]
     end
 end
+

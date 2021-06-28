@@ -34,10 +34,10 @@
           <% if !lesson.is_expired %>
             <% if current_member.registered_to?(lesson) %>
               <li>
-                <h3 style="margin-top: 0;">Registered with Subscription:<span style="color: #000000; padding-left: 1em;"><%= current_member.get_subscription_used_to_register_for(lesson).subscription_name %></span></h3>
+                <h3 style="margin-top: 0;">Registered with Subscription:<span style="color: #000000; padding-left: 1em;"><%= current_member.subscription_used_to_register_for(lesson).subscription_name %></span></h3>
               </li>
               <li>
-                <% if current_member.get_subscription_used_to_register_for(lesson).is_active %>
+                <% if current_member.subscription_used_to_register_for(lesson).is_active %>
                   <%= form_for lesson.registrations.find_by(member_id: current_member.id), url: lesson_registration_path(lesson, lesson.registrations.find_by(member_id: current_member.id)), remote: true, html: { id: "unregister-from-lesson-#{lesson.id}" }, method: :delete do |f| %>
                     <%= f.submit "Unregister", data: { confirm: 'Are you sure you want to unregister from this class?' }, class: "btn btn-danger", style: "font-family: Orbitron;" %>
                   <% end %>
