@@ -1,4 +1,4 @@
-<div class="card" style="opacity: <%= lesson.is_expired ? 0.5 : 1 %>;">
+<div class="card">
   <div class="row">
     <div class="col-md-4">
       <a href="/instructors/<%= lesson.instructor.id %>">
@@ -11,11 +11,11 @@
       </a>
     </div>
     <div class="col-md-8">
-        <ul style="padding: 0; list-style-type: none; font-size: 0.5em; margin: 0;">
+        <ul class="lessons _lesson">
           <li>
-            <div id="lesson-<%= lesson.id %>-registration-result" style="display: none;">
+            <div id="lesson-<%= lesson.id %>-registration-result">
               <% flash.dup.each do |message_type, message| %>
-                <%= content_tag(:div, message, class: "alert alert-#{message_type}", style: "border-radius: 0; font-family: Orbitron;") %>
+                <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
               <% end %>
             </div>
           </li>
@@ -23,23 +23,23 @@
             <h2><%= lesson.programme.name %></h2>
           </li>
           <li>
-            <h3>Instructor: <%= link_to lesson.instructor.first_name, instructor_path(lesson.instructor), style: "padding-left: 1em;" %></h3>
+            <h3>Instructor: <%= link_to lesson.instructor.first_name, instructor_path(lesson.instructor), class: "lessons _lesson lesson-instructor" %></h3>
           </li>
           <li>
-            <h3 style="margin-top: 0;">Level: <span style="color: #000000; padding-left: 1em;"><%= lesson.level %></span></h3>
+            <h3>Level: <span class="lessons _lesson lesson-level"><%= lesson.level %></span></h3>
           </li>
           <li>
-            <h3 style="margin-top: 0;">Location: <%= link_to lesson.facility.name, facility_path(lesson.facility), style: "padding-left: 1em;" %></h3>
+            <h3>Location: <%= link_to lesson.facility.name, facility_path(lesson.facility), class: "lessons _lesson lesson-facility" %></h3>
           </li>
           <% if !lesson.is_expired %>
             <% if current_member.registered_to?(lesson) %>
               <li>
-                <h3 style="margin-top: 0;">Registered with Subscription:<span style="color: #000000; padding-left: 1em;"><%= current_member.subscription_used_to_register_for(lesson).subscription_name %></span></h3>
+                <h3>Registered with Subscription:<span class="lessons _lesson subscription"><%= current_member.get_subscription_used_to_register_for(lesson).subscription_name %></span></h3>
               </li>
               <li>
-                <% if current_member.subscription_used_to_register_for(lesson).is_active %>
+                <% if current_member.get_subscription_used_to_register_for(lesson).is_active %>
                   <%= form_for lesson.registrations.find_by(member_id: current_member.id), url: lesson_registration_path(lesson, lesson.registrations.find_by(member_id: current_member.id)), remote: true, html: { id: "unregister-from-lesson-#{lesson.id}" }, method: :delete do |f| %>
-                    <%= f.submit "Unregister", data: { confirm: 'Are you sure you want to unregister from this class?' }, class: "btn btn-danger", style: "font-family: Orbitron;" %>
+                    <%= f.submit "Unregister", data: { confirm: 'Are you sure you want to unregister from this class?' }, class: "btn btn-danger" %>
                   <% end %>
                 <% end %>
               </li>
@@ -50,30 +50,24 @@
                       <h3>Register with Subscription:</h3>
                       <%= f.collection_select :subscription_id, current_member.subscriptions.where(is_active: true), :id, :subscription_name, html_options = { class: "form-control", id: "member-#{current_member.id}-subscription-list-for-unregistered-lesson-#{lesson.id}" } %><br>
                       <%= f.hidden_field :member_id, value: current_member.id, id: "hidden-member_id-field-for-lesson-#{lesson.id}" %>
-                      <%= f.submit "Register", data: { confirm: 'Are you sure you want to register for this class?' }, class: "btn btn-primary", style: "font-family: Orbitron;" %>
+                      <%= f.submit "Register", data: { confirm: 'Are you sure you want to register for this class?' }, class: "btn btn-primary"%>
                     <% end %>
                   </li>
                 <% else %>
                   <br>
-                  <li style="margin-top: 1.5em;">
+                  <li class="lessons _lesson no-active-subscription">
                     <p>You need a an active subscription to a membership to register for lessons. These can be purchased in the
                     <%= link_to "store", store_items_path %>.</p>
                   </li>
                 <% end %>
             <% end %>
           <% else %>
-            <li style="margin-top: 1.5em;">
+            <li class="lessons _lesson expired-lesson">
               <h2>
-              <span style="color: #FF0000; font-size: 2em; opacity: 1;">EXPIRED</span></h2>
+                <span class="lessons _lesson expired-lesson">EXPIRED</span></h2>
             </li>
           <% end %>
         </ul>
     </div>
-  </div>
-  <div class="row">
-    <p style="font-size: 0.75em; margin-top: 1.5em; display: none;">Are you sure you want to register for this class?
-      <button id="confirmRegistration" class="btn btn-success" style="margin-left: 1em; padding-left: 1.25em; padding-right: 1.25em;">Yes</button>
-      <button id="cancelRegistration" class="btn btn-danger" style="margin-left: 0.5em; padding-left: 1.5em; padding-right: 1.5em;">No</button>
-    </p>
   </div>
 </div>
