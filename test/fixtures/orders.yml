@@ -2,8 +2,8 @@
 
 one:
   member: one
-  total: 9.99
+  total_cost: 9.99
 
 two:
   member: two
-  total: 9.99
+  total_cost: 9.99

@@ -4,10 +4,10 @@ one:
   membership: one
   member: one
   expiry_date: 2019-11-01 01:07:36
-  is_active: false
+  status: false
 
 two:
   membership: two
   member: two
   expiry_date: 2019-11-01 01:07:36
-  is_active: false
+  status: false

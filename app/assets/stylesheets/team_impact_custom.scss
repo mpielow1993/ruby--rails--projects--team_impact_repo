@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*Team Impact major html elements*/
 
 @import "bootstrap-sprockets";
@@ -99,9 +100,16 @@ $red: #FF0000;
 			width: 100%;
 			padding: 1em;
 			background-color: $white;
+<<<<<<< HEAD
 			border-left: 0.5em solid $black;
 			//box-shadow: 0em 0em 1em 1em $black;
 			transition: 0.5s;
+=======
+			margin-top: 3em;
+			border-top: 1em solid $black;
+			border-right: 1.5em solid $black;
+			border-bottom: 1em solid $black;
+>>>>>>> master
 		}
 	}
 	&.comments {
@@ -119,6 +127,7 @@ $red: #FF0000;
 	}
 }
 
+<<<<<<< HEAD
 #grid-container {
 	display: grid;
 }
@@ -149,6 +158,8 @@ $red: #FF0000;
 	padding: 5em;
 }
 
+=======
+>>>>>>> master
 .card-body {
 	&.admin {
 		&._member {
@@ -250,6 +261,26 @@ ul {
 			font-size: 2em;
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.layouts {
+		&._footer {
+			&.link-list {
+				list-style-type: none;
+				padding: 0;
+				display: inline;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			padding: 0;
+			list-style-type: none;
+			font-size: 0.5em;
+			margin: 0;
+		}
+	}
+>>>>>>> master
 }
 
 li {
@@ -272,6 +303,29 @@ li {
 			margin-left: 1em;
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.layouts {
+		&._footer {
+			&.link-list-opening-line {
+				color: $black;
+				font-family: Orbitron;
+				font-size: 1em;
+				padding-right: 1em;
+			}
+		}
+	}
+	&.lessons {
+		&._lesson {
+			&.no-active-subscription {
+				margin-top: 1.5em;
+			}
+			&.expired-lesson {
+				margin-top: 1.5em;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 .btn {
@@ -403,6 +457,7 @@ li {
 	}
 }
 
+<<<<<<< HEAD
 #grid-header {
 	//position: fixed;
 }
@@ -432,6 +487,9 @@ div {
 		min-width: 100%;
 		background: none;
 	}
+=======
+div {
+>>>>>>> master
 	&.admin {
 		&._facility {
 			&.button-options {
@@ -459,6 +517,7 @@ div {
 			}
 		}
 	}
+<<<<<<< HEAD
 }
 
 #sidebar-container {
@@ -470,6 +529,16 @@ div {
 	margin-right: -400px;
 	margin-left: 400px;
 	transition: 0.5s;
+=======
+	&.layouts {
+		&._footer {
+			&.copywright-text {
+				text-align: center;
+				color: $black;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 span {
@@ -581,6 +650,35 @@ span {
 			}
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.lessons {
+		&._lesson {
+			&.lesson-facility {
+				padding-left: 1em;
+			}
+			&.subscription {
+				color: $black;
+				padding-left: 1em;
+			}
+			&.lesson-level {
+				color: $black;
+				padding-left: 1em;
+			}
+			&.expired-lesson {
+				color: $red;
+				font-size: 2em; opacity: 1;
+			}
+		}
+		&._search_timetable_form {
+			&.date-field {
+				padding-left: 1em;
+				width: 60%;
+				float: left;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 form {
@@ -748,11 +846,23 @@ form {
 }
 
 html {
+<<<<<<< HEAD
+=======
+	background: no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+html {
+>>>>>>> master
 	background: url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+<<<<<<< HEAD
 	//makes scrollbar always visible
 	overflow: -moz-scrollbars-vertical;
 	overflow-y: scroll;
@@ -762,17 +872,24 @@ html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+=======
+>>>>>>> master
 }
 
 body {
 	color: $white;
 	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
 	text-align: justify;
+<<<<<<< HEAD
 	width: 100%;
 	background: none;
 	height: 100%;
 	margin: 0;
 	padding: 0;
+=======
+	max-width: 100%;
+	background: none;
+>>>>>>> master
 	/*
 	background-position: center;
     background-size: cover;
@@ -790,6 +907,17 @@ h1 {
 	font-family: Orbitron, Orbitron, sans-serif;
 	font-size: 300%;
 	margin: 0;
+<<<<<<< HEAD
+=======
+	&:hover{
+		text-shadow: 0px 0px 0.5em $gold;
+	}
+	&.newswire_posts {
+		&._newswire_post {
+			margin-top: 1em;
+		}
+	}
+>>>>>>> master
 }
 
 
@@ -872,6 +1000,16 @@ h3 {
 	&:hover {
 	text-shadow: 0px 0px 0.125em $bronze;
 	}
+<<<<<<< HEAD
+=======
+	&.lessons {
+		&._lesson {
+			&.lesson-instructor {
+				padding-left: 1em;
+			}
+		}
+	}
+>>>>>>> master
 }
 
 
@@ -972,9 +1110,12 @@ li {
 
 /* footer */
 footer {
+<<<<<<< HEAD
 	padding-top: 5px;
 	background-color: $gray-medium-light;
 	border-top: 0.5em solid $black;
+=======
+>>>>>>> master
 	a {
 		color: $black;
 	}
@@ -989,6 +1130,16 @@ footer {
 			margin-left: 15px;
 		}
 	}
+<<<<<<< HEAD
+=======
+	&.layouts {
+		&._footer {
+			background-color: $white;
+			padding-left: 1em;
+			padding-top: 0.75em;
+		}
+	}
+>>>>>>> master
 }
 
 p {
@@ -1149,7 +1300,10 @@ nav {
 
 */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 header {
 	background-color: $white;
 }
@@ -1164,7 +1318,10 @@ header {
 			background-color: $gold;
 		}
 	}
+<<<<<<< HEAD
 	text-align: center;
+=======
+>>>>>>> master
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -1200,6 +1357,10 @@ main {
 		}
 		&:hover {
 			color: $yellow;
+<<<<<<< HEAD
+=======
+			text-decoration: none;
+>>>>>>> master
 		}
 		&:active {
 			color: $yellow;
@@ -1689,3 +1850,1654 @@ section {
 		margin-right: auto;
 		width: 75%;
 }
+<<<<<<< HEAD
+=======
+
+.container {
+	border: 1em solid $black;
+	box-shadow: 0em 0em 1em 1em $black;
+	padding: 0;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	margin-top: 4em;
+	background-color: $black;
+}
+>>>>>>> master
+=======
+/*Team Impact major html elements*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+$gold: #FFD700;
+$silver: #C0C0C0;
+$bronze: #CD7F32;
+$black: #000000;
+$white: #FFFFFF;
+$blue: #0000FF;
+$purple: #800080;
+$yellow: #FFFF00;
+$brown: #A52A2A;
+$orange: #FFA500;
+$green: #00FF00;
+$light-pink: #FFC0CB;
+$red: #FF0000;
+
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.card {
+  &.admin {
+    &._member {
+      background-color: $black;
+      padding: 1em;
+      margin-top: 2em;
+    }
+		&._enquiry {
+			background-color: $white;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			padding-bottom: 4.5em;
+			margin-top: 4em;
+		}
+		&._facility {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._instructor {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._lesson {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._order_item {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._order {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._registration {
+			background-color: $black;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			padding-bottom: 3.5em;
+			margin-top: 4em;
+			margin-top: 2em;
+		}
+		&._programme {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._store_item {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._testimonial {
+			background-color: $white;
+			padding-top: 1.5em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			padding-bottom: 4.5em;
+			margin-top: 4em;
+		}
+  }
+	&.layouts {
+		&._sidebar {
+			width: 100%;
+			padding: 1em;
+			background-color: $white;
+			margin-top: 3em;
+			border-top: 1em solid $black;
+			border-right: 1.5em solid $black;
+			border-bottom: 1em solid $black;
+		}
+	}
+	&.comments {
+		&._comment {
+			background-color: #000000;
+			padding: 1em;
+		}
+	}
+	&.newswire_posts {
+		&._newswire_post {
+			background-color: #000000;
+			padding: 1em;
+			margin-top: 2em;
+		}
+	}
+}
+
+.card-body {
+	&.admin {
+		&._member {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: $white;
+				padding-left: 1em;
+			}
+		}
+		&._enquiry {
+			background-color: $black;
+			padding: 1em;
+		}
+		&._facility {
+			background-color: $black;
+			padding: 1em;
+			margin-top: 2em;
+		}
+		&._order_item {
+			background-color: $black;
+			padding-left: 1em;
+			padding-right: 1em;
+			padding-top: 0.0125em;
+			padding-bottom: 1em;
+		}
+		&._testimonial {
+			background-color: $black;
+			padding: 1em;
+		}
+	}
+	&.layouts {
+		&._sidebar {
+			font-family: Orbitron;
+		}
+	}
+}
+
+.card-title {
+	&.admin {
+		&._enquiry {
+			text-align: center;
+		}
+		&._order_item {
+			margin: 0;
+		}
+		&._order {
+			font-family: Orbitron;
+			font-size: 1.5em;
+		}
+		&._testimonial {
+			text-align: center;
+		}
+	}
+	&.layouts {
+		&._sidebar {
+			color: #000000;
+			font-size: 1.5em;
+		}
+	}
+	&.newswire_posts {
+		&._newswire_post {
+			margin: 0;
+		}
+	}
+}
+
+.card-footer {
+	&.text-muted {
+		&.admin {
+			&._enquiry {
+				background-color: $black;
+				padding: 0; color: $white;
+			}
+			&._testimonial {
+				background-color: $black;
+				padding: 0;
+				color: $white;
+			}
+		}
+	}
+}
+
+
+ul {
+	&.admin {
+		&._enquiry {
+			padding: 0;
+			font-size: 2em;
+		}
+		&._completed_order_summary {
+			padding: 0; font-size: 2em;
+		}
+		&._order_summary {
+			padding: 0;
+			font-size: 2em;
+		}
+		&._testimonial {
+			padding: 0;
+			font-size: 2em;
+		}
+	}
+}
+
+li {
+	&.admin {
+		&._enquiry {
+			list-style-type: none;
+			font-size: 0.5em;
+			margin-left: 1em;
+			h2 {
+			}
+			h3 {
+			}
+			a {
+				margin-top: 1.1em;
+			}
+		}
+		&._completed_order_summary {
+			list-style-type: none;
+			font-size: 0.5em;
+			margin-left: 1em;
+		}
+	}
+}
+
+.btn {
+	border-radius: 0;
+	border-color: $black;
+	&.btn-danger {
+		&.admin {
+			&._member {
+				font-family: Orbitron;
+			}
+			&._enquiry {
+				margin-top: 1em;
+				font-family: Orbitron;
+				float: right;
+			}
+			&._facility {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._instructor {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._lesson {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._order {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._registration {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._programme {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._store_item {
+				font-family: Orbitron;
+				float: right;
+			}
+			&._testimonial {
+				margin-top: 1em;
+				font-family: Orbitron;
+				float: right;
+			}
+		}
+		&.newswire_posts {
+			&._newswire_post {
+				font-family: Orbitron;
+				&.delete-button {
+					padding: 0.75em;
+				}
+			}
+		}
+	}
+	&.btn-primary {
+		&.admin {
+			&._edit_member_form {
+				margin-top: 2em;
+			}
+			&._new_member_form {
+				margin-top: 2em;
+			}
+			&._enquiry_form {
+				width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				margin-top: 3em;
+				margin-bottom: 2em;
+				padding: 1.5em;
+			}
+			&._facility {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._instructor {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._lesson {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._programme {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._store_item {
+				float: right;
+				margin-right: 0.5em;
+			}
+			&._edit_testimonial_edit_form {
+				width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				margin-top: 3em;
+				margin-bottom: 2em;
+				padding: 1.5em;
+			}
+			&._new_testimonial_form {
+				width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				margin-top: 3em;
+				margin-bottom: 2em;
+				padding: 1.5em;
+			}
+		}
+		&.home {
+			margin-top: 3em;
+		}
+		&.enquiries {
+			&._enquiry_form {
+		    width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				margin-top: 3em;
+				margin-bottom: 2em;
+				padding: 1.5em;
+			}
+		}
+	}
+}
+
+div {
+	&.admin {
+		&._facility {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
+		&._instructor {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
+		&._lesson {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
+		&._programme {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
+		&._store_item {
+			&.button-options {
+				padding-top: 6em;
+			}
+		}
+	}
+}
+
+span {
+	&.admin {
+		&._member {
+			&.title {
+				font-family: Orbitron;
+				font-size: 1.5em;
+				padding-left: 1em;
+			}
+		}
+		&._facility {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: $white;
+				padding-left: 1em;
+			}
+		}
+		&._instructor {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: $white;
+				padding-left: 1em;
+			}
+		}
+		&._lesson {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: $white;
+				padding-left: 1em;
+				&.active {
+					color: #90EE90;
+				}
+				&.expired {
+					color: $red;
+				}
+			}
+		}
+		&.lessons {
+			&.show {
+				&.argument-id {
+					font-family: Trebuchet MS;
+					color: $white;
+					padding-left: 1em;
+				}
+			}
+		}
+		&._order_item {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: $white;
+				padding-left: 1em;
+			}
+		}
+		&._order {
+			&.argument {
+				font-family: Trebuchet MS;
+				color: $white;
+				padding-left: 1em;
+			}
+		}
+		&.orders {
+			&.show {
+				&.total-argument {
+					font-family: Trebuchet MS;
+					color: $white;
+					padding-left: 0.5em;
+				}
+				&.member-argument {
+					font-family: Trebuchet MS;
+					color: $white;
+				}
+			}
+		}
+		&._registration {
+			font-family: Trebuchet MS;
+			color: $white;
+			padding-left: 1em;
+		}
+		&._programme {
+			font-family: Trebuchet MS;
+			color: $white;
+			padding-left: 1em;
+		}
+		&._store_item {
+			font-family: Trebuchet MS;
+			color: $white;
+			padding-left: 1em;
+			&.description {
+				padding-left: 0;
+			}
+		}
+	}
+	&.newswire_posts {
+		&._newswire_post {
+			&.author-name {
+				font-family: Orbitron;
+				font-size: 2em;
+				margin-left: 1em;
+			}
+		}
+	}
+	&.comments {
+		&._comment {
+			&.author-name {
+				font-family: Orbitron;
+				font-size: 2em;
+				margin-left: 1em;
+			}
+		}
+	}
+}
+
+form {
+	&.admin {
+		&._new_member_form {
+			padding: 1em;
+		}
+	}
+}
+
+.col-md-8 {
+	&.admin {
+		&.members {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.enquiries {
+			&.index {
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.facilities {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.instructors {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.layouts {
+			&._edit {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+			&._new {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.lessons {
+			&._lesson {
+				margin-bottom: 1.5em;
+				color: $silver;
+			}
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+			&.show {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.orders {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+			&.show {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.programmes {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.store_items {
+			&.index {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.testimonials {
+			&.index {
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+	}
+}
+
+.center {
+	&.admin {
+		&.members {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+			&.show {
+				padding-top: 1em;
+				padding-bottom: 1em;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		&.facilities {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+		}
+		&.instructors {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+		}
+		&.orders {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+			&.show {
+				background-color: $black;
+				border-color: $black;
+			}
+		}
+		&.programmes {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+		}
+		&.store_items {
+			&.index {
+				background-color: $white;
+				margin-top: 1.5em;
+			}
+		}
+	}
+}
+
+html {
+	background: no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+html {
+	background: image-url("layout_images/possible_image_11.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	color: $white;
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	text-align: justify;
+	max-width: 100%;
+	background: none;
+	/*
+	background-position: center;
+    background-size: cover;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	*/
+}
+
+h1 {
+	color: $gold;
+	//background-color: $black;
+	//border: 1em solid $black;
+	text-align: center;
+	font-family: Orbitron, Orbitron, sans-serif;
+	font-size: 300%;
+	margin: 0;
+	&:hover{
+		text-shadow: 0px 0px 0.5em $gold;
+	}
+}
+
+
+h2 {
+	color: $silver;
+	font-size: 200%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover{
+		text-shadow: 0px 0px 0.25em $silver;
+	}
+	&.admin {
+		&.facilities {
+			&.index {
+				color: $black;
+			}
+		}
+		&.instructors {
+			&.show {
+				text-align: center;
+				margin-top: 2em;
+			}
+		}
+		&.lessons {
+			&._lesson {
+				color: $silver;
+			}
+			&.show {
+				&.parameter {
+					padding-left: 1em;
+				}
+			}
+		}
+		&._order_item {
+			color: $white;
+		}
+		&.orders {
+			&.show {
+				&.member-argument {
+					font-family: Trebuchet MS;
+					color: $white;
+					padding-left: 0.5em;
+				}
+			}
+		}
+		&.registrations {
+			&._registration {
+				margin-bottom: 1.5em;
+				color: $silver;
+			}
+		}
+		&.programmes {
+			&.index {
+				color: $black;
+			}
+		}
+		&.store_items {
+			&.index {
+				color: $black;
+			}
+		}
+		&.members {
+			&.index {
+				color: $black;
+			}
+		}
+	}
+	&.instructors {
+		&.show {
+			text-align: center;
+			margin-top: 2em;
+		}
+	}
+}
+
+
+h3 {
+	color: $bronze;
+	font-size: 100%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover {
+	text-shadow: 0px 0px 0.125em $bronze;
+	}
+}
+
+
+h4 {
+	color: $bronze;
+	font-size: 100%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover {
+	text-shadow: 0px 0px 0.5em $bronze;
+	}
+}
+
+
+p {
+	font-size: 125%;
+
+}
+
+/*Team Impact table html elements*/
+
+.table {
+}
+
+th {
+	font-size: 150%;
+	font-family: Orbitron, Orbitron, sans-serif;
+	border: 0.1em;
+	border-style: solid;
+	border-color: $black;
+	background-color: $white;
+	color: $black;
+	text-align: center;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+tr, td {
+	font-size: 125%;
+	border: 0.1em;
+	border-style: solid;
+	border-color: $black;
+	text-align: center;
+}
+
+li {
+	text-align: left;
+	font-size: 100%;
+}
+
+.table {
+	td {
+		padding-right: 2em;
+		padding-top: 2em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+	}
+	thead {
+		tr {
+			background-color: $white;
+			color: $black;
+			td {
+				border: 0.25em solid $black;
+				font-family: Orbitron;
+			}
+		}
+	}
+	tbody {
+		tr {
+			background-color: $black;
+			color: $white;
+			td {
+				border: 0.25em solid $white;
+			}
+		}
+	}
+}
+
+.table-timetable {
+	color: $black;
+	list-style-type: none;
+	font-family: Orbitron;
+	border: 1px;
+	border-style: solid;
+	border-color: $black;
+	text-align: center;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	td{
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		padding-right: 1em;
+	}
+}
+
+/*Team Impact semantic html elements*/
+
+/* footer */
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	color: $white;
+	border-top: 1px solid $white
+	a {
+		color: $black;
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 15px;
+		}
+	}
+}
+
+p {
+	&.card-text {
+		&.comments {
+			&._comment {
+				margin-top: 2em;
+				font-family: Trebuchet MS;
+				&.author-name {
+
+				}
+				&.content {
+
+				}
+				&.timestamp {
+					font-family: Orbitron;
+				}
+			}
+		}
+		&.newswire_posts {
+			&._newswire_post {
+				margin-top: 2em;
+				font-family: Trebuchet MS;
+				&.author-name {
+
+				}
+				&.content {
+
+				}
+				&.comments-link {
+					margin-top: 1em;
+					font-family: Orbitron;
+					font-size: 1em;
+				}
+			}
+		}
+	}
+	small {
+		&.text-muted {
+			color: $white;
+			&.newswire_posts {
+				&._newswire_post {
+					color: $white;
+					font-family: Orbitron;
+				}
+			}
+		}
+	}
+}
+
+/* form */
+
+
+/*
+form {
+	font-size: 125%;
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	input[type=text], input[type=number], input[type=tel], select, textarea {
+    	padding: 1.2em 2em;
+    	margin: 0.8em;
+    	box-sizing: border-box;
+		font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+		color: $black;
+		background-color: $white;
+    	border: 0.2em;
+		border-color: $white;
+    	border-radius: 0.4em;
+		outline: none;
+	}
+	input[type=submit] {
+		color: $black;
+    	background-color: $yellow;
+		font-family: Orbitron, Orbitron, sans-serif;
+		font-weight: bold;
+    	padding: 1.2em 2em;
+    	border: 0.2em;
+		border-color: $white;
+    	border-radius: 0.4em;
+    	cursor: pointer;
+	}
+}
+
+*/
+
+.checkbox {
+	margin-top: -10px;
+	margin-bottom: 10px;
+	span {
+		margin-left: 20px;
+		font-weight: normal;
+	}
+}
+
+#session_remember_me {
+	width: auto;
+	margin-left: 0;
+}
+
+#error_explanation {
+	color: $red;
+	ul {
+		color: $red;
+		margin: 0 0 30px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .has-error;
+	.form-control {
+		color: $state-danger-text;
+	}
+}
+input, textarea, select, .uneditable-input {
+	color: $black;
+	border: 1px solid #bbb;
+	width: 100%;
+	margin-bottom: 15px;
+	@include box_sizing;
+}
+
+input {
+	height: auto !important;
+}
+
+/*nav*/
+
+/*
+nav {
+	ul {
+		text-align: center;
+		li {
+			a {
+				color: $black;
+    			background-color: $white;
+    			&:hover {
+					color: $black;
+					background-color: $gold;
+				}
+				&:active {
+					color: $black;
+					background-color: $gold;
+				}
+			}
+			li {
+				a {
+					&:active {
+					color: $black;
+					background-color: $gold;
+					}
+				}
+				&:hover {
+					background-color: $gold;
+				}
+			}
+		}
+	}
+}
+
+*/
+
+header {
+	background-color: $white;
+}
+
+.navbar-default .navbar-nav {
+	li {
+		a {
+			color: $black;
+			font-family: Orbitron;
+		}
+		&:hover {
+			background-color: $gold;
+		}
+	}
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: $black;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: $black;
+    background-color: $gold;
+}
+
+
+/*main*/
+
+main {
+	img {
+		position: relative;
+		height: 60vh;
+		width: 100%;
+		max-width: 100%;
+		padding: 0;
+		border-radius: 0.5em;
+	}
+	a {
+		float: none;
+		&:link {
+			color: $blue;
+			text-decoration: none;
+		}
+		&:visited {
+			color: $purple;
+			text-decoration: none;
+		}
+		&:hover {
+			color: $yellow;
+			text-decoration: none;
+		}
+		&:active {
+			color: $yellow;
+			background-color: $black;
+			text-decoration: underline;
+		}
+	}
+}
+
+
+
+/*section*/
+
+section {
+	padding-bottom: 2em;
+	h1 {
+		margin-top: 2em;
+	}
+}
+
+/* sidebar */
+
+.just-padding {
+  padding-left: 1em;
+}
+
+.list-group.list-group-root {
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-group.collapse {
+	margin-top: 0;
+}
+
+.list-group.list-group-root .list-group {
+  margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+  border-radius: 0;
+  border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+  padding-left: 30px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+  padding-left: 45px;
+}
+
+.list-group-item .glyphicon {
+  margin-top: 0;
+  margin-right: 5px;
+  color: $black;
+}
+
+a.list-group-item {
+	color: $black;
+	&:hover {
+		background-color: $gold;
+		color: $black;
+	}
+}
+
+a.list-group-item:focus, button.list-group-item:hover, button.list-group-item:focus {
+    color: $black;
+    outline: none;
+    background-color: #f5f5f5;
+}
+
+aside {
+	background: $black;
+	section.user_info {
+		margin-top: 3em;
+	}
+	section {
+		padding-top: 1em;
+		padding-bottom: 1em;
+		margin-top: 1em;
+		&:first-child {
+			border: 0;
+			padding-top: 0;
+		}
+		span {
+			display: block;
+			margin-bottom: 3px;
+			line-height: 1;
+		}
+		h1 {
+			font-size: 2em;
+			text-align: center;
+			margin-bottom: 3px;
+			margin-top: 0px;
+			margin-left: 3px;
+		}
+	}
+}
+
+/* Members index */
+.members {
+	list-style: none;
+	margin: 0;
+	li { overflow: auto;
+		padding: 10px 0;
+		border-bottom: 1px solid $black;
+	}
+}
+
+/*
+.gravatar {
+	float: right;
+	margin-right: 10px;
+}
+
+.gravatar_edit {
+	margin-top: 15px;
+}
+*/
+
+/*article*/
+
+article {
+	padding-bottom: 2em;
+}
+
+/*nav bar classes*/
+
+/*
+.container{
+	padding: 0;
+	width: 100%;
+	margin-top: 100px;
+	color: $white;
+	//background: $black;
+}
+*/
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	@include box_sizing;
+}
+
+
+
+.dropdown-menu {
+    padding: 0;
+    	li {
+    		a {
+    			&:hover {
+    				background-color: $gold;
+    			}
+    		}
+    	}
+}
+
+/*
+.dropdown-content {
+	margin: 0;
+	font-size: 100%;
+    display: none;
+    position: absolute;
+    background-color: $white;
+    padding: 0;
+    z-index: 1;
+	width: 100%;
+	height: auto;
+	left: 0px;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+	background-color: $white;
+}
+
+*/
+
+/*Team Impact other classes*/
+
+.advanced{ color: $purple; }
+
+.beginner{ color: $white; }
+
+.btn-primary{
+	font-family: Orbitron, Orbitron, sans-serif;
+	background-color: $gold;
+	color: $black;
+}
+
+.center { text-align: center;
+		background-color: $black;
+		color: $gold;
+		img {
+		margin-top: 1.5em;
+	}
+}
+
+
+.citation{
+	font-size: 125%;
+	font-style: italic;
+}
+
+.competition{ color: $brown; }
+
+
+.ginogi{ text-align:left; }
+
+.gym_rules{
+	font-size: 125%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+/*
+.image_edit {
+	padding-right: 1em;
+	padding-bottom: 1em;
+}
+
+*/
+
+.important_info {
+	font-size: 75%;
+	font-style: italic;
+}
+
+.intermediate{ color: $blue; }
+
+.kids{ color: $orange; }
+
+.logo{
+	background-image: image-url("TeamImpactLogoFinal3.jpg");
+	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+	opacity: 0.25;
+}
+
+.list-group {
+	margin-top: 3em;
+	border-radius: 0;
+	font-family: Orbitron;
+}
+
+.mma_ol_li {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 150%;
+	color: $bronze;
+	font-family: Orbitron, Orbitron, sans-serif;
+	&:hover {
+		text-shadow: 0px 0px 10px $bronze;
+	}
+}
+
+
+
+.paragraph_list_entry{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 125%;
+}
+
+.rowcolname{
+	color: $black;
+	background-color: $white;
+	border-color: $black;
+	font-family: Orbitron, Orbitron, sans-serif
+}
+
+.teens{ color: $green; }
+
+.timetable_subheading{
+	font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+	font-size: 125%;
+}
+
+.trainingarea{ color: $yellow; }
+
+.womens{ color: $light-pink; }
+
+.well {
+	margin-top: 3em;
+	border-radius: 0;
+	background-color: $white;
+	h2 {
+		color: $black;
+	}
+	&.admin {
+		&.layouts {
+			&._edit {
+				background-color: $black;
+			}
+			&._new {
+				background-color: $black;
+			}
+		}
+	}
+}
+
+/* newswire_posts */
+
+.newswire_posts {
+	list-style: none;
+	font-family: Orbitron;
+	padding: 0;
+	li {
+		margin-top: 1em;
+		padding: 1em;
+		border: 1px solid $gold;
+		background: $black;
+	}
+	.user {
+		margin-top: 5em;
+		padding-left: 1em;
+		font-size: 1.5em;
+	}
+	.content {
+		display: block;
+		padding-top: 1.5em;
+		font-family: Trebuchet MS, Trebuchet MS, sans-serif;
+		img {
+			display: block;
+		}
+	}
+	.timestamp {
+		font-family: Orbitron;
+		color: $white;
+		display: block;
+		padding-top: 0.5em;
+		padding-bottom: 1em;
+		font-size: 0.75em;
+	}
+	.gravatar {
+	}
+}
+aside {
+	textarea {
+		height: 100px;
+		margin-bottom: 5px;
+	}
+}
+span {
+	&.image {
+		margin-top: 10px;
+		input {
+			border: 0;
+		}
+	}
+	&.user {
+		&.newswire_posts {
+			&.newswire_post {
+				font-family: Orbitron;
+				font-size: 1.5em;
+				padding-left: 0.5em;
+			}
+		}
+	}
+}
+
+.pagination {
+	background: $black;
+	border-radius: 0;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-family: Orbitron;
+}
+
+.newswire_post_form {
+	width: 100%;
+}
+
+/*programmes page*/
+
+
+section {
+	.image {
+  		//position: relative;
+  		opacity: 1;
+  		display: inline-block;
+  		width: 100%;
+  		height: auto;
+  		transition: .5s ease;
+  		backface-visibility: hidden;
+  		left: 5.5vw;
+	}
+	.middle {
+  		transition: .5s ease;
+  		opacity: 0;
+  		position: relative;
+	}
+	.text {
+		color: $white;
+		font-size: 2em;
+		font-family: Orbitron, Orbitron, sans-serif;
+		text-align: center;
+		position: relative;
+		margin-bottom: 1em;
+		right: 0.25em;
+		:selected {
+			box-shadow: 0em 0em 1em $white;
+		}
+	}
+	.image {
+		img {
+			height: 60vh;
+			width: 100%;
+			border-radius: 0;
+		}
+	}
+	.image img:hover {
+		opacity: 0.75;
+	}
+	.image img:active {
+	//box-shadow: 0em 0em 5em $gold;
+	opacity: 1.0;
+	}
+	.image:hover .middle {
+		opacity: 1.0;
+	}
+	&.instructors {
+		&.index {
+			&.quotation {
+				color: $white;
+				display: none;
+				text-align:center;
+				font-size: 1.5em;
+			}
+		}
+	}
+}
+
+.form-control {
+	border-radius: 0;
+}
+
+.testimonial {
+	background-color: $black;
+	color: $white;
+	padding: 1em;
+	margin-right: 2em;
+	width: 100%;
+}
+.lesson-list-item {
+	list-style-type: none;
+	font-size: 0.5em;
+	margin-left: 1em;
+	h2 {
+	}
+	h3 {
+	}
+	a {
+		margin-top: 1.1em;
+	}
+}
+
+.expired {
+	color: $red;
+	font-style: bold;
+}
+
+.stripe-button-el {
+	display: none !important;
+}
+
+.timetable_heading {
+    color: $silver;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.form-wrapper {
+	padding-left: 6em;
+	padding-right: 6em;
+}
+
+.card.text-center {
+		margin-top: 2em;
+		margin-left: auto;
+		margin-right: auto;
+		width: 75%;
+}
+
+.container {
+	border: 1em solid $black;
+	box-shadow: 0em 0em 1em 1em $black;
+	padding: 0;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	margin-top: 4em;
+	background-color: $black;
+}
+>>>>>>> master

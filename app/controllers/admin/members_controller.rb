@@ -90,3 +90,4 @@ class Admin::MembersController < Admin::AdminApplicationController
       return conditions
     end
 end
+
