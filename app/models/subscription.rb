@@ -24,7 +24,6 @@ class Subscription < ApplicationRecord
   
   private
   
-    
     #implement the registrations count in a before_save in the subscriptions controller
     
     #Re-label's the name of the subscription's associated membership if a member already has the same kind

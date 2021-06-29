@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2020_12_05_120811) do
     t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"member\", \"created_at\"", name: "find_comments_by_member"
-    t.index "\"member\", \"newswire_post\", \"created_at\"", name: "find_unique_comment", unique: true
-    t.index "\"newswire_post\", \"created_at\"", name: "find_comments_by_newswire_post"
+    t.index ["member_id", "created_at"], name: "find_comments_by_member"
+    t.index ["member_id", "newswire_post_id", "created_at"], name: "find_unique_comment", unique: true
+    t.index ["newswire_post_id", "created_at"], name: "find_comments_by_newswire_post"
     t.index ["member_id"], name: "index_comments_on_member_id"
     t.index ["newswire_post_id"], name: "index_comments_on_newswire_post_id"
   end
