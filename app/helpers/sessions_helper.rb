@@ -13,10 +13,10 @@ module SessionsHelper
 
     # Returns the member corresponding to the remember token cookie.
     def current_member
-        if (member_id = session[:member_id])
-            @current_member ||= Member.find_by(id: member_id)
-        elsif (member_id = cookies.signed[:member_id])
-            member = Member.find_by(id: member_id)
+        if (!session[:member_id].nil?)
+            @current_member ||= Member.find(session[:member_id])
+        elsif (!cookies.signed[:member_id].nil?)
+            member = Member.find(cookies.signed[:member_id])
 
             #Using the generalised 'authenticated?' method in 'current member'
             if member && member.authenticated?(:remember, cookies[:remember_token])
@@ -24,11 +24,12 @@ module SessionsHelper
                 @current_member = member
             end
         end
+        return @current_member
     end
 
     #Returns true if the member is logged in, false otherwise
     def logged_in?
-        !current_member.nil?
+        return !current_member.nil?
     end
 
     # Forgets a persistent session.
@@ -46,7 +47,7 @@ module SessionsHelper
 
     # Returns true if the given member is the current member.
     def current_member?(member)
-        member == current_member
+        return member == current_member
     end
 
     #Code to implement friendly-forwarding
