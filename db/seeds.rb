@@ -89,7 +89,7 @@ nil
 10.times do |n|
   Programme.create!(
     name: programme_names[n],
-    avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open,
+    programme_avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open,
     quotation: programme_quotations[n]
   )#programme.save
   #programmes.push(programme)
@@ -107,7 +107,7 @@ instructor_roles = ['Head Instructor', 'MMA and BJJ Instructor', 'BJJ Instructor
     first_name: instructor_first_names[n],
     last_name: instructor_last_names[n],
     role: instructor_roles[n],
-    avatar: Pathname.new(Rails.root.join("app/assets/images/instructors_images/#{instructor_first_names[n]}_#{instructor_last_names[n]}.jpg")).open
+    instructor_avatar: Pathname.new(Rails.root.join("app/assets/images/instructors_images/#{instructor_first_names[n]}_#{instructor_last_names[n]}.jpg")).open
   )
   #instructor.save
   #instructors.push(instructor)
@@ -120,7 +120,7 @@ facility_names = ['Mat Area', 'MMA Area', 'Boxing Area', 'Gym Area', 'Changing A
 7.times do |n|
   Facility.create!(
     name: facility_names[n],
-    avatar: Pathname.new(Rails.root.join("app/assets/images/facilities_images/#{replace_char(facility_names[n], " ", "_")}.jpg")).open
+    facility_avatar: Pathname.new(Rails.root.join("app/assets/images/facilities_images/#{replace_char(facility_names[n], " ", "_")}.jpg")).open
   )
   #facility.save
   #facilities.push(facility)
@@ -768,7 +768,7 @@ prices = [20.00, 40.00, 70.00, 100.00]
     name: membership_names[n],
     description: membership_descriptions[n],
     price: prices[n],
-    avatar: Pathname.new(Rails.root.join('app/assets/images/default_images/TIFavicon2.jpg')).open
+    store_item_avatar: Pathname.new(Rails.root.join('app/assets/images/default_images/TIFavicon2.jpg')).open
     #avatar: 'app/assets/images/default_images/TIFavicon2.jpg'
   )
 end
@@ -800,7 +800,7 @@ end
     name: store_item_names[n],
     description: store_item_descriptions[n],
     price: store_item_prices[n],
-    avatar: avatar
+    store_item_avatar: avatar
   )
   #store_item.save
 end

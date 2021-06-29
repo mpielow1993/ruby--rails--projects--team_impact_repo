@@ -5,7 +5,7 @@ class CreateStoreItems < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.decimal :price
-      t.string :avatar
+      t.string :store_item_avatar
 
       t.timestamps
     end
