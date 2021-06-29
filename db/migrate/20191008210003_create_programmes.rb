@@ -3,7 +3,7 @@ class CreateProgrammes < ActiveRecord::Migration[6.0]
     create_table :programmes do |t|
       t.string :name
       t.string :programme_avatar
-      t.string :programm_quotation
+      t.string :programme_quotation
       t.timestamps
     end
   end
