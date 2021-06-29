@@ -14,11 +14,4 @@ class Order < ApplicationRecord
         self.total = self.order_items.collect{ |order_item| order_item.valid? ? (order_item.sub_total) : 0 }.sum.to_d
     end
   
-  private
-    
-
-    
-    #def default_values
-     # self.total ||= 0
-    #end
 end

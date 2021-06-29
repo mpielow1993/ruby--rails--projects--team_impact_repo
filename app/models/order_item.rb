@@ -8,7 +8,7 @@ class OrderItem < ApplicationRecord
   #validates :unit_price, :sub_total, presence: true, numericality: { greater_than_or_equal_to: 0  }
   
   def is_membership?
-      (self.store_item.type == "Membership") ? true : false
+      return self.store_item.type == "Membership"
   end  
   
   private 

@@ -106,7 +106,7 @@ instructor_roles = ['Head Instructor', 'MMA and BJJ Instructor', 'BJJ Instructor
   Instructor.create!(
     first_name: instructor_first_names[n],
     last_name: instructor_last_names[n],
-    role: instructor_roles[n],
+    instructor_role: instructor_roles[n],
     instructor_avatar: Pathname.new(Rails.root.join("app/assets/images/instructors_images/#{instructor_first_names[n]}_#{instructor_last_names[n]}.jpg")).open
   )
   #instructor.save

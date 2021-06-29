@@ -1,52 +1,54 @@
 <% provide(:title, 'Public Timetable') %>
-  <div class="center" style="margin-bottom: 2em; margin-top: 3em; margin-left: auto; margin-right: auto; width: 35%; padding: 0; border: 1em solid #000000; box-shadow: 0em 0em 1em 1em #000000;">
-    <h1 style="margin: 0;"><%= yield(:title) %></h1>
-  </div>
-  <div class="row">
-    <div class="card text-center">
+<div class="center" style="margin-bottom: 2em; margin-top: 3em; margin-left: auto; margin-right: auto; width: 35%; padding: 0; border: 1em solid #000000; box-shadow: 0em 0em 1em 1em #000000;">
+  <h1 style="margin: 0;"><%= yield(:title) %></h1>
+</div>
+<div class="row">
+  <div class="card text-center">
 
-      <div class="center" style="margin-bottom: 1.5em; margin-top: 1em; margin-left: auto; margin-right: auto; width: 50%; padding: 0; text-align: center; border: 1em solid #000000; box-shadow: 0em 0em 1em 1em #000000;">
-        <%= render 'lessons/search_timetable_form', url: public_timetable_path, date: @date %>
-      </div>
+    <div class="center" style="margin-bottom: 1.5em; margin-top: 1em; margin-left: auto; margin-right: auto; width: 50%; padding: 0; text-align: center; border: 1em solid #000000; box-shadow: 0em 0em 1em 1em #000000;">
+      <%= render 'lessons/search_timetable_form', url: public_timetable_path, date: @date %>
     </div>
+  </div>
 
-    <div class="col-md-8">
-      <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
-        <%-#The members index with pagination-%>
-          <table class="table-timetable">
-            <thead>
-              <td colspan="2" style="text-align: center; background-color: #000000; color: #FFFFFF;">
-                <h2 style="color: #FFFFFF;"><%= @date.to_datetime.strftime("%a %b #{@date.to_datetime.day.ordinalize}") %>
-                  <%= @date.to_datetime.year %></h2>
-              </td>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding-left: 0.75em;">Time</td>
-                <td>Lesson</td>
-              </tr>
-              <% if !@lessons.nil? %>
-                <% @lessons.each do |lesson| %>
-                  <tr>
-                    <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %>
-                      -
-                      <%= lesson.end_time.strftime("%H:%M") %></td>
-                    <td style="padding: 1em;">
-                      <div id="public-timetable-lesson-<%= lesson.id %>">
-                        <%= render 'lessons/lesson', lesson: lesson %>
-                      </div>
-                    </td>
-                  </tr>
-                <% end %>
-              <% else %>
+  <div class="col-md-8">
+    <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
+      <%-#The members index with pagination-%>
+        <table class="table-timetable">
+          <thead>
+            <td colspan="2" style="text-align: center; background-color: #000000; color: #FFFFFF;">
+              <h2 style="color: #FFFFFF;"><%= @date.to_datetime.strftime("%a %b #{@date.to_datetime.day.ordinalize}") %>
+                <%= @date.to_datetime.year %></h2>
+            </td>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding-left: 0.75em;">Time</td>
+              <td>Lesson</td>
+            </tr>
+            <% if !@lessons.nil? %>
+              <% @lessons.each do |lesson| %>
                 <tr>
-                  <td colspan="2">No lessons listed</td>
+                  <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %>
+                    -
+                    <%= lesson.end_time.strftime("%H:%M") %></td>
+                  <td style="padding: 1em;">
+                    <div id="public-timetable-lesson-<%= lesson.id %>">
+                      <%= render 'lessons/lesson', lesson: lesson %>
+                    </div>
+                  </td>
                 </tr>
               <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-        <%= render 'layouts/sidebar', member: current_member %>
+            <% else %>
+              <tr>
+                <td colspan="2">No lessons listed</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
+    <div class="col-md-4">
+      <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+  </div>
+</div>

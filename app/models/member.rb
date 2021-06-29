@@ -4,8 +4,8 @@ class Member < ApplicationRecord
 
     self.filter_field_array = self.set_filter_field_array(['user_name', 'first_name', 'last_name', 'email', 'phone_no', 'user_level'])
     self.filter_field_hash = self.set_filter_field_hash
-    attr_accessor :remember_token, :activation_token, :reset_token, :avatar
-    mount_uploader :avatar, ImageUploader
+    attr_accessor :remember_token, :activation_token, :reset_token, :member_avatar
+    mount_uploader :member_avatar, ImageUploader
 
     #Ensuring that a member's newswire posts are destroyed along with the member
     has_many :newswire_posts, dependent: :destroy
