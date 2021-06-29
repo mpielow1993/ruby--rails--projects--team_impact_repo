@@ -90,7 +90,7 @@ nil
   Programme.create!(
     name: programme_names[n],
     programme_avatar: Pathname.new(Rails.root.join("app/assets/images/programmes_images/Programmes_#{replace_char(programme_names[n], " ", "_")}.jpg")).open,
-    quotation: programme_quotations[n]
+    programme_quotation: programme_quotations[n]
   )#programme.save
   #programmes.push(programme)
 end
