@@ -75,7 +75,7 @@ Rails.application.configure do
                                         :authentication => :plain, 
                                         :user_name => 'apikey', 
                                         :password => ENV['SENDGRID_API_KEY'], 
-                                        :domain => 'heroku.com', 
+                                        :domain => 'team-impact-app.herokuapp.com', 
                                         :enable_starttls_auto => true }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
