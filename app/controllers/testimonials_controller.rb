@@ -4,8 +4,7 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    @testimonial = Testimonial.new
-    @testimonial = @testimonial.build(testimonial_params)
+    @testimonial = Testimonial.new(testimonial_params)
     if @testimonial.save
       flash[:success] = "Testimonial has been successfully submitted with email confirmation. Thank you"
       @testimonial.send_testimonial
