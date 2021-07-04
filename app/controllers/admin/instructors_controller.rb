@@ -48,6 +48,6 @@ class Admin::InstructorsController < Admin::AdminApplicationController
   private
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :instructor_avatar, :remove_instructor_avatar, :role)
+      params.require(:instructor).permit(:first_name, :last_name, :avatar, :remove_avatar, :role)
     end
 end

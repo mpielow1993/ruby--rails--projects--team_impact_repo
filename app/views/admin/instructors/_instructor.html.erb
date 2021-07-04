@@ -2,7 +2,7 @@
     <div class="card-body">
 		<div class="row">
     	<div class="col-md-4">
-        	<%= link_to instructor_big_image_for(instructor), instructor_path(instructor) %>
+        	<%= link_to generate_avatar_for(instructor, { style: { width: '100%', height: 'auto' }}), instructor_path(instructor) %>
     	</div>
 		<div class="col-md-8">
 			<h3>First Name: <span class="admin _instructor argument"><%= instructor.first_name %></span></h3>

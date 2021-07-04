@@ -15,12 +15,12 @@
     <h3><%= f.label :price, "Price" %></h3>
     <%= f.number_field :price, step: 0.01, min: 1 %>
     
-    <h3><%= f.label :store_item_avatar, "Store Product Avatar" %></h3> 
-    <%= f.file_field :store_item_avatar, class: "form-control" %> 
+    <h3><%= f.label :avatar, "Store Product Avatar" %></h3> 
+    <%= f.file_field :avatar, class: "form-control" %> 
     
     <% if @store_item.store_item_avatar? %>
-        <h3><%= f.label :remove_store_item_avatar, "Remove Store Product Avatar" %></h3> 
-        <%= f.check_box :remove_store_item_avatar %> 
+        <h3><%= f.label :remove_avatar, "Remove Store Product Avatar" %></h3> 
+        <%= f.check_box :remove_avatar %> 
     <% end %>
                         
     <%= f.submit yield(:button_text), class: "btn btn-primary" %> 

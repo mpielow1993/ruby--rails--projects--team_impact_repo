@@ -12,12 +12,12 @@
     <h3><%= f.label :role, "Role" %></h3>
     <%= f.text_field :role, class: "form-control" %> 
     
-    <h3><%= f.label :instructor_avatar, "Instructor Avatar" %></h3> 
-    <%= f.file_field :instructor_avatar, class: "form-control" %> 
+    <h3><%= f.label :avatar, "Instructor Avatar" %></h3> 
+    <%= f.file_field :avatar, class: "form-control" %> 
     
-    <% if @instructor.instructor_avatar? %>
-        <h3><%= f.label :remove_instructor_avatar, "Remove Instructor Avatar" %></h3> 
-        <%= f.check_box :remove_instructor_avatar %> 
+    <% if @instructor.avatar? %>
+        <h3><%= f.label :remove_avatar, "Remove Instructor Avatar" %></h3> 
+        <%= f.check_box :remove_avatar %> 
     <% end %>
                         
     <%= f.submit yield(:button_text), class: "btn btn-primary" %> 

@@ -6,8 +6,10 @@
     <div class="col-md-8">
         <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @order.member.user_name %></span></h2>
         <div class="well">
-            <% @order_items.each do |order_item| %>
-                <%= render 'admin/order_items/order_item', order_item: order_item %>
+            <% if @order_items.any? %>
+                <% @order_items.each do |order_item| %>
+                    <%= render 'admin/order_items/order_item', order_item: order_item %>
+                <% end %>
             <% end %>
             <div class="center" style="background-color: #000000; border-color: #000000;">
                 <%= will_paginate @order_items %>

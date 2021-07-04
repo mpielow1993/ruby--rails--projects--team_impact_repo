@@ -19,23 +19,16 @@ class ApplicationController < ActionController::Base
 
 
     # Confirms the correct member.
-
     def correct_member
-      @member = if !params[:member_id].nil?
-
-                  Member.find(params[:member_id])
-
-                else
-
-                  Member.find(params[:id])
-
-                end
-
+      if !params[:member_id].nil?
+        @member = Member.find(params[:member_id])
+      else
+        @member = Member.find(params[:id])
+      end
       redirect_to(root_url) unless current_member?(@member)
     end
 
     # Confirms an admin member.
-
     def admin_member
       redirect_to(root_url) unless current_member.admin?
     end

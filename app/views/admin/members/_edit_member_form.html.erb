@@ -24,12 +24,12 @@
     <h3><%= f.label :password_confirmation, "Password Confirmation" %></h3>
     <%= f.password_field :password_confirmation, class: "form-control" %>
 
-    <h3><%= f.label :member_avatar, "Profile Image" %></h3>
-    <%= f.file_field :member_avatar, class: "form-control" %>
+    <h3><%= f.label :avatar, "Profile Image" %></h3>
+    <%= f.file_field :avatar, class: "form-control" %>
 
-    <% if @member.member_avatar? %>
-        <h3><%= f.label :member_avatar, "Profile Image" %></h3>
-        <%= f.check_box :remove_member_avatar %>
+    <% if @member.avatar? %>
+        <h3><%= f.label :avatar, "Profile Image" %></h3>
+        <%= f.check_box :remove_avatar %>
     <% end %>
 
     <h3><%= f.label :admin, "Admin" %></h3>

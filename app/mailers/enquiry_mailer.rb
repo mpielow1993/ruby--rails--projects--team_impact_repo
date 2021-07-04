@@ -7,8 +7,6 @@ class EnquiryMailer < ApplicationMailer
   #
   def submit_enquiry(enquiry)
     @enquiry = enquiry
-
-    mail to: enquiry.email,
-    subject: "Enquiry Submission"
+    mail(to: enquiry.email, subject: "Enquiry Submission")
   end
 end

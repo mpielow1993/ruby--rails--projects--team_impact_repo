@@ -1,9 +1,11 @@
 <% provide(:title, "Facilities") %>
-	<div class="row">
-		<section>
-			<h1><%= yield(:title) %></h1>
-		</section>
+<div class="row">
+	<section>
+		<h1><%= yield(:title) %></h1>
+	</section>
+	<% if @facilities.any? %>
 		<% @facilities.each do |facility| %>
 			<%= render 'facilities/facility', facility: facility %>
 		<% end %>
-	</div>
+	<% end %>
+</div>

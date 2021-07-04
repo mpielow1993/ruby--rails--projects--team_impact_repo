@@ -6,12 +6,12 @@
     <h3><%= f.label :name, "Name" %></h3>
     <%= f.text_field :name, class: "form-control" %> 
     
-    </h3><%= f.label :facility_avatar, "Facility Avatar" %></h3> 
-    <%= f.file_field :facility_avatar, class: "form-control" %> 
+    </h3><%= f.label :avatar, "Facility Avatar" %></h3> 
+    <%= f.file_field :avatar, class: "form-control" %> 
     
-    <% if @facility.facility_avatar? %>
-        <h3><%= f.label :remove_facility_avatar, "Remove Facility Avatar" %></h3> 
-        <%= f.check_box :remove_facility_avatar %> 
+    <% if @facility.avatar? %>
+        <h3><%= f.label :remove_avatar, "Remove Facility Avatar" %></h3> 
+        <%= f.check_box :remove_avatar %> 
     <% end %>
                         
     <%= f.submit yield(:button_text), class: "btn btn-primary" %> 

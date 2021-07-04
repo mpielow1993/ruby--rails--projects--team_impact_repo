@@ -10,7 +10,12 @@
 	</section>
 <% end %>
 <section class="center">
-	<%= programme_big_image_for(@programme) %>
+	<%= generate_avatar_for(@programme, {
+		style: {
+			width: "100%", 
+			height: "auto"
+		}
+	}) %>
 </section>
 	<div class="container">
 		<div class="row">

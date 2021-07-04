@@ -6,14 +6,15 @@ class RegistrationsController < ApplicationController
     @date = current_lesson_date
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.build(registration_params)
+    @lesson_registration_result = {}
     if @registration.save
-      flash[:success] = "Registration Successful"
+      @lesson_registration_result[:success] = "Registration Successful"
       respond_to do |format|
         format.html {}
         format.js {}
       end
     else
-      flash[:danger] = "Already registered with subscription '#{current_member.subscription_used_to_register_for(@lesson).subscription_name}'"
+      @lesson_registration_result[:danger] = "Already registered with subscription '#{current_member.subscription_used_to_register_for(@lesson).subscription_name}'"
       respond_to do |format|
         format.html {}
         format.js {}
@@ -23,10 +24,11 @@ class RegistrationsController < ApplicationController
 
   def destroy
     @date = current_lesson_date
+    @lesson_registration_result = {}
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.find(params[:id])
     @registration.destroy
-    flash[:success] = "Deregistration Successful"
+    @lesson_registration_result[:success] = "Deregistration Successful"
     respond_to do |format|
       format.html {}
       format.js {}

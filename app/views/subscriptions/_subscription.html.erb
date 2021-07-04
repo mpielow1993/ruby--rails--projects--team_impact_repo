@@ -9,8 +9,8 @@
                 <h3>Created: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.created_at.strftime("%a %b #{subscription.created_at.day.ordinalize}") %> <%= subscription.created_at.year %> at <%= subscription.created_at.strftime("%H:%M:%S") %></span></h3>
                 <h3>Last Updated: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><%= subscription.updated_at.strftime("%a %b #{subscription.updated_at.day.ordinalize}") %> <%= subscription.updated_at.year %> at <%= subscription.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
 		        <h3>Status: 
-                    <% if subscription.is_active == true %>
-                        <% if subscription.membership_id == 2 || subscription.membership_id == 3 %>
+                    <% if subscription.is_active %>
+                        <% if subscription.membership_id == FIVE_CLASS_PASS_ID || subscription.membership_id == TEN_CLASS_PASS_ID %>
                             <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #90EE90;">ACTIVE</span> - <%= subscription.registration_limit.to_i - subscription.registrations.count %> registrations remaining</span>
                         <% else %>
                             <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 1em;"><span style="color: #90EE90;">ACTIVE</span> - Expires on <%= subscription.expiry_date.strftime("%a %b #{subscription.expiry_date.day.ordinalize}") %> <%= subscription.expiry_date.year %> at <%= subscription.expiry_date.strftime("%H:%M:%S") %></span>

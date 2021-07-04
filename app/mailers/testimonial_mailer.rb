@@ -7,8 +7,6 @@ class TestimonialMailer < ApplicationMailer
   #
   def submit_testimonial(testimonial)
     @testimonial = testimonial
-
-    mail to: testimonial.email,
-    subject: "Testimonial Submission"
+    mail(to: testimonial.email, subject: "Testimonial Submission")
   end
 end

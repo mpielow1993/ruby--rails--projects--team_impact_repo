@@ -2,7 +2,7 @@
     <div class="card-body">
 		<div class="row">
     	<div class="col-md-4">
-        	<%= link_to programme_big_image_for(programme), programme_path(programme) %>
+        	<%= link_to generate_avatar_for(programme, { style: { width: '100%', height: 'auto' }}), programme_path(programme) %>
     	</div>
 		<div class="col-md-8">
 			<h3>Name: <span class="admin _programme"><%= programme.name %></span></h3>

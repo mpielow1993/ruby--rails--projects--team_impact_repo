@@ -35,7 +35,10 @@
                                 <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
                                 <td style="padding: 1em;">
                                   <div id="member-<%= current_member.id %>-private-timetable-lesson-<%= lesson.id %>">
-                                    <%= render 'lessons/lesson', lesson: lesson %>
+                                    <%= render 'lessons/lesson', { 
+                                        lesson: lesson,
+                                        lesson_registration_results: nil
+                                    } %>
                                   </div>
                                 </td>
                             </tr>

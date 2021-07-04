@@ -7,10 +7,10 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.new
     @member = Member.create(admin_member_params)
     if @member.save
-      @member.admin? ? flash[:success] = "New Admin Created Successfully" : flash[:success] = "New Member Created Successfully"
+      flash[:success] = @member.admin? ? "New Admin Created Successfully" : "New Member Created Successfully"
       redirect_to admin_member_path(@member)
     else
-      render 'admin/new'
+      render 'new'
     end
   end
 
@@ -22,10 +22,10 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.find(params[:id])
     @member.update(admin_member_params)
     if @member.save
-      @member.admin? ? flash[:success] = "Admin Updated Successfully" : flash[:success] = "Member Updated Successfully"
+      flash[:success] = @member.admin? ?  "Admin Updated Successfully" : "Member Updated Successfully"
       redirect_to admin_member_path(@member)
     else
-      render 'admin/edit'
+      render 'edit'
     end
   end
 
@@ -40,7 +40,7 @@ class Admin::MembersController < Admin::AdminApplicationController
   def destroy
     @member = Member.find(params[:id])
     @member.destroy
-    @member.admin? ? flash[:success] = "Admin Removed Successfully" : flash[:success] = "Member Removed Successfully"
+    flash[:success] = @member.admin? ? "Admin Removed Successfully" : "Member Removed Successfully"
     redirect_to admin_members_path
   end
 

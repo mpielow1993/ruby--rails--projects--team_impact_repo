@@ -2,12 +2,10 @@
 	<div class="card-body">
 		<div class="row">
     		<div class="col-md-4">
-                <a href="/instructors/<%= lesson.instructor.id %>">
-                    <%= instructor_big_image_for(lesson.instructor, width: "100%", height: "auto") %>
-                </a>
+				<%= link_to(generate_avatar_for(lesson.instructor, { style: { width: '100%', height: 'auto' }}), instructor_path(lesson.instructor)) %>
     		</div>
 			<div class="col-md-8">
-			     <h2 class="admin lessons _lesson">Lesson #<%= lesson.id %></h2>
+			    <h2 class="admin lessons _lesson">Lesson #<%= lesson.id %></h2>
 				<h3>Date: <span class="admin _lesson argument"><%= lesson.date.strftime("%a %b #{lesson.date.day.ordinalize}") %> <%= lesson.date.year %></span></h3>
 				<h3>Start Time: <span class="admin _lesson argument"><%= lesson.start_time.strftime("%H:%M") %></span></h3>
 				<h3>End Time: <span class="admin _lesson argument"><%= lesson.end_time.strftime("%H:%M") %></span></h3>
@@ -15,13 +13,7 @@
         		<h3>Facility: <span class="admin _lesson argument"><%= lesson.facility.name %></span></h3></span></h3>
         		<h3>Programme: <span class="admin _lesson argument"><%= lesson.programme.name %></span></h3></span></h3>
         		<h3>Level: <span class="admin _lesson argument"><%= lesson.level %></span></h3></span></h3>
-        		<h3>Status:
-        		<% if lesson.is_expired %>
-        		    <span class="admin _lesson argument"><span class="admin _lesson argument expired">EXPIRED</span></span>
-        		<% else %>
-        		    <span class="admin _lesson argument"><span class="admin _lesson argument active">ACTIVE</span></span>
-        		<% end %>
-        		</h3>
+        		<h3>Status: <span class="admin _lesson argument"><span class="admin _lesson argument expired"><%= lesson.is_expired ? 'EXPIRED' : 'ACTIVE' %></span></span></h3>
         		<h3><%= link_to "View Registrations", admin_lesson_path(lesson) %></h3>
 				<div class="admin _lesson button-options">
         			<%= link_to "Delete", admin_lesson_path(lesson), method: :delete, class: "btn btn-danger admin _lesson", data: { confirm: "Are you sure you want to delete lesson '##{lesson.id}'?" } %>

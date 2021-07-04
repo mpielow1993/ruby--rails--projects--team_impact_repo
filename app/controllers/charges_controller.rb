@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   before_action :logged_in_member
+
 def new
   @member = current_member
   @order = current_order
@@ -24,34 +25,30 @@ def create
     receipt_email: "#{@member.email}"
   })
 
-@live_order.is_paid = true
+  @live_order.is_paid = true
+  @subscription_count = 0
 
-@subscriptions = 0
-
-if @live_order.save
-  @live_order.order_items.each do |order_item|
-    if order_item.store_item.type == "Membership"
-      order_item.quantity.times do |n|
-        subscription = order_item.store_item.subscriptions.build(member_id: @member.id, is_active: true)
-        subscription.save
-        @subscriptions += 1
+  if @live_order.save
+    @live_order.order_items.each do |order_item|
+      if order_item.store_item.type == "Membership"
+        order_item.quantity.times do |n|
+          subscription = order_item.store_item.subscriptions.build(member_id: @member.id, is_active: true)
+          subscription.save
+          @subscription_count += 1
+        end
       end
     end
+    flash[:success] = "Payment Completed. #{@subscription_count} Membership Subscriptions added to your account"
+    redirect_to store_items_path
+    session[:order_id] = nil
+  else
+    flash[:danger] = "Something went wrong. Please try again"
+    redirect_to store_items_path
   end
-  flash[:success] = "Payment Completed. #{@subscriptions} Membership Subscriptions added to your account"
-  redirect_to store_items_path
-  session[:order_id] = nil
-else
-  flash[:danger] = "Something went wrong. Please try again"
-  redirect_to store_items_path
-end
 
-
-
-
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to new_charge_path
-end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
+  end
 
 end

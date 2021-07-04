@@ -2,7 +2,7 @@
 	<div class="card-body">
 		<div class="row">
     		<div class="col-md-4">
-        		<%= link_to store_item_big_image_for(store_item), store_item_path(store_item) %>
+        		<%= link_to generate_avatar_for(store_item, { style: { width: '100%', height: 'auto' }}), store_item_path(store_item) %>
     		</div>
 			<div class="col-md-8">
 				<h3>Name: <span class="admin _store_item"><%= store_item.name %></span></h3>
