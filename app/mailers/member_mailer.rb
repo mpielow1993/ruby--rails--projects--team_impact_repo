@@ -9,8 +9,7 @@ class MemberMailer < ApplicationMailer
   #Mailing the account activation link
   def account_activation(member) 
     @member = member 
-    mail to: member.email, 
-    subject: "Account Activation" 
+    mail(to: member.email, subject: "Account Activation") 
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -21,7 +20,6 @@ class MemberMailer < ApplicationMailer
   #Mailing the password reset link
   def password_reset(member) 
     @member = member 
-    mail to: member.email, 
-    subject: "Password Reset" 
+    mail(to: member.email, subject: "Password Reset") 
   end
 end

@@ -4,13 +4,14 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    @testimonials = Testimonial.all
-    @testimonial = Testimonial.create(testimonial_params)
+    @testimonial = Testimonial.new
+    @testimonial = @testimonial.build(testimonial_params)
     if @testimonial.save
       flash[:success] = "Testimonial has been successfully submitted with email confirmation. Thank you"
       @testimonial.send_testimonial
       redirect_to testimonials_path
     else
+      flash[:success] = "An error occured submitting the testimonial"
       render 'testimonials/index'
     end
   end

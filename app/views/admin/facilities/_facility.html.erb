@@ -2,7 +2,7 @@
     <div class="card-body">
 		<div class="row">
     	<div class="col-md-4">
-        	<%= link_to facility_big_image_for(facility), facility_path(facility) %>
+        	<%= link_to generate_avatar_for(facility, { style: { width: '100%', height: 'auto' }}), facility_path(facility) %>
     	</div>
 		<div class="col-md-8">
 			<h3>Name: <span class="admin _facility argument"><%= facility.name %></span></h3>

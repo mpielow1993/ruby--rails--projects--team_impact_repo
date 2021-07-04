@@ -32,7 +32,7 @@ class Admin::FacilitiesController < Admin::AdminApplicationController
   def destroy
     @facility = Facility.find(params[:id])
     @facility.destroy
-    flash[:success] = "Facility successfully destroyed"
+    flash[:success] = "Facility successfully deleted"
     redirect_to admin_facilities_path
   end
 
@@ -48,6 +48,6 @@ class Admin::FacilitiesController < Admin::AdminApplicationController
   private
 
     def facility_params
-      params.require(:facility).permit(:name, :facility_avatar, :remove_facility_avatar)
+      params.require(:facility).permit(:name, :avatar, :remove_avatar)
     end
 end

@@ -14,8 +14,10 @@
         <ul class="lessons _lesson">
           <li>
             <div id="lesson-<%= lesson.id %>-registration-result">
-              <% flash.dup.each do |message_type, message| %>
-                <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+              <% if !lesson_registration_results.nil? %>
+                <% lesson_registration_results.each do |message_type, message| %>
+                  <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                <% end %>
               <% end %>
             </div>
           </li>

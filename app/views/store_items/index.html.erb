@@ -6,17 +6,21 @@
             <div style="padding: 1em;">
                 <h2>Memberships&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @memberships.count %> Items)</span></h2>
             </div>
-            <% @memberships.each do |membership| %>
-                <%= render 'store_items/store_item', store_item: membership, order_item: @order_item, member: @member, order: @order %>
+            <% if @memberships.any? %>
+                <% @memberships.each do |membership| %>
+                    <%= render 'store_items/store_item', store_item: membership, order_item: @order_item, member: @member, order: @order %>
+                <% end %>
             <% end %>
         </div>
         <div class="row">
             <div style="padding: 1em;">
                 <h2>Other&nbsp;&nbsp;<span style="color: #CD7F32; font-size: 0.75em;">(<%= @non_memberships.count %> Items)</span></h2>
             </div>
-            <% @non_memberships.each do |non_membership| %>
-                <%= render 'store_items/store_item', store_item: non_membership, order_item: @order_item, member: @member, order: @order %>
-            <% end %>                
+            <% if @non_memberships.any? %>
+                <% @non_memberships.each do |non_membership| %>
+                    <%= render 'store_items/store_item', store_item: non_membership, order_item: @order_item, member: @member, order: @order %>
+                <% end %> 
+            <% end %>               
         </div>
         <div class="center">
             <%= will_paginate @store_items %>

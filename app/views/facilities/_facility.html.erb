@@ -2,12 +2,7 @@
 	<div class="col-md-4">
 		<div class="card">
 			<div class="image">
-				<%= link_to(
-						generate_avatar_for(facility, {}),
-						facility_path(facility),
-						alt: facility.name
-					)
-				%>
+				<%= link_to(generate_avatar_for(facility, { alt: facility.name }), facility_path(facility), alt: facility.name) %>
 				<div class="middle">
 					<div class="text"><%= facility.name %></div>
 				</div>

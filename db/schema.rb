@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 2020_12_05_120811) do
     t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"member\", \"created_at\"", name: "index_newswire_posts_on_member_and_created_at"
+    t.index "member_id", "created_at", name: "index_newswire_posts_on_member_and_created_at"
     t.index ["member_id"], name: "index_newswire_posts_on_member_id"
   end
 

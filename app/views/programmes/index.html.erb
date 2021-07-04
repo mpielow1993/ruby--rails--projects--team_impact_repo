@@ -1,12 +1,14 @@
 <% provide(:title, "Programmes") %>
-	<div class="row">
-		<section>
-			<h1><%= yield(:title) %></h1>
-		</section>
+<div class="row">
+	<section>
+		<h1><%= yield(:title) %></h1>
+	</section>
+	<% if @programmes.any? %>
 		<% @programmes.each do |programme| %>
 			<%= render 'programmes/programme', programme: programme %>
 		<% end %>
-	</div>
+	<% end %>
+</div>
 <script>
 	$(document).ready(function() {
 		$("h1").mouseenter(function() {

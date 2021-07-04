@@ -51,14 +51,14 @@ class Admin::StoreItemsController < Admin::AdminApplicationController
   private
 
     def membership_params
-      params.require(:membership).permit(:type, :name, :description, :price, :store_item_avatar, :remove_store_item_avatar)
+      params.require(:membership).permit(:type, :name, :description, :price, :avatar, :remove_avatar)
     end
 
     def non_membership_params
-      params.require(:non_membership).permit(:type, :name, :description, :price, :store_item_avatar, :remove_store_item_avatar)
+      params.require(:non_membership).permit(:type, :name, :description, :price, :avatar, :remove_avatar)
     end
 
     def store_item_params
-      params.require(:store_item).permit(:type, :name, :description, :price, :store_item_avatar, :remove_store_item_avatar)
+      params.require(:store_item).permit(:type, :name, :description, :price, :avatar, :remove_avatar)
     end
 end

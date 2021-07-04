@@ -10,7 +10,18 @@ module ApplicationHelper
 
   # Returns the order corresponding to the id of the order stored in the browser session. If this is null, the value of this is set to a new order
   def current_order
-    !session[:order_id].nil? ? Order.find(session[:order_id]) : Order.new
+    if !session[:order_id].nil?
+      @current_order = Order.find_by_id(session[:order_id])
+      if !@current_order.nil?
+        session[:order_id] = @current_order.id
+      else
+        session[:order_id] = nil
+        @current_order = Order.new
+      end
+    else
+      @current_order = Order.new
+    end
+    return @current_order
   end
 
   #Returns the the lesson_date stored in the browser session

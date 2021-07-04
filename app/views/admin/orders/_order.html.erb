@@ -1,5 +1,5 @@
 <div class="card admin _order">
-    <h5 class="card-title admin _order" >Order #<%= order.id %></h5>
+    <h5 class="card-title admin _order">Order #<%= order.id %></h5>
     <div class="card-body">
 	    <div class="row">
 		    <div class="col-md-12">
@@ -9,7 +9,7 @@
                 <h3>Last Updated: <span class="admin _order argument"><%= order.updated_at.strftime("%a %b #{order.updated_at.day.ordinalize}") %> <%= order.updated_at.year %> at <%= order.updated_at.strftime("%H:%M:%S") %></span></h3></span></h3>
                 <h3><%= link_to "View Details", admin_order_path(order) %></h3>
 		        <div>
-              <%= link_to "Delete", admin_order_path(order), method: :delete, class: "btn btn-danger admin _order", data: { confirm: "Are you sure you want to delete order '#{order.id}'?" } %>
+              		<%= link_to "Delete", admin_order_path(order), method: :delete, class: "btn btn-danger admin _order", data: { confirm: "Are you sure you want to delete order '#{order.id}'?" } %>
 			    </div>
 		    </div>
 		</div>

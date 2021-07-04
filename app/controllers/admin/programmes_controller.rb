@@ -48,6 +48,6 @@ class Admin::ProgrammesController < Admin::AdminApplicationController
   private
 
     def programme_params
-      params.require(:programme).permit(:name, :programme_avatar, :remove_programme_avatar)
+      params.require(:programme).permit(:name, :programme_avatar, :remove_avatar)
     end
 end

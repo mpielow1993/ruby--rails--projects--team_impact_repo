@@ -1,28 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'members/new'
-    get 'members/create'
-    get 'members/edit'
-    get 'members/update'
-    get 'members/index'
-    get 'members/show'
-    get 'members/destroy'
-  end
-  get 'completed_orders/new'
-  get 'completed_orders/create'
-  get 'completed_orders/edit'
-  get 'completed_orders/update'
-  get 'completed_orders/index'
-  get 'completed_orders/show'
-  get 'completed_orders/delete'
-  get 'live_orders/new'
-  get 'live_orders/create'
-  get 'live_orders/edit'
-  get 'live_orders/update'
-  get 'live_orders/index'
-  get 'live_orders/show'
-  get 'live_orders/delete'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   get '/about_us', to: 'static_pages#about_us'
@@ -74,28 +51,25 @@ Rails.application.routes.draw do
   
   #Adding a resource for password resets
   resources :password_resets, only: [:new, :create, :edit, :update]
-  
   resources :programmes
-  
   resources :instructors
-  
   resources :facilities
-  
   resources :testimonials, only: [:new, :create, :index] 
+  resources :enquiries, only: [:new, :create] 
+  resources :store_items
   
+  resources :lessons do
+    resources :registrations, only: [:create, :destroy]
+  end
+
   namespace :admin do
     resources :testimonials, only: [:new, :create, :destroy, :index] 
-    
     resources :enquiries, only: [:new, :create, :destroy, :index]
-    
     resources :members
-    
     resources :programmes
-  
     resources :instructors
-  
     resources :facilities
-    
+
     resources :lessons do
       get '/registrations', to: 'lessons#show'
       resources :registrations, only: [:create, :destroy]
@@ -106,14 +80,6 @@ Rails.application.routes.draw do
     resources :orders do
       resources :order_items
     end
-  end
-  
-  resources :enquiries, only: [:new, :create] 
-  
-  resources :store_items
-  
-  resources :lessons do
-    resources :registrations, only: [:create, :destroy]
   end
 
   #Adding a route for the all newswire posts viewable by all members on the newswire

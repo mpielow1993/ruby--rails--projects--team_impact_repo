@@ -9,12 +9,12 @@
     <h3><%= f.label :quotation, "Quotation (Optional)" %></h3>
     <%= f.text_field :quotation, class: "form-control" %>
 
-    <h3><%= f.label :programme_avatar, "Programme Avatar" %> </h3>
-    <%= f.file_field :programme_avatar, class: "form-control" %>
+    <h3><%= f.label :avatar, "Programme Avatar" %> </h3>
+    <%= f.file_field :avatar, class: "form-control" %>
 
     <% if @programme.programme_avatar? %>
-        <h3><%= f.label :remove_programme_avatar, "Remove Programme Avatar" %> </h3>
-        <%= f.check_box :remove_programme_avatar %>
+        <h3><%= f.label :remove_avatar, "Remove Programme Avatar" %> </h3>
+        <%= f.check_box :remove_avatar %>
     <% end %>
 
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>

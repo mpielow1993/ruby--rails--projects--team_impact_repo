@@ -4,8 +4,10 @@
 </section>
 <div class="row">
   <div class="col-md-8">
-    <% @order_items.each do |order_item| %>
-      <%= render 'order_items/order_item', member: @member, order: @order, order_item: order_item %>
+    <% if @order_items.any? %>
+      <% @order_items.each do |order_item| %>
+        <%= render 'order_items/order_item', member: @member, order: @order, order_item: order_item %>
+      <% end %>
     <% end %>
     <h2>Current Total: &euro;<%= convert_to_price(@order.total) %></h2>
     <div id="order">
@@ -19,7 +21,6 @@
     <%= render 'layouts/sidebar', member: current_member %>
   </div>
 </div>
-
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
   data-description="order-id-<%= @order.id %>-member-id-<%= @member.id %>"

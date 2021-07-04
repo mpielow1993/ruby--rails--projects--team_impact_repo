@@ -16,13 +16,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% @registrations.each do |registration| %>
-                            <tr>
-                                <td><%= registration.lesson.date %></td>
-                                <td><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
-                                <td><%= render 'lessons/lesson', lesson: registration.lesson %></td>
-                            </tr>
-                        <% end %> 
+                        <% if @registrations.any? %>
+                            <% @registrations.each do |registration| %>
+                                <tr>
+                                    <td><%= registration.lesson.date %></td>
+                                    <td><%= registration.lesson.start_time.strftime("%H:%M") %> - <%= registration.lesson.end_time.strftime("%H:%M") %></td>
+                                    <td><%= render 'lessons/lesson', lesson: registration.lesson %></td>
+                                </tr>
+                            <% end %> 
+                        <% end %>
                     </tbody>
                 </table>
             <%= will_paginate @lessons %>
@@ -32,7 +34,7 @@
         <div class="row"> 
             <section class="user_info">
                 <h1>
-                    <%= member_avatar_for(@member) %>
+                    <%= generate_avatar_for(@member, { style: { width: '100%', height: 'auto' }}) %>
                     <%= @member.first_name + " " + @member.last_name %>
                 </h1>  
             </section>
