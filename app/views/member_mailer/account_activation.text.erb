@@ -2,4 +2,5 @@ Hi <%= @member.first_name %>,
 
 Welcome to Team Impact! Click on the link below to activate your account: 
 
-<%= edit_account_activation_url(@member.activation_token, email: @member.email) %>
+<%= link_to "Activate", edit_account_activation_url(@member.activation_token, email: @member.email), data: { clicktracking: off } %>
+
