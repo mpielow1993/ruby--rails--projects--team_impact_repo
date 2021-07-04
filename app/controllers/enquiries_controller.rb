@@ -5,7 +5,7 @@ class EnquiriesController < ApplicationController
   end
 
   def create
-    @enquiry = Enquiry.create(enquiry_params)
+    @enquiry = Enquiry.new(enquiry_params)
     if @enquiry.save
       flash[:success] = "Your enquiry was submitted successfully. Thank you."
       @enquiry.send_enquiry
