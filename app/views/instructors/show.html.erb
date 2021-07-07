@@ -10,14 +10,14 @@
 		}
 	}) %>
 </section>
-	<div class="container">
-	    <div class="row">
-	       <section>
-	       		<% if File.exist?(@instructor_bio_path) %>
-	       			<%= render "instructors/instructor_bios/#{@instructor.full_name.downcase.gsub(" ", "_")}" %>
-	       		<% else %>
-	       			<%= render 'layouts/default_description' %>
-	       		<% end %>
-	       </section>
-	   </div>
+<div class="container">
+	<div class="row">
+		<section>
+			<% if File.exist?(@instructor_bio_path) %>
+				<%= render "instructors/instructor_bios/#{@instructor.full_name.downcase.gsub(" ", "_")}" %>
+			<% else %>
+				<%= render 'layouts/default_description' %>
+			<% end %>
+		</section>
 	</div>
+</div>

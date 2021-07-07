@@ -1,5 +1,5 @@
-<% provide(:title, "Store") %> 
-<h1 style="margin-bottom: 1.5em; margin-top: 1em;"><%= yield(:title) %></h1>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Store", page_heading_quotation_id: nil %>
 <div class="row">
     <div class="col-md-8">
         <div class="row">

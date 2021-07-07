@@ -1,0 +1,34 @@
+<% provide(:page_heading, !page_heading.nil? ? "#{page_heading}" : "") %>
+<% provide(:page_heading_quotation_id, !page_heading_quotation_id.nil? ? "#{page_heading_quotation_id}" : "") %>
+
+<div class="row justify-content-center">
+    <div class="col-md-12 mt-3 mb-3" style=" margin-top: 3em; margin-bottom: 3em;">
+        <h1 id="page-heading"><%= yield(:page_heading) %></h1>
+    </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+    
+        let pageHeadingQuotationId = '<%= yield(:page_heading_quotation_id) %>';
+
+		if (pageHeadingQuotationId && $(`#${pageHeadingQuotationId}`).length) {
+
+            $("#page-heading").mouseenter(function() {
+                $(`#${pageHeadingQuotationId}`).animate({
+                    'margin-top' : '+= 1em',
+                    'margin-bottom' : '+= 1em'
+                }, 500, function() {
+                    $(`#${pageHeadingQuotationId}`).fadeIn(1000);
+                });
+            }).mouseleave(function() {
+                $(`#${pageHeadingQuotationId}`).animate({
+                    'margin-top' : '-= 1em',
+                    'margin-bottom' : '+= 1em'
+                }, 500, function() {
+                    $(`#${pageHeadingQuotationId}`).fadeOut(1000);
+                });
+            });
+        }
+	});
+</script>

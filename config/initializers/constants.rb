@@ -15,3 +15,7 @@ FORM_FIELD_HASH = {
         'user_level'
     ]
 }
+
+FIVE_CLASS_PASS_ID = 2
+TEN_CLASS_PASS_ID = 3
+

@@ -1,7 +1,7 @@
-<% provide(:title, "View Subscription") %>
-<section>
-    <h1><%= yield(:title) %></h1>
-</section>
+<%= render 'shared/page_heading_section', [
+	page_heading: "View Subscription",
+	page_heading_quotation_id: nil
+] %>
 <div class="row">
     <div class="center">
         <h2>Member: <span style="font-family: Trebuchet MS; color: #FFFFFF; padding-left: 0.5em;"><%= @subscription.member.user_name %></span></h2>
@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% if @registrations != [] %>
+                    <% if @registrations.any? %>
                         <% @registrations.each do |registration| %>
                             <tr>
                                 <td style="padding: 1em;"><%= render 'lessons/lesson', lesson: registration.lesson %></td>

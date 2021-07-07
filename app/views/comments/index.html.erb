@@ -1,4 +1,5 @@
-<% provide(:title, @member.first_name + " " + @member.last_name) %>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "#{@member.first_name + @member.last_name}", page_heading_quotation_id: nil %>
 <div class="row">
   <div class="col-md-8">
     <div class="well">
@@ -8,12 +9,12 @@
       </section>
       <h3>Comments (<%= @comments.count %>)</h3>
       <% if @comments.any? %>
-      <ol class="newswire_posts">
-        <%= render @comments, comment: @comment  %>
-      </ol>
-      <%= will_paginate @comments %>
+        <ol class="newswire_posts">
+          <%= render @comments, comment: @comment  %>
+        </ol>
+        <%= will_paginate @comments %>
       <% else %>
-      <h3>No comments</h3>
+        <h3>No comments</h3>
       <% end %>
       <section>
         <%= render 'shared/comment_form' %>

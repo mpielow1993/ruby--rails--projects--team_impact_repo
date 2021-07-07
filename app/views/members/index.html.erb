@@ -1,9 +1,8 @@
-<% provide(:title, 'All Members') %> 
-<h1><%= yield(:title) %></h1>
-<%- #The members index with pagination -%>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "All Members", page_heading_quotation_id: nil %>
 <%= will_paginate %>
     <ul class="members"> 
-        <% if !@members.nil? %>
+        <% if @members.any? %>
             <% @members.each do |member| %> 
                 <%= render member %>
             <% end %>
