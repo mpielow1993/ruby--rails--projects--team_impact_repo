@@ -1,16 +1,14 @@
-$("#public-timetable-lesson-" + <%= @lesson.id.to_s %>).bind('ajax:success', function() {
-   $(this).html('<%= escape_javascript(render(@lesson)).html_safe %>').promise().done(function() {
-     $("#lesson-" + <%= @lesson.id.to_s %> + "-registration-result").attr('style', 'display: block;').promise().done(function() {
-       $('#main-alert-message').attr('style', 'display: none;')
-       $("#lesson-" + <%= @lesson.id.to_s %> + "-registration-result").fadeOut(5000);
+$(`#public-timetable-lesson-${<%= @lesson.id.to_s %>}`).bind('ajax:success', function() {
+   $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).html(`${<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>}`)
+    .promise().done(function() {
+      $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).fadeOut(5000);
      });
    });
 });
-$("#member-" + <%= current_member.id %> +"-private-timetable-lesson-" + <%= @lesson.id.to_s %>).bind('ajax:success', function() {
-   $(this).html('<%= escape_javascript(render(@lesson)).html_safe %>').promise().done(function() {
-     $("#lesson-" + <%= @lesson.id.to_s %> + "-registration-result").attr('style', 'display: block;').promise().done(function() {
-       $('#main-alert-message').attr('style', 'display: none;')
-       $("#lesson-" + <%= @lesson.id.to_s %> + "-registration-result").fadeOut(5000);
+$(`#member-${<%= current_member.id %>}-private-timetable-lesson-${<%= @lesson.id.to_s %>}`).bind('ajax:success', function() {
+   $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).html(`${<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>}`)
+    .promise().done(function() {
+      $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).fadeOut(5000);
      });
    });
 });
