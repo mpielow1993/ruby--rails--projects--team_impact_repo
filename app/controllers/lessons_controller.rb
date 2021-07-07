@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
   def public_timetable
     @date = current_lesson_date
     #@subscription = current_subscription
-    @lessons = Array.wrap(Lesson.where(date: @date))
+    @lessons = Lesson.where(date: @date)
     @registration = Registration.new
   end
 
@@ -20,10 +20,6 @@ class LessonsController < ApplicationController
     session[:lesson_date] = params[:search][:lesson_date]
     #session[:subscription_id] = params[:search][:subscription_id]
     redirect_to request.referrer
-  end
-
-  def reg_flash
-    flash.dup
   end
 
 end

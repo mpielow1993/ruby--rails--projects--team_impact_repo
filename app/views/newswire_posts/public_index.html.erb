@@ -1,7 +1,5 @@
-<% provide(:title, "Public Newswire") %>
-<section>
-    <h1 class="newsire_posts _newswire_post"><%= yield(:title) %></h1>
-</section>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Public Newswire", page_heading_quotation_id: nil %>
 <div class="row">
     <div class="col-md-8">
         <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">

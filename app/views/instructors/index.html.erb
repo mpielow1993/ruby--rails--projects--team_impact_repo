@@ -1,8 +1,6 @@
-<% provide(:title, "Instructors") %>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Facilities", page_heading_quotation_id: "instructor-page-quotation" %>
 <div class="row">
-	<section>
-		<h1><%= yield(:title) %></h1>
-	</section>
 	<section id="instructor-page-quotation" class="instructors index quotation">
 		<span style="font-style: italic;"><%= @instructor_page_quotation.split(" - ")[0] %></span>
 		<% if !@instructor_page_quotation.split(" - ")[1].nil? %>

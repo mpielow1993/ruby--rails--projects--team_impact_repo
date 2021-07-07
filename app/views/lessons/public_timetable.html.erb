@@ -1,15 +1,10 @@
-<% provide(:title, 'Public Timetable') %>
-<div class="center" style="margin-bottom: 2em; margin-top: 3em; margin-left: auto; margin-right: auto; width: 35%; padding: 0; border: 1em solid #000000; box-shadow: 0em 0em 1em 1em #000000;">
-  <h1 style="margin: 0;"><%= yield(:title) %></h1>
-</div>
+<%= render 'shared/page_heading_section', page_heading: "Public Timetable", page_heading_quotation_id: nil %>
 <div class="row">
   <div class="card text-center">
-
     <div class="center" style="margin-bottom: 1.5em; margin-top: 1em; margin-left: auto; margin-right: auto; width: 50%; padding: 0; text-align: center; border: 1em solid #000000; box-shadow: 0em 0em 1em 1em #000000;">
       <%= render 'lessons/search_timetable_form', url: public_timetable_path, date: @date %>
     </div>
   </div>
-
   <div class="col-md-8">
     <div class="well" style="border: 1em solid #000000; box-shadow: 0em 0em 1em 1.5em #000000;">
       <%-#The members index with pagination-%>
@@ -25,16 +20,13 @@
               <td style="padding-left: 0.75em;">Time</td>
               <td>Lesson</td>
             </tr>
-            <% if !@lessons.nil? %>
+            <% if @lessons.any? %>
               <% @lessons.each do |lesson| %>
                 <tr>
                   <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
                   <td style="padding: 1em;">
                     <div id="public-timetable-lesson-<%= lesson.id %>">
-                      <%= render 'lessons/lesson', { 
-                          lesson: lesson,
-                          lesson_registration_results: nil
-                      } %>
+                      <%= render 'lessons/lesson', lesson: lesson %>
                     </div>
                   </td>
                 </tr>

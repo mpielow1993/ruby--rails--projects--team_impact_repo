@@ -1,10 +1,10 @@
-<% provide(:title, "Lessons") %>
-	<div class="row">
-		<section>
-			<h1><%= yield(:title) %></h1>
-		</section>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Lessons", page_heading_quotation_id: nil %>
+<div class="row">
+	<% if @lessons.any? %>
 		<% @lessons.each do |lesson| %>
 			<%= render 'lessons/lesson', lesson: lesson %>
 		<% end %>
 		<%= will_paginate @lessons %>
-	</div>
+	<% end %>
+</div>

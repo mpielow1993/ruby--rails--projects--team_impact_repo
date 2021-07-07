@@ -1,5 +1,4 @@
-<% provide(:title, "Private Timetable") %>
-<h1 style="margin-bottom: 1em; margin-top: 1em;"><%= yield(:title) %></h1>
+<%= render 'shared/page_heading_section', page_heading: "Private Timetable", page_heading_quotation_id: nil %>
 <h2 style="margin-bottom: 1.5em; margin-top: 1em; text-align: center;"><%= current_member.user_name %></h2>
 <div class="row">
     <div class="card text-center">
@@ -29,16 +28,13 @@
                         <td style="padding-left: 0.75em;">Time</td>
                         <td>Lesson</td>
                     </tr>
-                    <% if !@lessons.nil? %>
+                    <% if @lessons.any? %>
                         <% @lessons.each do |lesson| %>
                             <tr>
                                 <td style="padding-left: 0.75em;"><%= lesson.start_time.strftime("%H:%M") %> - <%= lesson.end_time.strftime("%H:%M") %></td>
                                 <td style="padding: 1em;">
                                   <div id="member-<%= current_member.id %>-private-timetable-lesson-<%= lesson.id %>">
-                                    <%= render 'lessons/lesson', { 
-                                        lesson: lesson,
-                                        lesson_registration_results: nil
-                                    } %>
+                                    <%= render 'lessons/lesson', lesson: lesson %>
                                   </div>
                                 </td>
                             </tr>

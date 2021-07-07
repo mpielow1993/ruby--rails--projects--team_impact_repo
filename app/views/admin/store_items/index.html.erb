@@ -1,22 +1,20 @@
-<% provide(:title, "Store Products") %>
-<section>
-    <h1><%= yield(:title) %></h1>
-</section>
-    <div class="row">
-        <div class="col-md-8 admin store_items index">
-            <div class="well admin store_items index">
-                <h2 class="">(<%= @store_items.count %> Store Products)</h2>
-                <% if !@store_items.nil? %>
-                    <% @store_items.each do |store_item| %>
-                        <%= render 'admin/store_items/store_item', store_item: store_item %>
-                    <% end %>
-                    <div class="center" class="admin store_items index">
-                        <%= will_paginate @store_items %>
-                    </div>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Store Products", page_heading_quotation_id: nil %>
+<div class="row">
+    <div class="col-md-8 admin store_items index">
+        <div class="well admin store_items index">
+            <h2 class="">(<%= @store_items.count %> Store Products)</h2>
+            <% if @store_items.any? %>
+                <% @store_items.each do |store_item| %>
+                    <%= render 'admin/store_items/store_item', store_item: store_item %>
                 <% end %>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <%= render 'layouts/sidebar', member: current_member %>
+                <div class="center" class="admin store_items index">
+                    <%= will_paginate @store_items %>
+                </div>
+            <% end %>
         </div>
     </div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

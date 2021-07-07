@@ -1,12 +1,8 @@
-<% provide(:title, @member.full_name) %>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: @member.full_name, page_heading_quotation_id: nil %>
 <div class="row">
-    <div class="col-md-8">
-        <h1><%= yield(:title) %></h1>
-        <div class="row"></div>
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: @member %>
     </div>
-    <aside class="col-md-4">
-        <div class="row"> 
-            <%= render 'layouts/sidebar', member: @member %>
-        </div>
-    </aside> 
 </div>

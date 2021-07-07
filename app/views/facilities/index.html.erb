@@ -1,4 +1,5 @@
-<% provide(:title, "Facilities") %>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Facilities", page_heading_quotation_id: nil %>
 <div class="row">
 	<section>
 		<h1><%= yield(:title) %></h1>

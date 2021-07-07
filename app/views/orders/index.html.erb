@@ -1,7 +1,5 @@
-<% provide(:title, "Your Purchased Orders") %>
-<section>
-    <h1><%= yield(:title) %></h1>
-</section>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Your Purchased", page_heading_quotation_id: nil %>
 <div class="row">
     <div class="col-md-8">
         <div class="well">

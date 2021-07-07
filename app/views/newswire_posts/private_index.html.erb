@@ -1,23 +1,21 @@
-<% provide(:title, "Your Newswire Posts") %> 
-<section>
-    <h1><%= yield(:title) %></h1>
-</section>
-    <div class="row"> 
-        <div class="col-md-8"> 
-            <div class="well">
-            <% if @newswire_posts.any? %> 
-                <h3>Newswire Posts (<%= @newswire_posts.count %>)</h3>
-                    <% @newswire_posts.each do |newswire_post| %>
-                        <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
-                        <h3><%= link_to "Show Comments (#{newswire_post.comments.count})", member_newswire_post_path(newswire_post.member, newswire_post) %></h3>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Your Newswire Posts", page_heading_quotation_id: nil %>
+<div class="row"> 
+    <div class="col-md-8"> 
+        <div class="well">
+        <% if @newswire_posts.any? %> 
+            <h3>Newswire Posts (<%= @newswire_posts.count %>)</h3>
+                <% @newswire_posts.each do |newswire_post| %>
+                    <%= render 'newswire_posts/newswire_post', newswire_post: newswire_post %>
+                    <h3><%= link_to "Show Comments (#{newswire_post.comments.count})", member_newswire_post_path(newswire_post.member, newswire_post) %></h3>
                 <% end %>
-                <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
-                    <%= will_paginate @newswire_posts %>
-                </div> 
-            <% end %> 
-            </div>
-        </div> 
-        <aside class="col-md-4"> 
-            <%= render 'layouts/sidebar', member: @member %>
-        </aside> 
-    </div>
+            <div class="center" style="background-color: #FFFFFF; margin-top: 1.5em;">
+                <%= will_paginate @newswire_posts %>
+            </div> 
+        <% end %> 
+        </div>
+    </div> 
+    <aside class="col-md-4"> 
+        <%= render 'layouts/sidebar', member: @member %>
+    </aside> 
+</div>

@@ -1,10 +1,11 @@
-<section>
-	<h1><%= @facility.name %></h1>
-</section>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: @facility.name, page_heading_quotation_id: nil %>
 <section class="center">
 	<%= generate_avatar_for(@facility, {
-		width: "100%",
-		height: "auto"
+		style: {
+			width: "100%",
+			height: "auto"
+		}
 	}) %>
 </section>
 	<div class="container">

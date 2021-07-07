@@ -1,29 +1,27 @@
-<% provide(:title, "Members") %>
-<section>
-    <h1><%= yield(:title) %></h1>
-</section>
-    <div class="row">
-        <div class="col-md-8 admin members index">
-            <div class="well">
-                <%= render 'shared/search_form', 
-                    button_text: 'Search',
-                    form: :filter_form,
-                    url: admin_members_path,
-                    method: :get,
-                    filter_form_array: Member::MEMBER_FILTER_FORM_ARRAY
-                 %>
-                <h2 class="admin members index">(<%= @members.count %> Members)</h2>
-                <% if !@members.nil? %>
-                    <% @members.each do |member| %>
-                        <%= render 'admin/members/member', member: member if !member.admin? %>
-                    <% end %>
-                    <div class="center admin members index">
-                        <%= will_paginate @members %>
-                    </div>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Members", page_heading_quotation_id: nil %>
+<div class="row">
+    <div class="col-md-8 admin members index">
+        <div class="well">
+            <%= render 'shared/search_form', 
+                button_text: 'Search',
+                form: :filter_form,
+                url: admin_members_path,
+                method: :get,
+                filter_form_array: Member::MEMBER_FILTER_FORM_ARRAY
+                %>
+            <h2 class="admin members index">(<%= @members.count %> Members)</h2>
+            <% if !@members.nil? %>
+                <% @members.each do |member| %>
+                    <%= render 'admin/members/member', member: member if !member.admin? %>
                 <% end %>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <%= render 'layouts/sidebar', member: current_member %>
+                <div class="center admin members index">
+                    <%= will_paginate @members %>
+                </div>
+            <% end %>
         </div>
     </div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

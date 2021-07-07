@@ -1,22 +1,20 @@
-<% provide(:title, "Instructors") %>
-<section>
-    <h1><%= yield(:title) %></h1>
-</section>
-    <div class="row">
-        <div class="col-md-8 admin instructors index">
-            <div class="well">
-                <h2>(<%= @instructors.count %> Instructors)</h2>
-                <% if !@instructors.nil? %>
-                    <% @instructors.each do |instructor| %>
-                        <%= render 'admin/instructors/instructor', instructor: instructor %>
-                    <% end %>
-                    <div class="center admin instructors index">
-                        <%= will_paginate @instructors %>
-                    </div>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Instructors", page_heading_quotation_id: nil %>
+<div class="row">
+    <div class="col-md-8 admin instructors index">
+        <div class="well">
+            <h2>(<%= @instructors.count %> Instructors)</h2>
+            <% if !@instructors.nil? %>
+                <% @instructors.each do |instructor| %>
+                    <%= render 'admin/instructors/instructor', instructor: instructor %>
                 <% end %>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <%= render 'layouts/sidebar', member: current_member %>
+                <div class="center admin instructors index">
+                    <%= will_paginate @instructors %>
+                </div>
+            <% end %>
         </div>
     </div>
+    <div class="col-md-4">
+        <%= render 'layouts/sidebar', member: current_member %>
+    </div>
+</div>

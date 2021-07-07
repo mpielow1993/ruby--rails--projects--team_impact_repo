@@ -1,8 +1,8 @@
-<% provide(:title, 'Public Timetable') %> 
-<h1><%= yield(:title) %></h1>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: "Public Timetable", page_heading_quotation_id: nil %>
 <div class="row">
     <h2><%= @date %></h2>
-    <div class="col-lg-8">
+    <div class="col-md-8">
         <div class="form-wrapper">
             <h2>Search Date</h2>
         </div>
@@ -16,7 +16,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% if !@lesson.nil? %>
+                        <% if @lesson.registrations.any? %>
                             <% @lesson.registrations.each do |registration| %> 
                                 <% if current_member.admin? || registration.member == current_member %>
                                     <tr>
@@ -28,7 +28,7 @@
                             <tr>
                                 <td colspan="2">Current Count: <%= @lesson.registrations.count %></td>    
                             <tr>
-                            <% if current_member.is_registered_and_subscription_used(@lesson) == false %>
+                            <% if !current_member.is_registered_and_subscription_used(@lesson) %>
                                 <tr>
                                     <td>You are currently not registered for this lesson</td>
                                     <td>If you wish to register, please select one of your subscriptions from the drop-down and press "Register"</td>

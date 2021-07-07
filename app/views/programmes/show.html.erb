@@ -1,6 +1,5 @@
-<section>
-	<h1><%= @programme.name %></h1>
-</section>
+<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
+<%= render 'shared/page_heading_section', page_heading: @programme.name, page_heading_quotation_id: replace_char(@programme.name.downcase, " ", "-") + "-quotation" %>
 <% if !@programme.quotation.nil? %>
 	<section id="<%= replace_char(@programme.name.downcase, " ", "-") %>-quotation" style="color: #FFFFFF; display: none; text-align:center; font-size: 1.5em;">
 		<span style="font-style: italic;"><%= @programme.quotation.split(" - ")[0] %></span>
@@ -17,29 +16,12 @@
 		}
 	}) %>
 </section>
-	<div class="container">
-		<div class="row">
-	       	<% if File.exist?(@programme_description_url) %>
-	       		<%= render "programmes/#{replace_char(@programme.name.downcase, " ", "_")}" %>
-	       	<% else %>
-	       		<%= render 'layouts/default_description', object: @programme.name %>
-	       	<% end %>
-		</div>
+<div class="container">
+	<div class="row">
+		<% if File.exist?(@programme_description_url) %>
+			<%= render "programmes/#{replace_char(@programme.name.downcase, " ", "_")}" %>
+		<% else %>
+			<%= render 'layouts/default_description', object: @programme.name %>
+		<% end %>
 	</div>
-	<script>
-		$(document).ready(function() {
-			$("h1").mouseenter(function() {
-				$(".center").animate({
-					'margin-top' : '+= 1em'
-				}, 500, function() {
-				  $("#<%= replace_char(@programme.name.downcase, " ", "-") %>-quotation").fadeIn(1000);
-				});
-			}).mouseleave(function() {
-				$(".center").animate({
-					'margin-top' : '-= 1em'
-				}, 500, function() {
-				  $("#<%= replace_char(@programme.name.downcase, " ", "-") %>-quotation").fadeOut(1000);
-				});
-			});
-		});
-	</script>
+</div>
