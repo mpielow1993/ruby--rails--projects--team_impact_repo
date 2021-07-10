@@ -21,6 +21,7 @@ class Admin::EnquiriesController < Admin::AdminApplicationController
   end
 
   def destroy
+    redirect_to admin_enquiries_path if params[:id].empty?
     @enquiry = Enquiry.find(params[:id])
     @enquiry.destroy
     flash[:success] = "Enquiry removed successfully"

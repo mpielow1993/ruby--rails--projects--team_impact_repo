@@ -20,6 +20,18 @@ class Admin::TestimonialsController < Admin::AdminApplicationController
     @testimonial = Testimonial.new
   end
 
+  def destroy
+    redirect_to admin_testimonials_path if params[:id].empty?
+    @testimonial = Testimonial.find(params[:id])
+    if @testimonial.destroy
+      flash[:success] = 'Testimonial removed successfully'
+      redirect_to admin_testimonials_path
+    else
+      flash[:danger] = 'An error occured removing the selected testimonial record'
+      render 'admin/testimonials/new'
+    end
+  end
+
   private
 
     def testimonial_params
