@@ -1,5 +1,10 @@
 <div class="card">
   <div class="row">
+    <div class="col-md-12">
+      <div id="lesson-<%= lesson.id %>-registration-result"></div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4">
       <a href="/instructors/<%= lesson.instructor.id %>">
         <%= generate_avatar_for(lesson.instructor, {
@@ -12,9 +17,6 @@
     </div>
     <div class="col-md-8">
         <ul class="lessons _lesson">
-          <li>
-            <div id="lesson-<%= lesson.id %>-registration-result"></div>
-          </li>
           <li>
             <h2><%= lesson.programme.name %></h2>
           </li>

@@ -8,7 +8,7 @@ class Admin::InstructorsController < Admin::AdminApplicationController
     @instructor = Instructor.create!(instructor_params)
     if @instructor.save
       flash[:success] = "Instructor successfully created"
-      redirect_to instructors_path
+      redirect_to admin_instructors_path
     else
       render 'new'
     end

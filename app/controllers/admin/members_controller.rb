@@ -8,7 +8,7 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.create(admin_member_params)
     if @member.save
       flash[:success] = @member.admin? ? "New Admin Created Successfully" : "New Member Created Successfully"
-      redirect_to admin_member_path(@member)
+      redirect_to admin_members_path
     else
       render 'new'
     end
