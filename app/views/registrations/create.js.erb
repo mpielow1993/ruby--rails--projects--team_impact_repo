@@ -1,14 +1,12 @@
-$(`#public-timetable-lesson-${<%= @lesson.id.to_s %>}`).bind('ajax:success', function() {
-   $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).html(`${<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>}`)
+$('#public-timetable-lesson-<%= @lesson.id.to_s %>').bind('ajax:success', function() {
+   $('#lesson-<%= @lesson.id.to_s %>-registration-result').html('<%= escape_javascript(render 'shared/bootstrap_alert_messages', alert_message_hash: flash) %>')
     .promise().done(function() {
-      $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).fadeOut(5000);
+      $('#lesson-<%= @lesson.id.to_s %>-registration-result').fadeOut(5000);
      });
    });
-});
-$(`#member-${<%= current_member.id %>}-private-timetable-lesson-${<%= @lesson.id.to_s %>}`).bind('ajax:success', function() {
-   $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).html(`${<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>}`)
+$('#member-<%= current_member.id %>-private-timetable-lesson-<%= @lesson.id.to_s %>').bind('ajax:success', function() {
+   $('#lesson-<%= @lesson.id.to_s %>-registration-result').html('<%= escape_javascript(render 'shared/bootstrap_alert_messages', alert_message_hash: flash) %>')
     .promise().done(function() {
-      $(`#lesson-${<%= @lesson.id.to_s %>}-registration-result`).fadeOut(5000);
+      $('#lesson-<%= @lesson.id.to_s %>-registration-result').fadeOut(5000);
      });
    });
-});

@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
         format.js {}
       end
     else
-      flash[:danger] = "Already registered with subscription '#{current_member.subscription_used_to_register_for(@lesson).subscription_name}'"
+      flash[:danger] = "An error occurred registering for this lesson with the chosen subscription"
       respond_to do |format|
         format.html {}
         format.js {}

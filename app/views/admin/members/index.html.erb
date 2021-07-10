@@ -3,17 +3,17 @@
 <div class="row">
     <div class="col-md-8 admin members index">
         <div class="well">
-            <%= render 'shared/search_form', 
-                button_text: 'Search',
-                form: :filter_form,
-                url: admin_members_path,
-                method: :get,
-                filter_form_array: Member::MEMBER_FILTER_FORM_ARRAY
-                %>
+            <%= #render 'shared/search_form', 
+                #button_text: 'Search',
+                #form: :filter_form,
+                #url: admin_members_path,
+                #method: :post,
+                #filter_form_array: Member.filter_field_array
+            %>
             <h2 class="admin members index">(<%= @members.count %> Members)</h2>
-            <% if !@members.nil? %>
+            <% if @members.any? %>
                 <% @members.each do |member| %>
-                    <%= render 'admin/members/member', member: member if !member.admin? %>
+                    <%= render 'admin/members/member', member: member %>
                 <% end %>
                 <div class="center admin members index">
                     <%= will_paginate @members %>

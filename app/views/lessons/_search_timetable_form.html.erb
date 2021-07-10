@@ -5,7 +5,7 @@
     <i class="glyphicon glyphicon-chevron-down"></i>
   </button>
 </div>
-<div id="search-timetable-form-container">
+<div id="search-timetable-form-container" style="margin-top: 2em;">
   <%= form_for :search, url: url, style: "display: inline;", method: :post do |f| %>
 
       <%= f.text_field :lesson_date, as: :string, data: { behaviour: "flatpickr" }, class: "datepicker form-control", value: date, style: "padding-left: 1em; width: 60%; float: left;"%>
