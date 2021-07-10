@@ -8,7 +8,7 @@
             <li class="admin _enquiry"><h3>Email:</h3> <%= enquiry.email %></li>
             <li class="admin _enquiry"><h3>Phone No:</h3> <%= enquiry.phone_no %></li>
             <li class="admin _enquiry"><h3>Posted:</h3> <%= enquiry.created_at.strftime("%a %b #{enquiry.created_at.day.ordinalize}") %> <%= enquiry.created_at.year %> at <%= enquiry.created_at.strftime("%H:%M:%S") %></li>
-            <li class="admin _enquiry"><h3>Message:</h3> <%= auto_link_content(sanitize enquiry.message.html_safe) %></li>
+            <li class="admin _enquiry"><h3>Message:</h3> <%= auto_link_content(message) %></li>
         </ul>
     </p>
   </div>

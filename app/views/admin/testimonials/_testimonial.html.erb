@@ -9,7 +9,7 @@
             <li class="lesson-list-item"><h3>City:</h3> <%= testimonial.city %></li>
             <li class="lesson-list-item"><h3>Country:</h3> <%= testimonial.country %></li>
             <li class="lesson-list-item"><h3>Posted:</h3> <%= testimonial.created_at.strftime("%a %b #{testimonial.created_at.day.ordinalize}") %> <%= testimonial.created_at.year %> at <%= testimonial.created_at.strftime("%H:%M:%S") %></li>
-            <li class="lesson-list-item"><h3>Content:</h3> <%= auto_link_content(sanitize testimonial.content.html_safe) %></li>
+            <li class="lesson-list-item"><h3>Content:</h3> <%= auto_link_content(testimonial) %></li>
         </ul>
     </p>
   </div>
