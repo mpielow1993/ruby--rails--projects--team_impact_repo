@@ -8,6 +8,7 @@ class Admin::FacilitiesController < Admin::AdminApplicationController
     @facility = Facility.create!(facility_params)
     if @facility.save
       flash[:success] = "Facility successfully created"
+      params[:show_header_alert_message] = true
       redirect_to admin_facilities_path
     else
       render 'new'
@@ -23,6 +24,7 @@ class Admin::FacilitiesController < Admin::AdminApplicationController
     @facility.update(facility_params)
     if @facility.save
       flash[:success] = "Facility successfully updated"
+      params[:show_header_alert_message] = true
       redirect_to admin_facility_path(@facility)
     else
       render 'edit'
@@ -33,6 +35,7 @@ class Admin::FacilitiesController < Admin::AdminApplicationController
     @facility = Facility.find(params[:id])
     @facility.destroy
     flash[:success] = "Facility successfully deleted"
+    params[:show_header_alert_message] = true
     redirect_to admin_facilities_path
   end
 

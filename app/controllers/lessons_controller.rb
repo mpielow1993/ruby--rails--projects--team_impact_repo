@@ -1,7 +1,6 @@
 class LessonsController < ApplicationController
     before_action :logged_in_member
     before_action :correct_member, only: :private_timetable
-    #respond_to :html, :js
 
 
   def public_timetable

@@ -29,6 +29,7 @@ class SubscriptionsController < ApplicationController
     @subscription = @member.subscriptions.find(params[:id])
     @subscription.destroy
     flash[:success] = "Subscription successfully removed"
+    params[:show_header_alert_message] = true
     redirect_to member_subscriptions_path(@member)
   end
 

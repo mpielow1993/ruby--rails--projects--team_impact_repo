@@ -3,8 +3,6 @@ class NewswirePostsController < ApplicationController
     before_action :correct_member, only: :private_index
     before_action :admin_member, only: [:create, :destroy]
 
-
-
     def private_index
         @member = Member.find(params[:member_id])
         @newswire_posts = @member.newswire_posts.paginate(page: params[:page])
@@ -22,6 +20,7 @@ class NewswirePostsController < ApplicationController
         @newswire_post.image.attach(params[:newswire_post][:image])
         if @newswire_post.save
             flash[:success] = "Newswire post created!"
+            params[:show_header_alert_message] = true
             redirect_to newswire_path
         else
             render 'newswire_posts/public_index'
@@ -32,6 +31,7 @@ class NewswirePostsController < ApplicationController
         @newswire_post = NewswirePost.find(params[:id])
         @newswire_post.destroy
         flash[:success] = "Newswire post successfully deleted"
+        params[:show_header_alert_message] = true
         redirect_to newswire_path
     end
 

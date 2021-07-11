@@ -38,11 +38,13 @@ def create
         end
       end
     end
-    flash[:success] = "Payment Completed. #{@subscription_count} Membership Subscriptions added to your account"
+    flash[:success] = "Payment Completed. #{@subscription_count} Membership Subscription(s) added to your account"
+    params[:show_header_alert_message] = true
     redirect_to store_items_path
     session[:order_id] = nil
   else
     flash[:danger] = "Something went wrong. Please try again"
+    params[:show_header_alert_message] = true
     redirect_to store_items_path
   end
 
