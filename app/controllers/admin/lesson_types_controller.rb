@@ -7,6 +7,7 @@ class Admin::LessonTypesController < ApplicationController
     @lesson_type = LessonType.build(lesson_type_params)
     if @lesson_type.save
       flash[:success] = 'Lesson Type saved successfully'
+      params[:show_header_alert_message] = true
       redirect_to new_admin_lesson_type_path
     else
       redirect_to admin_lesson_types_path

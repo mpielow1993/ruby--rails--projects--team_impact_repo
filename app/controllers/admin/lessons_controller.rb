@@ -8,6 +8,7 @@ class Admin::LessonsController < Admin::AdminApplicationController
     @lesson = Lesson.create(lesson_params)
     if @lesson.save
       flash[:success] = "Lesson created successfully"
+      params[:show_header_alert_message] = true
       redirect_to admin_lessons_path
     else
       render 'admin/lessons/new'
@@ -23,6 +24,7 @@ class Admin::LessonsController < Admin::AdminApplicationController
     @lesson.update(lesson_params)
     if @lesson.save
       flash[:success] = "Lesson updated successfully"
+      params[:show_header_alert_message] = true
       redirect_to admin_lessons_path
     else
       render 'admin/lessons/edit'
@@ -44,6 +46,7 @@ class Admin::LessonsController < Admin::AdminApplicationController
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
     flash[:success] = "Lesson successfully destroyed"
+    params[:show_header_alert_message] = true
     redirect_to admin_lessons_path
   end
 

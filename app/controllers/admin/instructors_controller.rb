@@ -8,6 +8,7 @@ class Admin::InstructorsController < Admin::AdminApplicationController
     @instructor = Instructor.create!(instructor_params)
     if @instructor.save
       flash[:success] = "Instructor successfully created"
+      params[:show_header_alert_message] = true
       redirect_to admin_instructors_path
     else
       render 'new'
@@ -23,6 +24,7 @@ class Admin::InstructorsController < Admin::AdminApplicationController
     @instructor.update(instructor_params)
     if @instructor.save
       flash[:success] = "Instructor updated successfully"
+      params[:show_header_alert_message] = true
       redirect_to instructor_path(@instructor)
     else
       render 'edit'

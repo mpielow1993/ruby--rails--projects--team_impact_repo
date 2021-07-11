@@ -8,6 +8,7 @@ class Admin::TestimonialsController < Admin::AdminApplicationController
     @testimonial = Testimonial.create(testimonial_params)
     if @testimonial.save
       flash[:success] = "Testimonial has been successfully submitted with email confirmation. Thank you"
+      params[:show_header_alert_message] = true
       @testimonial.send_testimonial
       redirect_to testimonials_path
     else
@@ -25,9 +26,11 @@ class Admin::TestimonialsController < Admin::AdminApplicationController
     @testimonial = Testimonial.find(params[:id])
     if @testimonial.destroy
       flash[:success] = 'Testimonial removed successfully'
+      params[:show_header_alert_message] = true
       redirect_to admin_testimonials_path
     else
       flash[:danger] = 'An error occured removing the selected testimonial record'
+      params[:show_header_alert_message] = true
       render 'admin/testimonials/new'
     end
   end

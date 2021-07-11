@@ -8,6 +8,7 @@ class Admin::ProgrammesController < Admin::AdminApplicationController
     @programme = Programme.create!(programme_params)
     if @programme.save
       flash[:success] = "Programme successfully created"
+      params[:show_header_alert_message] = true
       redirect_to admin_programmes_path
     else
       render 'new'
@@ -23,6 +24,7 @@ class Admin::ProgrammesController < Admin::AdminApplicationController
     @programme.update(programme_params)
     if @programme.save
       flash[:success] = "Programme successfully updated"
+      params[:show_header_alert_message] = true
       redirect_to admin_programme_path(@programme)
     else
       render 'edit'
@@ -37,6 +39,7 @@ class Admin::ProgrammesController < Admin::AdminApplicationController
     @programme = Programme.find(params[:id])
     @programme.destroy
     flash[:success] = "Programmme successfully destroyed"
+    params[:show_header_alert_message] = true
     redirect_to admin_programmes_path
   end
 

@@ -9,12 +9,13 @@ class CommentsController < ApplicationController
     @comment = @member.comments.build(content: params[:comment][:content], newswire_post_id: params[:newswire_post_id])
     #@comment = current_member.comments.where(newswire_post_id: @newswire_post.id).build(comment_params)
     @comment.image.attach(params[:comment][:image])
-    flash = {}
     if @comment.save
       flash[:success] = "Comment Added"
+      params[:show_header_alert_message] = true
       redirect_to newswire_post_path(@newswire_post)
     else
       flash[:danger] = "An error occurred adding your comment"
+      params[:show_header_alert_message] = true
       render 'newswire_posts/show'
     end
   end

@@ -8,6 +8,7 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.create(admin_member_params)
     if @member.save
       flash[:success] = @member.admin? ? "New Admin Created Successfully" : "New Member Created Successfully"
+      params[:show_header_alert_message] = true
       redirect_to admin_members_path
     else
       render 'new'
@@ -23,6 +24,7 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member.update(admin_member_params)
     if @member.save
       flash[:success] = @member.admin? ?  "Admin Updated Successfully" : "Member Updated Successfully"
+      params[:show_header_alert_message] = true
       redirect_to admin_member_path(@member)
     else
       render 'edit'
@@ -41,6 +43,7 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.find(params[:id])
     @member.destroy
     flash[:success] = @member.admin? ? "Admin Removed Successfully" : "Member Removed Successfully"
+    params[:show_header_alert_message] = true
     redirect_to admin_members_path
   end
 

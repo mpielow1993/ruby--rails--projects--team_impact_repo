@@ -12,6 +12,7 @@ class Admin::StoreItemsController < Admin::AdminApplicationController
     @store_item = StoreItem.create(store_item_params)
     if @store_item.save
       flash[:success] = "Store Item successfully created"
+      params[:show_header_alert_message] = true
       redirect_to admin_store_items_path
     else
       render 'admin/new'
@@ -31,6 +32,7 @@ class Admin::StoreItemsController < Admin::AdminApplicationController
     end
     if @store_item.save
       flash[:success] = "Store Item updated successfully"
+      params[:show_header_alert_message] = true
       redirect_to admin_store_items_path
     else
       render 'admin/edit'
@@ -45,6 +47,7 @@ class Admin::StoreItemsController < Admin::AdminApplicationController
     @store_item = StoreItem.find(params[:id])
     @store_item.destroy
     flash[:success] = "Store Item successfully destroyed"
+    params[:show_header_alert_message] = true
     redirect_to admin_store_items_path
   end
 

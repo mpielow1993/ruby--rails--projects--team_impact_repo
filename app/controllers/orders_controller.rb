@@ -22,10 +22,12 @@ before_action :logged_in_member, :correct_member
     @order = @member.orders.build
     if @order.save
       flash[:success] = "New Order created successfully"
+      params[:show_header_alert_message] = true
       session[:order_id] = @order.id
       redirect_to store_items_path
     else
       flash[:danger] = "New Order creation failed"
+      params[:show_header_alert_message] = true
       redirect_to store_items_path
     end
   end
@@ -41,10 +43,12 @@ before_action :logged_in_member, :correct_member
     @order = current_order
     if @order.destroy
       flash[:success] = "Order successfully destroyed"
+      params[:show_header_alert_message] = true
       session[:order_id] = nil
       redirect_to store_items_path
     else
       flash[:danger] = "Destruction failed"
+      params[:show_header_alert_message] = true
       render 'orders/show'
     end
   end
@@ -53,6 +57,7 @@ before_action :logged_in_member, :correct_member
     @order = Order.find(params[:id])
     @order.destroy
     flash[:success] = "Your order has been successfully destroyed"
+    params[:show_header_alert_message] = true
     redirect_to member_orders_path
   end
   

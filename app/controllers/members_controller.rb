@@ -14,6 +14,7 @@ class MembersController < ApplicationController
     if @member.save
       @member.send_activation_email
       flash[:info] = "Please check your email to activate your Team Impact account."
+      params[:show_header_alert_message] = true
       redirect_to root_url
     else 
       render 'members/new' 
@@ -29,6 +30,7 @@ class MembersController < ApplicationController
     if @member.update(member_params)
       #Handle a successful update
       flash[:success] = "Profile updated" 
+      params[:show_header_alert_message] = true
       redirect_to member_path(@member)
     else
       render 'members/edit'

@@ -9,6 +9,7 @@ class Admin::EnquiriesController < Admin::AdminApplicationController
     @enquiry = Enquiry.create(enquiry_params)
     if @enquiry.save
       flash[:success] = "Enquiry created successfully"
+      params[:show_header_alert_message] = true
       redirect_to admin_enquiries_path
     else
       render 'admin/enquiries/new'
@@ -25,6 +26,7 @@ class Admin::EnquiriesController < Admin::AdminApplicationController
     @enquiry = Enquiry.find(params[:id])
     @enquiry.destroy
     flash[:success] = "Enquiry removed successfully"
+    params[:show_header_alert_message] = true
     redirect_to admin_enquiries_path
   end
 
