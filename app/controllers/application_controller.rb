@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  after_action :set_show_header_alert_message
+  #after_action :set_show_header_alert_message
 
   include SessionsHelper
   include ApplicationHelper
 
   def set_show_header_alert_message
-    flash.clear if params[:show_header_alert_message].nil?
+    return !params[:show_header_alert_message] ? {} : flash 
   end
 
   private

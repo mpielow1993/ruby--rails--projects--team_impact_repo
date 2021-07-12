@@ -7,13 +7,13 @@ class RegistrationsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.build(registration_params)
     if @registration.save
-      flash[:success] = "Registration Successful"
+      flash.now[:success] = "Registration Successful" #if params[:registration][:show_bootstrap_alert_message]
       respond_to do |format|
         format.html {}
         format.js {}
       end
     else
-      flash[:danger] = "An error occurred registering for this lesson with the chosen subscription"
+      flash.now[:danger] = "An error occurred registering for this lesson with the chosen subscription" #if params[:show_bootstrap_alert_message]
       respond_to do |format|
         format.html {}
         format.js {}
@@ -26,7 +26,7 @@ class RegistrationsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.find(params[:id])
     @registration.destroy
-    flash[:success] = "Deregistration Successful"
+    flash.now[:success] = "Deregistration Successful" #if params[:registration][:show_bootstrap_alert_message]
     respond_to do |format|
       format.html {}
       format.js {}
