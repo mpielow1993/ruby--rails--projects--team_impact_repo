@@ -39,13 +39,11 @@ def create
       end
     end
     flash[:success] = "Payment Completed. #{@subscription_count} Membership Subscription(s) added to your account"
-    params[:show_header_alert_message] = true
-    redirect_to store_items_path
+    redirect_to store_items_path, show_header_alert_message: true
     session[:order_id] = nil
   else
     flash[:danger] = "Something went wrong. Please try again"
-    params[:show_header_alert_message] = true
-    redirect_to store_items_path
+    redirect_to store_items_path, show_header_alert_message: true
   end
 
   rescue Stripe::CardError => e

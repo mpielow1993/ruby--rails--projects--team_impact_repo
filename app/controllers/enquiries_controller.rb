@@ -8,7 +8,6 @@ class EnquiriesController < ApplicationController
     @enquiry = Enquiry.new(enquiry_params)
     if @enquiry.save
       flash[:success] = "Your enquiry was submitted successfully. Thank you."
-      params[:show_header_alert_message] = true
       @enquiry.send_enquiry
       redirect_to contact_path
     else

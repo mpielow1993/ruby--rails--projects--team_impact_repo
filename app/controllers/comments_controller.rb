@@ -11,11 +11,9 @@ class CommentsController < ApplicationController
     @comment.image.attach(params[:comment][:image])
     if @comment.save
       flash[:success] = "Comment Added"
-      params[:show_header_alert_message] = true
       redirect_to newswire_post_path(@newswire_post)
     else
       flash[:danger] = "An error occurred adding your comment"
-      params[:show_header_alert_message] = true
       render 'newswire_posts/show'
     end
   end
@@ -23,7 +21,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    flash[:success] = "Comment successfully deleted"
+    flash[:success] = "Comment deleted"
     redirect_to request.referrer || newswire_url
   end
 
