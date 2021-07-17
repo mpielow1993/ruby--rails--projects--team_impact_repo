@@ -7,8 +7,10 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.new
     @member = Member.create(admin_member_params)
     if @member.save
-      flash[:success] = @member.admin? ? "New Admin Created Successfully" : "New Member Created Successfully"
-      params[:show_header_alert_message] = true
+      @member.create_reset_digest 
+      @member.send_admin_activation_email 
+      @member_type = @member.admin? ? "admin" : "member"
+      flash[:info] = "Email sent to submitted address for new #{@member_type} with account activation instructions"
       redirect_to admin_members_path
     else
       render 'new'
@@ -24,7 +26,6 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member.update(admin_member_params)
     if @member.save
       flash[:success] = @member.admin? ?  "Admin Updated Successfully" : "Member Updated Successfully"
-      params[:show_header_alert_message] = true
       redirect_to admin_member_path(@member)
     else
       render 'edit'

@@ -132,6 +132,11 @@ class Member < ApplicationRecord
         MemberMailer.password_reset(self).deliver_now
     end
 
+    # Sends account activation email to the email address entered by an admin when creating a new member.
+    def send_admin_activation_email
+        MemberMailer.admin_account_activation(self).deliver_now
+    end
+
     #Check if a member is already registered to a lesson
     def registered_to?(lesson)
         lesson.members.include?(self)

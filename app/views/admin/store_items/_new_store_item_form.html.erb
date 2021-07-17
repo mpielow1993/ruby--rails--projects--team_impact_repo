@@ -18,7 +18,7 @@
     <h3><%= f.label :avatar, "Store Product Avatar" %></h3> 
     <%= f.file_field :avatar, class: "form-control" %> 
     
-    <% if @store_item.store_item_avatar? %>
+    <% if @store_item.avatar? %>
         <h3><%= f.label :remove_avatar, "Remove Store Product Avatar" %></h3> 
         <%= f.check_box :remove_avatar %> 
     <% end %>

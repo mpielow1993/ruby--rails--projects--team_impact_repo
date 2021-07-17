@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     resources :orders do
       resources :order_items
     end
+    resources :account_activations, only: [:new]
   end
 
   #Adding a route for the all newswire posts viewable by all members on the newswire

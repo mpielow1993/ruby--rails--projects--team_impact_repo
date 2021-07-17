@@ -26,11 +26,9 @@ class PasswordResetsController < ApplicationController
       @member.create_reset_digest 
       @member.send_password_reset_email 
       flash[:info] = "Email sent with password reset instructions" 
-      params[:show_header_alert_message] = true
       redirect_to root_url 
     else 
-      flash.now[:danger] = "Email address not found" 
-      params[:show_header_alert_message] = true
+      flash[:danger] = "Email address not found" 
       render 'new' 
     end 
   end
@@ -76,7 +74,6 @@ class PasswordResetsController < ApplicationController
     def check_expiration 
       if @member.password_reset_expired? 
         flash[:danger] = "Password reset has expired." 
-        params[:show_header_alert_message] = true
         redirect_to new_password_reset_url 
       end 
     end
