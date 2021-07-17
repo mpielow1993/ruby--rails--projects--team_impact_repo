@@ -13,7 +13,12 @@
         		<h3>Facility: <span class="admin _lesson argument"><%= lesson.facility.name %></span></h3></span></h3>
         		<h3>Programme: <span class="admin _lesson argument"><%= lesson.programme.name %></span></h3></span></h3>
         		<h3>Level: <span class="admin _lesson argument"><%= lesson.level %></span></h3></span></h3>
-        		<h3>Status: <span class="admin _lesson argument"><span class="admin _lesson argument expired"><%= lesson.is_expired ? 'EXPIRED' : 'ACTIVE' %></span></span></h3>
+        		<h3>Status: <span class="admin _lesson argument">
+					<% if !lesson.is_expired %>
+						<span class="admin _lesson argument active"><%= 'ACTIVE' %></span>
+					<% else %>
+						<span class="admin _lesson argument expired"><%= 'EXPIRED' %></span>
+					<% end %>
         		<h3><%= link_to "View Registrations", admin_lesson_path(lesson) %></h3>
 				<div class="admin _lesson button-options">
         			<%= link_to "Delete", admin_lesson_path(lesson), method: :delete, class: "btn btn-danger admin _lesson", data: { confirm: "Are you sure you want to delete lesson '##{lesson.id}'?" } %>

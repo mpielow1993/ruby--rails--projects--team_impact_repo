@@ -12,7 +12,7 @@
     <h3><%= f.label :avatar, "Programme Avatar" %> </h3>
     <%= f.file_field :avatar, class: "form-control" %>
 
-    <% if @programme.programme_avatar? %>
+    <% if @programme.avatar? %>
         <h3><%= f.label :remove_avatar, "Remove Programme Avatar" %> </h3>
         <%= f.check_box :remove_avatar %>
     <% end %>
