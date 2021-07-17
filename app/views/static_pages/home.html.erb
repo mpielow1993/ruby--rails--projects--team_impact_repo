@@ -1,6 +1,6 @@
 <div class="center jumbotron" style="margin: 0; border-radius: 0; padding: 1em;">
 	<%= render 'shared/bootstrap_alert_messages', alert_message_hash: flash %>
-	<h1>Welcome to Team Impact</h1>
+	<%= render 'shared/page_heading_section', page_heading: "Team Impact MMA", page_heading_quotation_id: nil %>
 	<%= link_to "Sign up now!", sign_up_path, class: "btn btn-primary home" %>
 	<%= link_to image_tag("TI_HomePhoto_Complete5.jpg", alt: "Team Impact Home Page Photo", width: "100%") %>
 </div>

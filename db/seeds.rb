@@ -17,7 +17,7 @@ include ApplicationHelper
   user_name = "Ex4mple_4dm1n_#{n + 1}"
   first_name = 'Example'
   last_name = "Admin #{n + 1}"
-  email = 'example_admin@teamimpact.ie'
+  email = 'michaelpielow@gmail.com'
   phone_no = '+353123456789'
   password = '4dm1n_Ex4mple'
   Member.create!(user_name: user_name, # 'create!' raises an exception for an invalid user instead of returning false
