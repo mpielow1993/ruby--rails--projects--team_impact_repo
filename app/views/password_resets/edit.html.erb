@@ -4,7 +4,7 @@
         <div class="row"> 
             <div class="col-md-6 col-md-offset-3"> 
             
-            <%= form_for(@member, url: password_reset_path(params[:id])) do |f| %> 
+            <%= form_for(@member, url: password_reset_path(params[:id])), method: :patch do |f| %> 
             
                 <%= render 'shared/error_messages', object: f.object %> 
                 

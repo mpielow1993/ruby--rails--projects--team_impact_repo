@@ -3,41 +3,10 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
     before_action :get_member, only: [:edit, :update] 
     before_action :valid_member, only: [:edit, :update]
     before_action :check_expiration, only: [:edit, :update]
-    
-    def edit
-      
-    end
-    def new
-    end
-    
-    #A 'create' action for password resets
-    
-    def create 
-      @member = Member.new.build(member_params)
-      if @member.save
-        flash[:info] = "Email sent to submitted address for new member with account activation instructions" 
-        redirect_to root_url 
-      else 
-        flash[:danger] = "An error occurred creating this member" 
-        render 'new' 
-      end 
-    end
-    
+
     def edit 
-      #member = Member.find_by(email: params[:email]) 
-      #if member && !member.activated? && member.authenticated?(:activation, params[:id]) 
-          #member.update_attribute(:activated, true) 
-          #member.update_attribute(:activated_at, Time.zone.now) 
-          #Account activation via the member model object
-          #member.activate
-          #log_in member 
-          #flash[:success] = "Account Activated!" 
-          #redirect_to member 
-      #else 
-          #flash[:danger] = "Invalid Activation Link" 
-          #redirect_to root_url 
-      #end 
-  end
+      @member = Member.find_by(email: params[:email]) 
+    end
 
     #The 'update' action for password resets
     def update 
@@ -54,7 +23,7 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
         log_in @member
         #Clearing the reset digest on a successful password reset
         @member.update_attribute(:reset_digest, nil)
-        flash[:success] = "Account Activated successfully."
+        flash[:success] = "Account Activated successfully with new password."
         redirect_to @member 
       else 
         render 'edit'
