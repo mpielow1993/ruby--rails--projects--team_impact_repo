@@ -13,8 +13,9 @@ class PasswordResetsController < ApplicationController
   before_action :check_expiration, only: [:edit, :update]
   
   def edit
-    
+    @member = Member.find_by(email: params[:password_reset][:email])   
   end
+
   def new
   end
   
@@ -41,11 +42,9 @@ class PasswordResetsController < ApplicationController
       render 'edit' 
     elsif @member.update(member_params) 
       log_in @member
-      
       #Clearing the reset digest on a successful password reset
       @member.update_attribute(:reset_digest, nil)
       flash[:success] = "Password has been reset." 
-      params[:show_header_alert_message] = true
       redirect_to @member 
     else 
       render 'edit'
