@@ -7,9 +7,9 @@ class Admin::LessonTypesController < ApplicationController
     @lesson_type = LessonType.build(lesson_type_params)
     if @lesson_type.save
       flash[:success] = 'Lesson Type saved successfully'
-      params[:show_header_alert_message] = true
       redirect_to new_admin_lesson_type_path
     else
+      flash.now[:danger] = 'An error occurred saving the lesson type'
       redirect_to admin_lesson_types_path
     end
   end
@@ -33,7 +33,7 @@ class Admin::LessonTypesController < ApplicationController
   def delete
   end
 
-    private
+  private
 
   def lesson_type_params
     params.require(:lesson_type).permit(:name)

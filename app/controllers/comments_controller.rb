@@ -13,16 +13,20 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment Added"
       redirect_to newswire_post_path(@newswire_post)
     else
-      flash[:danger] = "An error occurred adding your comment"
+      flash.now[:danger] = "An error occurred adding your comment"
       render 'newswire_posts/show'
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    flash[:success] = "Comment deleted"
-    redirect_to request.referrer || newswire_url
+    if @comment.destroy
+      flash[:success] = "Comment deleted"
+      redirect_to request.referrer || newswire_url
+    else
+      flash.now[:danger] = "An error occurred deleting this comment. Please try again."
+      render 'newswire_posts/show'
+    end
   end
 
   def private_index

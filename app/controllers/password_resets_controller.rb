@@ -13,7 +13,7 @@ class PasswordResetsController < ApplicationController
   before_action :check_expiration, only: [:edit, :update]
   
   def edit
-    @member = Member.find_by(email: params[:password_reset][:email])   
+    @member = Member.find_by(user_name: params[:user_name])   
   end
 
   def new
@@ -22,15 +22,15 @@ class PasswordResetsController < ApplicationController
   #A 'create' action for password resets
   
   def create 
-    @member = Member.find_by(email: params[:password_reset][:email]) 
+    @member = Member.find_by(user_name: params[:password_reset][:user_name]) 
     if @member 
       @member.create_reset_digest 
       @member.send_password_reset_email 
       flash[:info] = "Email sent with password reset instructions" 
       redirect_to root_url 
     else 
-      flash[:danger] = "Email address not found" 
-      render 'new' 
+      flash.now[:danger] = "Email address not found" 
+      render 'password_resets/new' 
     end 
   end
   
@@ -47,7 +47,8 @@ class PasswordResetsController < ApplicationController
       flash[:success] = "Password has been reset." 
       redirect_to @member 
     else 
-      render 'edit'
+      flash.now[:danger] = "An error occurred resetting your password"
+      render 'password_resets/edit'
     end 
   end
   
@@ -59,7 +60,7 @@ class PasswordResetsController < ApplicationController
     end
     
     def get_member 
-      @member = Member.find_by(email: params[:email]) 
+      @member = Member.find_by(user_name: params[:user_name]) 
     end 
     
     # Confirms a valid member. 

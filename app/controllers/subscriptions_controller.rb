@@ -27,10 +27,13 @@ class SubscriptionsController < ApplicationController
   def destroy
     @member = Member.find(params[:member_id])
     @subscription = @member.subscriptions.find(params[:id])
-    @subscription.destroy
-    flash[:success] = "Subscription successfully removed"
-    params[:show_header_alert_message] = true
-    redirect_to member_subscriptions_path(@member)
+    if @subscription.destroy
+      flash[:success] = "Subscription successfully removed"
+      redirect_to member_subscriptions_path(@member)
+    else
+      flash.now[:danger] = "An error occurred removing you subscription"
+      render 'subscriptions/index'
+    end
   end
 
 end

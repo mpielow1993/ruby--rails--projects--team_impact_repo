@@ -13,22 +13,26 @@ class Admin::MembersController < Admin::AdminApplicationController
       flash[:info] = "Email sent to submitted address for new #{@member_type} with account activation instructions"
       redirect_to admin_members_path
     else
-      render 'new'
+      flash.now[:danger] = "An error occurred creating this member"
+      render 'admin/members/new'
     end
   end
 
   def edit
     @member = Member.find(params[:id])
+    check_existence(@member, admin_members_path, "Member not found")
   end
 
   def update
     @member = Member.find(params[:id])
+    check_existence(@member, admin_members_path, "Member not found")
     @member.update(admin_member_params)
     if @member.save
       flash[:success] = @member.admin? ?  "Admin Updated Successfully" : "Member Updated Successfully"
-      redirect_to admin_member_path(@member)
+      redirect_to admin_members_path
     else
-      render 'edit'
+      flash.now[:danger] = "An error occurred updating the selected member"
+      render 'admin/members/edit'
     end
   end
 
@@ -38,14 +42,20 @@ class Admin::MembersController < Admin::AdminApplicationController
 
   def show
     @member = Member.find(params[:id])
+    check_existence(@member, admin_members_path, "Member not found")
   end
 
   def destroy
     @member = Member.find(params[:id])
-    @member.destroy
-    flash[:success] = @member.admin? ? "Admin Removed Successfully" : "Member Removed Successfully"
-    params[:show_header_alert_message] = true
-    redirect_to admin_members_path
+    check_existence(@member, admin_members_path, "Member not found")
+    @member_type = @member.admin? ? "admin" : "member"
+    if @member.destroy
+      flash[:success] = "Selected #{@member_type} removed successfully"
+      redirect_to admin_members_path
+    else
+      flash.now[:danger] = "An error occurred removing the selected #{@member_type}. Please try again."
+      render 'admin/members/index'
+    end
   end
 
   private
@@ -55,7 +65,6 @@ class Admin::MembersController < Admin::AdminApplicationController
         :user_name, 
         :first_name, 
         :last_name, 
-        :email, 
         :phone_no, 
         :password, 
         :password_confirmation, 
@@ -83,9 +92,6 @@ class Admin::MembersController < Admin::AdminApplicationController
         end
         if (!params[:filter_form][:last_name].nil? && !params[:filter_form][:last_name].empty?)
           conditions[:last_name_like] = params[:filter_form][:last_name]
-        end
-        if (!params[:filter_form][:email].nil? && !params[:filter_form][:email].empty?)
-          conditions[:email_like] = params[:filter_form][:email]
         end
         if (!params[:filter_form][:phone_no].nil? && !params[:filter_form][:phone_no].empty?)
           conditions[:phone_no_like] = params[:filter_form][:phone_no]

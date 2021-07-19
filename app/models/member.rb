@@ -2,7 +2,7 @@ require 'carrierwave/orm/activerecord'
 
 class Member < ApplicationRecord
 
-    self.filter_field_array = self.set_filter_field_array(['user_name', 'first_name', 'last_name', 'email', 'phone_no', 'user_level'])
+    self.filter_field_array = self.set_filter_field_array(['user_name', 'first_name', 'last_name', 'phone_no', 'user_level'])
     self.filter_field_hash = self.set_filter_field_hash
     attr_accessor :remember_token, :activation_token, :reset_token, :avatar
     mount_uploader :avatar, ImageUploader
@@ -28,22 +28,19 @@ class Member < ApplicationRecord
 
     before_create :create_activation_digest
 
-    VALID_USER_NAME_REGEX = VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
+    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
+    VALID_USER_NAME_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
+    VALID_PHONE_NO_REGEX = /\A\+?\d{10,20}\Z/
 
     validates :user_name,   presence: true,
                             #Used to display specfic error messages
-                            length: { minimum: 8, maximum: 40 },
+                            length: { minimum: 8, maximum: 200 },
                             format: { with: VALID_USER_NAME_REGEX },
                             uniqueness: true
     validates :first_name,  presence: true,
                             length: { maximum: 40 }
     validates :last_name,   presence: true,
                             length: { maximum: 50 }
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
-    validates :email,       presence: true,
-                            length: { maximum: 200 },
-                            format: { with: VALID_EMAIL_REGEX }
-    VALID_PHONE_NO_REGEX = /\A\+?\d{10,20}\Z/
     validates :phone_no,    presence: true,
                             #length: { maximum: 20 },
                             format: { with: VALID_PHONE_NO_REGEX }
@@ -61,7 +58,6 @@ class Member < ApplicationRecord
     scope :user_name_like, -> (value) {(where("`user_name` LIKE ?", "%#{value}%"))}
     scope :first_name_like, -> (value) {(where("`first_name` LIKE ?", "%#{value}%"))}
     scope :last_name_like, -> (value) {(where("`last_name` LIKE ?", "%#{value}%"))}
-    scope :email_like, -> (value) {(where("`email` LIKE ?", "%#{value}%"))}
     scope :phone_no_like, -> (value) {(where("`phone_no` LIKE ?", "%#{value}%"))}
 
     class << self

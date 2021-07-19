@@ -25,11 +25,14 @@ class RegistrationsController < ApplicationController
     @date = current_lesson_date
     @lesson = Lesson.find(params[:lesson_id])
     @registration = @lesson.registrations.find(params[:id])
-    @registration.destroy
-    flash.now[:success] = "Deregistration Successful" #if params[:registration][:show_bootstrap_alert_message]
-    respond_to do |format|
-      format.html {}
-      format.js {}
+    if @registration.destroy
+      flash.now[:success] = "Successfully unregistered from lesson" #if params[:registration][:show_bootstrap_alert_message]
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
+    else
+      flash.now[:danger] = "An error occurred in unregistering from this lesson"
     end
   end
 

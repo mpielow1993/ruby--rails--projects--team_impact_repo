@@ -7,6 +7,7 @@ class MembersController < ApplicationController
   
   def show
     @member = Member.find(params[:id])
+    check_existence(@member, root_url, "Member not found")
   end
   
   def create
@@ -14,9 +15,9 @@ class MembersController < ApplicationController
     if @member.save
       @member.send_activation_email
       flash[:info] = "Please check your email to activate your Team Impact account."
-      params[:show_header_alert_message] = true
       redirect_to root_url
     else 
+      flash.now[:danger] = "An error occurred creating your new account. Please try again."
       render 'members/new' 
     end
   end
@@ -30,9 +31,9 @@ class MembersController < ApplicationController
     if @member.update(member_params)
       #Handle a successful update
       flash[:success] = "Profile updated" 
-      params[:show_header_alert_message] = true
       redirect_to member_path(@member)
     else
+      flash.now[:danger] = "An error occurred updating your profile"
       render 'members/edit'
     end 
   end
@@ -40,7 +41,7 @@ class MembersController < ApplicationController
   private
   
     def member_params
-      params.require(:member).permit(:user_name, :first_name, :last_name, :email, :phone_no, :password, :password_confirmation, :avatar, :remove_avatar)
+      params.require(:member).permit(:user_name, :first_name, :last_name, :phone_no, :password, :password_confirmation, :avatar, :remove_avatar)
     end
   
 end

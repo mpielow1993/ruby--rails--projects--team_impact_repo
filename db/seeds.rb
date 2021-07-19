@@ -13,42 +13,59 @@
 include ApplicationHelper
 
 # Create some sample admins.
-5.times do |n|
-  user_name = "Ex4mple_4dm1n_#{n + 1}"
+user_name = "michaelpielow@gmail.com"
+first_name = 'Example'
+last_name = "Admin 0"
+phone_no = '+353123456789'
+password = '4dm1n_Ex4mple'
+Member.create!(
+  user_name: user_name, # 'create!' raises an exception for an invalid user instead of returning false
+  first_name: first_name,
+  last_name: last_name,
+  phone_no: phone_no,
+  password: password,
+  password_confirmation: password,
+  admin: true,
+  activated: true,
+  activated_at: Time.zone.now
+)
+
+4.times do |n|
+  user_name = "michaelpielow#{n + 1}@gmail.com"
   first_name = 'Example'
   last_name = "Admin #{n + 1}"
-  email = 'michaelpielow@gmail.com'
   phone_no = '+353123456789'
   password = '4dm1n_Ex4mple'
-  Member.create!(user_name: user_name, # 'create!' raises an exception for an invalid user instead of returning false
- first_name: first_name,
- last_name: last_name,
- email: email,
- phone_no: phone_no,
- password: password,
- password_confirmation: password,
- admin: true,
- activated: true,
- activated_at: Time.zone.now)
+  Member.create!(
+    user_name: user_name, # 'create!' raises an exception for an invalid user instead of returning false
+    first_name: first_name,
+    last_name: last_name,
+    phone_no: phone_no,
+    password: password,
+    password_confirmation: password,
+    admin: true,
+    activated: true,
+    activated_at: Time.zone.now
+  )
 end
 
 # Generate a bunch of additional regular members.
 9.times do |n|
-  user_name = "Ex4mple_Member_#{n + 1}"
+  user_name = "example_member_#{n + 1}@teamimpact.ie"
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  email = "example_member_#{n + 1}@teamimpact.ie"
   phone_no = '0941234567'
   password = 'Member_Ex4mple'
-  Member.create!(user_name: user_name, # 'create!' raises an exception for an invalid user instead of returning false
- first_name: first_name,
- last_name: last_name,
- email: email,
- phone_no: phone_no,
- password: password,
- password_confirmation: password,
- activated: true,
- activated_at: Time.zone.now)
+  Member.create!(
+    user_name: user_name, # 'create!' raises an exception for an invalid user instead of returning false
+    first_name: first_name,
+    last_name: last_name,
+    phone_no: phone_no,
+    password: password,
+    password_confirmation: password,
+    activated: true,
+    activated_at: Time.zone.now
+  )
 end
 
 # Generate newswire_posts and comments for a subset of members.

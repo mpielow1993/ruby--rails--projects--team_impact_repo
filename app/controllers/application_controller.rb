@@ -1,18 +1,23 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  #after_action :set_show_header_alert_message
 
   include SessionsHelper
   include ApplicationHelper
 
-  def set_show_header_alert_message
-    return !params[:show_header_alert_message] ? {} : flash 
-  end
+  protected
+
+    # Check for the existence of defined entity, redirect on failure
+    def check_existence(entity, redirect_path, error_message = "Entity not found")
+      if entity.nil?
+        flash[:danger] = error_message
+        redirect_to redirect_path
+      end
+    end
 
   private
 
-  # Confirms a logged-in member.
+    # Confirms a logged-in member.
     def logged_in_member
       unless logged_in?
         # Adding store_location to the logged-in-user before-ﬁlter
@@ -21,7 +26,6 @@ class ApplicationController < ActionController::Base
         redirect_to log_in_url
       end
     end
-
 
     # Confirms the correct member.
     def correct_member

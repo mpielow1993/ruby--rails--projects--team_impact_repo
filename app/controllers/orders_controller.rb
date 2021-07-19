@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-before_action :logged_in_member, :correct_member
+  before_action :logged_in_member, :correct_member
 
   def live_order
     @member = current_member
@@ -9,6 +9,7 @@ before_action :logged_in_member, :correct_member
 
   def show
     @order = Order.find(params[:id])
+    check_existence(@order, member_orders_path, "Order not found")
     @order_items = @order.order_items.paginate(page: params[:page]).per_page(5)
   end
   
@@ -22,12 +23,10 @@ before_action :logged_in_member, :correct_member
     @order = @member.orders.build
     if @order.save
       flash[:success] = "New Order created successfully"
-      params[:show_header_alert_message] = true
       session[:order_id] = @order.id
       redirect_to store_items_path
     else
       flash[:danger] = "New Order creation failed"
-      params[:show_header_alert_message] = true
       redirect_to store_items_path
     end
   end
@@ -42,23 +41,25 @@ before_action :logged_in_member, :correct_member
     @member = current_order.member
     @order = current_order
     if @order.destroy
-      flash[:success] = "Order successfully destroyed"
-      params[:show_header_alert_message] = true
+      flash[:success] = "Order successfully deleted"
       session[:order_id] = nil
       redirect_to store_items_path
     else
-      flash[:danger] = "Destruction failed"
-      params[:show_header_alert_message] = true
+      flash.now[:danger] = "An error occurred deleting the selected order. Please try again."
       render 'orders/show'
     end
   end
   
   def destroy
     @order = Order.find(params[:id])
-    @order.destroy
-    flash[:success] = "Your order has been successfully destroyed"
-    params[:show_header_alert_message] = true
-    redirect_to member_orders_path
+    check_existence(@order, member_orders_path, "Order not found")
+    if @order.destroy
+      flash[:success] = "Your order has been successfully destroyed"
+      redirect_to member_orders_path
+    else
+      flash.now[:danger] = "An error occurred deleting the selected order"
+      render 'orders/show'
+    end
   end
   
   private 

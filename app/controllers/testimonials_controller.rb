@@ -8,12 +8,10 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(testimonial_params)
     if @testimonial.save
       flash[:success] = "Testimonial has been successfully submitted with email confirmation. Thank you"
-      params[:show_header_alert_message] = true
       @testimonial.send_testimonial
       redirect_to testimonials_path
     else
       flash[:success] = "An error occured submitting the testimonial"
-      params[:show_header_alert_message] = true
       render 'testimonials/index'
     end
   end
@@ -25,10 +23,14 @@ class TestimonialsController < ApplicationController
 
   def destroy
     @testimonial = Testimonial.find(params[:id])
-    @testimonial.destroy
-    flash[:success] = "Testimonial removed successfully"
-    params[:show_header_alert_message] = true
-    redirect_to testimonials_path
+    check_existence(@testimonial, testimonials_path, "Testimonial not found")
+    if @testimonial.destroy
+      flash[:success] = "Testimonial removed successfully"
+      redirect_to testimonials_path
+    else
+      flash[:danger] = "An error occurred removing the selected testimonial. Please try again."
+      redirect_to testimonials_path
+    end
   end
   
   private
