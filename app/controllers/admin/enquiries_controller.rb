@@ -9,9 +9,9 @@ class Admin::EnquiriesController < Admin::AdminApplicationController
     @enquiry = Enquiry.create(enquiry_params)
     if @enquiry.save
       flash[:success] = "Enquiry created successfully"
-      params[:show_header_alert_message] = true
       redirect_to admin_enquiries_path
     else
+      flash.now[:danger] = 'An error occurred creating the enquiry'
       render 'admin/enquiries/new'
     end
   end
@@ -24,10 +24,14 @@ class Admin::EnquiriesController < Admin::AdminApplicationController
   def destroy
     redirect_to admin_enquiries_path if params[:id].empty?
     @enquiry = Enquiry.find(params[:id])
-    @enquiry.destroy
-    flash[:success] = "Enquiry removed successfully"
-    params[:show_header_alert_message] = true
-    redirect_to admin_enquiries_path
+    check_existence(@enquiry, admin_enquiries_path, "Member not found")
+    if @enquiry.destroy
+      flash[:success] = "Enquiry removed successfully"
+      redirect_to admin_enquiries_path
+    else
+      flash.now[:danger] = "An error occurred removing this enquiry"
+      render 'admin/enquiries/index'
+    end
   end
 
   private

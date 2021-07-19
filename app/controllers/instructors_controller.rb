@@ -7,6 +7,7 @@ class InstructorsController < ApplicationController
 
   def show
       @instructor = Instructor.find(params[:id])
+      check_existence(@instructor, instructors_path, "Instructor not found")
       @instructor_bio_path = Rails.root.join("app/views/instructors/instructor_bios/_#{@instructor.full_name.downcase.gsub(" ", "_")}.html.erb")
   end
 

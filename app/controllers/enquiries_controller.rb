@@ -11,6 +11,7 @@ class EnquiriesController < ApplicationController
       @enquiry.send_enquiry
       redirect_to contact_path
     else
+      flash[:danger] = "An error occurred creating your enquiry. Please try again."
       render 'static_pages/contact'
     end
   end

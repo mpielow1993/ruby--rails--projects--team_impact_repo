@@ -20,23 +20,28 @@ class NewswirePostsController < ApplicationController
         @newswire_post.image.attach(params[:newswire_post][:image])
         if @newswire_post.save
             flash[:success] = "Newswire post created!"
-            params[:show_header_alert_message] = true
             redirect_to newswire_path
         else
+            flash.now[:danger] = "An error occurred creating this newswire post. Please try again."
             render 'newswire_posts/public_index'
         end
     end
 
     def destroy
         @newswire_post = NewswirePost.find(params[:id])
-        @newswire_post.destroy
-        flash[:success] = "Newswire post successfully deleted"
-        params[:show_header_alert_message] = true
-        redirect_to newswire_path
+        check_existence(@newswire_post, newswire_path, "Newswire post not found")
+        if @newswire_post.destroy
+            flash[:success] = "Newswire post successfully deleted"
+            redirect_to newswire_path
+        else
+            flash.now[:danger] = "An error occurred deleting the selected newswire post. Please try again."
+            render 'newswire_post/show'
+        end
     end
 
     def show
         @newswire_post = NewswirePost.find(params[:id])
+        check_existence(@newswire_post, newswire_path, "Newswire post not found")
         @comments = @newswire_post.comments.paginate(page: params[:page])
         @comment = current_member.comments.build
     end

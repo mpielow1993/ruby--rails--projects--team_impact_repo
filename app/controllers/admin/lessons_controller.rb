@@ -8,25 +8,27 @@ class Admin::LessonsController < Admin::AdminApplicationController
     @lesson = Lesson.create(lesson_params)
     if @lesson.save
       flash[:success] = "Lesson created successfully"
-      params[:show_header_alert_message] = true
       redirect_to admin_lessons_path
     else
+      flash.now[:danger] = "An error occurred creating this lesson"
       render 'admin/lessons/new'
     end
   end
 
   def edit
     @lesson = Lesson.find(params[:id])
+    check_existence(@lesson, admin_lessons_path, "Lesson not found")
   end
 
   def update
     @lesson = Lesson.find(params[:id])
+    check_existence(@lesson, admin_lessons_path, "Lesson not found")
     @lesson.update(lesson_params)
     if @lesson.save
       flash[:success] = "Lesson updated successfully"
-      params[:show_header_alert_message] = true
       redirect_to admin_lessons_path
     else
+      flash.now[:danger] = "An error occurred updating the selected lesson"
       render 'admin/lessons/edit'
     end
   end
@@ -39,15 +41,20 @@ class Admin::LessonsController < Admin::AdminApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
+    check_existence(@lesson, admin_lessons_path, "Lesson not found")
     @registrations = @lesson.registrations.paginate(page: params[:page])
   end
 
   def destroy
     @lesson = Lesson.find(params[:id])
-    @lesson.destroy
-    flash[:success] = "Lesson successfully destroyed"
-    params[:show_header_alert_message] = true
-    redirect_to admin_lessons_path
+    check_existence(@lesson, admin_lessons_path, "Lesson not found")
+    if @lesson.destroy
+      flash[:success] = "Lesson successfully removed"
+      redirect_to admin_lessons_path
+    else
+      flash.now[:danger] = "An error occurred removing the selected lesson. Please try again."
+      render 'admin/lessons/index'
+    end
   end
 
   private

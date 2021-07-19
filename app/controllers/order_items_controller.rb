@@ -14,12 +14,10 @@ class OrderItemsController < ApplicationController
         
         if @order_item.save
             flash[:success] = "Item added successfully"
-            params[:show_header_alert_message] = true
             session[:order_id] = @order.id
             redirect_to member_live_order_path(@member)
         else
             flash[:danger] = "Failed to add item"
-            params[:show_header_alert_message] = true
             redirect_to member_live_order_path(@member)
         end
     end
@@ -32,11 +30,9 @@ class OrderItemsController < ApplicationController
         if @order_item.save
             current_order.update(total: current_order.set_total)
             flash[:success] = "Order Item updated successfully"
-            params[:show_header_alert_message] = true
             redirect_to member_live_order_path(@member)
         else
-            flash[:danger] = "Update failed"
-            params[:show_header_alert_message] = true
+            flash.now[:danger] = "Update failed"
             render 'orders/live_order'
         end
     end
@@ -48,11 +44,9 @@ class OrderItemsController < ApplicationController
         if @order_item.destroy
             current_order.update(total: current_order.set_total)
             flash[:success] = "Order Item destroyed successfully"
-            params[:show_header_alert_message] = true
             redirect_to member_live_order_path(@member)
         else
-            flash[:danger] = "Update failed"
-            params[:show_header_alert_message] = true
+            flash.now[:danger] = "Update failed"
             render 'orders/live_order'
         end
     end
