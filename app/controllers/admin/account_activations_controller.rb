@@ -5,14 +5,11 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
   before_action :check_expiration, only: [:edit, :update]
 
   def edit 
-    @member = Member.find_by(user_name: params[:user_name]) 
-    check_existence(@member, root_url, "Member not found")
   end
 
   #The 'update' action for password resets
   def update 
-    @member = Member.find_by(user_name: params[:user_name]) 
-    check_existence(@member, root_url, "Member not found")
+    @member = Member.find_by(user_name: params[:user_name])
     if @member.activated? || !@member.authenticated?(:reset, params[:id])
       flash[:danger] = "Invalid Activation Link" 
       redirect_to root_url
