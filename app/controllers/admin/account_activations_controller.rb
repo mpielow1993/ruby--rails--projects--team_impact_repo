@@ -1,15 +1,14 @@
 class Admin::AccountActivationsController < Admin::AdminApplicationController
 
-  before_action :get_member, only: [:edit] 
-  before_action :valid_member, only: [:edit]
   before_action :check_expiration, only: [:edit, :update]
 
   def edit 
+    @member = Member.find_by(user_name: params[:user_name]) 
   end
 
   #The 'update' action for password resets
   def update 
-    @member = Member.find_by(user_name: params[:user_name])
+    @member = Member.find_by(user_name: params[:user_name]) 
     check_existence(@member, root_url, "Member Not Found")
     if @member.activated? || !@member.authenticated?(:reset, params[:id])
       flash[:danger] = "Invalid Activation Link" 
@@ -37,10 +36,6 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
     def member_params
       params.require(:member).permit(:user_name, :first_name, :last_name, :phone_no, :password, :password_confirmation, :avatar, :remove_avatar)
     end
-    
-    def get_member 
-      @member = Member.find_by(user_name: params[:user_name]) 
-    end 
     
     # Confirms a valid member. 
     def valid_member 
