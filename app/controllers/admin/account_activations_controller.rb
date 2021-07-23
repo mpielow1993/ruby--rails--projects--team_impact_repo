@@ -4,12 +4,14 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
 
   def edit 
     @member = Member.find_by(user_name: params[:user_name]) 
+    check_existence(@member, root_url, "Member Not Found")
   end
 
   #The 'update' action for password resets
   def update 
     @member = Member.find_by(user_name: params[:user_name]) 
     check_existence(@member, root_url, "Member Not Found")
+    check_expiration(@member)
     if @member.activated? || !@member.authenticated?(:reset, params[:id])
       flash[:danger] = "Invalid Activation Link" 
       redirect_to root_url
@@ -45,8 +47,8 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
     end
     
     # Checks expiration of reset token. 
-    def check_expiration 
-      if @member.password_reset_expired? 
+    def check_expiration(member)
+      if member.password_reset_expired? 
         flash[:danger] = "Password reset has expired." 
         redirect_to new_password_reset_url 
       end 
