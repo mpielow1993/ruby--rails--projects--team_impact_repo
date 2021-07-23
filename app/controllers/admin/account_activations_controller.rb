@@ -1,7 +1,5 @@
 class Admin::AccountActivationsController < Admin::AdminApplicationController
 
-  before_action :check_expiration, only: [:edit, :update]
-
   def edit 
     @member = Member.find_by(user_name: params[:user_name]) 
     check_existence(@member, root_url, "Member Not Found")
