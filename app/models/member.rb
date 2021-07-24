@@ -153,7 +153,7 @@ class Member < ApplicationRecord
     # Creates and assigns the activation token and digest.
     def create_activation_digest
         self.activation_token = Member.new_token
-        update_columns(activation_digest: Member.digest(activation_token))
+        self.activation_digest = Member.digest(activation_token)
     end
 end
 
