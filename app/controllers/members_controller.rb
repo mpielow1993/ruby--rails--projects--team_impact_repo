@@ -12,7 +12,6 @@ class MembersController < ApplicationController
   
   def create
     @member = Member.new(member_params) 
-    @member.create_activation_digest
     if @member.save
       @member.send_activation_email
       flash[:info] = "Please check your email to activate your Team Impact account."
