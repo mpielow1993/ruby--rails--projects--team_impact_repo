@@ -157,7 +157,7 @@ class Member < ApplicationRecord
 
     # Checks whether or not a member is activated
     def activated?
-        return self.activated
+        return self.activated == true
     end
 end
 
