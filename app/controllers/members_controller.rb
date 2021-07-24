@@ -13,7 +13,6 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params) 
     if @member.save
-      create_activation_digest(@member)
       @member.send_activation_email
       flash[:info] = "Please check your email to activate your Team Impact account."
       redirect_to root_url
@@ -43,11 +42,6 @@ class MembersController < ApplicationController
   
     def member_params
       params.require(:member).permit(:user_name, :first_name, :last_name, :phone_no, :password, :password_confirmation, :avatar, :remove_avatar)
-    end
-
-    def create_activation_digest(member)
-      member.activation_token = Member.new_token
-      member.update_columns({activation_digest: Member.digest(member.activation_token)})
     end
   
 end

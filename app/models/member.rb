@@ -26,7 +26,7 @@ class Member < ApplicationRecord
 
     #Adding account activations to the member model
 
-    #before_create :set_activation_fields
+    before_create :create_activation_digest
 
     VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-z0-9]{8,40}\Z/
     VALID_USER_NAME_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
@@ -89,8 +89,7 @@ class Member < ApplicationRecord
     # Returns true if the given token matches the digest.
     def authenticated?(attribute, token)
         digest = send("#{attribute}_digest")
-        return digest == token
-        #BCrypt::Password.new(digest).is_password?(token)
+        return BCrypt::Password.new(digest).is_password?(token)
     end
 
     # Forgets a user.
@@ -150,6 +149,10 @@ class Member < ApplicationRecord
         "#{self.first_name} #{self.last_name}"
     end
 
-    
+    # Creates and assigns the activation token and digest.
+    def create_activation_digest
+        self.activation_token = Member.new_token
+        self.activation_digest = Member.digest(self.activation_token)
+    end
 end
 
