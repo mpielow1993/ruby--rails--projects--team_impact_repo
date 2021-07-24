@@ -11,7 +11,7 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
     check_existence(@member, root_url, "Member Not Found", true)
     check_expiration(@member, true)
     if @member.activated? || !@member.authenticated?(:reset, params[:id])
-      flash[:danger] = "Invalid Activation Link" 
+      flash[:danger] = "Invalid Activation Link #{!@member.reset_digest.nil? ? @member.reset_digest : 'NIL' }" 
       redirect_to root_url and return
     end
     if params[:member][:password].empty? 
