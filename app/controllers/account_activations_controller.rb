@@ -14,7 +14,7 @@ class AccountActivationsController < ApplicationController
             flash[:success] = "Account Activated!" 
             redirect_to @member 
         else 
-            flash[:danger] = "#{!@member.activated?} + #{@member.authenticated?(:activation, params[:id])}" 
+            flash[:danger] = "#{@member.activated} + #{@member.authenticated?(:activation, params[:id])}" 
             redirect_to root_url 
         end 
     end
