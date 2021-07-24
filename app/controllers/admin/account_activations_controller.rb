@@ -18,10 +18,10 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
       @member.errors.add(:password, "can't be empty") 
       render 'admin/account_activations/edit' 
     elsif @member.update(member_params) 
-      @member.activate
+      #@member.activate
       log_in @member
       #Clearing the reset digest on a successful password reset
-      @member.update_attribute(:reset_digest, nil)
+      @member.update_attributes({reset_digest: nil, activated: true})
       flash[:success] = "Account Activated successfully with new password."
       redirect_to @member 
     else 
