@@ -22,7 +22,7 @@ def create
     amount: @amount,
     description: "Order for #{@member.first_name}" + " " + "#{@member.last_name}",
     currency: 'eur',
-    receipt_email: "#{@member.email}"
+    receipt_email: "#{@member.user_name}"
   })
 
   @live_order.is_paid = true
