@@ -10,15 +10,10 @@ class Admin::AccountActivationsController < Admin::AdminApplicationController
     @member = Member.find_by(user_name: params[:user_name]) 
     check_existence(@member, root_url, "Member Not Found", true)
     check_expiration(@member, true)
-    if @member.activated? || !@member.authenticated?(:activation, params[:id])
-      flash[:danger] = "Invalid Activation Link #{!@member.reset_digest.nil? ? @member.reset_digest : 'NIL' }" 
-      redirect_to root_url and return
-    end
     if params[:member][:password].empty? 
       @member.errors.add(:password, "can't be empty") 
       render 'admin/account_activations/edit' 
     elsif @member.update(member_params) 
-      #@member.activate
       log_in @member
       #Clearing the reset digest on a successful password reset
       @member.update_attributes({reset_digest: nil, activated: true})
