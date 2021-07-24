@@ -154,10 +154,5 @@ class Member < ApplicationRecord
         self.activation_token = Member.new_token
         self.activation_digest = Member.digest(self.activation_token)
     end
-
-    # Checks whether or not a member is activated
-    def activated?
-        return self.activated == true
-    end
 end
 
