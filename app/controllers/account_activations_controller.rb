@@ -4,7 +4,7 @@ class AccountActivationsController < ApplicationController
     def edit 
         @member = Member.find_by(user_name: params[:user_name]) 
         check_existence(@member, root_url, "Member not found")
-        if !@member.activated? && @member.authenticated?(:activation, params[:id]) 
+        if @member.authenticated?(:activation, params[:id]) 
             #Account activation via the member model object
             @member.activate
             log_in @member 
