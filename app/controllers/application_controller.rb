@@ -8,10 +8,14 @@ class ApplicationController < ActionController::Base
   protected
 
     # Check for the existence of defined entity, redirect on failure
-    def check_existence(entity, redirect_path, error_message = "Entity not found")
+    def check_existence(entity, redirect_path, error_message = "Entity not found", and_return = false)
       if entity.nil?
         flash[:danger] = error_message
-        redirect_to redirect_path
+        if and_return
+          redirect_to redirect_path and return
+        else
+          redirect_to redirect_path
+        end
       end
     end
 

@@ -12,8 +12,7 @@ class PasswordResetsController < ApplicationController
   before_action :valid_member, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
   
-  def edit
-    @member = Member.find_by(user_name: params[:user_name])   
+  def edit  
   end
 
   def new
