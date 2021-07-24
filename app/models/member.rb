@@ -150,12 +150,10 @@ class Member < ApplicationRecord
         "#{self.first_name} #{self.last_name}"
     end
 
-    private
-
-        # Creates and assigns the activation token and digest.
-        def create_activation_digest
-            self.activation_token = Member.new_token
-            self.activation_digest = Member.digest(activation_token)
-        end
+    # Creates and assigns the activation token and digest.
+    def create_activation_digest
+        self.activation_token = Member.new_token
+        self.activation_digest = Member.digest(activation_token)
+    end
 end
 
