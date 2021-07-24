@@ -4,7 +4,7 @@ class AccountActivationsController < ApplicationController
     def edit 
         @member = Member.find_by(user_name: params[:user_name]) 
         check_existence(@member, root_url, "Member not found")
-        if !@member.activated && @member.authenticated?(:activation, params[:id]) 
+        if @member.activated == false && @member.authenticated?(:activation, params[:id]) 
             #member.update_attribute(:activated, true) 
             #member.update_attribute(:activated_at, Time.zone.now) 
             
