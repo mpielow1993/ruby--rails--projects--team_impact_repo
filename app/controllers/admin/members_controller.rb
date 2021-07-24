@@ -7,6 +7,7 @@ class Admin::MembersController < Admin::AdminApplicationController
     @member = Member.new
     @member = Member.create(admin_member_params)
     if @member.save
+      @member.create_activation_digest
       @member.create_reset_digest 
       @member.send_admin_activation_email 
       @member_type = @member.admin? ? "admin" : "member"
