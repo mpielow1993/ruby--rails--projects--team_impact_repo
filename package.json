@@ -9,7 +9,7 @@
     "bootstrap": "3.4.1",
     "flatpickr": "^4.6.6",
     "jquery": "3.5.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
