@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2020_12_05_120811) do
     t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id", "created_at"], name: "find_comments_by_member"
+    t.index ["member_id", "created_at"], name: "find_comments_by_member_id"
     t.index ["member_id", "newswire_post_id", "created_at"], name: "find_unique_comment", unique: true
-    t.index ["newswire_post_id", "created_at"], name: "find_comments_by_newswire_post"
     t.index ["member_id"], name: "index_comments_on_member_id"
+    t.index ["newswire_post_id", "created_at"], name: "find_comments_by_newswire_post_id"
     t.index ["newswire_post_id"], name: "index_comments_on_newswire_post_id"
   end
 
@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 2020_12_05_120811) do
     t.string "user_name"
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
     t.string "phone_no"
     t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
@@ -133,7 +132,7 @@ ActiveRecord::Schema.define(version: 2020_12_05_120811) do
     t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "member_id", "created_at", name: "index_newswire_posts_on_member_and_created_at"
+    t.index ["member_id", "created_at"], name: "find_newswire_post_by_member"
     t.index ["member_id"], name: "index_newswire_posts_on_member_id"
   end
 

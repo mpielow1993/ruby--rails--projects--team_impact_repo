@@ -12,7 +12,8 @@ class PasswordResetsController < ApplicationController
   before_action :valid_member, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
   
-  def edit  
+  def edit 
+    @member = Member.find_by(user_name: params[:user_name])  
   end
 
   def new
@@ -36,6 +37,7 @@ class PasswordResetsController < ApplicationController
   #The 'update' action for password resets
   
   def update 
+    @member = Member.find_by(user_name: params[:user_name])
     if params[:member][:password].empty? 
       @member.errors.add(:password, "can't be empty") 
       render 'edit' 
@@ -60,10 +62,12 @@ class PasswordResetsController < ApplicationController
     
     def get_member 
       @member = Member.find_by(user_name: params[:user_name]) 
+      redirect_to root_url unless @member
     end 
     
     # Confirms a valid member. 
     def valid_member 
+      @member = Member.find_by(user_name: params[:user_name])
       unless (@member && @member.activated? && @member.authenticated?(:reset, params[:id])) 
         redirect_to root_url 
       end 

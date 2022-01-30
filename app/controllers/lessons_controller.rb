@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
-    before_action :logged_in_member
-    before_action :correct_member, only: :private_timetable
-
+  
+  before_action :logged_in_member
+  before_action :correct_member, only: :private_timetable
 
   def public_timetable
     @date = current_lesson_date

@@ -10,7 +10,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local = false
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -35,7 +35,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   #host = 'https://1eda2934c0524805a6f35c1849c627ec.vfs.cloud9.eu-west-1.amazonaws.com/' # Don't use this literally; use your local dev host instead
-  host = 'localhost'
+  host = 'localhost:3000'
   # Use this on the cloud IDE.
   #config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
