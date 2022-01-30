@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/mimemagicrb/mimemagic.git
-  revision: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
-  ref: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
-  specs:
-    mimemagic (0.3.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,7 +58,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     allowable (1.1.0)
     ansi (1.5.0)
@@ -164,10 +157,12 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
+    mimemagic (0.3.9)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.9.5)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.2)
-      net-ftp (~> 0.1)
+    mini_portile2 (2.7.1)
     minitest (5.11.3)
     minitest-reporters (1.3.8)
       ansi
@@ -177,15 +172,11 @@ GEM
     msgpack (1.3.3)
     msgpack (1.3.3-x64-mingw32)
     nenv (0.3.0)
-    net-ftp (0.1.2)
-      net-protocol
-      time
-    net-protocol (0.1.0)
     nio4r (2.5.7)
-    nokogiri (1.11.6)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.13.1)
+      mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
-    nokogiri (1.11.6-x64-mingw32)
+    nokogiri (1.13.1-x64-mingw32)
       racc (~> 1.4)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -196,9 +187,9 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    puma (5.3.1)
+    puma (5.5.1)
       nio4r (~> 2.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -285,7 +276,6 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    time (0.1.0)
     timeliness (0.4.4)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
@@ -296,7 +286,6 @@ GEM
       tzinfo (>= 1.0.0)
     validates_timeliness (5.0.0.alpha5)
       timeliness (>= 0.3.10, < 1)
-    wdm (0.1.1)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -342,7 +331,6 @@ DEPENDENCIES
   image_processing (= 1.9.3)
   jbuilder (= 2.9.1)
   listen (= 3.1.5)
-  mimemagic!
   mini_magick (= 4.9.5)
   minitest (= 5.11.3)
   minitest-reporters (= 1.3.8)
@@ -361,7 +349,6 @@ DEPENDENCIES
   turbolinks (= 5.2.0)
   tzinfo-data (= 1.2019.3)
   validates_timeliness (= 5.0.0.alpha5)
-  wdm (>= 0.1.0)
   web-console (= 4.0.1)
   webdrivers (= 4.1.2)
   webpacker (= 4.0.7)
