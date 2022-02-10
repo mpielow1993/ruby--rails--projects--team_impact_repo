@@ -1,6 +1,8 @@
 # README
 
-# Production
+# Live Site
+
+A live version of the site can be viewed by clicking the link below (Contains no actual user data - currently conducting a pentest of it for an academic project)
 
 https://team-impact-app.herokuapp.com/
 
